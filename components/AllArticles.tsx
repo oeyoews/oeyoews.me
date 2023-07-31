@@ -26,7 +26,7 @@ export default async function AllArticles() {
               alt={title}
             />
             <div className="px-6 py-4">
-              <ArticleInfo article={article} className="-mt-2 mb-2 text-xs" />
+              {/* <ArticleInfo article={article} className="-mt-2 mb-2 text-xs" /> */}
               <div className="mb-2 text-xl font-bold">{title}</div>
               <p className="line-clamp-3 indent-4 text-sm text-gray-500">{metadata?.description}</p>
             </div>

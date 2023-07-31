@@ -1,5 +1,6 @@
 import "./global.css";
 import NavBar from "components/NavBar.tsx";
+import ViewCounter from "components/ViewCounter";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -9,7 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <NavBar />
-        {children}
+        <div className="">{children}</div>
       </body>
     </html>
   );
