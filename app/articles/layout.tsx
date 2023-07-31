@@ -1,4 +1,5 @@
 import ArticleInfo from "components/ArticleInfo";
+import ViewCounter from "components/ViewCounter";
 import { headers } from "next/headers";
 import Image from "next/image";
 import { getArticleBySlug } from "utils/getArticles";
@@ -23,6 +24,9 @@ export default async function Layout({ children }: { children: React.ReactNode }
         </div>
       }
       <ArticleInfo article={article} className="-mt-8 mb-4 px-1 text-sm" />
+      <div className="inline text-sm text-gray-500">
+        <ViewCounter slug={slug} />
+      </div>
       {children}
     </article>
   );

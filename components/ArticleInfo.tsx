@@ -1,8 +1,7 @@
-import React from "react";
 import { Article } from "types/article";
 
 export default function ArticleInfo({
-  article: { metadata, readingTime },
+  article: { metadata, readingTime, views },
   className,
 }: {
   article: Article;

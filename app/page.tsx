@@ -1,4 +1,5 @@
 import AllArticles from "components/AllArticles";
+import ViewCounter from "components/ViewCounter";
 
 export default async function Page() {
   return (

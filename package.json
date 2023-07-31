@@ -14,6 +14,7 @@
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
     "@next/mdx": "^13.4.12",
+    "@vercel/kv": "^0.2.2",
     "next": "^13.4.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
