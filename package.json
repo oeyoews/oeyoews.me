@@ -2,14 +2,14 @@
   "name": "next-mdx-blog",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "beeinger <sulecki.maciek@gmail.com>",
+  "author": "oeyoews <jyao4783@gmail.com>",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettify": "prettier --write ."
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
