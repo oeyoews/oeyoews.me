@@ -1,7 +1,7 @@
 import { kv } from "@vercel/kv";
 import { FiEye } from "react-icons/fi";
 
-async function ViewCounter({ slug }) {
+async function ViewCounter({ slug }: { slug: string }) {
   const views = await kv.incr(slug);
   const test = await kv.get(slug);
 

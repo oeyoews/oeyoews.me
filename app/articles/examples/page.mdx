@@ -2,10 +2,10 @@ import { FiEye } from "react-icons/fi";
 import image from "./image.png";
 import Image from "next/image";
 
-export const date = 2019;
+export const date = new Date().toString();
 
 today is {date},
 
 look at me <FiEye className="inline mx-2 stroke-gray-500 animate-ping"/>
 
-<Image src={image} className="h-48 w-auto rounded" />
+<Image src={image} className="h-48 w-auto rounded" alt="img" />

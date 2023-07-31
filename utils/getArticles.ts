@@ -1,8 +1,8 @@
-import { Article } from "types/article";
+import { Article } from "@/types/article";
 
-const importAll = (r): Promise<Article[]> =>
+const importAll = (r: any): Promise<Article[]> =>
   Promise.all(
-    r.keys().map(async (fileName) => {
+    r.keys().map(async (fileName: any) => {
       const module = r(fileName);
       const slug = fileName.substr(2).replace(/\/page\.mdx$/, "");
 

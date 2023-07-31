@@ -1,5 +1,5 @@
 import "./global.css";
-import NavBar from "components/NavBar.tsx";
+import NavBar from "@/components/NavBar.tsx";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 

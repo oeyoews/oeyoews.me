@@ -1,6 +1,6 @@
-import AllArticles from "components/AllArticles";
-import ViewCounter from "components/ViewCounter";
-import { isDev } from "lib/isDev";
+import AllArticles from "@/components/AllArticles";
+import ViewCounter from "@/components/ViewCounter";
+import { isDev } from "@/lib/isDev";
 
 export default async function Page() {
   return (

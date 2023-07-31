@@ -1,4 +1,4 @@
-import { getAllArticles } from "utils/getArticles";
+import { getAllArticles } from "@/utils/getArticles";
 import Link from "next/link";
 import Image from "next/image";
 import ArticleInfo from "./ArticleInfo";
@@ -21,8 +21,8 @@ export default async function AllArticles() {
             <Image
               className="h-48 w-full rounded-md object-cover"
               src={metadata?.image || "/image.png"}
-              width={metadata?.image ? null : 1080}
-              height={metadata?.image ? null : 960}
+              width={metadata?.image ? undefined : 1080}
+              height={metadata?.image ? undefined : 960}
               alt={title}
             />
             <div className="px-6 py-4">

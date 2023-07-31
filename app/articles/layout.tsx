@@ -1,9 +1,9 @@
-import ArticleInfo from "components/ArticleInfo";
 import { headers } from "next/headers";
 import Image from "next/image";
-import { getArticleBySlug } from "utils/getArticles";
+import { getArticleBySlug } from "@/utils/getArticles";
 import { FiArrowLeft } from "react-icons/fi";
 import Link from "next/link";
+import ArticleInfo from "@/components/ArticleInfo";
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
   const slug = headers().get("x-next-article-slug") as string;
@@ -12,7 +12,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
   const image = metadata?.image;
 
   return (
-    <article className="prose mx-auto p-4 lg:prose-xl">
+    <article className="prose mx-auto p-4 lg:prose-lg">
       {
         <div className="flex max-h-[60vh] justify-center">
           <Image
