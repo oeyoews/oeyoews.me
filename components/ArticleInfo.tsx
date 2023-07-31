@@ -1,7 +1,7 @@
 import { Article } from "types/article";
 
 export default function ArticleInfo({
-  article: { metadata, readingTime, views },
+  article: { metadata, readingTime },
   className,
 }: {
   article: Article;
