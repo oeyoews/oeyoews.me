@@ -1,5 +1,8 @@
-缓存问题
-动态刷新
+## Preview
+
+https://nextjs-mdx-blog-tailwindcss.vercel.app/
+
+## NOTE
 
 - 由于是 page, 所以不能使用 decodeuri 支持 chinese
 
