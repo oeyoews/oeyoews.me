@@ -1,9 +1,13 @@
 import "./global.css";
 import NavBar from "components/NavBar.tsx";
-import ViewCounter from "components/ViewCounter";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
+export const metadata: Metadata = {
+  title: "Nextjs Blog",
+  description: "",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
