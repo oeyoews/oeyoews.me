@@ -1,4 +1,5 @@
 import AllArticles from "@/components/AllArticles";
+import Hitokoto from "@/components/Hitokoto";
 import ViewCounter from "@/components/ViewCounter";
 import { isDev } from "@/lib/isDev";
 
@@ -8,6 +9,7 @@ export default async function Page() {
       <div className="mx-auto max-w-5xl">
         <AllArticles />
         <div className="my-4 text-center text-sm text-gray-500">{!isDev && <ViewCounter slug="home" />}</div>
+        <Hitokoto />
       </div>
     </div>
   );
