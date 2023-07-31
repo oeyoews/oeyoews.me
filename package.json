@@ -1,0 +1,39 @@
+{
+  "name": "next-mdx-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "beeinger <sulecki.maciek@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prettify": "prettier --write ."
+  },
+  "dependencies": {
+    "@mdx-js/loader": "^2.3.0",
+    "@next/mdx": "^13.4.12",
+    "next": "^13.4.12",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "reading-time": "^1.5.0",
+    "sharp": "^0.32.4",
+    "simple-functional-loader": "^1.2.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/mdx": "^2.0.5",
+    "@types/node": "20.2.5",
+    "@types/react": "18.2.8",
+    "autoprefixer": "^10.4.14",
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.12",
+    "postcss": "^8.4.27",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "tailwindcss": "^3.3.3",
+    "typescript": "5.1.3"
+  }
+}
