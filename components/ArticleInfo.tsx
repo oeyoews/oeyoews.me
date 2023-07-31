@@ -16,7 +16,7 @@ export default function ArticleInfo({
       <span className="mr-2">{metadata?.date}</span>
       <span className="ml-2">{readingTime}</span>
       <span>by {String(author)}</span>
-      <span className="text-sm text-gray-500">{isDev && <ViewCounter slug={metadata?.slug} />}</span>
+      <span className="text-sm text-gray-500">{!isDev && <ViewCounter slug={metadata?.slug} />}</span>
     </div>
   );
 }
