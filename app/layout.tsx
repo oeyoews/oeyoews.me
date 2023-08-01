@@ -3,6 +3,9 @@ import NavBar from "@/components/NavBar.tsx";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+// ??
+// export const revaliate = 1;
+
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Nextjs Blog",
