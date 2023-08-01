@@ -1,7 +1,5 @@
-// import remarkEmoji from "remark-emoji";
-// import remarkGfm from "remark-gfm";
-// import createMDX from "./mdx-loader.js";
-import createMDX from "@next/mdx";
+import createMDX from "./mdx-loader.js";
+// import createMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
