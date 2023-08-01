@@ -1,4 +1,4 @@
-import {Article } from '@/types/article'
+import { Article } from '@/types/article';
 
 const importAll = (r: any): Promise<Article[]> =>
   Promise.all(
@@ -23,7 +23,6 @@ export const getAllArticles = async (): Promise<Article[]> =>
 
 export const getArticleBySlug = async (slug: string): Promise<Article> => {
   const module = require(`../app/articles/${slug}/page.mdx`);
-  console.log(module);
 
   return {
     slug,
