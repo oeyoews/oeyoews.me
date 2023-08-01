@@ -12,11 +12,11 @@ export default async function Layout({ children }: { children: React.ReactNode }
   const image = metadata?.image;
 
   return (
-    <article className="prose mx-auto p-4 lg:prose-lg">
+    <article className="lg:prose-md prose mx-auto p-4">
       {
         <div className="flex max-h-[60vh] justify-center">
           <Image
-            className="rounded-md"
+            className="rounded-sm"
             src={image || "/image.png"}
             width={metadata?.image ? undefined : 1080}
             height={metadata?.image ? undefined : 960}
@@ -24,10 +24,10 @@ export default async function Layout({ children }: { children: React.ReactNode }
           />
         </div>
       }
-      <ArticleInfo article={article} className="-mt-8 inline px-1 text-sm" />
+      <ArticleInfo article={article} className="inline px-1 text-sm" />
       {children}
-      <Link className="flex justify-end no-underline" href="/">
-        <button className="inline transform justify-center rounded-md bg-neutral-200 px-2 py-1 transition duration-300 hover:scale-105">
+      <Link className="mb-0 mt-16 flex justify-end no-underline" href="/">
+        <button className="inline transform justify-center rounded-sm bg-neutral-200 px-2 py-1 transition duration-300 hover:scale-105">
           <FiArrowLeft className="inline" />
           back home
         </button>

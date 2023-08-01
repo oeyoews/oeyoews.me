@@ -17,10 +17,10 @@ export default async function AllArticles() {
           <Link
             key={title}
             href={"/articles/" + article.slug}
-            className="flex flex-col overflow-hidden rounded shadow-lg transition-shadow duration-200 hover:shadow-xl"
+            className="flex flex-col overflow-hidden rounded shadow-md duration-300 hover:scale-105 hover:shadow-lg"
           >
             <Image
-              className="h-48 w-full rounded-md object-cover"
+              className="h-48 w-full rounded-md px-2"
               src={metadata?.image || "/image.png"}
               width={metadata?.image ? undefined : 1080}
               height={metadata?.image ? undefined : 960}
