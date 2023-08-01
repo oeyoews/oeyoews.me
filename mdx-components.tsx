@@ -1,9 +1,9 @@
-import type { MDXComponents } from "mdx/types";
-import { Code } from "bright";
+import { Code } from 'bright';
+import type { MDXComponents } from 'mdx/types';
 
 export function useMDXComponents(components: MDXComponents) {
   Code.lineNumbers = false;
-  Code.theme = "one-dark-pro";
+  Code.theme = 'one-dark-pro';
   return {
     pre: Code,
   };

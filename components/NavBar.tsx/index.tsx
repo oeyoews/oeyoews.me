@@ -1,5 +1,6 @@
-import Link from "next/link";
-import { FiHome } from "react-icons/fi";
+import { FiHome } from 'react-icons/fi';
+
+import Link from 'next/link';
 
 function NavBar() {
   return (

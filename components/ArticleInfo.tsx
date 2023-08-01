@@ -1,6 +1,7 @@
-import { isDev } from "@/lib/isDev";
-import { Article } from "@/types";
-import ViewCounter from "./ViewCounter";
+import { Article } from '@/types/article';
+import ViewCounter from './ViewCounter';
+
+import { isDev } from '@/lib/isDev';
 
 export default function ArticleInfo({
   article: { metadata, readingTime, slug },
@@ -9,14 +10,24 @@ export default function ArticleInfo({
   article: Article;
   className?: string;
 }) {
-  const author = Array.isArray(metadata?.authors) ? metadata?.authors.join(", ") : metadata?.authors || "oeyoews";
+  const author = Array.isArray(metadata?.authors)
+    ? metadata?.authors.join(', ')
+    : metadata?.authors || 'oeyoews';
 
   return (
-    <div className={"my-2 flex w-full justify-end space-x-2 text-sm text-gray-500" + " " + className}>
+    <div
+      className={
+        'my-2 flex w-full justify-end space-x-2 text-sm text-gray-500' +
+        ' ' +
+        className
+      }
+    >
       <span className="mr-2">{metadata?.date}</span>
       {/* <span className="ml-2">{readingTime}</span> */}
       {/* <span>by {String(author)}</span> */}
-      <span className="text-sm text-gray-500">{!isDev && <ViewCounter slug={slug} />}</span>
+      <span className="text-sm text-gray-500">
+        {!isDev && <ViewCounter slug={slug} />}
+      </span>
     </div>
   );
 }

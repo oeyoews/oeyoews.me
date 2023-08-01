@@ -1,5 +1,6 @@
-import { getAllArticles } from "@/utils/getArticles";
-import Link from "next/link";
+import Link from 'next/link';
+
+import { getAllArticles } from '@/utils/getArticles';
 
 export default async function AllArticles() {
   const articles = await getAllArticles();
@@ -14,13 +15,15 @@ export default async function AllArticles() {
         return (
           <Link
             key={title}
-            href={"/articles/" + article.slug}
+            href={'/articles/' + article.slug}
             className="flex flex-col overflow-hidden rounded-md p-2 !text-sm duration-300 hover:bg-neutral-100"
           >
             <div className="px-4 py-2">
               <div className="my-1 text-gray-500">{metadata?.date}</div>
               <div className="mb-2 text-base font-semibold">{title}</div>
-              <p className="line-clamp-3 indent-4 text-sm text-gray-500">{metadata?.description}</p>
+              <p className="line-clamp-3 indent-4 text-sm text-gray-500">
+                {metadata?.description}
+              </p>
             </div>
           </Link>
         );

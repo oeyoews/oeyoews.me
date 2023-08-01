@@ -1,5 +1,6 @@
-import { NextResponse } from "next/server";
-import { getAllArticles } from "@/utils/getArticles";
+import { NextResponse } from 'next/server';
+
+import { getAllArticles } from '@/utils/getArticles';
 
 export async function GET() {
   const articles = await getAllArticles();

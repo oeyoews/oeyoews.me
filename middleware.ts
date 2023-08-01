@@ -1,10 +1,13 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
 export default function middleware(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
-  if (request.nextUrl.pathname.startsWith("/articles/"))
-    requestHeaders.set("x-next-article-slug", request.nextUrl.pathname.replace("/articles/", ""));
+  if (request.nextUrl.pathname.startsWith('/articles/'))
+    requestHeaders.set(
+      'x-next-article-slug',
+      request.nextUrl.pathname.replace('/articles/', ''),
+    );
 
   return NextResponse.next({
     request: {
@@ -14,5 +17,5 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: "/articles/:path*",
+  matcher: '/articles/:path*',
 };
