@@ -1,5 +1,5 @@
 import { isDev } from "@/lib/isDev";
-import { Article } from "@/types/article";
+import { Article } from "@/types";
 import ViewCounter from "./ViewCounter";
 
 export default function ArticleInfo({
