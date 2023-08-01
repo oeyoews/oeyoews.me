@@ -33,6 +33,7 @@
     "@types/react": "18.2.8",
     "autoprefixer": "^10.4.14",
     "eslint": "8.46.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "eslint-config-next": "13.4.12",
     "postcss": "^8.4.27",
     "prettier": "^2.8.8",
