@@ -1,3 +1,16 @@
+import { Metadata } from "next";
+
+type Article = {
+  slug: string;
+  metadata: Metadata & {
+    slug: string;
+    date?: string;
+    image?: string;
+  };
+  component: any;
+  readingTime: string;
+};
+
 type Params = {
   slug: string;
 };
