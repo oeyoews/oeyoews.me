@@ -1,10 +1,11 @@
 import { getAllArticles } from "@/utils/getArticles";
 import Link from "next/link";
 import Image from "next/image";
-import ArticleInfo from "./ArticleInfo";
 
 export default async function AllArticles() {
   const articles = await getAllArticles();
+  // TODO
+  // const length = articles.length;
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
