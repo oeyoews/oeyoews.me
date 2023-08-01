@@ -1,4 +1,4 @@
-import { getAllArticles } from "@/lib/getArticles";
+import { getAllArticles } from "@/utils/getArticles";
 import Link from "next/link";
 
 export default async function AllArticles() {

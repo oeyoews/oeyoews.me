@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 import Image from "next/image";
-import { getArticleBySlug } from "@/lib/getArticles";
+import { getArticleBySlug } from "@/utils/getArticles";
 import { FiArrowLeft } from "react-icons/fi";
 import Link from "next/link";
 import ArticleInfo from "@/components/ArticleInfo";
