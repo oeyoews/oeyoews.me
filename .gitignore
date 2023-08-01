@@ -39,3 +39,4 @@ public/workbox**
 sitemap.xml
 robots.txt
 .turbo
+.idea/
