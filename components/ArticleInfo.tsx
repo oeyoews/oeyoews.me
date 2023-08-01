@@ -14,8 +14,8 @@ export default function ArticleInfo({
   return (
     <div className={"my-2 flex w-full justify-end space-x-2 text-sm text-gray-500" + " " + className}>
       <span className="mr-2">{metadata?.date}</span>
-      <span className="ml-2">{readingTime}</span>
-      <span>by {String(author)}</span>
+      {/* <span className="ml-2">{readingTime}</span> */}
+      {/* <span>by {String(author)}</span> */}
       <span className="text-sm text-gray-500">{!isDev && <ViewCounter slug={slug} />}</span>
     </div>
   );

@@ -26,8 +26,8 @@ export default async function Layout({ children }: { children: React.ReactNode }
       }
       <ArticleInfo article={article} className="inline px-1 text-sm" />
       {children}
-      <Link className="mb-0 mt-16 flex justify-end no-underline" href="/">
-        <button className="inline transform justify-center rounded-sm bg-neutral-200 px-2 py-1 transition duration-300 hover:scale-105">
+      <Link className="mb-0 mt-4 flex justify-end rounded-md no-underline" href="/">
+        <button className="inline transform justify-center rounded-sm bg-neutral-100 px-2 py-1 font-normal transition duration-300 hover:scale-105">
           <FiArrowLeft className="inline" />
           back home
         </button>
