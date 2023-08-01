@@ -14,6 +14,24 @@ export const metadata = {
 
 > NextJs 13 让 RSC 有重新出现在人们眼前, React 已经一年没有发版, React 实在进行底层库的转变???
 
+## vecel analysics
+
+可以用来监视站点的浏览情况
+
+```tsx
+<Analysics />
+```
+
+## Vercel/kv
+
+vercel 的 kv 可以看作 redis, `key-value` 存储数据, 比如用来存储评论, 点赞数目, 站点浏览量, 或者用来存储 chatgpt 的对话;
+
+```js
+kv.incr("likes");
+```
+
+## Code Highlight
+
 ```tsx
 import image from "./next.svg";
 
