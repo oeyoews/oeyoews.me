@@ -4,7 +4,7 @@ import createMDX from "./mdx-loader.js";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: { mdxRs: true },
-  pageExtensions: ["ts", "tsx", "mdx"],
+  pageExtensions: ["ts", "tsx", "mdx", "md"],
   images: {
     domains: ["bing.com"],
   },
