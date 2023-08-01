@@ -24,7 +24,7 @@ export const metadata = {
 
 ## Bright
 
-代码块高亮无需配置, 虽然是 rsc, 但是由于使用 next/mdx, 没有使用 ssg, 所以加载代码高亮仍然比较满, 因为需要等待服务端渲染完成, 服务段生成后, 再次访问速度就很快了
+代码块高亮无需配置(解析代码是通过 fetch 对应的 json 文件得到的, 所以代码快类型越多, 加载越慢), 虽然是 rsc, 但是由于使用 next/mdx, 没有使用 ssg, 所以加载代码高亮仍然比较满, 因为需要等待服务端渲染完成, 服务段生成后, 再次访问速度就很快了
 
 ## Next Link
 
@@ -38,10 +38,6 @@ next 默认配置好了路由缓存, 所以不要担心瀑布问题
 
 vercel 的 kv 可以看作 redis, `key-value` 存储数据, 比如用来存储评论, 点赞数目, 站点浏览量, 或者用来存储 chatgpt 的对话;
 
-```js
-kv.incr("likes");
-```
-
 ## Code Highlight
 
 ```tsx
@@ -52,16 +48,4 @@ export const metadata = {
   title: "NextJs 笔记",
   image,
 };
-```
-
-```lua
-local M = {}
-```
-
-```c
-print('thisc')
-```
-
-```shell
-echo hi ## hi
 ```
