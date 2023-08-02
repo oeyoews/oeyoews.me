@@ -5,6 +5,8 @@ import { Inter } from 'next/font/google';
 
 import './global.css';
 
+import '@code-hike/mdx/dist/index.css';
+
 // ??
 // export const revaliate = 1;
 
