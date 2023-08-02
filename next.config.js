@@ -2,12 +2,12 @@ const createMDX = require('@next/mdx');
 const { remarkCodeHike } = require('@code-hike/mdx');
 
 const codeOptions = {
-  lineNumbers: true,
-  showCopyButton: true,
+  lineNumbers: false, // not work ???
+  showCopyButton: false,
   theme: 'one-dark-pro',
   staticMediaQuery: 'not screen, (max-width: 768px)',
   autoImport: true,
-  autoLink: false,
+  autoLink: false, // not support nextjs 13 app router or server component
 };
 
 const withMDX = createMDX({

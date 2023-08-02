@@ -40,8 +40,12 @@ vercel 的 kv 可以看作 redis, `key-value` 存储数据, 比如用来存储�
 
 ## Code Highlight
 
+> code-hike 仅仅支持客户端渲染, 默认代码字体比较小, bright(code-hike 写的)无需配置, 支持 rsc; 速度上没有很明显的差异
+
 ```tsx page.tsx
 import image from './next.svg';
+
+/* ==> */
 
 export const metadata = {
   date: '2023-08-01',
@@ -53,9 +57,6 @@ export const metadata = {
 ```py focus=2
 print(1)
 print(2)
-print(3)
-print(4)
-print(5)
 ```
 
 <CH.Code>
@@ -70,7 +71,7 @@ print("Hello, two!")
 
 </CH.Code>
 
-<CH.Code lineNumbers={true}>
+<CH.Code lineNumbers={false}>
 
 ```python one.py
 print("Hello, world!")
@@ -79,3 +80,7 @@ print("Hello, world!")
 ```
 
 </CH.Code>
+
+```js hi.js
+console.log('hi');
+```
