@@ -18,4 +18,5 @@ a {
 h1,
 h2 {
   text-wrap: balance;
+  text-align: center;
 }
