@@ -32,6 +32,7 @@ export default async function Layout({
         </div>
       }
       <ArticleInfo article={article} className="inline px-1 text-sm" />
+      <h1>{String(metadata?.title)}</h1>
       {children}
       <Link
         className="mb-0 mt-4 flex justify-end rounded-md no-underline"
