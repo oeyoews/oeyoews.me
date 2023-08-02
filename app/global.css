@@ -14,3 +14,8 @@ a {
 /* pre {
   border-radius: none !important;
 } */
+
+h1,
+h2 {
+  text-wrap: balance;
+}
