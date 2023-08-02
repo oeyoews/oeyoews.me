@@ -23,10 +23,10 @@ export default async function Layout({
       {
         <div className="flex max-h-[60vh] justify-center">
           <Image
-            className="rounded-sm"
+            className="rounded-md"
             src={image || '/image.png'}
-            width={metadata?.image ? undefined : 1080}
-            height={metadata?.image ? undefined : 960}
+            width={1080}
+            height={960}
             alt={String(metadata?.title)}
           />
         </div>

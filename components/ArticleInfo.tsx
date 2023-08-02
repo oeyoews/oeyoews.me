@@ -4,6 +4,7 @@ import { RiEye2Line } from 'react-icons/ri';
 import { Article } from '@/types/article';
 
 import views from '@/lib/getViews';
+import { isDev } from '@/lib/isDev';
 
 export default async function ArticleInfo({
   article: { metadata, readingTime, slug },
@@ -16,6 +17,12 @@ export default async function ArticleInfo({
     ? metadata?.authors.join(', ')
     : metadata?.authors || 'oeyoews';
 
+  const total = isDev ? null : (
+    <div>
+      <RiEye2Line className="inline fill-purple-400 stroke-0" /> {counter} views
+    </div>
+  );
+
   return (
     <div
       className={
@@ -26,11 +33,10 @@ export default async function ArticleInfo({
         {metadata?.date && <FcCalendar className="inline" />}
         {metadata?.date}
       </div>
-      <div>{readingTime}</div>
-      <div className="text-sm text-gray-500">
-        <RiEye2Line className="inline fill-purple-400 stroke-0" /> {counter}{' '}
-        views
+      <div>
+        <FcClock className="inline" /> {readingTime}
       </div>
+      {total}
     </div>
   );
 }
