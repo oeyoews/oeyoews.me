@@ -7,8 +7,9 @@ async function ViewCounter(params: Params) {
   const { slug } = params;
   const views = await kv.incr(slug);
   const counter = Intl.NumberFormat('en-us').format(views);
+  console.log(isProd);
   return (
-    !isProd && (
+    isProd && (
       <div>
         <RiEye2Line className="inline fill-purple-400 stroke-0" /> {counter}{' '}
         views
