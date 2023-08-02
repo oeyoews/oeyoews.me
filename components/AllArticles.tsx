@@ -4,11 +4,11 @@ import { getAllArticles } from '@/utils/getArticles';
 
 export default async function AllArticles() {
   const articles = await getAllArticles();
-  articles.sort((a: any, b: any) => {
-    const dateA = new Date(a);
-    const dateB = new Date(b);
 
-    return dateA < dateB ? -1 : dateA > dateB ? 1 : 0;
+  articles.sort((a: any, b: any) => {
+    const dateA = new Date(a.metadata.date);
+    const dateB = new Date(b.metadata.date);
+    return dateB.getTime() - dateA.getTime();
   });
 
   return (
