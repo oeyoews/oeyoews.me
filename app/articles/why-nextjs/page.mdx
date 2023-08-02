@@ -40,7 +40,7 @@ vercel 的 kv 可以看作 redis, `key-value` 存储数据, 比如用来存储�
 
 ## Code Highlight
 
-```tsx
+```tsx page.tsx
 import image from './next.svg';
 
 export const metadata = {
@@ -49,3 +49,33 @@ export const metadata = {
   image,
 };
 ```
+
+```py focus=2
+print(1)
+print(2)
+print(3)
+print(4)
+print(5)
+```
+
+<CH.Code>
+
+```python one.py
+print("Hello, one!")
+```
+
+```python two.py
+print("Hello, two!")
+```
+
+</CH.Code>
+
+<CH.Code lineNumbers={true}>
+
+```python one.py
+print("Hello, world!")
+print("Hello, world!")
+print("Hello, world!")
+```
+
+</CH.Code>
