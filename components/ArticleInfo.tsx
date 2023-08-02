@@ -1,10 +1,8 @@
 import { FcCalendar, FcClock } from 'react-icons/fc';
-import { RiEye2Line } from 'react-icons/ri';
 
 import { Article } from '@/types/article';
 
-import views from '@/lib/getViews';
-import { isDev } from '@/lib/isDev';
+import ViewCounter from './ViewCounter';
 
 export default async function ArticleInfo({
   article: { metadata, readingTime, slug },
@@ -12,16 +10,9 @@ export default async function ArticleInfo({
   article: Article;
   className?: string;
 }) {
-  const counter = await views(slug);
   const author = Array.isArray(metadata?.authors)
     ? metadata?.authors.join(', ')
     : metadata?.authors || 'oeyoews';
-
-  const total = isDev ? null : (
-    <div>
-      <RiEye2Line className="inline fill-purple-400 stroke-0" /> {counter} views
-    </div>
-  );
 
   return (
     <div
@@ -36,7 +27,7 @@ export default async function ArticleInfo({
       <div>
         <FcClock className="inline" /> {readingTime}
       </div>
-      {total}
+      <ViewCounter slug={slug} />
     </div>
   );
 }
