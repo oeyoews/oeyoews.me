@@ -21,8 +21,7 @@ export default async function ArticleInfo({
       }
     >
       <div>
-        {metadata?.date && <FcCalendar className="inline" />}
-        {metadata?.date}
+        {metadata?.date && <FcCalendar className="inline" />} {metadata?.date}
       </div>
       <div>
         <FcClock className="inline" /> {readingTime}
