@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   // const user = searchParams.get('user');
   // if (!user) return NextResponse.json({ message: 'No params' });
   let originalUser;
-  originalUser = await kv.get('oeyoews');
+  originalUser = await kv.incr('oeyoews');
   // if (user === 'oeyoews') {
   //   originalUser = await kv.incr(user);
   // } else {
