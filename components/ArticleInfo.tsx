@@ -16,9 +16,7 @@ export default async function ArticleInfo({
 
   return (
     <div
-      className={
-        'my-2 flex w-full justify-center space-x-2 text-sm text-gray-500'
-      }
+      className={'flex w-full justify-center space-x-2 text-sm text-gray-500'}
     >
       <div>
         {metadata?.date && <FcCalendar className="inline" />} {metadata?.date}

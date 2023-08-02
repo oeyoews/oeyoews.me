@@ -12,7 +12,7 @@ const withMDX = createMDX({
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   images: {
-    domains: ['bing.com', 'images.unsplash.com'],
+    domains: ['bing.com', 'images.unsplash.com', 'plus.unsplash.com'],
   },
 };
 
