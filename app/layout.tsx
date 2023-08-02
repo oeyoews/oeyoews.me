@@ -11,7 +11,7 @@ import './global.css';
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Nextjs Blog',
-  description: '',
+  description: '个人博客, 使用Nextjs + TypeScript + Tailwindcss 构建',
 };
 
 export default function RootLayout({
