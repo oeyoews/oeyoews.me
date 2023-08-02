@@ -5,6 +5,8 @@ import { Inter } from 'next/font/google';
 
 import './global.css';
 
+import { isProd } from '@/lib/isProd';
+
 // ??
 // export const revaliate = 1;
 
@@ -23,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        {isProd && <Analytics />}
       </body>
     </html>
   );
