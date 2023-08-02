@@ -7,7 +7,6 @@ async function ViewCounter(params: Params) {
   const { slug } = params;
   const views = await kv.incr(slug);
   const counter = Intl.NumberFormat('en-us').format(views);
-  console.log(isProd);
   return (
     isProd && (
       <div>
