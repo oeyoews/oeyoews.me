@@ -4,6 +4,12 @@ import { getAllArticles } from '@/utils/getArticles';
 
 export default async function AllArticles() {
   const articles = await getAllArticles();
+  articles.sort((a: any, b: any) => {
+    const dateA = new Date(a);
+    const dateB = new Date(b);
+
+    return dateA < dateB ? -1 : dateA > dateB ? 1 : 0;
+  });
 
   return (
     <div className="mx-auto max-w-xl text-sm">
