@@ -1,15 +1,19 @@
-import { Article } from '@/types/article';
-import ViewCounter from './ViewCounter';
+import { FcCalendar, FcClock } from 'react-icons/fc';
+import { RiEye2Line } from 'react-icons/ri';
 
+import { Article } from '@/types/article';
+
+import views from '@/lib/getViews';
 import { isDev } from '@/lib/isDev';
 
-export default function ArticleInfo({
+export default async function ArticleInfo({
   article: { metadata, readingTime, slug },
   className,
 }: {
   article: Article;
   className?: string;
 }) {
+  const counter = await views(slug);
   const author = Array.isArray(metadata?.authors)
     ? metadata?.authors.join(', ')
     : metadata?.authors || 'oeyoews';
@@ -22,12 +26,15 @@ export default function ArticleInfo({
         className
       }
     >
-      <span className="mr-2">{metadata?.date}</span>
-      {/* <span className="ml-2">{readingTime}</span> */}
-      {/* <span>by {String(author)}</span> */}
-      <span className="text-sm text-gray-500">
-        {!isDev && <ViewCounter slug={slug} />}
-      </span>
+      <div>
+        <FcCalendar className="inline" /> {metadata?.date}
+      </div>
+      <div>
+        <FcClock className="inline" /> {readingTime}
+      </div>
+      <div className="text-sm text-gray-500">
+        <RiEye2Line className="inline" /> {counter} views
+      </div>
     </div>
   );
 }

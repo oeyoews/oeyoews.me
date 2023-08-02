@@ -1,4 +1,5 @@
-const createMDX = require('@next/mdx');
+// const createMDX = require('@next/mdx');
+const createMDX = require('./mdx-loader.js');
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
