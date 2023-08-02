@@ -10,15 +10,7 @@ a {
   content: "↗";
 } */
 
-.ch-frame-buttons {
-  display: none !important; /*  on not show copybutton, muse have add important */
-}
-
-/* .ch-frame-title-bar {
-  font-size: 18px;
+/* prose-pre */
+/* pre {
+  border-radius: none !important;
 } */
-
-.ch-code-scroll-content {
-  font-size: 18px;
-  /* font-family: Inter; */
-}
