@@ -8,6 +8,7 @@ export default async function AllArticles() {
   return (
     <div className="mx-auto max-w-xl text-sm">
       <h1 className="mb-4 text-2xl font-bold">My Posts</h1>
+      {/* sort articles */}
       {articles.map((article) => {
         const { metadata } = article;
         const title = String(metadata?.title || article.slug);
