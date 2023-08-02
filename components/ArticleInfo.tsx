@@ -23,11 +23,10 @@ export default async function ArticleInfo({
       }
     >
       <div>
-        <FcCalendar className="inline" /> {metadata?.date}
+        {metadata?.date && <FcCalendar className="inline" />}
+        {metadata?.date}
       </div>
-      <div>
-        <FcClock className="inline" /> {readingTime}
-      </div>
+      <div>{readingTime}</div>
       <div className="text-sm text-gray-500">
         <RiEye2Line className="inline fill-purple-400 stroke-0" /> {counter}{' '}
         views
