@@ -29,7 +29,8 @@ export default async function ArticleInfo({
         <FcClock className="inline" /> {readingTime}
       </div>
       <div className="text-sm text-gray-500">
-        <RiEye2Line className="inline" /> {counter} views
+        <RiEye2Line className="inline fill-purple-400 stroke-0" /> {counter}{' '}
+        views
       </div>
     </div>
   );
