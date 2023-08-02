@@ -1,7 +1,5 @@
 import AllArticles from '@/components/AllArticles';
 
-import { isDev } from '@/lib/isDev';
-
 export default async function Page() {
   return (
     <div className="m-4 sm:m-8">
