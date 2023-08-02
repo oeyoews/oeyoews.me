@@ -22,7 +22,6 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "reading-time": "^1.5.0",
-    "remark": "^14.0.3",
     "sharp": "^0.32.4",
     "simple-functional-loader": "^1.2.1"
   },

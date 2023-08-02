@@ -35,9 +35,6 @@ dependencies:
   reading-time:
     specifier: ^1.5.0
     version: 1.5.0
-  remark:
-    specifier: ^14.0.3
-    version: 14.0.3
   sharp:
     specifier: ^0.32.4
     version: 0.32.4
@@ -3895,25 +3892,6 @@ packages:
       '@types/mdast': 3.0.12
       mdast-util-to-hast: 12.3.0
       unified: 10.1.2
-    dev: false
-
-  /remark-stringify@10.0.3:
-    resolution: {integrity: sha512-koyOzCMYoUHudypbj4XpnAKFbkddRMYZHwghnxd7ue5210WzGw6kOBwauJTRUMq16jsovXx8dYNvSSWP89kZ3A==}
-    dependencies:
-      '@types/mdast': 3.0.12
-      mdast-util-to-markdown: 1.5.0
-      unified: 10.1.2
-    dev: false
-
-  /remark@14.0.3:
-    resolution: {integrity: sha512-bfmJW1dmR2LvaMJuAnE88pZP9DktIFYXazkTfOIKZzi3Knk9lT0roItIA24ydOucI3bV/g/tXBA6hzqq3FV9Ew==}
-    dependencies:
-      '@types/mdast': 3.0.12
-      remark-parse: 10.0.2
-      remark-stringify: 10.0.3
-      unified: 10.1.2
-    transitivePeerDependencies:
-      - supports-color
     dev: false
 
   /resolve-from@4.0.0:
