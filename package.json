@@ -12,11 +12,11 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@code-hike/mdx": "^0.9.0",
     "@mdx-js/loader": "^2.3.0",
     "@next/mdx": "^13.4.12",
     "@vercel/analytics": "^1.0.1",
     "@vercel/kv": "^0.2.2",
+    "bright": "^0.8.4",
     "next": "^13.4.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
