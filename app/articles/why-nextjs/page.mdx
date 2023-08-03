@@ -22,6 +22,8 @@ export const metadata = {
 
 - next 缓存总是会导致一些奇怪的 bug, 本地开发需要 rm .next, vercel 需要重新部署
 
+- 比如手动加上 postcss.config.js 后, 需要清空缓存, 因为 tailwindcss 缺少这个文件是不能正常工作的, 之前的 cache 是不会自动更新这部分的, 需要清空缓存, 从来没了解过缓存是根据什么机制更新的, 从之前的电脑有问题第一想到的是重启, 现在我第一时间选择 `rm .next`, 然后清空浏览器缓存
+
 ## Tailwind
 
 Tailwind 在 NextJs 里面似乎很受支持, 直接在 CNA 里面内置了选项支持
