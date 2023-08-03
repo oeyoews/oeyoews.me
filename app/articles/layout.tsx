@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
 
 import { headers } from 'next/headers';
@@ -34,7 +35,11 @@ export default async function Layout({
       }
       <h1>{String(metadata?.title)}</h1>
       <ArticleInfo article={article} className="inline px-1 text-sm" />
-      {children}
+      <Suspense
+        fallback={<div className="flex justify-center my-2">Loading...</div>}
+      >
+        {children}
+      </Suspense>
       <div className="flex justify-end">
         <Button variant="secondary" asChild>
           <Link href="/">
