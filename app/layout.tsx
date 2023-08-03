@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 
 import './globals.css';
@@ -24,11 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
         {children}
-        {isProd && <Analytics />}
         <Toaster />
+        {/* </ThemeProvider> */}
+        {isProd && <Analytics />}
       </body>
     </html>
   );

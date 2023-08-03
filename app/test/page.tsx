@@ -1,5 +1,7 @@
-import ToastWrapper from '@/components/ToasterWrapper';
+import ModeToggle from '@/components/ToggleTheme';
 
-export default function TestPage() {
-  return <ToastWrapper text="Test" title="Test" description="test page" />;
+function page() {
+  return <ModeToggle />;
 }
+
+export default page;

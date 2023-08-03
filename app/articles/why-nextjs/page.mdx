@@ -1,4 +1,5 @@
 import ToastDemo from '@/components/ToasterWrapper';
+import ModeToggle from '@/components/ToggleTheme';
 
 import image from './next.svg';
 
@@ -9,11 +10,17 @@ export const metadata = {
   image,
 };
 
+{/* <div className="flex justify-end"> <ModeToggle /> </div> */}
+
 > 自从 React18 的文档更新以后, 引起了不小的讨论, react 不再一味的像以前推荐 CRA, 而是建议使用基于 React 的框架进行学习 React, 而且这一推荐放在了很重要的开头位置(NextJs 和 React 的合作很密切)
 
 1. 有人认为新手学习 React 就使用框架会不会太重, 也有人觉得新手就应该使用框架, 因为 React 只能算一个 Ui 库, 不足以真正满足开发需求, 如果不使用框架, 什么都要自己进行配置, 打不到最佳实践
 
 > NextJs 13 让 RSC 有重新出现在人们眼前, React 已经一年没有发版, React 实在进行底层库的转变(越来越像一个库)???
+
+## NextJs Cache
+
+- next 缓存总是会导致一些奇怪的 bug, 本地开发需要 rm .next, vercel 需要重新部署
 
 ## Tailwind
 
