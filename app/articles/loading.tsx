@@ -1,6 +1,8 @@
 function Loading() {
   return (
-    <div className="mx-auto max-w-5xl font-bold min-h-screen">loading ...</div>
+    <div className="mx-auto max-w-5xl font-bold min-h-screen text-center">
+      loading ...
+    </div>
   );
 }
 
