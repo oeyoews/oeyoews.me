@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { getArticleBySlug } from '@/utils/getArticles';
 
 import ArticleInfo from '@/components/ArticleInfo';
+import { Button } from '@/components/ui/button';
 
 export default async function Layout({
   children,
@@ -34,15 +35,13 @@ export default async function Layout({
       <h1>{String(metadata?.title)}</h1>
       <ArticleInfo article={article} className="inline px-1 text-sm" />
       {children}
-      <Link
-        className="mb-0 mt-4 flex justify-end rounded-md no-underline"
-        href="/"
-      >
-        <button className="inline transform justify-center rounded-sm bg-neutral-100 px-2 py-1 font-normal transition duration-300 hover:scale-105">
-          <FiArrowLeft className="inline" />
-          back home
-        </button>
-      </Link>
+      <div className="flex justify-end">
+        <Button variant="secondary" asChild>
+          <Link href="/">
+            <FiArrowLeft className="inline" /> Back Home
+          </Link>
+        </Button>
+      </div>
     </article>
   );
 }
