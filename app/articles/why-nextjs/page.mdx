@@ -1,8 +1,11 @@
+import ToastDemo from '@/components/ToasterWrapper';
+
 import image from './next.svg';
 
 export const metadata = {
   date: '2023-08-01',
   title: 'NextJs 笔记',
+  description: 'NextJs Notes',
   image,
 };
 
@@ -34,10 +37,6 @@ Tailwind 在 NextJs 里面似乎很受支持, 直接在 CNA 里面内置了选�
 
 next 默认配置好了路由缓存, 所以不要担心瀑布问题
 
-```tsx
-<Analysics />
-```
-
 ## Vercel/kv
 
 vercel 的 kv 可以看作 redis, `key-value` 存储数据, 比如用来存储评论, 点赞数目, 站点浏览量, 或者用来存储 chatgpt 的对话;
@@ -46,14 +45,10 @@ vercel 的 kv 可以看作 redis, `key-value` 存储数据, 比如用来存储�
 
 > code-hike 仅仅支持客户端渲染, 默认代码字体比较小, bright(code-hike 写的)无需配置, 支持 rsc; 速度上没有很明显的差异
 
-```tsx
-import image from './next.svg';
+## components test
 
-/* ==> */
-
-export const metadata = {
-  date: '2023-08-01',
-  title: 'NextJs 笔记',
-  image,
-};
-```
+<ToastDemo
+  text="Info"
+  title={metadata.title}
+  description={metadata.description}
+/>
