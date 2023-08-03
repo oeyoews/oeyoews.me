@@ -1,7 +1,7 @@
-import ModeToggle from '@/components/ToggleTheme';
+import BoopButton from '@/components/useSound';
 
 function page() {
-  return <ModeToggle />;
+  return <BoopButton sound="click" text="Menu" />;
 }
 
 export default page;
