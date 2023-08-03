@@ -1,7 +1,8 @@
-import BoopButton from '@/components/useSound';
+// 'use client';
+import HitCounter from '@/components/HitCounter';
 
 function page() {
-  return <BoopButton sound="click" text="Menu" />;
+  return <HitCounter />;
 }
 
 export default page;

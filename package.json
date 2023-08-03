@@ -28,6 +28,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
+    "react-retro-hit-counter": "^1.0.1",
     "reading-time": "^1.5.0",
     "sharp": "^0.32.4",
     "simple-functional-loader": "^1.2.1",
