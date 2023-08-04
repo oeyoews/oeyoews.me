@@ -1,10 +1,15 @@
 import Image from 'next/image';
 
-import bing from '@/lib/Bing';
+import getbingImages from '@/lib/Bing';
 
-export default async function BingImage() {
-  const { url, title } = await bing();
+export default async function BingImage({ url }: { url: string }) {
   return (
-    url && <Image src={url} alt={title} width={180} height={60} title={title} />
+    <Image
+      src={`https://bing.com${url}`}
+      alt=""
+      width={1920}
+      height={1080}
+      className="rounded-lg shadow-lg"
+    />
   );
 }

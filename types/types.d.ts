@@ -1,3 +1,7 @@
+interface BingUrl {
+  url: string;
+}
+
 declare module '*.mp3' {
   const src: string;
   export default src;
@@ -14,7 +18,7 @@ interface BingImage {
 
 interface BingImageItem {
   url: string | undefined | StaticImport;
-  title: string | undefined | StaticImport;
+  // title: string | undefined | StaticImport;
   // startdate: string;
   // fullstartdate: string;
   // enddate: string;
