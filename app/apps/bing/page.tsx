@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import { Metadata } from 'next';
 
 import BingImage from '@/components/BingImage';
@@ -14,7 +16,9 @@ function page() {
   return (
     <div className="grid grid-cols-2 gap-16 m-8">
       {urls.map(({ url }) => (
-        <BingImage url={url} key={url} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <BingImage url={url} key={url} />
+        </Suspense>
       ))}
     </div>
   );
