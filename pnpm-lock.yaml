@@ -8,9 +8,12 @@ dependencies:
   '@mdx-js/loader':
     specifier: ^2.3.0
     version: 2.3.0(webpack@5.88.2)
+  '@mdx-js/react':
+    specifier: ^2.3.0
+    version: 2.3.0(react@18.2.0)
   '@next/mdx':
     specifier: ^13.4.12
-    version: 13.4.12(@mdx-js/loader@2.3.0)
+    version: 13.4.12(@mdx-js/loader@2.3.0)(@mdx-js/react@2.3.0)
   '@radix-ui/react-dropdown-menu':
     specifier: ^2.0.5
     version: 2.0.5(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)
@@ -410,6 +413,16 @@ packages:
       - supports-color
     dev: false
 
+  /@mdx-js/react@2.3.0(react@18.2.0):
+    resolution: {integrity: sha512-zQH//gdOmuu7nt2oJR29vFhDv88oGPmVw6BggmrHeMI+xgEkp1B2dX9/bMBSYtK0dyLX/aOmesKS09g222K1/g==}
+    peerDependencies:
+      react: '>=16'
+    dependencies:
+      '@types/mdx': 2.0.5
+      '@types/react': 18.2.8
+      react: 18.2.0
+    dev: false
+
   /@next/env@13.4.13-canary.13:
     resolution: {integrity: sha512-UtEqE/++uzFmJZoZ+FxOALu3opBDIt1KYYn+c1ldpBb+0LAldXhVbjdgFjQMmAXglqFMTIo0Ol+KIX7CoaWATA==}
     dev: false
@@ -420,7 +433,7 @@ packages:
       glob: 7.1.7
     dev: true
 
-  /@next/mdx@13.4.12(@mdx-js/loader@2.3.0):
+  /@next/mdx@13.4.12(@mdx-js/loader@2.3.0)(@mdx-js/react@2.3.0):
     resolution: {integrity: sha512-5/MHP/aVBD+wfTRAsZuxWI9h0JOn9n/ygCSy6SBZtaWHT3QZg+r1G4iYj5152uYVMHCD1rk9CfJAvA24LeyT1w==}
     peerDependencies:
       '@mdx-js/loader': '>=0.15.0'
@@ -432,6 +445,7 @@ packages:
         optional: true
     dependencies:
       '@mdx-js/loader': 2.3.0(webpack@5.88.2)
+      '@mdx-js/react': 2.3.0(react@18.2.0)
       source-map: 0.7.4
     dev: false
 

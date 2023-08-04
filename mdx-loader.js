@@ -31,6 +31,7 @@ module.exports =
           },
         };
 
+    // config mdx components
     return Object.assign({}, nextConfig, {
       webpack(config, options) {
         config.resolve.alias['next-mdx-import-source-file'] = [

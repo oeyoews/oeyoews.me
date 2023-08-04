@@ -1,5 +1,4 @@
 import ToastDemo from '@/components/ToasterWrapper';
-import ModeToggle from '@/components/ToggleTheme';
 
 import image from './next.svg';
 
@@ -10,8 +9,6 @@ export const metadata = {
   image,
 };
 
-{/* <div className="flex justify-end"> <ModeToggle /> </div> */}
-
 > 自从 React18 的文档更新以后, 引起了不小的讨论, react 不再一味的像以前推荐 CRA, 而是建议使用基于 React 的框架进行学习 React, 而且这一推荐放在了很重要的开头位置(NextJs 和 React 的合作很密切)
 
 1. 有人认为新手学习 React 就使用框架会不会太重, 也有人觉得新手就应该使用框架, 因为 React 只能算一个 Ui 库, 不足以真正满足开发需求, 如果不使用框架, 什么都要自己进行配置, 打不到最佳实践
@@ -20,7 +17,7 @@ export const metadata = {
 
 ## Nextjs Mdx
 
-由于 扩展了 metadata, 想要在页面除了展示 pagd.mdx 的内容, 还需要自定义展示 metadata 的内容, 达到 frontmetadata 的作用, 使用二级动态 layout(这不是很符合 nextjs 直觉), 如果在根目录使用 loading, 二级 layout 的内容不会即使刷新(page.mdx 的内容是正常工作的), 需要二次刷新
+由于(@next/mdx 不支持 frontmatter) 扩展了 metadata, 想要在页面除了展示 pagd.mdx 的内容, 还需要自定义展示 metadata 的内容, 达到 frontmetadata 的作用, 使用二级动态 layout(这不是很符合 nextjs 直觉), 如果在根目录使用 loading, 二级 layout 的内容不会即使刷新(page.mdx 的内容是正常工作的), 需要二次刷新
 
 ## NextJs Cache
 

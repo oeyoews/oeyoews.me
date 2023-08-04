@@ -11,3 +11,7 @@ export const metadata = {
   data: '2022-08-01',
 };
 ```
+
+## TODO
+
+- graymatter 可以代替 export metadata, 但是没有了良好的 seo

@@ -5,6 +5,7 @@ const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
     // remarkPlugins: [],
+    // providerImportSource: '@mdx-js/react',
   },
 });
 
@@ -25,6 +26,10 @@ const nextConfig = {
     return config;
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  reactStrictMode: true,
+  experimental: {
+    mdxRs: true,
+  },
   images: {
     domains: ['bing.com', 'images.unsplash.com', 'plus.unsplash.com'],
   },
