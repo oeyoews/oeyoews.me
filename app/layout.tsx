@@ -16,6 +16,10 @@ import { isProd } from '@/lib/isProd';
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Nextjs Blog',
+  //  title: {
+  //     template: '%s | NextJs Blog',
+  //     default: 'NextJs Blog',
+  //   },
   description: '个人博客, 使用Nextjs + TypeScript + Tailwindcss 构建',
 };
 
