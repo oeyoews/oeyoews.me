@@ -1,3 +1,23 @@
+interface SparkleProps {
+  size: number;
+  color: string;
+  style: {
+    top: string;
+    left: string;
+  };
+}
+
+interface Sparkle {
+  id: string;
+  createdAt: number;
+  color: string;
+  size: number;
+  style: {
+    top: string;
+    left: string;
+  };
+}
+
 interface BingUrl {
   url: string;
 }

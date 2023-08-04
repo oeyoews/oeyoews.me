@@ -1,7 +1,5 @@
 import Image from 'next/image';
 
-import getbingImages from '@/lib/Bing';
-
 export default async function BingImage({ url }: { url: string }) {
   return (
     <Image
