@@ -16,8 +16,8 @@ function page() {
   return (
     <div className="grid grid-cols-2 gap-16 m-8">
       {urls.map(({ url }) => (
-        <Suspense fallback={<div>Loading...</div>}>
-          <BingImage url={url} key={url} />
+        <Suspense fallback={<div>Loading...</div>} key={url}>
+          <BingImage url={url} />
         </Suspense>
       ))}
     </div>
