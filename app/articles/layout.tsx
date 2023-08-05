@@ -10,6 +10,8 @@ import { getArticleBySlug } from '@/utils/getArticles';
 import ArticleInfo from '@/components/ArticleInfo';
 import { Button } from '@/components/ui/button';
 
+import getBase64 from '@/lib/getLocalBase64';
+
 export default async function Layout({
   children,
 }: {
@@ -20,6 +22,9 @@ export default async function Layout({
   const { metadata } = article;
   const image = metadata?.image;
 
+  // const placeholder = image?.toString().startsWith('http') ? 'empty' : 'blur';
+  const blurData = await getBase64(image || '/image.png');
+
   return (
     <article className="lg:prose-md prose mx-auto p-4">
       {
@@ -29,7 +34,11 @@ export default async function Layout({
             src={image || '/image.png'}
             width={1080}
             height={960}
+            placeholder="blur"
+            blurDataURL={blurData}
+            // placeholder={placeholder}
             alt={String(metadata?.title)}
+            priority
           />
         </div>
       }

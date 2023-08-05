@@ -31,7 +31,12 @@ const nextConfig = {
     mdxRs: true,
   },
   images: {
-    domains: ['bing.com', 'images.unsplash.com', 'plus.unsplash.com'],
+    domains: [
+      'bing.com',
+      'images.unsplash.com',
+      'plus.unsplash.com',
+      'nextjs.oeyoewl.top',
+    ],
   },
 };
 

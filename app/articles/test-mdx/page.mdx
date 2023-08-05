@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import image from './image.png';
 
 export const metadata = {
@@ -6,4 +8,4 @@ export const metadata = {
   image,
 };
 
-;
+<Image src={image} alt="demo" placeholder="blur" />
