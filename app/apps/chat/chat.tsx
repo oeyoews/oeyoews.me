@@ -47,25 +47,25 @@ export default function MyComponent() {
             <div className="inline">
               {m.role === 'user' ? 'User: ' : `AI: `}{' '}
               <ReactMarkdown
-                components={{
-                  // @ts-ignore
-                  code({ node, inline, className, children, ...props }) {
-                    const match = /language-(\w+)/.exec(className || '');
-                    return !inline && match ? (
-                      <SyntaxHighlighter
-                        {...props}
-                        children={String(children).replace(/\n$/, '')}
-                        style={oneDark}
-                        language={match[1]}
-                        PreTag="div"
-                      />
-                    ) : (
-                      <code {...props} className={className}>
-                        {children}
-                      </code>
-                    );
-                  },
-                }}
+                // components={{
+                //   code({ node, inline, className, children, ...props }) {
+                //     const match = /language-(\w+)/.exec(className || '');
+                //     return !inline && match ? (
+                //       <SyntaxHighlighter
+                //         {...props}
+                //         // @ts-ignore
+                //         children={String(children).replace(/\n$/, '')}
+                //         style={oneDark}
+                //         language={match[1]}
+                //         PreTag="div"
+                //       />
+                //     ) : (
+                //       <code {...props} className={className}>
+                //         {children}
+                //       </code>
+                //     );
+                //   },
+                // }}
                 className="inline-block"
                 remarkPlugins={[remarkGfm]}
               >
