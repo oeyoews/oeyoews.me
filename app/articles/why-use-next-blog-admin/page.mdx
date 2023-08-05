@@ -1,0 +1,15 @@
+export const metadata = {
+  title: '使用nextjs admix 管理文章',
+  date: '2023-08-05',
+  image:
+    'https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTExfHxhZG1pbiUyMGJsb2d8ZW58MHwwfDB8fHww&auto=format&fit=crop&w=600&q=60',
+};
+
+> 希望写一个 Nextjs 博客后台管理系统, 从而练习如何使用 nextjs 写后台(零后台管理项目经验), 下列想法仅作为前期雏形, 有很大概率 v0.0.1 都发布出来, 可能需要参考别的后台管理系统
+
+- (在线, 本地)编辑,新建, 删除, 预览, 发布文章, 有点类似 CMS
+
+## TODO
+
+- 如何读取这些 md(x) 数据文件呈现在前台(尽量不依赖数据库), 从而支持编辑, (可以保存实时预览, 也许可以参考 slider 项目)
+- 前后台不分离(Nextjs 比较好实现), 比如支持 xxx:3000/admin xxx:3000/preview
