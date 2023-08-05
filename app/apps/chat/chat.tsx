@@ -11,12 +11,12 @@ import remarkGfm from 'remark-gfm';
 
 export default function MyComponent() {
   const [password, setPassword] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   useEffect(() => {
     if (
-      localStorage.getItem('chat-password') === process.env.NEXT_PUBLIC_PASSWORD
+      localStorage.getItem('chat-password') !== process.env.NEXT_PUBLIC_PASSWORD
     ) {
-      setIsAuthenticated(true);
+      setIsAuthenticated(false);
     }
   }, []);
   const handlePasswordSubmit = (e: any) => {
