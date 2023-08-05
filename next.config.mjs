@@ -1,5 +1,6 @@
-// const createMDX = require('@next/mdx');
-const createMDX = require('./mdx-loader.js');
+import createMDX from './mdx-loader.js';
+
+import withPlaiceholder from '@plaiceholder/next';
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
@@ -9,7 +10,6 @@ const withMDX = createMDX({
   },
 });
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (
     config,
@@ -40,4 +40,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withMDX(nextConfig);
+export default withPlaiceholder(withMDX(nextConfig));
