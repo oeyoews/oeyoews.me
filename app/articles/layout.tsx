@@ -49,7 +49,7 @@ export default async function Layout({
       >
         {children}
       </Suspense>
-      <div className="flex justify-end">
+      <div className="flex justify-end print:hidden">
         <Button variant="secondary" asChild>
           <Link href="/">
             <FiArrowLeft className="inline" /> Back Home
