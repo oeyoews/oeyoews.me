@@ -8,7 +8,7 @@ const openai = new OpenAIApi(config)
 
 export const runtime = 'edge'
 
-export async function POST(req: { json: () => PromiseLike<{ messages: any }> | { messages: any } }) {
+export async function POST(req: any) {
 	const { messages } = await req.json()
 	const response = await openai.createChatCompletion({
 		model: 'gpt-3.5-turbo-0301',
