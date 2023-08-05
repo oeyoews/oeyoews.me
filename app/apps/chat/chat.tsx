@@ -18,7 +18,7 @@ export default function MyComponent() {
     ) {
       setIsAuthenticated(true);
     }
-  });
+  }, []);
   const handlePasswordSubmit = (e: any) => {
     e.preventDefault();
     if (password === process.env.NEXT_PUBLIC_PASSWORD) {
@@ -48,6 +48,7 @@ export default function MyComponent() {
               {m.role === 'user' ? 'User: ' : `AI: `}{' '}
               <ReactMarkdown
                 components={{
+                  // @ts-ignore
                   code({ node, inline, className, children, ...props }) {
                     const match = /language-(\w+)/.exec(className || '');
                     return !inline && match ? (
