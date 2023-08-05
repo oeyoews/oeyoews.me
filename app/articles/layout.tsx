@@ -22,8 +22,8 @@ export default async function Layout({
   const { metadata } = article;
   const image = metadata?.image;
 
-  // const placeholder = image?.toString().startsWith('http') ? 'empty' : 'blur';
-  const blurData = await getBase64(image || '/image.png');
+  const imageType = image?.toString().startsWith('http') ? 'online' : 'static';
+  const blurData = imageType === 'static' ? '' : await getBase64(image || '');
 
   return (
     <article className="lg:prose-md prose mx-auto p-4">
@@ -34,7 +34,7 @@ export default async function Layout({
             src={image || '/image.png'}
             width={1080}
             height={960}
-            placeholder="blur"
+            placeholder={imageType === 'online' ? 'blur' : 'empty'}
             blurDataURL={blurData}
             // placeholder={placeholder}
             alt={String(metadata?.title)}
