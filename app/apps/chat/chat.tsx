@@ -2,6 +2,11 @@
 
 import { useChat } from 'ai/react';
 import { TbBrandGithubCopilot } from 'react-icons/tb';
+import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+import remarkGfm from 'remark-gfm';
 
 export default function MyComponent() {
   const { messages, input, handleInputChange, handleSubmit } = useChat({
@@ -9,15 +14,40 @@ export default function MyComponent() {
   });
 
   return (
-    <div className="max-w-xl mx-auto prose m-2">
+    <div className="max-w-xl mx-auto m-2">
       <h1 className="bg-gradient-to-r from-indigo-500 via-purple-300 to-red-500 bg-clip-text text-transparent text-center">
         <TbBrandGithubCopilot className="mr-2 inline stroke-2 stroke-purple-400 align-middle" />
       </h1>
       <ul className="list-none min-h-screen mb-32">
         {messages.map((m, index) => (
           <li key={index} className="m-2 bg-neutral-100 p-4 rounded-md">
-            {m.role === 'user' ? 'User: ' : `AI: `}
-            {m.content}
+            <div className="inline">
+              {m.role === 'user' ? 'User: ' : `AI: `}{' '}
+              <ReactMarkdown
+                components={{
+                  code({ node, inline, className, children, ...props }) {
+                    const match = /language-(\w+)/.exec(className || '');
+                    return !inline && match ? (
+                      <SyntaxHighlighter
+                        {...props}
+                        children={String(children).replace(/\n$/, '')}
+                        style={oneDark}
+                        language={match[1]}
+                        PreTag="div"
+                      />
+                    ) : (
+                      <code {...props} className={className}>
+                        {children}
+                      </code>
+                    );
+                  },
+                }}
+                className="inline-block"
+                remarkPlugins={[remarkGfm]}
+              >
+                {m.content}
+              </ReactMarkdown>
+            </div>
           </li>
         ))}
       </ul>
