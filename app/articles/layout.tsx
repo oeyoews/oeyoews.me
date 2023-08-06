@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { getArticleBySlug } from '@/utils/getArticles';
 
 import ArticleInfo from '@/components/ArticleInfo';
+import BackToTop from '@/components/BackToTop';
 import { Button } from '@/components/ui/button';
 
 import getBase64 from '@/lib/getLocalBase64';
@@ -48,6 +49,7 @@ export default async function Layout({
         fallback={<div className="flex justify-center my-2">Loading...</div>}
       >
         {children}
+        {/* <BackToTop /> */}
       </Suspense>
       <div className="flex justify-end print:hidden">
         <Button variant="secondary" asChild>
