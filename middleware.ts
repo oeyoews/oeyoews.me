@@ -1,22 +1,15 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
 
-export default function middleware(request: NextRequest) {
-  const requestHeaders = new Headers(request.headers);
-  if (request.nextUrl.pathname.startsWith('/articles/'))
-    // if (request.url.includes('/articles/'))
-    requestHeaders.set(
-      'x-next-article-slug',
-      request.nextUrl.pathname.replace('/articles/', ''),
-    );
+export default createMiddleware({
+  // A list of all locales that are supported
+  locales: ['en', 'zh'],
 
-  return NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  });
-}
+  // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
+  defaultLocale: 'en'
+});
 
 export const config = {
-  matcher: '/articles/:path*',
+  // Skip all paths that should not be internationalized. This example skips the
+  // folders "api", "_next" and all files with an extension (e.g. favicon.ico)
+  matcher: ['/((?!api|_next|.*\\..*).*)']
 };
