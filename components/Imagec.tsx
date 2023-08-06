@@ -9,7 +9,7 @@ function Imagec({ ...props }: ImageProps) {
       <div>
         <Image
           src={props.src}
-          className="rounded bg-neutral-100 shadow-lg p-4"
+          // className="rounded bg-neutral-100 shadow-lg p-4"
           alt={props.alt}
           width={props.width}
           height={props.height}

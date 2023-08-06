@@ -32,9 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ProgressBar />
-        {children}
-        <Toaster />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ProgressBar />
+          {children}
+          <Toaster />
+        </ThemeProvider>
         {isProd && <Analytics />}
       </body>
     </html>

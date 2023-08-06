@@ -1,6 +1,7 @@
 'use client';
 
-import { BsFillMoonStarsFill, BsFillSunFill, BsSunFill } from 'react-icons/bs';
+import { HiOutlineComputerDesktop } from 'react-icons/hi2';
+import { PiMoonStarsThin, PiSunThin } from 'react-icons/pi';
 
 import { useTheme } from 'next-themes';
 
@@ -18,21 +19,21 @@ export default function ModeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <BsSunFill className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-180 dark:scale-0" />
-          <BsFillMoonStarsFill className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+        <Button variant="ghost" size="icon">
+          <PiSunThin className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-180 dark:scale-0" />
+          <PiMoonStarsThin className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme('light')}>
-          Light
+          <PiSunThin className="mx-2" /> Light
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('dark')}>
-          Dark
+          <PiMoonStarsThin className="mx-2" /> Dark
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('system')}>
-          System
+          <HiOutlineComputerDesktop className="mx-2" /> System
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

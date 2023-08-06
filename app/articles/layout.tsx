@@ -27,7 +27,7 @@ export default async function Layout({
   const blurData = imageType === 'static' ? '' : await getBase64(image || '');
 
   return (
-    <article className="lg:prose-md prose mx-auto p-4">
+    <article className="lg:prose-md prose mx-auto p-4 dark:prose-invert prose-img:rounded-md">
       {
         <div className="flex max-h-[60vh] justify-center">
           <Image

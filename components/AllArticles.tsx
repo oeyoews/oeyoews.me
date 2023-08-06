@@ -2,6 +2,8 @@ import Link from 'next/link';
 
 import { getAllArticles } from '@/utils/getArticles';
 
+import ModeToggle from './ToggleTheme';
+
 export default async function AllArticles() {
   const articles = await getAllArticles();
 
@@ -13,7 +15,9 @@ export default async function AllArticles() {
 
   return (
     <div className="mx-auto max-w-xl text-sm">
-      <h1 className="mb-4 text-2xl font-bold">博客</h1>
+      <h1 className="mb-4 text-2xl font-bold">
+        博客 <ModeToggle />
+      </h1>
       {articles.map((article) => {
         const { metadata } = article;
         const title = String(metadata?.title || article.slug);
@@ -22,7 +26,7 @@ export default async function AllArticles() {
           <Link
             key={title}
             href={'/articles/' + article.slug}
-            className="flex flex-col overflow-hidden rounded-md p-2 !text-sm duration-300 lg:hover:bg-neutral-100"
+            className="flex flex-col overflow-hidden rounded-md p-2 !text-sm duration-300"
           >
             <div className="px-4 py-2">
               <div className="my-1 text-gray-500">{metadata?.date}</div>
