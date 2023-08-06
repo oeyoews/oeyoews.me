@@ -26,7 +26,7 @@ export default async function AllArticles() {
           <Link
             key={title}
             href={'/articles/' + article.slug}
-            className="flex flex-col overflow-hidden rounded-md p-2 !text-sm duration-300"
+            className="flex flex-col overflow-hidden rounded-md p-2 !text-sm duration-300 hover:lg:bg-neutral-100 hover:lg:dark:bg-neutral-800"
           >
             <div className="px-4 py-2">
               <div className="my-1 text-gray-500">{metadata?.date}</div>

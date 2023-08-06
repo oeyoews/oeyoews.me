@@ -52,7 +52,7 @@ export default async function Layout({
         {/* <BackToTop /> */}
       </Suspense>
       <div className="flex justify-end print:hidden">
-        <Button variant="secondary" asChild>
+        <Button variant="ghost" asChild>
           <Link href="/">
             <FiArrowLeft className="inline" /> Back Home
           </Link>

@@ -13,7 +13,7 @@ const ToastWrapper = (props: {
 
   return (
     <Button
-      variant="secondary"
+      variant="ghost"
       onClick={() => {
         toast({
           title,
