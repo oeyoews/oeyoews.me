@@ -1,4 +1,3 @@
-import AISummary from '@/components/AISummary';
 import AllArticles from '@/components/AllArticles';
 import ViewCounter from '@/components/ViewCounter';
 

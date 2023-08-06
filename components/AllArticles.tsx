@@ -27,7 +27,7 @@ export default async function AllArticles() {
             <div className="px-4 py-2">
               <div className="my-1 text-gray-500">{metadata?.date}</div>
               <div className="mb-2 text-base font-semibold">{title}</div>
-              <p className="line-clamp-3 text-sm text-gray-600">
+              <p className="line-clamp-3 text-sm text-gray-600 indent-0">
                 {metadata?.description}
               </p>
             </div>

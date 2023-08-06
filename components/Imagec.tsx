@@ -1,3 +1,6 @@
+// import getBase64 from '@/lib/getLocalBase64';
+import { use } from 'react';
+
 import Image, { ImageProps } from 'next/image';
 
 function Imagec({ ...props }: ImageProps) {
@@ -10,6 +13,8 @@ function Imagec({ ...props }: ImageProps) {
           alt={props.alt}
           width={props.width}
           height={props.height}
+          //   placeholder='blur'
+          //   blurDataURL={use(getBase64(props.src))}
         />
         <figcaption className="mt-2 text-center uppercase">
           {props.alt}
