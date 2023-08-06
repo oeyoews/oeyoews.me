@@ -8,7 +8,6 @@ import Link from 'next/link';
 import { getArticleBySlug } from '@/utils/getArticles';
 
 import ArticleInfo from '@/components/ArticleInfo';
-import BackToTop from '@/components/BackToTop';
 import { Button } from '@/components/ui/button';
 
 import getBase64 from '@/lib/getLocalBase64';
@@ -31,7 +30,7 @@ export default async function Layout({
       {
         <div className="flex max-h-[60vh] justify-center">
           <Image
-            className="rounded-md"
+            className="rounded-md aspect-video"
             src={image || '/image.png'}
             width={1080}
             height={960}

@@ -13,7 +13,7 @@ export default async function BingImage({ url }: { url: string }) {
       blurDataURL={blurData}
       width={1920}
       height={1080}
-      className="rounded-lg shadow-lg"
+      className="rounded-lg shadow-lg aspect-video"
     />
   );
 }
