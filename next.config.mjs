@@ -1,6 +1,10 @@
+import createIntl from 'next-intl/plugin';
+
 import createMDX from './mdx-loader.js';
 
 import withPlaiceholder from '@plaiceholder/next';
+
+const withNextIntl = createIntl('./i18n.ts');
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
@@ -40,4 +44,4 @@ const nextConfig = {
   },
 };
 
-export default withPlaiceholder(withMDX(nextConfig));
+export default withNextIntl(withPlaiceholder(withMDX(nextConfig)));

@@ -1,9 +1,12 @@
+import { use } from 'react';
+
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 import { getAllArticles } from '@/utils/getArticles';
 
-export default async function AllArticles() {
-  const articles = await getAllArticles();
+export default function AllArticles() {
+  const articles = use(getAllArticles());
 
   articles.sort((a: any, b: any) => {
     const dateA = new Date(a.metadata.date);
@@ -11,9 +14,11 @@ export default async function AllArticles() {
     return dateB.getTime() - dateA.getTime();
   });
 
+  const t = useTranslations('Index');
+
   return (
     <div className="mx-auto max-w-xl text-sm">
-      <h1 className="mb-4 text-2xl font-bold">博客</h1>
+      <h1 className="mb-4 text-2xl font-bold">{t('blog')}</h1>
       {articles.map((article) => {
         const { metadata } = article;
         const title = String(metadata?.title || article.slug);

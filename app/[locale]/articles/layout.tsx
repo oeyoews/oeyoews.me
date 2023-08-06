@@ -17,7 +17,11 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  const slug = headers().get('x-next-article-slug') as string;
+  let slug = headers().get('x-next-article-slug') as string;
+  if (!slug) {
+    slug = 'why-nextjs';
+    console.log('====================== ', slug, '======================');
+  }
   const article = await getArticleBySlug(slug);
   const { metadata } = article;
   const image = metadata?.image;

@@ -1,20 +1,19 @@
 import { Analytics } from '@vercel/analytics/react';
+import { ReactElement } from 'react-markdown/lib/react-markdown';
 
 import type { Metadata } from 'next';
-import { NextIntlClientProvider } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { Inter } from 'next/font/google';
+import { notFound } from 'next/navigation';
 
-import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 
 import './globals.css';
 
 import { isProd } from '@/lib/isProd';
 
-// ??
-// export const revaliate = 1;
 export function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'de' }];
+  return [{ locale: 'en' }, { locale: 'zh' }];
 }
 
 const inter = Inter({ subsets: ['latin'] });
@@ -27,23 +26,27 @@ export const metadata: Metadata = {
   description: '个人博客, 使用Nextjs + TypeScript + Tailwindcss 构建',
 };
 
-export default async function RootLayout({ children, params: { locale } }) {
-  let messages;
-  try {
-    messages = (await import(`../../messages/${locale}.json`)).default;
-  } catch (error) {
-    // notFound();
-    console.log('not founded');
+export default function RootLayout({
+  children,
+  params,
+}: {
+  children: ReactElement;
+  params: any;
+}) {
+  const locale = useLocale();
+
+  // Show a 404 error if the user requests an unknown locale
+  if (params.locale !== locale) {
+    notFound();
   }
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={inter.className}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
-          {children}
-          <Toaster />
-          {/* </ThemeProvider> */}
-        </NextIntlClientProvider>
+        {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
+        {children}
+        <Toaster />
+        {/* </ThemeProvider> */}
         {isProd && <Analytics />}
       </body>
     </html>

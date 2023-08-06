@@ -18,11 +18,11 @@ const importAll = (r: any): Promise<Article[]> =>
 export const getAllArticles = async (): Promise<Article[]> =>
   importAll(
     // @ts-ignore
-    require.context('../app/articles/', true, /^\.\/[^\/]+\/page\.mdx$/),
+    require.context('../app/[locale]/articles/', true, /^\.\/[^\/]+\/page\.mdx$/),
   );
 
 export const getArticleBySlug = async (slug: string): Promise<Article> => {
-  const module = require(`../app/articles/${slug}/page.mdx`);
+  const module = require(`../app/[locale]/articles/${slug}/page.mdx`);
 
   return {
     slug,
