@@ -9,11 +9,12 @@ export default async function BingImage({ url }: { url: string }) {
     <Image
       src={src}
       alt=""
+      data-fancybox="gallery"
       placeholder="blur"
       blurDataURL={blurData}
       width={1920}
       height={1080}
-      className="rounded-lg shadow-lg aspect-video"
+      className="rounded-lg shadow-lg aspect-video cursor-pointer"
     />
   );
 }

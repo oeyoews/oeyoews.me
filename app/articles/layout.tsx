@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { getArticleBySlug } from '@/utils/getArticles';
 
 import ArticleInfo from '@/components/ArticleInfo';
+import Fancybox from '@/components/Fancybox';
 import { Button } from '@/components/ui/button';
 
 import getBase64 from '@/lib/getLocalBase64';
@@ -29,17 +30,20 @@ export default async function Layout({
     <article className="lg:prose-md prose mx-auto p-4 dark:prose-invert prose-img:rounded-md">
       {
         <div className="flex max-h-[60vh] justify-center">
-          <Image
-            className="rounded-md aspect-video"
-            src={image || '/image.png'}
-            width={1080}
-            height={960}
-            placeholder={imageType === 'online' ? 'blur' : 'empty'}
-            blurDataURL={blurData}
-            // placeholder={placeholder}
-            alt={String(metadata?.title)}
-            priority
-          />
+          <Fancybox>
+            <Image
+              data-fancybox=""
+              className="rounded-md aspect-video cursor-pointer"
+              src={image || '/image.png'}
+              width={1080}
+              height={960}
+              placeholder={imageType === 'online' ? 'blur' : 'empty'}
+              blurDataURL={blurData}
+              // placeholder={placeholder}
+              alt={String(metadata?.title)}
+              priority
+            />
+          </Fancybox>
         </div>
       }
       <h1>{String(metadata?.title)}</h1>
