@@ -32,7 +32,8 @@ export default async function Layout({
         <div className="flex max-h-[60vh] justify-center">
           <Fancybox>
             <Image
-              data-fancybox=""
+              data-fancybox="gallery"
+              data-caption={`${metadata?.title} | oeyoews`}
               className="rounded-md aspect-video cursor-pointer"
               src={image || '/image.png'}
               width={1080}
