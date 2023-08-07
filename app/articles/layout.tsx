@@ -43,6 +43,7 @@ export default async function Layout({
               // placeholder={placeholder}
               alt={String(metadata?.title)}
               priority
+              quality={100}
             />
           </Fancybox>
         </div>
