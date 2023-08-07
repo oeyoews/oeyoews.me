@@ -9,6 +9,7 @@ import ReactMarkdown from 'react-markdown';
 import Link from 'next/link';
 
 import IconOpenAI from '@/components/AiIcon';
+import { ChatMessageActions } from '@/components/chat/ChatMessageActions';
 import { CodeBlock } from '@/components/chat/CodeBlock';
 
 import remarkGfm from 'remark-gfm';
@@ -51,7 +52,7 @@ export default function MyComponent() {
       <div className="m-4 flex-1 space-y-8 overflow-hidden px-1">
         {messages.map((m, index) => (
           <div key={index}>
-            <div className="flex flex-row">
+            <div className="flex flex-row group relative my-4">
               <div className="flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-md border shadow mr-4">
                 {m.role === 'user' ? (
                   <FiUser />
@@ -109,6 +110,7 @@ export default function MyComponent() {
                 >
                   {m.content}
                 </ReactMarkdown>
+                <ChatMessageActions message={m} />
               </div>
             </div>
           </div>
