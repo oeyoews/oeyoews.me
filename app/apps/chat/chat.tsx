@@ -2,12 +2,14 @@
 
 import { useChat } from 'ai/react';
 import { useEffect, useState } from 'react';
+import { FiGithub, FiUser } from 'react-icons/fi';
 import { TbBrandGithubCopilot } from 'react-icons/tb';
 import ReactMarkdown from 'react-markdown';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+import { CodeBlock } from '@/components/chat/CodeBlock';
 
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
 
 export default function MyComponent() {
   const [password, setPassword] = useState('');
@@ -37,44 +39,68 @@ export default function MyComponent() {
   });
 
   return (
-    <div className="max-w-xl mx-auto m-2 prose">
-      <h1 className="bg-gradient-to-r from-indigo-500 via-purple-300 to-red-500 bg-clip-text text-transparent text-center">
+    <div className="max-w-xl mx-auto m-2 prose dark:prose-invert">
+      <h1 className="bg-gradient-to-r from-indigo-500 via-purple-300 to-red-500 bg-clip-text text-center">
         <TbBrandGithubCopilot className="mr-2 inline stroke-2 stroke-purple-400 align-middle" />
       </h1>
-      <ul className="list-none mb-32">
+      <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
         {messages.map((m, index) => (
-          <li key={index} className="m-2 bg-neutral-100 p-4 rounded-md">
-            <div className="inline">
-              {m.role === 'user' ? 'User: ' : `AI: `}{' '}
-              <ReactMarkdown
-                // components={{
-                //   code({ node, inline, className, children, ...props }) {
-                //     const match = /language-(\w+)/.exec(className || '');
-                //     return !inline && match ? (
-                //       <SyntaxHighlighter
-                //         {...props}
-                //         // @ts-ignore
-                //         children={String(children).replace(/\n$/, '')}
-                //         style={oneDark}
-                //         language={match[1]}
-                //         PreTag="div"
-                //       />
-                //     ) : (
-                //       <code {...props} className={className}>
-                //         {children}
-                //       </code>
-                //     );
-                //   },
-                // }}
-                className="inline-block"
-                remarkPlugins={[remarkGfm]}
-              >
-                {m.content}
-              </ReactMarkdown>
+          <div key={index}>
+            <div className="flex flex-row">
+              <div className="flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-md border shadow">
+                {m.role === 'user' ? <FiUser /> : <TbBrandGithubCopilot />}{' '}
+              </div>
+              <div className="flex flex-col ml-2">
+                <ReactMarkdown
+                  className="break-words prose-p:leading-relaxed prose-pre:p-0"
+                  remarkPlugins={[remarkGfm, remarkMath]}
+                  components={{
+                    p({ children }) {
+                      return <p className="mb-2 last:mb-0">{children}</p>;
+                    },
+                    code({ node, inline, className, children, ...props }) {
+                      if (children.length) {
+                        if (children[0] == '▍') {
+                          return (
+                            <span className="mt-1 animate-pulse cursor-default">
+                              ▍
+                            </span>
+                          );
+                        }
+                        children[0] = (children[0] as string).replace(
+                          '`▍`',
+                          '▍',
+                        );
+                      }
+
+                      const match = /language-(\w+)/.exec(className || '');
+
+                      if (inline) {
+                        return (
+                          <code className={className} {...props}>
+                            {children}
+                          </code>
+                        );
+                      }
+
+                      return (
+                        <CodeBlock
+                          key={Math.random()}
+                          language={(match && match[1]) || ''}
+                          value={String(children).replace(/\n$/, '')}
+                          {...props}
+                        />
+                      );
+                    },
+                  }}
+                >
+                  {m.content}
+                </ReactMarkdown>
+              </div>
             </div>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
       {!isAuthenticated && (
         <form
           onSubmit={handlePasswordSubmit}
@@ -83,25 +109,25 @@ export default function MyComponent() {
           <input
             type="password"
             onChange={handlePasswordInput}
-            className="border-none bg-neutral-100 p-4 rounded outline-none"
+            className="border p-4 rounded outline-none"
             placeholder="password"
           />
         </form>
       )}
       {isAuthenticated && (
         <form
-          className="stretch mx-2 flex flex-row gap-3 last:mb-2 md:mx-4 md:last:mb-6 lg:mx-auto lg:max-w-2xl xl:max-w-3xl bottom-0 fixed left-1/2 -translate-x-1/2 w-4/5 lg:w-2/5"
+          className="flex flex-row bottom-0 fixed left-1/2 -translate-x-1/2 w-4/5 lg:w-2/5"
           onSubmit={handleSubmit}
         >
-          <div className="relative flex h-full flex-1 items-stretch md:flex-col">
-            <div className="flex flex-col w-full py-[10px] flex-grow md:py-4 md:pl-4 relative border bg-neutral-100 border-black/10 dark:border-gray-900/50 dark:text-white dark:bg-gray-700 rounded-md shadow-xs dark:shadow-xs">
+          <div className="relative flex h-full flex-1 items-stretch">
+            <div className="flex flex-col w-full flex-grow relative border rounded-md shadow-xs">
               <input
                 autoFocus
                 onChange={handleInputChange}
                 value={input}
                 tabIndex={0}
                 placeholder="Send a message"
-                className="m-0 w-full resize-none border-0 bg-transparent p-0 pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent md:pr-12 pl-3 md:pl-0 outline-none"
+                className="m-0 w-full resize-none border-0 p-4 pr-10 focus:ring-0 focus-visible:ring-0 md:pr-12 pl-3 md:pl-0 outline-none"
               />
             </div>
           </div>

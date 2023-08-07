@@ -43,6 +43,7 @@
     "react-syntax-highlighter": "^15.5.0",
     "reading-time": "^1.5.0",
     "remark-gfm": "^3.0.1",
+    "remark-math": "^5.1.1",
     "sharp": "^0.32.4",
     "simple-functional-loader": "^1.2.1",
     "tailwind-merge": "^1.14.0",
