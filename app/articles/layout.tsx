@@ -9,6 +9,7 @@ import { getArticleBySlug } from '@/utils/getArticles';
 
 import ArticleInfo from '@/components/ArticleInfo';
 import Fancybox from '@/components/Fancybox';
+import Unsplash from '@/components/Unsplash';
 import { Button } from '@/components/ui/button';
 
 import getBase64 from '@/lib/getLocalBase64';
@@ -28,9 +29,9 @@ export default async function Layout({
 
   return (
     <article className="lg:prose-md prose mx-auto p-4 dark:prose-invert prose-img:rounded-md">
-      {
-        <div className="flex justify-center">
-          <Fancybox>
+      <div className="flex justify-center">
+        <Fancybox>
+          {image ? (
             <Image
               data-fancybox="gallery"
               data-caption={`${metadata?.title} | oeyoews`}
@@ -45,9 +46,11 @@ export default async function Layout({
               priority
               quality={100}
             />
-          </Fancybox>
-        </div>
-      }
+          ) : (
+            <Unsplash slug={slug} />
+          )}
+        </Fancybox>
+      </div>
       <h1>{String(metadata?.title)}</h1>
       <ArticleInfo article={article} className="inline px-1 text-sm" />
       <Suspense

@@ -48,6 +48,7 @@
     "simple-functional-loader": "^1.2.1",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.6",
+    "unsplash-js": "^7.0.18",
     "use-sound": "^4.0.1"
   },
   "devDependencies": {
