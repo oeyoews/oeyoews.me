@@ -5,8 +5,8 @@ function getBingImages() {
     'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=9&mkt=zh-cn',
   ));
   const data = (use(res.json()))
-  const urls: BingUrl[] = data.images
-  return urls;
+  const datas: BingData[] = data.images
+  return datas;
 }
 
 export default getBingImages;

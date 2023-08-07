@@ -18,8 +18,10 @@ interface Sparkle {
   };
 }
 
-interface BingUrl {
+interface BingData {
   url: string;
+  title: string
+  copyright: string
 }
 
 declare module '*.mp3' {

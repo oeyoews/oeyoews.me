@@ -50,7 +50,7 @@ function Fancybox(props: {
         ArrowLeft: 'prev',
       },
       Images: {
-        initialSize: 'cover', // cover; fit;
+        initialSize: 'fit', // cover; fit;
       },
       Hash: true, // custom hash  https://fancyapps.com/fancybox/plugins/hash/
     };
