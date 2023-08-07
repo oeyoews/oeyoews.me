@@ -79,6 +79,15 @@
   p {
     @apply indent-4;
   }
+
+  h1,
+  h2 {
+    @apply text-balance;
+  }
+
+  h1 {
+    @apply text-center;
+  }
 }
 
 a {
@@ -88,20 +97,6 @@ a {
 /* a::after {
   content: "↗";
 } */
-
-/* prose-pre */
-/* pre {
-  border-radius: none !important;
-} */
-
-h1,
-h2 {
-  text-wrap: balance;
-}
-
-h1 {
-  text-align: center;
-}
 
 @keyframes comeInOut {
   0% {
