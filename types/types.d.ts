@@ -1,3 +1,8 @@
+type PasswordStoreType = {
+  password: string | null;
+  setPassword: (password: string) => void;
+};
+
 interface SparkleProps {
   size: number;
   color: string;

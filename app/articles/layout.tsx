@@ -11,6 +11,7 @@ import ArticleInfo from '@/components/ArticleInfo';
 import Fancybox from '@/components/Fancybox';
 import { Button } from '@/components/ui/button';
 
+import usePasswordStore from '@/lib/PasswordStore';
 import getBase64 from '@/lib/getLocalBase64';
 
 export default async function Layout({
@@ -25,6 +26,16 @@ export default async function Layout({
 
   const imageType = image?.toString().startsWith('http') ? 'online' : 'static';
   const blurData = imageType === 'static' ? '' : await getBase64(image || '');
+
+  const passwordStore = usePasswordStore();
+  const handlePasswordSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    const enteredPassword = event.target[0].value; // 假设密码输入框在第一个位置
+    const savedPassword = passwordStore.getPasswordFromLocalStorage();
+    if (enteredPassword === savedPassword) {
+      passwordStore.setPasswordValidation(true);
+    }
+  };
 
   return (
     <article className="lg:prose-md prose mx-auto p-4 dark:prose-invert prose-img:rounded-md">
@@ -53,7 +64,16 @@ export default async function Layout({
       <Suspense
         fallback={<div className="flex justify-center my-2">Loading...</div>}
       >
-        {children}
+        {metadata?.password ? (
+          <div>
+            <form onSubmit={handlePasswordSubmit}>
+              <input type="password" placeholder="Enter password" />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        ) : (
+          children
+        )}
         {/* <BackToTop /> */}
       </Suspense>
       <div className="flex justify-end print:hidden">
