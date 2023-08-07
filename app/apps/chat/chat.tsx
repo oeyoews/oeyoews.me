@@ -4,9 +4,11 @@
 import { useChat } from 'ai/react';
 import { useEffect, useState } from 'react';
 import { FiUser } from 'react-icons/fi';
-import { TbBrandGithubCopilot } from 'react-icons/tb';
 import ReactMarkdown from 'react-markdown';
 
+import Link from 'next/link';
+
+import IconOpenAI from '@/components/AiIcon';
 import { CodeBlock } from '@/components/chat/CodeBlock';
 
 import remarkGfm from 'remark-gfm';
@@ -41,15 +43,17 @@ export default function MyComponent() {
 
   return (
     <div className="max-w-xl mx-auto prose dark:prose-invert">
-      <h1 className="bg-gradient-to-r from-indigo-500 via-purple-300 to-red-500 bg-clip-text text-center">
-        <TbBrandGithubCopilot className="mr-2 inline stroke-2 stroke-purple-400 align-middle" />
-      </h1>
+      <Link href="/" title="back home">
+        <h1 className="mt-4 bg-gradient-to-r from-indigo-500 via-purple-300 to-red-500 bg-clip-text text-center">
+          <IconOpenAI className="h-8 w-8 mr-2 inline stroke-2" />
+        </h1>
+      </Link>
       <div className="m-4 flex-1 space-y-8 overflow-hidden px-1">
         {messages.map((m, index) => (
           <div key={index}>
             <div className="flex flex-row">
               <div className="flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-md border shadow mr-4">
-                {m.role === 'user' ? <FiUser /> : <TbBrandGithubCopilot />}{' '}
+                {m.role === 'user' ? <FiUser /> : <IconOpenAI />}{' '}
               </div>
               <div className="flex flex-col ml-2 items-center">
                 <ReactMarkdown

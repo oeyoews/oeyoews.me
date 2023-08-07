@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import { getAllArticles } from '@/utils/getArticles';
 
+import AI from './AI';
 import ModeToggle from './ToggleTheme';
 
 export default async function AllArticles() {
@@ -16,7 +17,9 @@ export default async function AllArticles() {
   return (
     <div className="mx-auto max-w-xl text-sm">
       <h1 className="mb-4 text-2xl font-bold">
-        博客 <ModeToggle />
+        <AI />
+        博客
+        <ModeToggle />
       </h1>
       {articles.map((article) => {
         const { metadata } = article;
