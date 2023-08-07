@@ -12,7 +12,7 @@ export const metadata = {
 
 <Imagec src={seo} alt="seo" />
 
-- 支持良好的 seo
+- 支持良好的 seo(不过个人博客站点如果访客量不大几乎没啥区别)
 - 轻量
 
 自从 React18 的文档更新以后, 引起了不小的讨论, react 不再一味的像以前推荐 CRA, 而是建议使用基于 React 的框架进行学习 React, 而且这一推荐放在了很重要的开头位置(NextJs 和 React 的合作很密切)
@@ -39,7 +39,7 @@ ps: 今天才知道 tailwindcss 原来还有个 tailwindcss@insider 的 package(
 
 ## vecel analysics
 
-可以用来监视站点的浏览情况
+可以用来监视站点的浏览情况(不过Hobby版只能设置一个站点, 并且有2500次的上限)
 
 ## Bright
 
@@ -64,3 +64,11 @@ code-hike 仅仅支持客户端渲染, 默认代码字体比较小, bright(code-
   title={metadata.title}
   description={metadata.description}
 />
+
+## 代码分割
+
+* 代码分割的好处是减少了首次访问某个页面的加载时间, 仅仅加载当前网页需要的资源
+
+## Vercel
+
+* vercel hobby 仅能创建50个项目
