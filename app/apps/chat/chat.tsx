@@ -53,7 +53,11 @@ export default function MyComponent() {
           <div key={index}>
             <div className="flex flex-row">
               <div className="flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-md border shadow mr-4">
-                {m.role === 'user' ? <FiUser /> : <IconOpenAI />}{' '}
+                {m.role === 'user' ? (
+                  <FiUser />
+                ) : (
+                  <IconOpenAI className="h-4 w-4" />
+                )}{' '}
               </div>
               <div className="flex flex-col ml-2 items-center">
                 <ReactMarkdown
