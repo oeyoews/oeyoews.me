@@ -29,7 +29,7 @@ export default async function Layout({
   return (
     <article className="lg:prose-md prose mx-auto p-4 dark:prose-invert prose-img:rounded-md">
       {
-        <div className="flex max-h-[60vh] justify-center">
+        <div className="flex justify-center">
           <Fancybox>
             <Image
               data-fancybox="gallery"
