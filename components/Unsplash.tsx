@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import getBase64 from '@/lib/getLocalBase64';
+import { time } from 'console';
 import { createApi } from 'unsplash-js';
 
 export default async function Unsplash({ slug = 'alpine' }: { slug: string }) {
@@ -25,13 +26,14 @@ export default async function Unsplash({ slug = 'alpine' }: { slug: string }) {
     // <div className="">
     <Image
       src={src}
-      alt={alt}
+      // alt 有时alt 为空
+      alt={alt || slug}
       width={1980}
       height={960}
       placeholder="blur"
       blurDataURL={blurData}
       data-fancybox="gallery"
-      data-caption={alt}
+      data-caption={alt || slug}
       className="rounded-lg shadow-lg aspect-video cursor-pointer"
     />
     //   {alt}
