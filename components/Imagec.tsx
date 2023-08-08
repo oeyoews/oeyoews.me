@@ -15,6 +15,8 @@ function Imagec({ ...props }: ImageProps) {
           height={props.height}
           //   placeholder='blur'
           //   blurDataURL={use(getBase64(props.src))}
+          data-fancybox="gallary"
+          data-caption={props.alt}
         />
         <figcaption className="mt-2 text-center uppercase">
           {props.alt}

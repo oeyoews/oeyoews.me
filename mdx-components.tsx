@@ -1,3 +1,4 @@
+import Fancybox from './components/Fancybox';
 import Imagec from './components/Imagec';
 
 import { Code } from 'bright';
@@ -7,6 +8,7 @@ export function useMDXComponents(components: MDXComponents) {
   Code.lineNumbers = false;
   Code.theme = 'one-dark-pro';
   return {
+    Fancybox,
     Imagec,
     pre: ({
       children,
