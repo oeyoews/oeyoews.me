@@ -1,10 +1,9 @@
 import Image from 'next/image';
 
 import getBase64 from '@/lib/getLocalBase64';
-import { time } from 'console';
 import { createApi } from 'unsplash-js';
 
-export default async function Unsplash({ slug = 'alpine' }: { slug: string }) {
+export default async function Unsplash({ slug = 'alpine' }: Params) {
   const UnsplashApiClient = createApi({
     accessKey: process.env.UNSPLASH_API_KEY as string,
   });
