@@ -5,7 +5,7 @@ const estimateReadTime = createLoader(function (src) {
   const readTime = _estimateReadTime(src).text;
   const withTime = [
     src,
-    `export const metadata_readingTime = "${readTime}";`,
+    `\n export const metadata_readingTime = "${readTime}";`,
   ].join('\n');
   return this.callback(null, withTime);
 });
