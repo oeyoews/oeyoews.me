@@ -7,7 +7,7 @@
   "scripts": {
     "mdx": "node new-post.js",
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm format && next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write ."
