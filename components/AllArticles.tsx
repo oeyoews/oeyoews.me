@@ -7,6 +7,14 @@ import ModeToggle from './ToggleTheme';
 
 export default async function AllArticles() {
   const articles = await getAllArticles();
+  // TODO: add layout
+  if (articles.length === 0) {
+    return (
+      <div className="prose fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <h1>当前文章数目为零</h1>
+      </div>
+    );
+  }
 
   articles.sort((a: any, b: any) => {
     const dateA = new Date(a.metadata.date);
