@@ -34,5 +34,5 @@ export const defaultOptions = {
   Images: {
     initialSize: 'fit', // cover; fit;
   },
-  Hash: true, // custom hash  https://fancyapps.com/fancybox/plugins/hash/
+  Hash: false, // custom hash  https://fancyapps.com/fancybox/plugins/hash/
 };
