@@ -1,3 +1,9 @@
+interface VaulProps {
+  buttonText: string;
+  title?: string;
+  content?: string | React.ReactNode;
+}
+
 interface SparkleProps {
   size: number;
   color: string;
