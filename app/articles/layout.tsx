@@ -1,16 +1,13 @@
 import { Suspense } from 'react';
-import { FiArrowLeft } from 'react-icons/fi';
 
 import { headers } from 'next/headers';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { getArticleBySlug } from '@/utils/getArticles';
 
 import ArticleInfo from '@/components/ArticleInfo';
 import Fancybox from '@/components/Fancybox';
 import Unsplash from '@/components/Unsplash';
-import { Button } from '@/components/ui/button';
 
 import getBase64 from '@/lib/getLocalBase64';
 
