@@ -59,13 +59,13 @@ export default async function Layout({
         {children}
         {/* <BackToTop /> */}
       </Suspense>
-      <div className="flex justify-end print:hidden">
+      {/* <div className="flex justify-end print:hidden">
         <Button variant="ghost" asChild>
           <Link href="/">
             <FiArrowLeft className="inline" /> Back Home
           </Link>
         </Button>
-      </div>
+      </div> */}
     </article>
   );
 }
