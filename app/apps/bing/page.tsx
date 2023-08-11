@@ -7,7 +7,7 @@ import Fancybox from '@/components/Fancybox';
 
 import getBingImages from '@/lib/Bing';
 
-export const revalidate = 600000;
+export const revalidate = 36000000;
 
 export const metadata: Metadata = {
   title: 'Bing Images',
