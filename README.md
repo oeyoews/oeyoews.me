@@ -11,3 +11,4 @@ https://nextjs.oeyoewl.top
 - [ ] support password meta(with canvas-confetti)
 - [ ] support pin post
 - [ ] support load more post or pagation
+- [ ] 图表(char.js or echarts)

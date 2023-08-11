@@ -4,9 +4,9 @@ function getBingImages() {
   const res = use(
     fetch(
       'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=9&mkt=zh-cn',
-      // {
-      //   cache: 'no-store',
-      // },
+      {
+        cache: 'no-store',
+      },
     ),
   );
   const data: BingImage = use(res.json());
