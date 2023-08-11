@@ -42,6 +42,7 @@ interface BingImageItemData {
   startdate?: string;
   fullstartdate?: string;
   enddate?: string;
+  className?: string;
 }
 
 interface BingTooltips {
