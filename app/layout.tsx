@@ -1,5 +1,3 @@
-import { Analytics } from '@vercel/analytics/react';
-
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
@@ -39,7 +37,7 @@ export default function RootLayout({
           {children}
           <Toaster />
         </ThemeProvider>
-        {isProd && <Analytics />}
+        {/* {isProd && <Analytics />} */}
       </body>
     </html>
   );
