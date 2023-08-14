@@ -13,6 +13,7 @@ export default function Page() {
             <RiTimeLine className="inline stroke-0 fill-blue-300" />{' '}
             {new Date().toLocaleString()}
           </div> */}
+          <small className="my-1">当前所有文章暂未经过整理 </small>
         </div>
       </div>
     </div>

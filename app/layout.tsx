@@ -8,8 +8,6 @@ import { Toaster } from '@/components/ui/toaster';
 
 import './globals.css';
 
-import { isProd } from '@/lib/isProd';
-
 // ??
 // export const revaliate = 1;
 

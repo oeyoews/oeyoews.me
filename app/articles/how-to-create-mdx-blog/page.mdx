@@ -6,3 +6,9 @@ export const metadata = {
 使用 markdown 创建 blog 的方法很多, 因为有很多工具库可以帮助我们实现相关的功能, 比如解析 markdown 文本为 html, 解析 front matter(yaml 语法), 有 gray-matter, 甚至许多库自带解析 front-matter
 
 - 但是 markdown 虽然写起来简单, 但是如果想要嵌入一些自定义元素挂件几乎不可能, 但是 mdx 可以帮助我们实现这个功能, next-remote-mdx,支持获取 remote and local 的 markdown 数据源, 也支持 mdx 格式, 但是其中最让人不能忍受的就是导入自定义组件的时候只能在 component.js 文件中导入, 不能实时在每一个 mdx 文件中导入,这就丧失了我使用 mdx 的最大意义, 于是换成了 next/mdx, 原始 mdx/js 体验, 不过它没有 next-remote-mdx 的解析 front-matter 功能,这也是 next/mdx 需要首先解决的问题, 需要自己 hack, next 的 page.mdx 只能解析文本, 所以获取 title, 从而获取 title 的信息
+
+- next/mdx
+- contentlayer(linux 总是运行不了)
+- remote-mdx
+
+> 我个人更倾向于一个 blog, 一个文件夹, 而不是单个文件
