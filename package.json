@@ -20,6 +20,7 @@
     "next": "13.4.14-canary.1",
     "next-contentlayer": "^0.3.4",
     "nextjs-toploader": "^1.4.2",
+    "plaiceholder": "^3.0.0",
     "prompts": "^2.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import Fancybox from '@/components/Fancybox';
+import Unsplash from '@/components/Unsplash';
 import { Mdx } from '@/components/mdx-components';
 
 import { allPosts } from 'contentlayer/generated';
@@ -54,6 +56,9 @@ export default async function PostPage({ params }: PostProps) {
     <article className="py-6 prose  prose-img:rounded-md">
       <h1 className="mb-2">{post.title}</h1>
       <hr className="my-4" />
+      <Fancybox>
+        <Unsplash slug={post.title} />
+      </Fancybox>
       <Mdx code={post.body.code} />
     </article>
   );
