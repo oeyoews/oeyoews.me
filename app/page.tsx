@@ -20,7 +20,7 @@ export default function HomePage() {
     <div className="prose dark:prose-invert">
       {sortedPosts.map((post) => (
         <article key={post._id}>
-          <Link href={post.slug}>
+          <Link href={post.slug} className="text-sm">
             <h2>{post.title}</h2>
           </Link>
           {/* {post.description && <p>{post.description}</p>} */}
