@@ -7,7 +7,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Nextjs Blog',
-  description: '个人博客, 使用Nextjs + TypeScript + Tailwindcss 构建',
+  description: 'Nextjs + TypeScript + Tailwindcss + contentlayer',
 };
 
 const inter = Inter({ subsets: ['latin'] });
