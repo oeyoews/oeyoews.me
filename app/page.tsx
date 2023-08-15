@@ -1,21 +1,31 @@
-import AllArticles from '@/components/AllArticles';
-import ViewCounter from '@/components/ViewCounter';
+import Link from 'next/link';
 
-export default function Page() {
-  return (
-    <div className="m-4 sm:m-8">
-      <div className="mx-auto max-w-xl">
-        <AllArticles />
-        <div className="my-4 text-sm text-center text-gray-400">
-          <ViewCounter slug="home" />
-          {/* 由于文章不是静态生成, 所以当前路由 是ssr, buildtime 总是会刷新 */}
-          {/* <div className="my-1">
-            <RiTimeLine className="inline stroke-0 fill-blue-300" />{' '}
-            {new Date().toLocaleString()}
-          </div> */}
-          <small className="my-1">当前所有文章暂未经过整理 </small>
-        </div>
+import { allPosts } from 'contentlayer/generated';
+
+export default function HomePage() {
+  if (allPosts.length === 0) {
+    return (
+      <div className="prose dark:prose-invert">
+        <h1 className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          当前文章数目为零
+        </h1>
       </div>
+    );
+  }
+  const sortedPosts = allPosts.sort((a, b) => {
+    return a.date > b.date ? -1 : 1;
+  });
+
+  return (
+    <div className="prose dark:prose-invert">
+      {sortedPosts.map((post) => (
+        <article key={post._id}>
+          <Link href={post.slug}>
+            <h2>{post.title}</h2>
+          </Link>
+          {/* {post.description && <p>{post.description}</p>} */}
+        </article>
+      ))}
     </div>
   );
 }
