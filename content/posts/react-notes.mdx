@@ -1,0 +1,31 @@
+---
+title: 'React Notes'
+date: '2023-08-03'
+description: '一些 React 笔记'
+---
+
+在 React 中，如果你不想使用条件渲染，而是使用 Enum 来控制组件的显示，可以通过使用 Enum 的值作为组件的 props 来实现。下面是一个示例：
+
+首先，定义一个 Enum，可以是一个对象或者一个数组，它包含所有可能的值以及对应的组件：
+
+```jsx
+const EnumComponents = {
+  ComponentA: ComponentA,
+  ComponentB: ComponentB,
+  ComponentC: ComponentC,
+};
+```
+
+然后，在父组件中，使用 Enum 的值作为 props 传递给子组件：
+
+```jsx
+function ParentComponent({ enumValue }) {
+  const Component = EnumComponents[enumValue];
+
+  return <Component />;
+}
+```
+
+在上面的例子中，根据传递给`ParentComponent`的`enumValue`值，选择相应的组件进行渲染。
+
+这样，你就可以通过改变`enumValue`的值来动态地显示不同的组件，而不是使用条件语句进行渲染。
