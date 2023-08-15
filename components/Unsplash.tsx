@@ -34,6 +34,7 @@ export default async function Unsplash({ slug = 'alpine' }: Params) {
       data-fancybox="gallery"
       data-caption={alt || slug}
       className="rounded-lg shadow-lg aspect-video cursor-pointer"
+      priority
     />
     //   {alt}
     // </div>
