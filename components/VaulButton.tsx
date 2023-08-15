@@ -1,7 +1,5 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-
 import { Drawer } from 'vaul';
 
 export default function VaulButton(props: VaulProps) {
@@ -9,7 +7,7 @@ export default function VaulButton(props: VaulProps) {
   return (
     <Drawer.Root shouldScaleBackground>
       <Drawer.Trigger asChild>
-        <Button variant="secondary">{buttonText}</Button>
+        <button>{buttonText}</button>
       </Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 bg-black/40" />

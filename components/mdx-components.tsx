@@ -5,7 +5,6 @@ import Fancybox from './Fancybox';
 import Imagec from './Imagec';
 
 import { Code } from 'bright';
-import { MDXComponents } from 'mdx/types';
 
 Code.lineNumbers = false;
 Code.theme = 'one-dark-pro';
@@ -36,5 +35,5 @@ interface MdxProps {
 export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
-  return <Component components={components as MDXComponents} />;
+  return <Component components={components as any} />;
 }

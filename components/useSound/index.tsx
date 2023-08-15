@@ -2,7 +2,6 @@
 
 import { MouseEventHandler } from 'react';
 
-import { Button } from '../ui/button';
 import click from './sounds/click.mp3';
 import menuOpen from './sounds/menu-open.mp3';
 
@@ -21,11 +20,7 @@ function BoopButton({ sound, text }: { sound: SoundOption; text: string }) {
     soundSelect[sound],
   ) as MouseEventHandler<HTMLButtonElement>[];
 
-  return (
-    <Button variant="outline" onClick={play}>
-      {text}
-    </Button>
-  );
+  return <button onClick={play}>{text}</button>;
 }
 
 export default BoopButton;
