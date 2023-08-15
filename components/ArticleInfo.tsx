@@ -2,6 +2,7 @@ import { FcCalendar, FcClock } from 'react-icons/fc';
 
 import { Article } from '@/types/article';
 
+import Gravatar from './Gravatar';
 import ViewCounter from './ViewCounter';
 
 export default async function ArticleInfo({
@@ -16,8 +17,13 @@ export default async function ArticleInfo({
 
   return (
     <div
-      className={'flex w-full justify-center space-x-2 text-sm text-gray-500'}
+      className={
+        'flex w-full justify-center space-x-2 text-sm text-gray-500 not-prose select-none'
+      }
     >
+      <div>
+        <Gravatar />
+      </div>
       <div>
         {metadata?.date && <FcCalendar className="inline" />} {metadata?.date}
       </div>

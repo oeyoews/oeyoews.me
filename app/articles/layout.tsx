@@ -25,8 +25,8 @@ export default async function Layout({
   const blurData = imageType === 'static' ? '' : await getBase64(image || '');
 
   return (
-    <article className="lg:prose-md prose mx-auto p-4 dark:prose-invert prose-img:rounded-md">
-      <div className="flex justify-center">
+    <article className="lg:prose-md prose mx-auto p-4 dark:prose-invert prose-img:rounded-md prose-img:mt-1">
+      <div className="flex justify-center select-none">
         <Fancybox>
           {image ? (
             <Image
