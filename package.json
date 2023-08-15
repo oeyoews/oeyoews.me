@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "pnpm format && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write ."
@@ -24,6 +24,9 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-retro-hit-counter": "^1.0.1",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-slug": "^5.1.0",
+    "remark-gfm": "^3.0.1",
     "sharp": "^0.32.4",
     "unsplash-js": "^7.0.18",
     "use-sound": "^4.0.1",

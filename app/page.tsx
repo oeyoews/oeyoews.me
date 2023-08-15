@@ -12,20 +12,21 @@ export default function HomePage() {
       </div>
     );
   }
-  const sortedPosts = allPosts.sort((a, b) => {
-    return a.date > b.date ? -1 : 1;
-  });
 
   return (
     <div className="prose">
-      {sortedPosts.map((post) => (
-        <article key={post._id}>
-          <Link href={post.slug} className="text-sm">
-            <h2>{post.title}</h2>
-          </Link>
-          {/* {post.description && <p>{post.description}</p>} */}
-        </article>
-      ))}
+      {allPosts
+        .sort((a, b) => {
+          return a.date > b.date ? -1 : 1;
+        })
+        .map((post) => (
+          <article key={post._id}>
+            <Link href={post.slug} className="text-sm">
+              <h2>{post.title}</h2>
+            </Link>
+            {/* {post.description && <p>{post.description}</p>} */}
+          </article>
+        ))}
     </div>
   );
 }

@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-  p {
+  /* p {
     @apply indent-4;
-  }
+  } */
   h1,
   h2 {
     @apply text-balance;
@@ -38,4 +38,30 @@ a {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.prose .anchor {
+  @apply invisible absolute no-underline;
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose a {
+  @apply decoration-neutral-400 decoration-[0.1em] underline-offset-2 transition-all dark:decoration-neutral-600;
+}
+
+.prose .anchor:after {
+  @apply text-neutral-300 dark:text-neutral-700;
+  content: '#';
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
 }
