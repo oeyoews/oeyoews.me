@@ -8,6 +8,9 @@ dependencies:
   '@fancyapps/ui':
     specifier: ^5.0.20
     version: 5.0.20
+  '@heroicons/react':
+    specifier: ^2.0.18
+    version: 2.0.18(react@18.2.0)
   bright:
     specifier: ^0.8.4
     version: 0.8.4(react@18.2.0)
@@ -670,6 +673,14 @@ packages:
       long: 4.0.0
       protobufjs: 7.2.4
       yargs: 17.7.2
+    dev: false
+
+  /@heroicons/react@2.0.18(react@18.2.0):
+    resolution: {integrity: sha512-7TyMjRrZZMBPa+/5Y8lN0iyvUU/01PeMGX2+RE7cQWpEUIcb4QotzUObFkJDejj/HUH4qjP/eQ0gzzKs2f+6Yw==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@humanwhocodes/config-array@0.11.10:

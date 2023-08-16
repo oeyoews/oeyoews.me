@@ -1,3 +1,5 @@
+import { CalendarDaysIcon } from '@heroicons/react/24/outline';
+
 import Link from 'next/link';
 
 import { allPosts } from 'contentlayer/generated';
@@ -15,22 +17,28 @@ export default function HomePage() {
   }
 
   return (
-    <div className="prose">
+    <ol className="prose relative list-none border-l border-gray-200">
       {allPosts
         .sort((a, b) => {
           return a.date > b.date ? -1 : 1;
         })
         .map((post) => (
           <article key={post._id}>
-            <Link href={post.slug} className="text-xs bg-red-200">
-              <h2 className="">{post.title}</h2>
-              <p className="text-gray-400">
-                {format(new Date(post.date), 'yyyy-MM-dd')}
-              </p>
-            </Link>
+            <li className="mb-10 ml-6 group">
+              <Link href={post.slug} className="text-xs">
+                <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 ring-8 ring-white bg-white-100">
+                  <CalendarDaysIcon className="h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-neutral-600 bg-white" />
+                </span>
+                <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition">
+                  {post.title}
+                </h2>
+                <time className="block mb-2 text-sm font-normal leading-none text-gray-400 ">
+                  {format(new Date(post.date), 'MMMM d, yyyy')}
+                </time>
+              </Link>
+            </li>
           </article>
         ))}
-      <small className="my-1 text-slate-300">当前所有文章暂未经过整理 </small>
-    </div>
+    </ol>
   );
 }

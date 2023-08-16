@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.20",
+    "@heroicons/react": "^2.0.18",
     "bright": "^0.8.4",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",

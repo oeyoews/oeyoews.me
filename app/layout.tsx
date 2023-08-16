@@ -1,3 +1,5 @@
+import { BookOpenIcon, HomeIcon } from '@heroicons/react/24/outline';
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
@@ -25,9 +27,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <div className="max-w-2xl mx-auto py-10 px-4">
           <header className="print:hidden mb-8">
             <div className="flex items-center justify-between">
-              <nav className="ml-auto text-sm font-medium space-x-6">
-                <Link href="/">Home</Link>
-                <Link href="/blog">Blog</Link>
+              <nav className="ml-auto text-sm font-medium space-x-6 flex flex-row">
+                <Link href="/">
+                  <HomeIcon className="h-5 w-5" />
+                </Link>
+                <Link href="/blog">
+                  <BookOpenIcon className="h-5 w-5" />
+                </Link>
               </nav>
             </div>
           </header>
