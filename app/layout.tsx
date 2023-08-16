@@ -28,11 +28,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <header className="print:hidden mb-8">
             <div className="flex items-center justify-between">
               <nav className="ml-auto text-sm font-medium space-x-6 flex flex-row">
-                <Link href="/">
-                  <HomeIcon className="h-5 w-5" />
+                <Link href="/" title="Home">
+                  <HomeIcon className="h-5 w-5 stroke-1" />
                 </Link>
-                <Link href="/blog">
-                  <BookOpenIcon className="h-5 w-5" />
+                <Link href="/blog" title="Blog">
+                  <BookOpenIcon className="h-5 w-5 stroke-1" />
                 </Link>
               </nav>
             </div>
