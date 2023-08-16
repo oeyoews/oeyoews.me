@@ -79,22 +79,22 @@ export default function HomePage() {
               <article key={post._id}>
                 {yearHeader}
                 <li className="ml-6 group">
+                  <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
+                    <FcFolder className="group-hover:hidden h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
+                    <FcOpenedFolder className="hidden group-hover:block h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
+                  </span>
                   <Link
                     href={post.slug}
                     className="text-xs rounded-md"
                     title="点击阅读更多"
                   >
-                    <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
-                      <FcFolder className="group-hover:hidden h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
-                      <FcOpenedFolder className="hidden group-hover:block h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
-                    </span>
                     <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition">
                       {post.title}
                     </h2>
-                    <time className="block text-sm font-normal leading-none text-gray-400">
-                      {format(new Date(post.date), 'EEE, MMMM d')}
-                    </time>
                   </Link>
+                  <time className="block text-sm font-normal leading-none text-gray-400">
+                    {format(new Date(post.date), 'EEE, MMMM d')}
+                  </time>
                 </li>
               </article>
             </>
