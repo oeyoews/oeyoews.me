@@ -17,6 +17,32 @@ export default function HomePage() {
   }
 
   let currentYear: any = null;
+  const zodiacSigns = [
+    '🐭',
+    '🐮',
+    '🐯',
+    '🐰',
+    '🐲',
+    '🐍',
+    '🐴',
+    '🐑',
+    '🐵',
+    '🐔',
+    '🐶',
+    '🐷',
+    // '鼠',
+    // '牛',
+    // '虎',
+    // '兔',
+    // '龙',
+    // '蛇',
+    // '马',
+    // '羊',
+    // '猴',
+    // '鸡',
+    // '狗',
+    // '猪',
+  ];
 
   return (
     <ol className="prose relative list-none border-gray-100/80 border-l-4">
@@ -26,6 +52,7 @@ export default function HomePage() {
         })
         .map((post) => {
           const postYear = new Date(post.date).getFullYear();
+          const zodiacIndex = (postYear - 1900) % 12; // 基准年份为1900年
 
           const yearHeader =
             currentYear !== postYear ? (
@@ -38,6 +65,9 @@ export default function HomePage() {
                   className="ml-6 text-neutral-200/80 font-serif"
                 >
                   {postYear}
+                  {/* <span className="transition-all duration-400">
+                    {zodiacSigns[zodiacIndex]}
+                  </span> */}
                 </h2>
               </li>
             ) : null;
@@ -55,14 +85,14 @@ export default function HomePage() {
                     title="点击阅读更多"
                   >
                     <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
-                      <FcFolder className="group-hover:hidden group-hover:scale-0 h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
-                      <FcOpenedFolder className="hidden group-hover:block scale-0 group-hover:scale-100 h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
+                      <FcFolder className="group-hover:hidden h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
+                      <FcOpenedFolder className="hidden group-hover:block h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
                     </span>
                     <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition">
                       {post.title}
                     </h2>
                     <time className="block text-sm font-normal leading-none text-gray-400">
-                      {format(new Date(post.date), 'MMMM d, yyyy')}
+                      {format(new Date(post.date), 'EEE, MMMM d')}
                     </time>
                   </Link>
                 </li>
