@@ -1,11 +1,5 @@
 function page() {
-  return (
-    <div>
-      Hi,
-      <span className="animate-pulse">👋</span>
-      ...
-    </div>
-  );
+  return <div>Hi, ...</div>;
 }
 
 export default page;

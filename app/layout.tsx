@@ -1,4 +1,4 @@
-import { BookOpenIcon, HomeIcon } from '@heroicons/react/24/outline';
+import { FcFolder, FcHome } from 'react-icons/fc';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -29,10 +29,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div className="flex items-center justify-between">
               <nav className="ml-auto text-sm font-medium space-x-6 flex flex-row">
                 <Link href="/" title="Home">
-                  <HomeIcon className="h-5 w-5 stroke-1" />
+                  <FcHome className="h-5 w-5" />
                 </Link>
                 <Link href="/blog" title="Blog">
-                  <BookOpenIcon className="h-5 w-5 stroke-1" />
+                  <FcFolder className="h-5 w-5" />
                 </Link>
               </nav>
             </div>
