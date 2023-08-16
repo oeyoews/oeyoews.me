@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.20",
+    "@heroicons/react": "^2.0.18",
+    "@prisma/client": "^5.1.1",
     "bright": "^0.8.4",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
@@ -21,6 +23,7 @@
     "next-contentlayer": "^0.3.4",
     "nextjs-toploader": "^1.4.2",
     "plaiceholder": "^3.0.0",
+    "prisma": "^5.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
@@ -29,6 +32,7 @@
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "sharp": "^0.32.4",
+    "swr": "^2.2.1",
     "unsplash-js": "^7.0.18",
     "use-sound": "^4.0.1",
     "vaul": "^0.2.2"

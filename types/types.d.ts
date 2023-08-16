@@ -1,3 +1,21 @@
+type Meta = {
+  title?: string;
+  description?: string;
+  favicon?: string;
+  date?: string;
+  image?: string;
+  type?: string;
+};
+
+type Views = {
+  total: number;
+};
+
+type Slug = {
+  slug: string;
+  method: string;
+};
+
 interface VaulProps {
   buttonText: string;
   title?: string;

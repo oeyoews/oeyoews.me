@@ -1,6 +1,7 @@
 const { withContentlayer } = require('next-contentlayer');
 
 const nextConfig = {
+  swcMinify: true, // default is true
   webpack: (
     config,
     { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack },

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import ViewCounter from '@/components/ViewCounter';
 import { Mdx } from '@/components/mdx-components';
 
 import { allPosts } from 'contentlayer/generated';
@@ -58,6 +59,7 @@ export default async function PostPage({ params }: PostProps) {
         <Unsplash slug={post.title} />
       </Fancybox> */}
       <Mdx code={post.body.code} />
+      <ViewCounter slug={post.slug} method={'POST'} />
     </article>
   );
 }
