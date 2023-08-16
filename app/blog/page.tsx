@@ -17,7 +17,7 @@ export default function HomePage() {
   }
 
   return (
-    <ol className="prose relative list-none border-l border-gray-200 border-dotted">
+    <ol className="prose relative list-none border-gray-100/80 border-l-4">
       {allPosts
         .sort((a, b) => {
           return a.date > b.date ? -1 : 1;
