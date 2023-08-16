@@ -24,7 +24,7 @@ export default function HomePage() {
           <article key={post._id}>
             <Link href={post.slug} className="text-xs bg-red-200">
               <h2 className="">{post.title}</h2>
-              <p className="text-slate-300">
+              <p className="text-gray-400">
                 {format(new Date(post.date), 'yyyy-MM-dd')}
               </p>
             </Link>
