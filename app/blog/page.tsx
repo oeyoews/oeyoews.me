@@ -1,4 +1,4 @@
-import { FcFolder, FcOpenedFolder } from 'react-icons/fc';
+import { FcApproval, FcFolder, FcOpenedFolder } from 'react-icons/fc';
 
 import Link from 'next/link';
 
@@ -16,34 +16,60 @@ export default function HomePage() {
     );
   }
 
+  let currentYear: any = null;
+
   return (
     <ol className="prose relative list-none border-gray-100/80 border-l-4">
       {allPosts
         .sort((a, b) => {
           return a.date > b.date ? -1 : 1;
         })
-        .map((post) => (
-          <article key={post._id}>
-            <li className="ml-6 group">
-              <Link
-                href={post.slug}
-                className="text-xs rounded-md"
-                title="Click To Read More"
-              >
+        .map((post) => {
+          const postYear = new Date(post.date).getFullYear();
+
+          const yearHeader =
+            currentYear !== postYear ? (
+              <li className="text-xs">
                 <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
-                  <FcFolder className="group-hover:hidden group-hover:scale-0 h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
-                  <FcOpenedFolder className="hidden group-hover:block scale-0 group-hover:scale-100 h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
+                  <FcApproval className="h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
                 </span>
-                <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition">
-                  {post.title}
+                <h2
+                  key={`year-header-${postYear}`}
+                  className="ml-6 text-neutral-200/80 font-serif"
+                >
+                  {postYear}
                 </h2>
-                <time className="block text-sm font-normal leading-none text-gray-400 ">
-                  {format(new Date(post.date), 'MMMM d, yyyy')}
-                </time>
-              </Link>
-            </li>
-          </article>
-        ))}
+              </li>
+            ) : null;
+
+          currentYear = postYear;
+
+          return (
+            <>
+              <article key={post._id}>
+                {yearHeader}
+                <li className="ml-6 group">
+                  <Link
+                    href={post.slug}
+                    className="text-xs rounded-md"
+                    title="点击阅读更多"
+                  >
+                    <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
+                      <FcFolder className="group-hover:hidden group-hover:scale-0 h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
+                      <FcOpenedFolder className="hidden group-hover:block scale-0 group-hover:scale-100 h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
+                    </span>
+                    <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition">
+                      {post.title}
+                    </h2>
+                    <time className="block text-sm font-normal leading-none text-gray-400">
+                      {format(new Date(post.date), 'MMMM d, yyyy')}
+                    </time>
+                  </Link>
+                </li>
+              </article>
+            </>
+          );
+        })}
     </ol>
   );
 }
