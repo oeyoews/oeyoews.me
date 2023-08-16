@@ -21,7 +21,7 @@ const components = {
     HTMLPreElement
   >) => {
     return (
-      <Code {...props} className="rounded-none">
+      <Code {...props} className="not-prose">
         {children as any}
       </Code>
     );
