@@ -1,6 +1,3 @@
-// import getBase64 from '@/lib/getLocalBase64';
-import { use } from 'react';
-
 import Image, { ImageProps } from 'next/image';
 
 function Imagec({ ...props }: ImageProps) {
