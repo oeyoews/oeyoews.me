@@ -1,4 +1,4 @@
-import { FcFolder, FcHome } from 'react-icons/fc';
+import { FcHome, FcIdea } from 'react-icons/fc';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -32,7 +32,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                   <FcHome className="h-5 w-5" />
                 </Link>
                 <Link href="/blog" title="Blog">
-                  <FcFolder className="h-5 w-5" />
+                  <FcIdea className="h-5 w-5" />
                 </Link>
               </nav>
             </div>
