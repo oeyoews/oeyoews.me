@@ -1,4 +1,4 @@
-import { FcApproval, FcFolder, FcOpenedFolder } from 'react-icons/fc';
+import { FcApproval, FcFolder, FcLock, FcOpenedFolder } from 'react-icons/fc';
 
 import Link from 'next/link';
 
@@ -50,7 +50,7 @@ export default function HomePage() {
         .sort((a, b) => {
           return a.date > b.date ? -1 : 1;
         })
-        .filter((post) => !(post.draft === true))
+        // .filter((post) => !(post.draft === true))
         .map((post) => {
           const postYear = new Date(post.date).getFullYear();
           const zodiacIndex = (postYear - 1900) % 12; // 基准年份为1900年
@@ -91,6 +91,17 @@ export default function HomePage() {
                   >
                     <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition my-2">
                       {post.title}
+                      {post.password && (
+                        // <FcLock className="w-3 h-3 inline-flex ml-1" />
+                        <sup className="bg-purple-200 rounded-sm text-xs px-1 mx-1 font-light inline-flex text-gray-800 font-serif">
+                          password
+                        </sup>
+                      )}
+                      {post.draft === true && (
+                        <sup className="mx-1 bg-gray-300 rounded-sm px-1 font-serif font-thin">
+                          draft
+                        </sup>
+                      )}
                     </h2>
                   </Link>
                   <time className="block text-sm font-normal leading-none text-gray-400">

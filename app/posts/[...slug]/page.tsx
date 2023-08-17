@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import PasswordProtectedContent from '@/components/PasswordPost';
 import { Mdx } from '@/components/mdx-components';
 
 import { allPosts } from 'contentlayer/generated';
@@ -51,13 +52,12 @@ export default async function PostPage({ params }: PostProps) {
   }
 
   return (
-    <article className="py-6 prose  prose-img:rounded-md">
+    <article className="py-6 prose prose-img:rounded-md">
       <h1 className="mb-2">{post.title}</h1>
       <hr className="my-4 border-2 border-gray-100 rounded-full" />
-      {/* <Fancybox>
-        <Unsplash slug={post.title} />
-      </Fancybox> */}
-      <Mdx code={post.body.code} />
+      <PasswordProtectedContent post={post}>
+        <Mdx code={post.body.code} />
+      </PasswordProtectedContent>
     </article>
   );
 }
