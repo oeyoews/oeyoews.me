@@ -1,5 +1,6 @@
 'use client';
 
+// NOTE: 273kb
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 
 import { addYears, endOfMonth, format, startOfMonth, subYears } from 'date-fns';
