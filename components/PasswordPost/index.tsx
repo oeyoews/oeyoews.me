@@ -5,7 +5,13 @@ import { AiOutlineSend } from 'react-icons/ai';
 
 import usePasswordStore from '@/lib/store';
 
-function PasswordProtectedContent({ post, children }) {
+function PasswordProtectedContent({
+  post,
+  children,
+}: {
+  post: any;
+  children: any;
+}) {
   const [enteredPassword, setEnteredPassword] = useState('');
 
   const passwordStore = usePasswordStore();
