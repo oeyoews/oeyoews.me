@@ -11,3 +11,4 @@ https://nextjs.oeyoewl.top
 - [ ] support load more post or pagation
 - [ ] 图表(char.js or echarts)
 - [ ] add check all articles(to limit home page length)
+- [ ] Sidebar toc
