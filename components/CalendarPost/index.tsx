@@ -30,7 +30,6 @@ echarts.use([
 function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
   const postCounts: DataObject = {};
 
-  // 统计每天的帖子数目
   datas.forEach((post) => {
     const date = format(new Date(post.date), 'yyyy-MM-dd');
     if (date in postCounts) {
@@ -40,14 +39,16 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
       postCounts[date] = { count: 1, titles: [post.title] };
     }
   });
+  // console.log(JSON.stringify(postCounts, null, 2));
 
-  const data = Object.entries(postCounts).map(([date, info]) => {
-    return {
-      value: [format(new Date(date), 'yyyy-MM-dd'), `${info.count}`],
-      titles: info.titles,
-    };
+  let data = Object.entries(postCounts).map(([date, info]) => {
+    // 其实是一个二维数组
+    return [date, info.count];
+    // return {
+    //   name: date,
+    //   value: [date, info.count],
+    // };
   });
-  console.log(JSON.stringify(data, null, 2));
 
   const currentDate = new Date();
   const startDate = subYears(startOfMonth(currentDate), 1);
@@ -66,12 +67,30 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
     },
     tooltip: {
       position: 'top',
-      formatter: function (params: { value: any[]; titles: any }) {
+      formatter: function (params: any) {
         const date = params.value[0];
         const count = params.value[1];
-        const title = params.titles;
+        // @ts-ignore
+        const matchingTitles = [];
 
-        return `日期：${date}<br/>帖子数：${count}<br/>文章标题：${title}`;
+        // 查找匹配日期和帖子数的标题
+        datas.forEach((post) => {
+          if (format(new Date(post.date), 'yyyy-MM-dd') === date) {
+            matchingTitles.push(post.title);
+          }
+        });
+
+        let titlesText = '无'; // 默认为无标题
+
+        if (matchingTitles.length === 1) {
+          // @ts-ignore
+          titlesText = matchingTitles[0]; // 如果只有一个标题，直接使用
+        } else if (matchingTitles.length > 1) {
+          // @ts-ignore
+          titlesText = matchingTitles.join(','); // 多个标题用换行分隔
+        }
+
+        return `日期：${date}<br/>帖子数：${count}<br/>文章标题：${titlesText}`;
       },
     },
     visualMap: {
@@ -85,8 +104,8 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
         // 设置分段范围
         { lte: 0, color: '#EBEDF0' },
         { gt: 0, lte: 1, color: '#39D353' },
-        { gt: 2, lte: 4, color: '#006D32' },
-        { gt: 5, lte: 15, color: '#26A641' },
+        { gt: 1, lte: 5, color: '#006D32' },
+        { gt: 5, lte: 16, color: '#26A641' },
         { gt: 16, color: '#0E4429' },
       ],
     },
