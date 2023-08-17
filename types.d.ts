@@ -1,3 +1,12 @@
+interface PostInfo {
+  count: number;
+  titles: string[];
+}
+
+interface DataObject {
+  [date: string]: PostInfo;
+}
+
 interface VaulProps {
   buttonText: string;
   title?: string;

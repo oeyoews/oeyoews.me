@@ -1,7 +1,9 @@
-import PostChart from '@/components/PostChart';
+import HeatmapComponent from '@/components/CalendarPost';
+
+import { allPosts } from '@/.contentlayer/generated';
 
 function page() {
-  return <PostChart />;
+  return <HeatmapComponent datas={allPosts} />;
 }
 
 export default page;
