@@ -1,6 +1,8 @@
 'use client';
 
+// add button to next/previous year
 // NOTE: 273kb
+// 如何调整大小
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 
 import { addYears, endOfMonth, format, startOfMonth, subYears } from 'date-fns';
@@ -88,17 +90,20 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
           titlesText = matchingTitles[0]; // 如果只有一个标题，直接使用
         } else if (matchingTitles.length > 1) {
           // @ts-ignore
-          titlesText = matchingTitles.join(','); // 多个标题用换行分隔
+          titlesText = matchingTitles.join(', '); // 多个标题用换行分隔
         }
 
         return `日期：${date}<br/>帖子数：${count}<br/>文章标题：${titlesText}`;
       },
     },
     visualMap: {
+      min: 0,
+      max: 100,
+      show: false,
       type: 'piecewise',
       orient: 'horizontal',
       calculable: true,
-      showLabel: false,
+      showLabel: true,
       right: 0,
       top: 175,
       pieces: [
@@ -111,16 +116,11 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
       ],
     },
     calendar: {
-      emptyItemStyle: {
-        color: 'red',
-        borderWidth: 0.5, // 可根据需要调整
-        borderType: 'dashed', // 可根据需要调整
-      },
       top: 60,
       left: 0,
       right: 0,
       cellSize: 15,
-      orient: 'horizontal', // vertical(not fit)
+      orient: 'horizontal', // TODO: vertical(not fit)
       range: [startDate, endDate],
       splitLine: {
         show: false,
@@ -141,7 +141,6 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
         show: true,
         position: 'bottom',
         margin: 32,
-        verticalAlign: 'top',
       },
       dayLabel: {
         margin: 15,

@@ -1,4 +1,4 @@
-import { FcApproval, FcFolder, FcLock, FcOpenedFolder } from 'react-icons/fc';
+import { FcApproval, FcFolder, FcOpenedFolder } from 'react-icons/fc';
 
 import Link from 'next/link';
 
@@ -18,30 +18,8 @@ export default function HomePage() {
 
   let currentYear: any = null;
   const zodiacSigns = [
-    '🐭',
-    '🐮',
-    '🐯',
-    '🐰',
-    '🐲',
-    '🐍',
-    '🐴',
-    '🐑',
-    '🐵',
-    '🐔',
-    '🐶',
-    '🐷',
-    // '鼠',
-    // '牛',
-    // '虎',
-    // '兔',
-    // '龙',
-    // '蛇',
-    // '马',
-    // '羊',
-    // '猴',
-    // '鸡',
-    // '狗',
-    // '猪',
+    // '🐭', '🐮', '🐯', '🐰', '🐲', '🐍', '🐴', '🐑', '🐵', '🐔', '🐶', '🐷',
+    // '鼠', // '牛', // '虎', // '兔', // '龙', // '蛇', // '马', // '羊', // '猴', // '鸡', // '狗', // '猪',
   ];
 
   return (
