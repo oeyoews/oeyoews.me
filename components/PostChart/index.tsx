@@ -41,8 +41,6 @@ export default function PostChart() {
         text: 'Posts',
       },
       tooltip: {
-        position: 'nearest',
-        usePointStyle: true,
         callbacks: {
           label: function (context: { label: any; raw: any }) {
             const label = context.label;
