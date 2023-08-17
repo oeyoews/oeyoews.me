@@ -41,6 +41,7 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
       postCounts[date] = 1;
     }
   });
+  console.log(JSON.stringify(postCounts));
 
   const data = Object.entries(postCounts).map(([date, count]) => {
     return { name: date, value: [new Date(date), `${count}`] };
@@ -60,12 +61,16 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
     title: {
       text: `共有 ${datas.length} 篇文章`,
       left: 'center',
-      margin: 8,
-      position: 'bottom',
     },
     tooltip: {
       position: 'top',
-      // formatter:
+      formatter: function (params: { name: any; value: any }) {
+        const date = params.name;
+        const count = params.value[1];
+        const title = 'demo';
+
+        return `日期：${date}<br/>帖子数：${count}<br/>文章标题：${title}`;
+      },
     },
     visualMap: {
       type: 'piecewise',
