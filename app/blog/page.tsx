@@ -50,6 +50,7 @@ export default function HomePage() {
         .sort((a, b) => {
           return a.date > b.date ? -1 : 1;
         })
+        .filter((post) => !(post.draft === true))
         .map((post) => {
           const postYear = new Date(post.date).getFullYear();
           const zodiacIndex = (postYear - 1900) % 12; // 基准年份为1900年
