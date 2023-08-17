@@ -11,12 +11,15 @@ dependencies:
   '@fancyapps/ui':
     specifier: ^5.0.20
     version: 5.0.20
+  '@uiw/react-heat-map':
+    specifier: ^2.1.1
+    version: 2.1.1(@babel/runtime@7.22.6)(react-dom@18.2.0)(react@18.2.0)
+  '@uiw/react-tooltip':
+    specifier: ^4.21.28
+    version: 4.21.28(react-dom@18.2.0)(react@18.2.0)
   bright:
     specifier: ^0.8.4
     version: 0.8.4(react@18.2.0)
-  chart.js:
-    specifier: ^4.3.3
-    version: 4.3.3
   contentlayer:
     specifier: ^0.3.4
     version: 0.3.4(esbuild@0.19.2)
@@ -35,9 +38,6 @@ dependencies:
   react:
     specifier: ^18.2.0
     version: 18.2.0
-  react-chartjs-2:
-    specifier: ^5.2.0
-    version: 5.2.0(chart.js@4.3.3)(react@18.2.0)
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
@@ -757,10 +757,6 @@ packages:
       tslib: 2.6.1
     dev: false
 
-  /@kurkle/color@0.3.2:
-    resolution: {integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==}
-    dev: false
-
   /@mdx-js/esbuild@2.3.0(esbuild@0.19.2):
     resolution: {integrity: sha512-r/vsqsM0E+U4Wr0DK+0EfmABE/eg+8ITW4DjvYdh3ve/tK2safaqHArNnaqbOk1DjYGrhxtoXoGaM3BY8fGBTA==}
     peerDependencies:
@@ -1466,6 +1462,75 @@ packages:
       eslint-visitor-keys: 3.4.2
     dev: true
 
+  /@uiw/react-heat-map@2.1.1(@babel/runtime@7.22.6)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-O1rearMnhb+Fl0iZww+0/cpBijKYod3fIBhX1k/CzyKgkIE98N2XPmMzKh2Q2XeuUwnaGKjF5I5GjgZ75BJrUA==}
+    peerDependencies:
+      '@babel/runtime': '>=7.10.0'
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@babel/runtime': 7.22.6
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@uiw/react-overlay-trigger@4.21.28(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-OcPZZwJmU0Aa0elVinePpRgDxdNeTBsL3YsgBXInppSQUTzJkzIXDIPGrhPw3tLGX8ocxlOvoIY5nkqoFeVbpQ==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@uiw/react-overlay': 4.21.28(react-dom@18.2.0)(react@18.2.0)
+      '@uiw/utils': 4.21.28(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@uiw/react-overlay@4.21.28(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-mUqGiSqDay+fVlx07EXZ4P+pm5sf/lDAlnzXjzhdp6citFaNQDkhPUxuoLGJ9FqRXSxez3iIM5C7cSclTDcweg==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@uiw/react-portal': 4.21.28(react-dom@18.2.0)(react@18.2.0)
+      '@uiw/utils': 4.21.28(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-transition-group: 4.4.5(react-dom@18.2.0)(react@18.2.0)
+    dev: false
+
+  /@uiw/react-portal@4.21.28(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-nOPtUS0faxNynQywSu/nsDKnY4JtsFfRqLzYW0pI7HIgKitlunEp1Nu2BD1Rou8LCGuNJ9umUO8liHT6D3lKyQ==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@uiw/react-tooltip@4.21.28(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-/IwxB2AkzCKSy6YG3X5mzql+zauiZglnja0ahYmXmStOZ2W4Y5F1JEt03tKogjZ62tgldpIADNlC7amoktTiHg==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@uiw/react-overlay-trigger': 4.21.28(react-dom@18.2.0)(react@18.2.0)
+      '@uiw/utils': 4.21.28(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@uiw/utils@4.21.28(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-BQzTyidC7Ht75/WjsMZkbMXTgHXthVUYk1vQoMxLIYQr46ssmnexoDg4NIkyK02432UsGP7EAqynpwJnuRzryw==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /acorn-jsx@5.3.2(acorn@8.10.0):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -1795,13 +1860,6 @@ packages:
     resolution: {integrity: sha512-iBZ4F4wRbyORVsu0jPV7gXkOsGYjGHPmAyv+HiHG8gi5PtC9KI2j1+v8/tlibRvjoWX027ypmG/n0HtO5t7unw==}
     dev: false
 
-  /chart.js@4.3.3:
-    resolution: {integrity: sha512-aTk7pBw+x6sQYhon/NR3ikfUJuym/LdgpTlgZRe2PaEhjUMKBKyNaFCMVRAyTEWYFNO7qRu7iQVqOw/OqzxZxQ==}
-    engines: {pnpm: '>=7'}
-    dependencies:
-      '@kurkle/color': 0.3.2
-    dev: false
-
   /chokidar@3.5.3:
     resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==}
     engines: {node: '>= 8.10.0'}
@@ -2043,6 +2101,13 @@ packages:
     dependencies:
       esutils: 2.0.3
     dev: true
+
+  /dom-helpers@5.2.1:
+    resolution: {integrity: sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==}
+    dependencies:
+      '@babel/runtime': 7.22.6
+      csstype: 3.1.2
+    dev: false
 
   /electron-to-chromium@1.4.485:
     resolution: {integrity: sha512-1ndQ5IBNEnFirPwvyud69GHL+31FkE09gH/CJ6m3KCbkx3i0EVOrjwz4UNxRmN9H8OVHbC6vMRZGN1yCvjSs9w==}
@@ -4715,16 +4780,6 @@ packages:
   /queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
-  /react-chartjs-2@5.2.0(chart.js@4.3.3)(react@18.2.0):
-    resolution: {integrity: sha512-98iN5aguJyVSxp5U3CblRLH67J8gkfyGNbiK3c+l1QI/G4irHMPQw44aEPmjVag+YKTyQ260NcF82GTQ3bdscA==}
-    peerDependencies:
-      chart.js: ^4.1.1
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      chart.js: 4.3.3
-      react: 18.2.0
-    dev: false
-
   /react-dom@18.2.0(react@18.2.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
@@ -4745,6 +4800,20 @@ packages:
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  /react-transition-group@4.4.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
+    peerDependencies:
+      react: '>=16.6.0'
+      react-dom: '>=16.6.0'
+    dependencies:
+      '@babel/runtime': 7.22.6
+      dom-helpers: 5.2.1
+      loose-envify: 1.4.0
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
