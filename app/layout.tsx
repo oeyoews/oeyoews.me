@@ -31,7 +31,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <Link href="/" title="Home">
                   <FcHome className="h-5 w-5" />
                 </Link>
-                <Link href="/blog" title="Blog">
+                <Link href="/posts" title="Blog">
                   <FcIdea className="h-5 w-5" />
                 </Link>
               </nav>

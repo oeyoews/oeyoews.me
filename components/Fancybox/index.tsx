@@ -16,7 +16,6 @@ function Fancybox(props: {
 
   // no dependencies ???
   useEffect(() => {
-    // console.log('🐞 跑两次');
     const container = containerRef.current;
 
     const delegate = props.delegate || '[data-fancybox]';

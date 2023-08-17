@@ -1,5 +1,7 @@
+import PostChart from '@/components/PostChart';
+
 function page() {
-  return <div>Hi, ...</div>;
+  return <PostChart />;
 }
 
 export default page;
