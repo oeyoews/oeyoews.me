@@ -28,24 +28,26 @@ echarts.use([
 ]);
 
 function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
-  const postCounts = {}; // 统计每天的帖子数目
+  const postCounts: DataObject = {};
 
   // 统计每天的帖子数目
   datas.forEach((post) => {
     const date = format(new Date(post.date), 'yyyy-MM-dd');
     if (date in postCounts) {
-      // @ts-ignore
-      postCounts[date]++;
+      postCounts[date].count++;
+      postCounts[date].titles.push(post.title);
     } else {
-      // @ts-ignore
-      postCounts[date] = 1;
+      postCounts[date] = { count: 1, titles: [post.title] };
     }
   });
-  console.log(JSON.stringify(postCounts));
 
-  const data = Object.entries(postCounts).map(([date, count]) => {
-    return { name: date, value: [new Date(date), `${count}`] };
+  const data = Object.entries(postCounts).map(([date, info]) => {
+    return {
+      value: [format(new Date(date), 'yyyy-MM-dd'), `${info.count}`],
+      titles: info.titles,
+    };
   });
+  console.log(JSON.stringify(data, null, 2));
 
   const currentDate = new Date();
   const startDate = subYears(startOfMonth(currentDate), 1);
@@ -64,10 +66,10 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
     },
     tooltip: {
       position: 'top',
-      formatter: function (params: { name: any; value: any }) {
-        const date = params.name;
+      formatter: function (params: { value: any[]; titles: any }) {
+        const date = params.value[0];
         const count = params.value[1];
-        const title = 'demo';
+        const title = params.titles;
 
         return `日期：${date}<br/>帖子数：${count}<br/>文章标题：${title}`;
       },
