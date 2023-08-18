@@ -162,7 +162,7 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
   };
   const router = useRouter();
   const onEvents = {
-    click: (params) => {
+    click: (params: any) => {
       datas.forEach((post) => {
         if (format(new Date(post.date), 'yyyy-MM-dd') === params.data[0]) {
           router.push(`${post.slug}`);
