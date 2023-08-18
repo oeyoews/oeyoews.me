@@ -5,6 +5,8 @@
 // 如何调整大小
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 
+import { useRouter } from 'next/navigation';
+
 import { addYears, endOfMonth, format, startOfMonth, subYears } from 'date-fns';
 import { HeatmapChart } from 'echarts/charts';
 import {
@@ -158,8 +160,20 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
       },
     ],
   };
+  const router = useRouter();
+  const onEvents = {
+    click: (params) => {
+      datas.forEach((post) => {
+        if (format(new Date(post.date), 'yyyy-MM-dd') === params.data[0]) {
+          router.push(`${post.slug}`);
+        }
+      });
+    },
+  };
 
-  return <ReactEChartsCore echarts={echarts} option={option} />;
+  return (
+    <ReactEChartsCore echarts={echarts} option={option} onEvents={onEvents} />
+  );
 }
 
 export default CalendarHeatmapComponent;
