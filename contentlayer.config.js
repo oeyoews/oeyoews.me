@@ -74,7 +74,6 @@ export default makeSource({
           heading: 'TOC',
           maxDepth: 3,
           skip: 'delta',
-          // prefix: 'blog',
         },
       ],
     ],
