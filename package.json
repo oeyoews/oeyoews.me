@@ -16,6 +16,7 @@
     "@fancyapps/ui": "^5.0.20",
     "@types/echarts": "^4.9.18",
     "bright": "^0.8.4",
+    "cal-heatmap": "^4.2.3",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
     "echarts": "^5.4.3",
