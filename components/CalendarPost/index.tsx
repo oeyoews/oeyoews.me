@@ -151,6 +151,10 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
         type: 'heatmap',
         coordinateSystem: 'calendar',
         data,
+        pointSize: 20,
+        itemStyle: {
+          borderRadius: 3,
+        },
       },
     ],
   };
