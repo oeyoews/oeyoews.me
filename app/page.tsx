@@ -5,7 +5,7 @@ import { allPosts } from '@/.contentlayer/generated';
 
 function page() {
   // return <HeatmapComponent datas={allPosts} />;
-  return <CalHeatmapComponent />;
+  return <CalHeatmapComponent posts={allPosts} />;
 }
 
 export default page;

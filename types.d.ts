@@ -3,8 +3,17 @@ interface PostInfo {
   titles: string[];
 }
 
+type PostCountData = {
+  [date: string]: number;
+};
+
 interface DataObject {
   [date: string]: PostInfo;
+}
+
+interface HeatMapData {
+  date: string | Date;
+  count: number;
 }
 
 interface VaulProps {
