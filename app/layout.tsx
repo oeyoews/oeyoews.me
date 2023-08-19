@@ -1,4 +1,4 @@
-import { FcHome, FcIdea } from 'react-icons/fc';
+import { FcFlashOn, FcHome, FcIdea } from 'react-icons/fc';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -10,6 +10,12 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Nextjs Blog',
   description: 'Nextjs + TypeScript + Tailwindcss + contentlayer',
+  alternates: {
+    canonical: '/feed.xml',
+    types: {
+      'application/rss+xml': [{ url: '/feed.xml', title: 'rss' }],
+    },
+  },
 };
 
 const inter = Inter({ subsets: ['latin'] });
@@ -33,6 +39,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 </Link>
                 <Link href="/posts" title="Blog">
                   <FcIdea className="h-5 w-5" />
+                </Link>
+                <Link href="/feed.xml" title="Rss" target="_blank">
+                  <FcFlashOn className="h-5 w-5" />
                 </Link>
               </nav>
             </div>

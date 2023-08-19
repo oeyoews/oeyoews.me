@@ -15,7 +15,8 @@ const domain = 'https://nextjs.oeyoewl.top';
 
 export async function GET() {
   const feed = new RSS({
-    title: process.env.TITLE as string,
+    title: 'Nextjs Blog',
+    description: 'Nextjs + TypeScript + Tailwindcss + contentlayer',
     pubDate: new Date(),
     feed_url: `${domain}/feed.xml`,
     site_url: domain as string,

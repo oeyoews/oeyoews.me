@@ -4,6 +4,7 @@
 // NOTE: 273kb
 // 如何调整大小
 import ReactEChartsCore from 'echarts-for-react/lib/core';
+import { Suspense } from 'react';
 
 import { useRouter } from 'next/navigation';
 
@@ -172,7 +173,9 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
   };
 
   return (
-    <ReactEChartsCore echarts={echarts} option={option} onEvents={onEvents} />
+    <Suspense fallback={<div>🌀 Loading...</div>}>
+      <ReactEChartsCore echarts={echarts} option={option} onEvents={onEvents} />
+    </Suspense>
   );
 }
 
