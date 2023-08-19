@@ -22,19 +22,21 @@ export async function GET() {
     site_url: domain as string,
   });
 
-  allPosts.forEach((post) => {
-    feed.item({
-      title: post.title,
-      description: renderPost(post.body.raw),
-      // maybe sue gray-matter not use remote-mdx's matter
-      // description: renderPost(post.content),
-      url: `${domain}/${post.slug}`,
-      author: 'oeyoews',
-      date: post.date as any,
-      categories: ['blog'],
-      // custom_elements: [{ content: post.description }],
+  allPosts
+    .filter((post) => !(post.password || post.draft === true))
+    .forEach((post) => {
+      feed.item({
+        title: post.title,
+        description: renderPost(post.body.raw),
+        // maybe sue gray-matter not use remote-mdx's matter
+        // description: renderPost(post.content),
+        url: `${domain}/${post.slug}`,
+        author: 'oeyoews',
+        date: post.date as any,
+        categories: ['blog'],
+        // custom_elements: [{ content: post.description }],
+      });
     });
-  });
 
   const xml = feed.xml({
     indent: true,
