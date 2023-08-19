@@ -12,7 +12,6 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@faker-js/faker": "^8.0.2",
     "@fancyapps/ui": "^5.0.20",
     "@types/echarts": "^4.9.18",
     "bright": "^0.8.4",
