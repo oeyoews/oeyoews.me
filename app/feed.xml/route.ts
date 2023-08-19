@@ -30,7 +30,7 @@ export async function GET() {
         description: renderPost(post.body.raw),
         // maybe sue gray-matter not use remote-mdx's matter
         // description: renderPost(post.content),
-        url: `${domain}/${post.slug}`,
+        url: `${domain}${post.slug}`,
         author: 'oeyoews',
         date: post.date as any,
         categories: ['blog'],
