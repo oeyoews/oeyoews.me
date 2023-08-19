@@ -37,7 +37,7 @@ export default function HomePage() {
             currentYear !== postYear ? (
               <li className="text-xs" key={`year-header-${postYear}`}>
                 <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
-                  <FcApproval className="h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
+                  <FcApproval className="h-4 w-4" />
                 </span>
                 <h2
                   key={`year-header-${postYear}`}
