@@ -49,9 +49,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 </Link>
                 <VaulButton
                   buttonText={<FcDatabase className={LinkClass} />}
-                  children={<HomePage />}
                   title="文章列表"
-                />
+                >
+                  <HomePage />
+                </VaulButton>
               </nav>
             </div>
           </header>
