@@ -1,11 +1,14 @@
-import { FcFlashOn, FcHome, FcIdea } from 'react-icons/fc';
+import { FcDatabase, FcFlashOn, FcHome, FcIdea } from 'react-icons/fc';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import NextTopLoader from 'nextjs-toploader';
 
+import VaulButton from '@/components/VaulButton';
+
 import './globals.css';
+import HomePage from './posts/page';
 
 export const metadata: Metadata = {
   title: 'Nextjs Blog',
@@ -25,6 +28,7 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
+  const LinkClass = 'w-5 h-5';
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`antialiased ${inter.className}`}>
@@ -35,14 +39,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div className="flex items-center justify-between">
               <nav className="ml-auto text-sm font-medium space-x-6 flex flex-row">
                 <Link href="/" title="Home">
-                  <FcHome className="h-5 w-5" />
+                  <FcHome className={LinkClass} />
                 </Link>
                 <Link href="/posts" title="Blog">
-                  <FcIdea className="h-5 w-5" />
+                  <FcIdea className={LinkClass} />
                 </Link>
                 <Link href="/feed.xml" title="Rss" target="_blank">
-                  <FcFlashOn className="h-5 w-5" />
+                  <FcFlashOn className={LinkClass} />
                 </Link>
+                <VaulButton
+                  buttonText={<FcDatabase className={LinkClass} />}
+                  children={<HomePage />}
+                  title="文章列表"
+                />
               </nav>
             </div>
           </header>

@@ -8,9 +8,9 @@ interface DataObject {
 }
 
 interface VaulProps {
-  buttonText: string;
+  buttonText: string | React.ReactNode;
   title?: string;
-  content?: string | React.ReactNode;
+  children?: string | React.ReactNode;
 }
 
 interface SparkleProps {
