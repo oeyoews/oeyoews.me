@@ -2,6 +2,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import Image from 'next/image';
 
 import Fancybox from './Fancybox';
+import Icon from './Icon';
 import Imagec from './Imagec';
 
 import { Code } from 'bright';
@@ -10,6 +11,7 @@ Code.lineNumbers = false;
 Code.theme = 'one-dark-pro';
 
 const components = {
+  Icon,
   Image,
   Fancybox,
   Imagec,

@@ -6,6 +6,9 @@
   /* p {
     @apply indent-4;
   } */
+  svg {
+    display: inline;
+  }
   h1,
   h2 {
     @apply text-balance;
