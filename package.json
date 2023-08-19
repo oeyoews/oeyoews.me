@@ -14,11 +14,13 @@
   "dependencies": {
     "@fancyapps/ui": "^5.0.20",
     "@types/echarts": "^4.9.18",
+    "@types/rss": "^0.0.30",
     "bright": "^0.8.4",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
     "echarts": "^5.4.3",
     "echarts-for-react": "^3.0.2",
+    "marked": "^7.0.3",
     "next": "13.4.14-canary.1",
     "next-contentlayer": "^0.3.4",
     "nextjs-toploader": "^1.4.2",
@@ -29,6 +31,7 @@
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "remark-toc": "^8.0.1",
+    "rss": "^1.2.2",
     "zustand": "^4.4.1"
   },
   "devDependencies": {
