@@ -2,6 +2,8 @@ import { FcApproval, FcFolder, FcOpenedFolder } from 'react-icons/fc';
 
 import Link from 'next/link';
 
+import CommitInfo from '@/components/CommitInfo';
+
 import { allPosts } from 'contentlayer/generated';
 import { format } from 'date-fns';
 
@@ -90,6 +92,7 @@ export default function HomePage() {
             </>
           );
         })}
+      <CommitInfo />
     </ol>
   );
 }

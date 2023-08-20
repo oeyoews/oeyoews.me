@@ -18,7 +18,8 @@ const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactStrictMode: true,
   experimental: {
-    mdxRs: true,
+    // mdxRs: true,
+    serverActions: true,
   },
   images: {
     domains: [
