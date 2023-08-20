@@ -112,10 +112,10 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
       pieces: [
         // 设置分段范围
         { lte: 0, color: '#EBEDF0' },
-        { gt: 0, lte: 1, color: '#39D353' },
-        { gt: 1, lte: 5, color: '#006D32' },
-        { gt: 5, lte: 16, color: '#26A641' },
-        { gt: 16, color: '#0E4429' },
+        { gt: 0, lte: 1, color: '#D3CCF2' },
+        { gt: 1, lte: 5, color: '#B3A9F2' },
+        { gt: 5, lte: 16, color: '#9087F2' },
+        { gt: 16, color: '#6366F1' },
       ],
     },
     calendar: {
