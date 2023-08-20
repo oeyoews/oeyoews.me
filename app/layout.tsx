@@ -1,4 +1,5 @@
 import { FcDatabase, FcFlashOn, FcHome, FcIdea } from 'react-icons/fc';
+import { FcAdvertising } from 'react-icons/fc';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -53,6 +54,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 >
                   <HomePage />
                 </VaulButton>
+                <Link href="/about" title="About">
+                  <FcAdvertising className={LinkClass} />
+                </Link>
               </nav>
             </div>
           </header>
