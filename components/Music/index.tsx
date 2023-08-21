@@ -7,7 +7,7 @@ import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
 
 import useStore from '@/lib/store';
 import musicList from '@/musicList';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import Swal from 'sweetalert2';
 import useSound from 'use-sound';
 
@@ -44,7 +44,7 @@ function Music() {
     ],
   };
 
-  const musicColor = classNames('w-5', 'h-5', 'transition-all', {
+  const musicColor = clsx('w-5', 'h-5', 'transition-all', {
     'fill-red-500': !musicStore.isPlaying && true,
     'fill-green-500': musicStore.isPlaying && true,
     'animate-spin': musicStore.isPlaying && true,
