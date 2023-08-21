@@ -1,6 +1,7 @@
 'use client';
 
-import { useRef } from 'react';
+// @ts-nocheck
+import { useEffect, useRef, useState } from 'react';
 // @ts-ignore
 import ReactAplayer from 'react-aplayer';
 import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
@@ -8,7 +9,16 @@ import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
 import useStore from '@/lib/store';
 import classNames from 'classnames';
 
+// @ts-ignore
+const ReactAplayer = dynamic(() => import('react-aplayer'), { ssr: false });
+
 function Music() {
+  const [hasWindow, setHasWindow] = useState(false);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setHasWindow(true);
+    }
+  }, []);
   const musicStore = useStore();
   const apRef = useRef(null); // 使用 useRef 来保存音乐播放器实例
 
@@ -42,14 +52,16 @@ function Music() {
   return (
     <div>
       <div className="hidden">
-        <ReactAplayer
-          {...props}
-          onInit={onInit}
-          onPlay={onPlay}
-          onPause={onPause}
-        />
+        {hasWindow && (
+          <ReactAplayer
+            {...props}
+            // @ts-ignore
+            onInit={onInit}
+            onPlay={onPlay}
+            onPause={onPause}
+          />
+        )}
       </div>
-      {/* 标记播放状态 */}
       <button
         // @ts-ignore
         onClick={() => apRef.current?.toggle()}

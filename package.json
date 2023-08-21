@@ -16,7 +16,6 @@
     "@iconify/react": "^4.1.1",
     "@types/echarts": "^4.9.18",
     "@types/rss": "^0.0.30",
-    "aplayer": "^1.10.1",
     "bright": "^0.8.4",
     "classnames": "^2.3.2",
     "contentlayer": "^0.3.4",
