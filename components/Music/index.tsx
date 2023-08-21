@@ -2,8 +2,6 @@
 
 // @ts-nocheck
 import { useEffect, useRef, useState } from 'react';
-// @ts-ignore
-import ReactAplayer from 'react-aplayer';
 import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
 
 import useStore from '@/lib/store';
