@@ -47,7 +47,7 @@ function Music() {
   const musicColor = classNames('w-5', 'h-5', 'transition-all', {
     'fill-red-500': !musicStore.isPlaying && true,
     'fill-green-500': musicStore.isPlaying && true,
-    'animate-pulse': musicStore.isPlaying && true,
+    'animate-spin': musicStore.isPlaying && true,
   });
 
   const buttonText = musicStore.isPlaying ? '暂停播放' : '开始播放';
