@@ -12,7 +12,10 @@ import VaulButton from '@/components/VaulButton';
 import './globals.css';
 import HomePage from './posts/page';
 
-const Music = dynamic(() => import('@/components/Music'), { ssr: false });
+const Music = dynamic(() => import('@/components/Music'), {
+  ssr: false,
+  loading: () => <div className="w-5 h-5"> </div>,
+});
 
 export const metadata: Metadata = {
   title: 'Nextjs Blog',
