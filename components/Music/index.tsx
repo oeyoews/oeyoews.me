@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 import useSound from 'use-sound';
 
 function Music() {
-  const [play, { stop }] = useSound('/sounds/menu-open.mp3');
+  const [play] = useSound('/sounds/menu-open.mp3');
   const musicStore = useStore();
   const apRef = useRef(null); // 使用 useRef 来保存音乐播放器实例
 
