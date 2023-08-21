@@ -37,6 +37,7 @@
     "remark-gfm": "^3.0.1",
     "remark-toc": "^8.0.1",
     "rss": "^1.2.2",
+    "use-sound": "^4.0.1",
     "vaul": "^0.3.4",
     "zustand": "^4.4.1"
   },

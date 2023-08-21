@@ -2,15 +2,18 @@ import { FcDatabase, FcFlashOn, FcHome, FcIdea } from 'react-icons/fc';
 import { FcAdvertising } from 'react-icons/fc';
 
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import NextTopLoader from 'nextjs-toploader';
 
-import Music from '@/components/Music';
 import VaulButton from '@/components/VaulButton';
 
 import './globals.css';
 import HomePage from './posts/page';
+
+// import Music from '@/components/Music';
+const Music = dynamic(() => import('@/components/Music'), { ssr: false });
 
 export const metadata: Metadata = {
   title: 'Nextjs Blog',
