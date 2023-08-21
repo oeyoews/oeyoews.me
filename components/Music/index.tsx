@@ -51,7 +51,7 @@ function Music() {
   });
 
   const buttonText = musicStore.isPlaying ? '暂停播放' : '开始播放';
-  const title = `${buttonText} ${name}`;
+  const title = `${buttonText}`;
   return (
     <div>
       <div className="hidden">
