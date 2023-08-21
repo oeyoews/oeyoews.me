@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { AiOutlineSend } from 'react-icons/ai';
 
-import usePasswordStore from '@/lib/store';
+import useStore from '@/lib/store';
 
 function PasswordProtectedContent({
   post,
@@ -14,7 +14,7 @@ function PasswordProtectedContent({
 }) {
   const [enteredPassword, setEnteredPassword] = useState('');
 
-  const passwordStore = usePasswordStore();
+  const passwordStore = useStore();
 
   const handlePasswordSubmit = () => {
     if (post.password === enteredPassword) {

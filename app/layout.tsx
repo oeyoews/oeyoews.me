@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import NextTopLoader from 'nextjs-toploader';
 
+import Music from '@/components/Music';
 import VaulButton from '@/components/VaulButton';
 
 import './globals.css';
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <Link href="/about" title="About">
                   <FcAdvertising className={LinkClass} />
                 </Link>
+                <Music />
               </nav>
             </div>
           </header>
