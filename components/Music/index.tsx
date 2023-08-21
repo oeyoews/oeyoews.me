@@ -1,7 +1,7 @@
 'use client';
 
-// @ts-ignore
 import { useRef } from 'react';
+// @ts-ignore
 import ReactAplayer from 'react-aplayer';
 import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
 
@@ -51,6 +51,7 @@ function Music() {
       </div>
       {/* 标记播放状态 */}
       <button
+        // @ts-ignore
         onClick={() => apRef.current?.toggle()}
         title={musicStore.isPlaying ? '暂停' : '播放'}
       >
