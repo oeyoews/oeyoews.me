@@ -1,8 +1,9 @@
 'use client';
 
-// @ts-nocheck
 import { useEffect, useRef, useState } from 'react';
 import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
+
+import dynamic from 'next/dynamic';
 
 import useStore from '@/lib/store';
 import classNames from 'classnames';
