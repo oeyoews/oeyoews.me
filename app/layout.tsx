@@ -12,7 +12,6 @@ import VaulButton from '@/components/VaulButton';
 import './globals.css';
 import HomePage from './posts/page';
 
-// import Music from '@/components/Music';
 const Music = dynamic(() => import('@/components/Music'), { ssr: false });
 
 export const metadata: Metadata = {

@@ -26,6 +26,7 @@ function Music() {
   const onInit = (instance: null) => {
     apRef.current = instance;
   };
+  // if not use dynamic, should use useeffect
   const { name, artist, id } =
     musicList[Math.floor(Math.random() * musicList.length)];
   const url = `https://music.163.com/song/media/outer/url?id=${id}`;
