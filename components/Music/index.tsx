@@ -1,6 +1,7 @@
 'use client';
 
 // @ts-ignore
+import { useRef } from 'react';
 import ReactAplayer from 'react-aplayer';
 import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
 
@@ -9,6 +10,8 @@ import classNames from 'classnames';
 
 function Music() {
   const musicStore = useStore();
+  const apRef = useRef(null); // 使用 useRef 来保存音乐播放器实例
+
   const onPlay = () => {
     musicStore.setIsPlaying(true);
   };
@@ -17,12 +20,11 @@ function Music() {
     musicStore.setIsPlaying(false);
   };
 
-  let ap: any;
-
-  const onInit = (instance) => {
-    ap = instance;
+  const onInit = (instance: null) => {
+    apRef.current = instance;
   };
 
+  // Option
   const props = {
     audio: [
       {
@@ -33,8 +35,9 @@ function Music() {
     ],
   };
 
-  const musicColor = classNames('w-5', 'h-5', {
-    'fill-red-500': musicStore.isPlaying && true,
+  const musicColor = classNames('w-5', 'h-5', 'transition-all', {
+    'fill-red-500': !musicStore.isPlaying && true,
+    'fill-green-500': musicStore.isPlaying && true,
   });
   return (
     <div>
@@ -48,7 +51,7 @@ function Music() {
       </div>
       {/* 标记播放状态 */}
       <button
-        onClick={() => ap.toggle()}
+        onClick={() => apRef.current?.toggle()}
         title={musicStore.isPlaying ? '暂停' : '播放'}
       >
         <RiNeteaseCloudMusicFill className={musicColor} />
