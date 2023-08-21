@@ -6,6 +6,7 @@ import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
 import dynamic from 'next/dynamic';
 
 import useStore from '@/lib/store';
+import musicList from '@/musicList';
 import classNames from 'classnames';
 
 // @ts-ignore
@@ -32,14 +33,17 @@ function Music() {
   const onInit = (instance: null) => {
     apRef.current = instance;
   };
+  const { name, artist, id } =
+    musicList[Math.floor(Math.random() * musicList.length)];
+  const url = `https://music.163.com/song/media/outer/url?id=${id}`;
 
   // Option
   const props = {
     audio: [
       {
-        name: '清风',
-        artist: '陈壹千',
-        url: 'https://music.163.com/song/media/outer/url?id=1947926942',
+        name,
+        artist,
+        url,
       },
     ],
   };
@@ -48,6 +52,9 @@ function Music() {
     'fill-red-500': !musicStore.isPlaying && true,
     'fill-green-500': musicStore.isPlaying && true,
   });
+
+  const buttonText = musicStore.isPlaying ? '暂停播放' : '开始播放';
+  const title = `${buttonText} ${name}`;
   return (
     <div>
       <div className="hidden">
@@ -64,7 +71,7 @@ function Music() {
       <button
         // @ts-ignore
         onClick={() => apRef.current?.toggle()}
-        title={musicStore.isPlaying ? '暂停' : '播放'}
+        title={title}
       >
         <RiNeteaseCloudMusicFill className={musicColor} />
       </button>
