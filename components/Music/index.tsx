@@ -1,12 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import ReactAplayer, { ReactAplayerMethods } from 'react-aplayer';
+import { ReactAplayerMethods } from 'react-aplayer';
 import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
+
+import dynamic from 'next/dynamic';
 
 import useStore from '@/lib/store';
 import musicList from '@/musicList';
 import clsx from 'clsx';
+
+// if use useEffect adjudge window, not work, so use dynamic ???
+const ReactAplayer = dynamic(() => import('react-aplayer'), { ssr: false });
 
 function Music() {
   const musicStore = useStore();
@@ -50,15 +55,12 @@ function Music() {
   return (
     <div>
       <div className="hidden">
-        {/* 等待useEffect完成 */}
-        {musicFormatedList.length > 0 && (
-          <ReactAplayer
-            audio={musicFormatedList}
-            onInit={onInit}
-            onPlay={onPlay}
-            onPause={onPause}
-          />
-        )}
+        <ReactAplayer
+          audio={musicFormatedList}
+          onInit={onInit}
+          onPlay={onPlay}
+          onPause={onPause}
+        />
       </div>
       <button
         onDoubleClick={() => {

@@ -1,26 +1,16 @@
 import { FcDatabase, FcFlashOn, FcHome, FcIdea } from 'react-icons/fc';
 import { FcAdvertising } from 'react-icons/fc';
-import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
 
 import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import NextTopLoader from 'nextjs-toploader';
 
+import Music from '@/components/Music';
 import VaulButton from '@/components/VaulButton';
 
 import './globals.css';
 import HomePage from './posts/page';
-
-const Music = dynamic(() => import('@/components/Music'), {
-  ssr: false,
-  loading: () => (
-    <div>
-      <RiNeteaseCloudMusicFill className="fill-blue-400 w-5 h-5" />
-    </div>
-  ),
-});
 
 export const metadata: Metadata = {
   title: 'Nextjs Blog',
