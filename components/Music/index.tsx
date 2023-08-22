@@ -1,19 +1,16 @@
 'use client';
 
-import { useRef } from 'react';
-import ReactAplayer from 'react-aplayer';
+import { useEffect, useState } from 'react';
+import ReactAplayer, { ReactAplayerMethods } from 'react-aplayer';
 import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
 
 import useStore from '@/lib/store';
 import musicList from '@/musicList';
 import clsx from 'clsx';
-import Swal from 'sweetalert2';
-import useSound from 'use-sound';
 
 function Music() {
-  const [play] = useSound('/sounds/menu-open.mp3');
   const musicStore = useStore();
-  const apRef = useRef(null); // 使用 useRef 来保存音乐播放器实例
+  const [ap, setAp] = useState<ReactAplayerMethods>();
 
   const onPlay = () => {
     musicStore.setIsPlaying(true);
@@ -23,25 +20,24 @@ function Music() {
     musicStore.setIsPlaying(false);
   };
 
-  const onInit = (instance: any) => {
-    apRef.current = instance;
+  const onInit = (ap: ReactAplayerMethods) => {
+    setAp(ap);
   };
   // if not use dynamic, should use useeffect
-  // NOTE: 没有使用useEffect, random, 总会变化
-  const { name, artist, id } =
-    musicList[Math.floor(Math.random() * musicList.length)];
-  const url = `https://music.163.com/song/media/outer/url?id=${id}`;
-
-  // Option
-  const props = {
-    audio: [
-      {
-        name,
-        artist,
-        url,
-      },
-    ],
-  };
+  // 其实没有必要使用dynamic
+  const [musicFormatedList, setFormatedList] = useState([]);
+  useEffect(() => {
+    const musicFormatedList = musicList
+      .sort(() => Math.random() - 0.5)
+      .map((music) => {
+        return {
+          ...music,
+          url: `https://music.163.com/song/media/outer/url?id=${music.id}`,
+        };
+      });
+    // @ts-ignore
+    setFormatedList(musicFormatedList);
+  }, []);
 
   const musicColor = clsx('w-5', 'h-5', 'transition-all', {
     'fill-red-500': !musicStore.isPlaying && true,
@@ -54,31 +50,24 @@ function Music() {
   return (
     <div>
       <div className="hidden">
-        <ReactAplayer
-          {...props}
-          ref={apRef}
-          onInit={onInit}
-          onPlay={onPlay}
-          onPause={onPause}
-        />
+        {/* 等待useEffect完成 */}
+        {musicFormatedList.length > 0 && (
+          <ReactAplayer
+            audio={musicFormatedList}
+            onInit={onInit}
+            onPlay={onPlay}
+            onPause={onPause}
+          />
+        )}
       </div>
       <button
+        onDoubleClick={() => {
+          ap?.skipForward();
+        }}
         onClick={() => {
-          // @ts-ignore
-          apRef.current?.toggle();
-          if (!musicStore.isPlaying) {
-            Swal.fire({
-              title: '开始播放',
-              icon: 'success',
-              showConfirmButton: false,
-              timer: 2000,
-              toast: true,
-              showCancelButton: false,
-              position: 'bottom-end',
-            });
-          } else {
-            play();
-          }
+          ap?.toggle();
+          // use store
+          // console.log(ap?.list.audios[0].name);
         }}
         title={title}
       >

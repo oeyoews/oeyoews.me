@@ -68,8 +68,18 @@ declare module 'react-aplayer' {
     onInit?: any;
     onPlay?: () => any;
     onPause?: () => any;
-    ref?: any;
+    audio: any;
   }
   const ReactAplayer: React.FC<AplayerProps>;
+  export interface ReactAplayerMethods {
+    toggle: any;
+    skipForward: any;
+    list: {
+      show: any;
+      hide: any;
+      toggle: any;
+      audios: { url: string; id: string; name: string; url: string }[];
+    };
+  }
   export default ReactAplayer;
 }
