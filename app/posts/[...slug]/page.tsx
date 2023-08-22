@@ -53,7 +53,7 @@ export default async function PostPage({ params }: PostProps) {
 
   return (
     <article className="py-6 prose prose-img:rounded-md">
-      <h1 className="mb-2">{post.title}</h1>
+      <h1 className="mb-2 text-3xl">{post.title}</h1>
       <hr className="my-4 border-2 border-gray-100 rounded-full" />
       <PasswordProtectedContent post={post}>
         <Mdx code={post.body.code} />
