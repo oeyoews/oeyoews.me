@@ -50,3 +50,44 @@ function ParentComponent({ enumValue }) {
 在上面的例子中，根据传递给`ParentComponent`的`enumValue`值，选择相应的组件进行渲染。
 
 这样，你就可以通过改变`enumValue`的值来动态地显示不同的组件，而不是使用条件语句进行渲染。
+
+## Hooks
+
+- useEffect, useRef, useState
+
+```tsx
+function App() {
+  const myDivRef = useRef<HTMLDivElement>(null);
+  let [count, setCount] = React.useState(0);
+
+  const updateText = () => {
+    if (myDivRef.current) {
+      myDivRef.current.textContent = '这是更新后的文本内容。update';
+      setCount(++count);
+    } else {
+      console.log('元素不存在');
+    }
+  };
+
+  //   如果不使用useEffect, 会在渲染之前就进行dom操作,引起错误
+  // 一般ref不进行view 更新, 这里使用useeffect, 手动处理
+  useEffect(() => {
+    // 判断目标元素是否存在, 如果不进行判断, 会报错
+    if (myDivRef.current) {
+      myDivRef.current.textContent = '这是更新后的文本内容。 useEffect';
+      console.log(count); // 这个值是最新的
+    }
+  }, [count]);
+
+  return (
+    <div>
+      {/* 将 useRef 引用绑定到 div 元素 */}
+      <div ref={myDivRef}>这是初始文本内容</div>
+      <div>{count}</div>
+      <button onClick={updateText}>update</button>
+    </div>
+  );
+}
+
+export default App;
+```

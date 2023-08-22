@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef } from 'react';
-// @ts-ignore
 import ReactAplayer from 'react-aplayer';
 import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
 
@@ -24,7 +23,7 @@ function Music() {
     musicStore.setIsPlaying(false);
   };
 
-  const onInit = (instance: null) => {
+  const onInit = (instance: any) => {
     apRef.current = instance;
   };
   // if not use dynamic, should use useeffect
@@ -57,7 +56,7 @@ function Music() {
       <div className="hidden">
         <ReactAplayer
           {...props}
-          // @ts-ignore
+          ref={apRef}
           onInit={onInit}
           onPlay={onPlay}
           onPause={onPause}

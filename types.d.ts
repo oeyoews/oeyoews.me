@@ -61,3 +61,15 @@ interface BingTooltips {
   walle: string;
   walls: string;
 }
+
+// APlayer
+declare module 'react-aplayer' {
+  interface AplayerProps {
+    onInit?: any;
+    onPlay?: () => any;
+    onPause?: () => any;
+    ref?: any;
+  }
+  const ReactAplayer: React.FC<AplayerProps>;
+  export default ReactAplayer;
+}
