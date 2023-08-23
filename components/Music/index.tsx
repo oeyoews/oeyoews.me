@@ -15,7 +15,7 @@ const ReactAplayer = dynamic(() => import('react-aplayer'), { ssr: false });
 
 function Music() {
   const musicStore = useStore();
-  let apRef = useRef<ReactAplayerMethods | null>(null);
+  const apRef = useRef<ReactAplayerMethods | null>(null);
 
   const onPlay = () => {
     musicStore.setIsPlaying(true);
@@ -34,14 +34,12 @@ function Music() {
   // 其实没有必要使用dynamic
   const [musicFormatedList, setFormatedList] = useState([]);
   useEffect(() => {
-    const musicFormatedList = musicList
-      .sort(() => Math.random() - 0.5)
-      .map((music) => {
-        return {
-          // ...music,
-          url: `https://music.163.com/song/media/outer/url?id=${music.id}`,
-        };
-      });
+    const musicFormatedList = musicList.map((music) => {
+      return {
+        // ...music,
+        url: `https://music.163.com/song/media/outer/url?id=${music.id}`,
+      };
+    });
     // @ts-ignore
     setFormatedList(musicFormatedList);
   }, []);
@@ -58,6 +56,7 @@ function Music() {
     <div>
       <div className="hidden">
         <ReactAplayer
+          order="random"
           audio={musicFormatedList}
           onInit={onInit}
           onPlay={onPlay}

@@ -69,6 +69,7 @@ declare module 'react-aplayer' {
     onPlay?: () => void;
     onPause?: () => void;
     audio: any;
+    order: 'random' | 'list';
   }
   const ReactAplayer: React.FC<AplayerProps>;
   export interface ReactAplayerMethods {

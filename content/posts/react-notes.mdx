@@ -55,7 +55,7 @@ function ParentComponent({ enumValue }) {
 
 - useEffect, useRef, useState
 
-```tsx
+```ref.tsx
 function App() {
   const myDivRef = useRef<HTMLDivElement>(null);
   let [count, setCount] = React.useState(0);
@@ -90,4 +90,24 @@ function App() {
 }
 
 export default App;
+```
+
+```useEffect.tsx
+export default function Demo() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  // 开始是 ... hi ..., useEffect 重新渲染ui的时候, fullName 会被重新计算
+  const fullName = firstName + ' ' + lastName;
+  console.log('updated');
+  useEffect(() => {
+    setFirstName('Taylor');
+    setLastName('Wlin');
+  }, []);
+
+  return (
+    <>
+      <div>{fullName}</div>
+    </>
+  );
+}
 ```
