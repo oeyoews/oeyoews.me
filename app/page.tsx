@@ -1,4 +1,3 @@
-// import HeatmapComponent from '@/components/CalendarPost';
 import dynamic from 'next/dynamic';
 
 import { allPosts } from '@/.contentlayer/generated';
