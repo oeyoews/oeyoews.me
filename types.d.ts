@@ -65,15 +65,16 @@ interface BingTooltips {
 // APlayer
 declare module 'react-aplayer' {
   interface AplayerProps {
-    onInit?: any;
-    onPlay?: () => any;
-    onPause?: () => any;
+    onInit?: (instance) => void;
+    onPlay?: () => void;
+    onPause?: () => void;
     audio: any;
   }
   const ReactAplayer: React.FC<AplayerProps>;
   export interface ReactAplayerMethods {
-    toggle: any;
-    skipForward: any;
+    toggle: () => void;
+    play: () => void;
+    skipForward: () => void;
     list: {
       show: any;
       hide: any;

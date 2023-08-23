@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ReactAplayerMethods } from 'react-aplayer';
 import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
 
@@ -15,7 +15,7 @@ const ReactAplayer = dynamic(() => import('react-aplayer'), { ssr: false });
 
 function Music() {
   const musicStore = useStore();
-  const [ap, setAp] = useState<ReactAplayerMethods>();
+  let apRef = useRef<ReactAplayerMethods | null>(null);
 
   const onPlay = () => {
     musicStore.setIsPlaying(true);
@@ -25,8 +25,10 @@ function Music() {
     musicStore.setIsPlaying(false);
   };
 
-  const onInit = (ap: ReactAplayerMethods) => {
-    setAp(ap);
+  const onInit = (instance: ReactAplayerMethods) => {
+    if (!apRef.current) {
+      apRef.current = instance;
+    }
   };
   // if not use dynamic, should use useeffect
   // 其实没有必要使用dynamic
@@ -36,7 +38,7 @@ function Music() {
       .sort(() => Math.random() - 0.5)
       .map((music) => {
         return {
-          ...music,
+          // ...music,
           url: `https://music.163.com/song/media/outer/url?id=${music.id}`,
         };
       });
@@ -64,10 +66,12 @@ function Music() {
       </div>
       <button
         onDoubleClick={() => {
-          ap?.skipForward();
+          apRef.current?.skipForward();
+          // 停止状态下切换到下一首需要播放
+          apRef.current?.play();
         }}
         onClick={() => {
-          ap?.toggle();
+          apRef.current?.toggle();
           // use store
           // console.log(ap?.list.audios[0].name);
         }}
