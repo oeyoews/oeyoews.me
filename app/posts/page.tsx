@@ -69,7 +69,7 @@ export default function HomePage() {
                 <Link
                   href={post.slug}
                   className="text-xs rounded-md"
-                  title="点击阅读更多"
+                  title="点击阅读全文"
                 >
                   <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition my-2">
                     {post.title}
