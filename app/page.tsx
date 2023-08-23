@@ -10,8 +10,7 @@ const HeatmapComponent = dynamic(() => import('@/components/CalendarPost'), {
 });
 
 function page() {
-  // return <HeatmapComponent datas={allPosts} />;
-  return <Board />;
+  return <HeatmapComponent datas={allPosts} />;
 }
 
 export default page;
