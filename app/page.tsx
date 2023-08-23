@@ -1,5 +1,7 @@
 import dynamic from 'next/dynamic';
 
+import Board from '@/components/Square';
+
 import { allPosts } from '@/.contentlayer/generated';
 
 const HeatmapComponent = dynamic(() => import('@/components/CalendarPost'), {
@@ -8,7 +10,8 @@ const HeatmapComponent = dynamic(() => import('@/components/CalendarPost'), {
 });
 
 function page() {
-  return <HeatmapComponent datas={allPosts} />;
+  // return <HeatmapComponent datas={allPosts} />;
+  return <Board />;
 }
 
 export default page;
