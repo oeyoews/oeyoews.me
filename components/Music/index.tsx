@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { ReactAplayerMethods } from 'react-aplayer';
 import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
 
@@ -32,17 +32,12 @@ function Music() {
   };
   // if not use dynamic, should use useeffect
   // 其实没有必要使用dynamic
-  const [musicFormatedList, setFormatedList] = useState([]);
-  useEffect(() => {
-    const musicFormatedList = musicList.map((music) => {
-      return {
-        // ...music,
-        url: `https://music.163.com/song/media/outer/url?id=${music.id}`,
-      };
-    });
-    // @ts-ignore
-    setFormatedList(musicFormatedList);
-  }, []);
+  const musicFormatedList = musicList.map((music) => {
+    return {
+      // ...music,
+      url: `https://music.163.com/song/media/outer/url?id=${music.id}`,
+    };
+  });
 
   const musicColor = clsx('w-5', 'h-5', 'transition-all', {
     'fill-red-500': !musicStore.isPlaying && true,
