@@ -1,7 +1,5 @@
 import dynamic from 'next/dynamic';
 
-import Board from '@/components/Square';
-
 import { allPosts } from '@/.contentlayer/generated';
 
 const HeatmapComponent = dynamic(() => import('@/components/CalendarPost'), {
