@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 
+// 去除边框厚度
 // add sound && confetti
 function Square({
   value,
@@ -60,7 +61,7 @@ export default function Board() {
   );
 }
 
-function calculateWinner(squares) {
+function calculateWinner(squares: any) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
