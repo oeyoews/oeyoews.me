@@ -31,6 +31,7 @@ export default function Board() {
   const [xIsNext, setXIsNext] = useState(true);
   const [hasWinner, setHasWinner] = useState<null | boolean>(null);
   const winner = calculateWinner(squares);
+  const [start, setStart] = useState(false);
   function handleRestart() {
     setSquares(Array(9).fill(null)); // 重置方块内容
     setXIsNext(true); // 重置下一个玩家
@@ -74,24 +75,38 @@ export default function Board() {
 
   return (
     <div className="flex justify-center items-center flex-col">
-      <div className="w-48 h-48 bg-black text-white">
-        {Array.from({ length: 3 }, (_, row) => (
-          <div key={row} className="h-16 flex">
-            {Array.from({ length: 3 }, (_, col) => renderSquare(row * 3 + col))}
-          </div>
-        ))}
+      <div className="w-48 h-48 bg-black text-white relative">
+        {!start ? (
+          <button
+            onClick={() => setStart(true)}
+            className="absolute inset-0 font-bold"
+          >
+            开始游戏
+          </button>
+        ) : (
+          Array.from({ length: 3 }, (_, row) => (
+            <div key={row} className="h-16 flex">
+              {Array.from({ length: 3 }, (_, col) =>
+                renderSquare(row * 3 + col),
+              )}
+            </div>
+          ))
+        )}
       </div>
-      <div className="my-4">{status}</div>
-      {(winner || hasWinner === false) && (
-        <button className="bg-black text-white px-2" onClick={handleRestart}>
-          重新游戏
-        </button>
-      )}
+      <div className="my-4">{start && status}</div>
       <div className="inline-block mx-2">
-        {hasWinner === false && (
+        {hasWinner === false && !winner && (
           <div className="px-2 bg-black text-white">平局</div>
         )}
       </div>
+      {(winner || hasWinner === false) && (
+        <button
+          className="bg-black text-white px-2 my-1"
+          onClick={handleRestart}
+        >
+          重新游戏
+        </button>
+      )}
     </div>
   );
 }
