@@ -1,4 +1,10 @@
-import { FcDatabase, FcFlashOn, FcHome, FcIdea } from 'react-icons/fc';
+import {
+  FcDatabase,
+  FcFlashOn,
+  FcGrid,
+  FcIdea,
+  FcPlanner,
+} from 'react-icons/fc';
 import { FcAdvertising } from 'react-icons/fc';
 
 import type { Metadata } from 'next';
@@ -41,7 +47,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div className="flex items-center justify-between">
               <nav className="ml-auto text-sm font-medium space-x-6 flex flex-row">
                 <Link href="/" title="Home">
-                  <FcHome className={LinkClass} />
+                  <FcPlanner className={LinkClass} />
                 </Link>
                 <Link href="/posts" title="Blog">
                   <FcIdea className={LinkClass} />
@@ -57,6 +63,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 </VaulButton>
                 <Link href="/about" title="About">
                   <FcAdvertising className={LinkClass} />
+                </Link>
+                <Link href="/game" title="Game">
+                  <FcGrid className={LinkClass} />
                 </Link>
                 <Music />
               </nav>

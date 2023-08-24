@@ -5,10 +5,10 @@ import { useState } from 'react';
 import confetti from 'canvas-confetti';
 import sound from 'use-sound';
 
-// 如果还剩下一个格子, 自动填充
-// 开始游戏前可以切换黑白棋
-// TODO 支持双击撤回棋子
-// add sound && confetti
+// TODO: 如果还剩下一个格子, 自动填充
+// TODO: 开始游戏前可以切换黑白棋
+// TODO: 支持双击撤回棋子
+// TODO: 选择是否开启声音
 function Square({
   value,
   onSquareClick,
@@ -35,7 +35,8 @@ function Flag({ color }: { color: 'white' | 'black' }) {
 }
 
 export default function Board() {
-  const [play] = sound('/sounds/menu-open.mp3');
+  const [whiteClick] = sound('/sounds/click01.mp3');
+  const [blackClick] = sound('/sounds/click02.wav');
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const [hasWinner, setHasWinner] = useState<null | boolean>(null);
@@ -62,13 +63,22 @@ export default function Board() {
   }
 
   function handleClick(i: number) {
+    // 胜利
     if (winner) {
       return;
     }
+    // 平局
     if (hasWinner === false) return;
-    play();
+    // 放置棋子后, 不在响应
+    // TODO: UI disable
     if (squares[i] || winner) {
       return;
+    }
+
+    if (xIsNext) {
+      whiteClick();
+    } else {
+      blackClick();
     }
     const nextSquares = squares.slice();
     nextSquares[i] = xIsNext ? <Flag color="white" /> : <Flag color="black" />;
@@ -92,8 +102,12 @@ export default function Board() {
       <div className="w-48 h-48 bg-yellow-600 text-white relative rounded-lg">
         {!start ? (
           <button
-            onClick={() => setStart(true)}
-            className="absolute inset-0 font-bold"
+            onClick={() => {
+              setStart(true);
+              whiteClick();
+            }}
+            className="absolute inset-0 font-bold hover:text-black transition"
+            title="点击开始游戏"
           >
             开始游戏
           </button>
