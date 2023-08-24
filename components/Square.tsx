@@ -17,7 +17,7 @@ function Square({
 }) {
   return (
     <button
-      className="border border-gray-900 font-bold w-16 h-16"
+      className="border border-gray-100 font-bold w-16 h-16"
       onClick={onSquareClick}
     >
       {value}
@@ -29,12 +29,12 @@ export default function Board() {
   const [play] = sound('/sounds/menu-open.mp3');
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
-  const [hasWinner, setHasWinner] = useState(false);
+  const [hasWinner, setHasWinner] = useState<null | boolean>(null);
   const winner = calculateWinner(squares);
   function handleRestart() {
     setSquares(Array(9).fill(null)); // 重置方块内容
     setXIsNext(true); // 重置下一个玩家
-    setHasWinner(false);
+    setHasWinner(null);
   }
 
   let status;
@@ -58,7 +58,7 @@ export default function Board() {
     if (!nextSquares.includes(null) && !winner) {
       // 点击后重新渲染组件, 所以这个status, 在重新计算的时候被覆盖了, 重新渲染的时候, 这个函数没有被触发, 除非手动调用(不合适)
       // status = !winner + '平局';
-      setHasWinner(true);
+      setHasWinner(false);
     }
   }
 
@@ -69,17 +69,23 @@ export default function Board() {
   }
 
   return (
-    <div className="w-48 h-48">
-      {Array.from({ length: 3 }, (_, row) => (
-        <div key={row} className="h-16 flex">
-          {Array.from({ length: 3 }, (_, col) => renderSquare(row * 3 + col))}
-        </div>
-      ))}
+    <div>
+      <div className="w-48 h-48 bg-black text-white">
+        {Array.from({ length: 3 }, (_, row) => (
+          <div key={row} className="h-16 flex">
+            {Array.from({ length: 3 }, (_, col) => renderSquare(row * 3 + col))}
+          </div>
+        ))}
+      </div>
       <div className="my-4">{status}</div>
-      <button className="restart-button" onClick={handleRestart}>
-        重新开始游戏
+      <button className="bg-black text-white px-2" onClick={handleRestart}>
+        重新游戏
       </button>
-      <div>{hasWinner && <div className="winner">平局</div>}</div>
+      <div className="inline-block mx-2">
+        {hasWinner === null && (
+          <div className="px-2 bg-black text-white">平局</div>
+        )}
+      </div>
     </div>
   );
 }
