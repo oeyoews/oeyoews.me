@@ -47,6 +47,10 @@ export default function Board() {
   }
 
   function handleClick(i: number) {
+    if (winner) {
+      return;
+    }
+    if (hasWinner === false) return;
     play();
     if (squares[i] || winner) {
       return;
