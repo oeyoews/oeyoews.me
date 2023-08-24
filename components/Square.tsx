@@ -82,7 +82,7 @@ export default function Board() {
         重新游戏
       </button>
       <div className="inline-block mx-2">
-        {hasWinner === null && (
+        {hasWinner === false && (
           <div className="px-2 bg-black text-white">平局</div>
         )}
       </div>
