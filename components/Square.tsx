@@ -5,6 +5,7 @@ import { useState } from 'react';
 import confetti from 'canvas-confetti';
 import sound from 'use-sound';
 
+// 支持双击撤回
 // 去除边框厚度
 // add sound && confetti
 function Square({
@@ -28,12 +29,19 @@ export default function Board() {
   const [play] = sound('/sounds/menu-open.mp3');
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
+  const [hasWinner, setHasWinner] = useState(false);
   const winner = calculateWinner(squares);
+  function handleRestart() {
+    setSquares(Array(9).fill(null)); // 重置方块内容
+    setXIsNext(true); // 重置下一个玩家
+    setHasWinner(false);
+  }
 
   let status;
+
   if (winner) {
     confetti();
-    status = 'Winner: ' + winner;
+    status = '游戏结束 Winner: ' + winner;
   } else {
     status = 'Next player: ' + (xIsNext ? 'X' : 'O');
   }
@@ -47,6 +55,11 @@ export default function Board() {
     nextSquares[i] = xIsNext ? 'X' : 'O';
     setXIsNext(!xIsNext);
     setSquares(nextSquares);
+    if (!nextSquares.includes(null) && !winner) {
+      // 点击后重新渲染组件, 所以这个status, 在重新计算的时候被覆盖了, 重新渲染的时候, 这个函数没有被触发, 除非手动调用(不合适)
+      // status = !winner + '平局';
+      setHasWinner(true);
+    }
   }
 
   function renderSquare(i: number) {
@@ -62,7 +75,11 @@ export default function Board() {
           {Array.from({ length: 3 }, (_, col) => renderSquare(row * 3 + col))}
         </div>
       ))}
-      <div className="status">{status}</div>
+      <div className="my-4">{status}</div>
+      <button className="restart-button" onClick={handleRestart}>
+        重新开始游戏
+      </button>
+      <div>{hasWinner && <div className="winner">平局</div>}</div>
     </div>
   );
 }
