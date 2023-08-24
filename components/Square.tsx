@@ -5,7 +5,7 @@ import { useState } from 'react';
 import confetti from 'canvas-confetti';
 import sound from 'use-sound';
 
-// 支持双击撤回
+// TODO 支持双击撤回棋子
 // 去除边框厚度
 // add sound && confetti
 function Square({
@@ -17,11 +17,19 @@ function Square({
 }) {
   return (
     <button
-      className="border border-gray-100 font-bold w-16 h-16"
+      className="border border-white font-bold w-16 h-16"
       onClick={onSquareClick}
     >
       {value}
     </button>
+  );
+}
+
+function Flag({ color }: { color: 'white' | 'black' }) {
+  return (
+    <div
+      className={`w-4 rounded-full h-4 bg-${color} align-middle mx-1 inline-block`}
+    ></div>
   );
 }
 
@@ -32,6 +40,7 @@ export default function Board() {
   const [hasWinner, setHasWinner] = useState<null | boolean>(null);
   const winner = calculateWinner(squares);
   const [start, setStart] = useState(false);
+
   function handleRestart() {
     setSquares(Array(9).fill(null)); // 重置方块内容
     setXIsNext(true); // 重置下一个玩家
@@ -43,7 +52,7 @@ export default function Board() {
   if (winner) {
     confetti();
     status = '游戏结束 Winner: ' + winner;
-  } else {
+  } else if (hasWinner !== false) {
     status = 'Next player: ' + (xIsNext ? 'X' : 'O');
   }
 
@@ -57,7 +66,7 @@ export default function Board() {
       return;
     }
     const nextSquares = squares.slice();
-    nextSquares[i] = xIsNext ? 'X' : 'O';
+    nextSquares[i] = xIsNext ? <Flag color="white" /> : <Flag color="black" />;
     setXIsNext(!xIsNext);
     setSquares(nextSquares);
     if (!nextSquares.includes(null) && !winner) {
@@ -75,7 +84,7 @@ export default function Board() {
 
   return (
     <div className="flex justify-center items-center flex-col">
-      <div className="w-48 h-48 bg-black text-white relative">
+      <div className="w-48 h-48 bg-yellow-600 text-white relative rounded-lg">
         {!start ? (
           <button
             onClick={() => setStart(true)}
