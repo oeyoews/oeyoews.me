@@ -53,7 +53,11 @@ export default function Board() {
     confetti();
     status = '游戏结束 Winner: ' + winner;
   } else if (hasWinner !== false) {
-    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+    status = (
+      <div className="bg-yellow-500 px-2 rounded-lg">
+        Next: {xIsNext ? <Flag color="white" /> : <Flag color="black" />}
+      </div>
+    );
   }
 
   function handleClick(i: number) {
