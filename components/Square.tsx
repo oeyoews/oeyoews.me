@@ -82,9 +82,11 @@ export default function Board() {
         ))}
       </div>
       <div className="my-4">{status}</div>
-      <button className="bg-black text-white px-2" onClick={handleRestart}>
-        重新游戏
-      </button>
+      {(winner || hasWinner === false) && (
+        <button className="bg-black text-white px-2" onClick={handleRestart}>
+          重新游戏
+        </button>
+      )}
       <div className="inline-block mx-2">
         {hasWinner === false && (
           <div className="px-2 bg-black text-white">平局</div>
