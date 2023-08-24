@@ -5,8 +5,9 @@ import { useState } from 'react';
 import confetti from 'canvas-confetti';
 import sound from 'use-sound';
 
+// 如果还剩下一个格子, 自动填充
+// 开始游戏前可以切换黑白棋
 // TODO 支持双击撤回棋子
-// 去除边框厚度
 // add sound && confetti
 function Square({
   value,
