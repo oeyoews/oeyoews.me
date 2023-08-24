@@ -69,7 +69,7 @@ export default function Board() {
   }
 
   return (
-    <div>
+    <div className="flex justify-center items-center flex-col">
       <div className="w-48 h-48 bg-black text-white">
         {Array.from({ length: 3 }, (_, row) => (
           <div key={row} className="h-16 flex">
