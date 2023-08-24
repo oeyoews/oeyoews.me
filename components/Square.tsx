@@ -2,6 +2,9 @@
 
 import { useState } from 'react';
 
+import confetti from 'canvas-confetti';
+import sound from 'use-sound';
+
 // 去除边框厚度
 // add sound && confetti
 function Square({
@@ -22,18 +25,21 @@ function Square({
 }
 
 export default function Board() {
+  const [play] = sound('/sounds/menu-open.mp3');
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const winner = calculateWinner(squares);
 
   let status;
   if (winner) {
+    confetti();
     status = 'Winner: ' + winner;
   } else {
     status = 'Next player: ' + (xIsNext ? 'X' : 'O');
   }
 
   function handleClick(i: number) {
+    play();
     if (squares[i] || winner) {
       return;
     }

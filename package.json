@@ -14,9 +14,11 @@
   "dependencies": {
     "@fancyapps/ui": "^5.0.20",
     "@iconify/react": "^4.1.1",
+    "@types/canvas-confetti": "^1.6.0",
     "@types/echarts": "^4.9.18",
     "@types/rss": "^0.0.30",
     "bright": "^0.8.4",
+    "canvas-confetti": "^1.6.0",
     "clsx": "^2.0.0",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
