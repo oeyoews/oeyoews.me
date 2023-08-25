@@ -22,7 +22,7 @@ import {
   // CanvasRenderer,
   SVGRenderer,
 } from 'echarts/renderers';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 echarts.use([
   CalendarComponent,
@@ -180,14 +180,15 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
   return (
     <motion.div ref={constraintsRef} className=''>
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 0, }}
         animate={{ opacity: 1, }}
         transition={{
           duration: 300,
           type: "spring",
-          stiffness: 300,
+          stiffness: 800,
           damping: 20
         }}
+        // exit={{ opacity: 0 }}
         drag
         dragConstraints={constraintsRef}
       ><ReactEChartsCore echarts={echarts} option={option} onEvents={onEvents} /></motion.div>
