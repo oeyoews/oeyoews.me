@@ -7,7 +7,6 @@ import YearHeader from '@/components/PostList/YearHeader';
 import { PasswordBadge, DraftBadge } from '@/components/PostList/PostBadges';
 import EmptyPost from '@/components/PostList/EmptyPost';
 
-// 单个文章项组件
 function PostItem({ post }: { post: Post }) {
   return (
     <li className="ml-6 group my-8">
