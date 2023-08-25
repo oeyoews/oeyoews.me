@@ -27,6 +27,7 @@ const nextConfig = {
       'images.unsplash.com',
       'plus.unsplash.com',
       'nextjs.oeyoewl.top',
+      'cdn.jsdelivr.net',
     ],
   },
 };

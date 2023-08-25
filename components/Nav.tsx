@@ -1,6 +1,7 @@
 import {
   FcAdvertising,
   FcDatabase,
+  FcDisplay,
   FcFlashOn,
   FcGrid,
   FcIdea,
@@ -39,6 +40,9 @@ export default function Nav() {
         </Link>
         <Link href="/game" title="Game">
           <FcGrid className={LinkClass} />
+        </Link>
+        <Link href="/projects" title='Projects'>
+          <FcDisplay className={LinkClass} />
         </Link>
         <Music />
       </nav>
