@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ReactElement, useRef } from 'react';
+import { type ReactElement, useRef } from 'react';
 
 export default function Drag({ children }: { children: ReactElement }) {
 	const constraintsRef = useRef(null)

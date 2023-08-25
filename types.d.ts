@@ -62,7 +62,6 @@ interface BingTooltips {
   walls: string;
 }
 
-// APlayer
 declare module 'react-aplayer' {
   interface AplayerProps {
     onInit?: (instance) => void;
