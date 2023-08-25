@@ -62,6 +62,8 @@ export default function Board() {
     if (!nextSquares.includes(null) && !winner) {
       // 点击后重新渲染组件, 所以这个status, 在重新计算的时候被覆盖了, 重新渲染的时候, 这个函数没有被触发, 除非手动调用(不合适)
       // status = !winner + '平局';
+      // 属性计算??? 不是, 是重新渲染
+      // 计算属性使用useMemo, 本质还是useEffect, 引发的重新渲染
       setHasWinner(false);
     }
   }
