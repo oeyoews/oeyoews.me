@@ -58,9 +58,7 @@ function PostList({ posts }: { posts: Post[] }) {
 }
 
 export default function HomePage() {
-  if (allPosts.length === 0) {
-    <EmptyPost />
-  }
+  allPosts.length === 0 && <EmptyPost />;
 
   return <PostList posts={allPosts} />;
 }
