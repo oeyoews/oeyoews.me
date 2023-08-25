@@ -4,7 +4,7 @@
 // NOTE: 273kb
 // 如何调整大小
 import ReactEChartsCore from 'echarts-for-react/lib/core';
-import { Suspense } from 'react';
+import { motion } from 'framer-motion'
 
 import { useRouter } from 'next/navigation';
 
@@ -22,6 +22,7 @@ import {
   // CanvasRenderer,
   SVGRenderer,
 } from 'echarts/renderers';
+import { useRef } from 'react';
 
 echarts.use([
   CalendarComponent,
@@ -70,6 +71,9 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
     title: {
       text: `共有 ${datas.length} 篇文章`,
       left: 'center',
+      textStyle: {
+        fontSize: 16,
+      }
     },
     tooltip: {
       position: 'top',
@@ -171,11 +175,23 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
       });
     },
   };
+  const constraintsRef = useRef(null)
 
   return (
-    <Suspense fallback={<div>🌀 Loading...</div>}>
-      <ReactEChartsCore echarts={echarts} option={option} onEvents={onEvents} />
-    </Suspense>
+    <motion.div ref={constraintsRef} className=''>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, }}
+        transition={{
+          duration: 300,
+          type: "spring",
+          stiffness: 300,
+          damping: 20
+        }}
+        drag
+        dragConstraints={constraintsRef}
+      ><ReactEChartsCore echarts={echarts} option={option} onEvents={onEvents} /></motion.div>
+    </motion.div>
   );
 }
 

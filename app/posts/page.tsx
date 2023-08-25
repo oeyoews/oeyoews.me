@@ -19,10 +19,6 @@ export default function HomePage() {
   }
 
   let currentYear: any = null;
-  const zodiacSigns = [
-    // '🐭', '🐮', '🐯', '🐰', '🐲', '🐍', '🐴', '🐑', '🐵', '🐔', '🐶', '🐷',
-    // '鼠', // '牛', // '虎', // '兔', // '龙', // '蛇', // '马', // '羊', // '猴', // '鸡', // '狗', // '猪',
-  ];
 
   return (
     <ol
@@ -36,7 +32,6 @@ export default function HomePage() {
         // .filter((post) => !(post.draft === true))
         .map((post) => {
           const postYear = new Date(post.date).getFullYear();
-          const zodiacIndex = (postYear - 1900) % 12; // 基准年份为1900年
 
           const yearHeader =
             currentYear !== postYear ? (
@@ -49,9 +44,6 @@ export default function HomePage() {
                   className="ml-6 text-neutral-200/80 font-serif"
                 >
                   {postYear}
-                  {/* <span className="transition-all duration-400">
-                    {zodiacSigns[zodiacIndex]}
-                  </span> */}
                 </h2>
               </li>
             ) : null;
