@@ -24,7 +24,7 @@ const components = {
   >) => {
     return (
       <Code {...props} className="not-prose">
-        {children as any}
+        {children}
       </Code>
     );
   },

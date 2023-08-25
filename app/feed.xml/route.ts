@@ -32,7 +32,7 @@ export async function GET() {
         // description: renderPost(post.content),
         url: `${domain}${post.slug}`,
         author: 'oeyoews',
-        date: post.date as any,
+        date: post.date,
         categories: ['blog'],
         // custom_elements: [{ content: post.description }],
       });

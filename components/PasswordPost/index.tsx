@@ -1,16 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { AiOutlineSend } from 'react-icons/ai';
 
 import useStore from '@/lib/store';
+import { Post } from '@/.contentlayer/generated';
 
 function PasswordProtectedContent({
   post,
   children,
 }: {
-  post: any;
-  children: any;
+  post: Post;
+  children: ReactElement;
 }) {
   const [enteredPassword, setEnteredPassword] = useState('');
 

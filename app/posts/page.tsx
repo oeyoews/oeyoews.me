@@ -29,7 +29,7 @@ function PostItem({ post }: { post: Post }) {
 }
 
 function PostList({ posts }: { posts: Post[] }) {
-  let currentYear: any = null;
+  let currentYear: number;
 
   return (
     <ol className="prose relative list-none border-gray-100/80 border-l-4" key={'all-posts'}>

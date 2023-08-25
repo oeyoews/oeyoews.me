@@ -18,6 +18,7 @@ import {
   SVGRenderer,
 } from 'echarts/renderers';
 import Drag from '../motion/Drag';
+import type { Post } from '@/.contentlayer/generated';
 
 echarts.use([
   CalendarComponent,
@@ -29,7 +30,7 @@ echarts.use([
   VisualMapComponent,
 ]);
 
-function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
+function CalendarHeatmapComponent({ datas }: { datas: Post[] }) {
   const postCounts: DataObject = {};
 
   datas.forEach((post) => {
@@ -66,10 +67,10 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
     },
     tooltip: {
       position: 'top',
-      formatter: function (params: any) {
+      formatter: function (params: { value: string[]; }) {
         const date = params.value[0];
         const count = params.value[1];
-        const matchingTitles: any = [];
+        const matchingTitles: string[] = [];
 
         // 查找匹配日期和帖子数的标题
         datas.forEach((post) => {
@@ -154,7 +155,7 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
   };
   const router = useRouter();
   const onEvents = {
-    dblclick: (params: any) => {
+    dblclick: (params: { data: string[] }) => {
       datas.forEach((post) => {
         if (format(new Date(post.date), 'yyyy-MM-dd') === params.data[0]) {
           router.push(`${post.slug}`);
