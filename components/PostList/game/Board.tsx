@@ -54,13 +54,9 @@ export default function Board() {
       return;
     }
 
-    if (xIsNext) {
-      whiteClick();
-    } else {
-      blackClick();
-    }
+    xIsNext ? whiteClick() : blackClick();
     const nextSquares = squares.slice();
-    nextSquares[i] = xIsNext ? <Flag color="white" /> : <Flag color="black" />;
+    nextSquares[i] = <Flag color={xIsNext ? 'white' : 'black'} />;
     setXIsNext(!xIsNext);
     setSquares(nextSquares);
     if (!nextSquares.includes(null) && !winner) {
