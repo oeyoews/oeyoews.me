@@ -1,10 +1,6 @@
 'use client';
 
-//add button to next/previous year
-// NOTE: 273kb
-// 如何调整大小
 import ReactEChartsCore from 'echarts-for-react/lib/core';
-import { motion } from 'framer-motion'
 
 import { useRouter } from 'next/navigation';
 
@@ -19,10 +15,9 @@ import {
 } from 'echarts/components';
 import * as echarts from 'echarts/core';
 import {
-  // CanvasRenderer,
   SVGRenderer,
 } from 'echarts/renderers';
-import { useEffect, useRef } from 'react';
+import Drag from '../motion/Drag';
 
 echarts.use([
   CalendarComponent,
@@ -46,15 +41,9 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
       postCounts[date] = { count: 1, titles: [post.title] };
     }
   });
-  // console.log(JSON.stringify(postCounts, null, 2));
 
   let data = Object.entries(postCounts).map(([date, info]) => {
-    // 其实是一个二维数组
     return [date, info.count];
-    // return {
-    //   name: date,
-    //   value: [date, info.count],
-    // };
   });
 
   const currentDate = new Date();
@@ -80,8 +69,7 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
       formatter: function (params: any) {
         const date = params.value[0];
         const count = params.value[1];
-        // @ts-ignore
-        const matchingTitles = [];
+        const matchingTitles: any = [];
 
         // 查找匹配日期和帖子数的标题
         datas.forEach((post) => {
@@ -114,7 +102,6 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
       right: 0,
       top: 175,
       pieces: [
-        // 设置分段范围
         { lte: 0, color: '#EBEDF0' },
         { gt: 0, lte: 1, color: '#D3CCF2' },
         { gt: 1, lte: 5, color: '#B3A9F2' },
@@ -127,7 +114,7 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
       left: 0,
       right: 0,
       cellSize: 15,
-      orient: 'horizontal', // TODO: vertical(not fit)
+      orient: 'horizontal',
       range: [startDate, endDate],
       splitLine: {
         show: false,
@@ -167,7 +154,7 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
   };
   const router = useRouter();
   const onEvents = {
-    click: (params: any) => {
+    dblclick: (params: any) => {
       datas.forEach((post) => {
         if (format(new Date(post.date), 'yyyy-MM-dd') === params.data[0]) {
           router.push(`${post.slug}`);
@@ -175,24 +162,11 @@ function CalendarHeatmapComponent({ datas }: { datas: any[] }) {
       });
     },
   };
-  const constraintsRef = useRef(null)
 
   return (
-    <motion.div ref={constraintsRef} className=''>
-      <motion.div
-        initial={{ opacity: 0, }}
-        animate={{ opacity: 1, }}
-        transition={{
-          duration: 300,
-          type: "spring",
-          stiffness: 800,
-          damping: 20
-        }}
-        // exit={{ opacity: 0 }}
-        drag
-        dragConstraints={constraintsRef}
-      ><ReactEChartsCore echarts={echarts} option={option} onEvents={onEvents} /></motion.div>
-    </motion.div>
+    <Drag>
+      <ReactEChartsCore echarts={echarts} option={option} onEvents={onEvents} />
+    </Drag>
   );
 }
 
