@@ -1,91 +1,67 @@
-import { FcApproval, FcFolder, FcOpenedFolder } from 'react-icons/fc';
-
+import { FcFolder, FcOpenedFolder } from 'react-icons/fc';
 import Link from 'next/link';
-
 import CommitInfo from '@/components/CommitInfo';
-
-import { allPosts } from 'contentlayer/generated';
+import { type Post, allPosts } from 'contentlayer/generated';
 import { format } from 'date-fns';
+import YearHeader from '@/components/PostList/YearHeader';
+import { PasswordBadge, DraftBadge } from '@/components/PostList/PostBadges';
+import EmptyPost from '@/components/PostList/EmptyPost';
 
-export default function HomePage() {
-  if (allPosts.length === 0) {
-    return (
-      <div className="prose">
-        <h1 className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          当前文章数目为零
-        </h1>
-      </div>
-    );
-  }
+// 单个文章项组件
+function PostItem({ post }: { post: Post }) {
+  return (
+    <li className="ml-6 group my-8">
+      <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
+        <FcFolder className="group-hover:hidden h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
+        <FcOpenedFolder className="hidden group-hover:block h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
+      </span>
+      <Link href={post.slug} className="text-xs rounded-md" title="点击阅读全文">
+        <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition my-2">
+          {post.title}
+          {post.password && <PasswordBadge />}
+          {post.draft === true && <DraftBadge />}
+        </h2>
+      </Link>
+      <time className="block text-sm font-normal leading-none text-gray-400">
+        {format(new Date(post.date), 'EEE, MMMM d')}
+      </time>
+    </li>
+  );
+}
 
+function PostList({ posts }: { posts: Post[] }) {
   let currentYear: any = null;
 
   return (
-    <ol
-      className="prose relative list-none border-gray-100/80 border-l-4"
-      key={'all-posts'}
-    >
-      {allPosts
+    <ol className="prose relative list-none border-gray-100/80 border-l-4" key={'all-posts'}>
+      {posts
         .sort((a, b) => {
           return a.date > b.date ? -1 : 1;
         })
-        // .filter((post) => !(post.draft === true))
         .map((post) => {
           const postYear = new Date(post.date).getFullYear();
 
           const yearHeader =
-            currentYear !== postYear ? (
-              <li className="text-xs" key={`year-header-${postYear}`}>
-                <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
-                  <FcApproval className="h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
-                </span>
-                <h2
-                  key={`year-header-${postYear}`}
-                  className="ml-6 text-neutral-200/80 font-serif"
-                >
-                  {postYear}
-                </h2>
-              </li>
-            ) : null;
+            currentYear !== postYear ? <YearHeader postYear={postYear} /> : null;
 
           currentYear = postYear;
 
           return (
             <article key={post._id}>
               {yearHeader}
-              <li className="ml-6 group my-8">
-                <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
-                  <FcFolder className="group-hover:hidden h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
-                  <FcOpenedFolder className="hidden group-hover:block h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
-                </span>
-                <Link
-                  href={post.slug}
-                  className="text-xs rounded-md"
-                  title="点击阅读全文"
-                >
-                  <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition my-2">
-                    {post.title}
-                    {post.password && (
-                      // <FcLock className="w-3 h-3 inline-flex ml-1" />
-                      <sup className="bg-purple-200 rounded-sm text-xs px-1 mx-1 font-light inline-flex text-gray-800 font-serif">
-                        password
-                      </sup>
-                    )}
-                    {post.draft === true && (
-                      <sup className="mx-1 bg-gray-300 rounded-sm px-1 font-serif font-thin">
-                        draft
-                      </sup>
-                    )}
-                  </h2>
-                </Link>
-                <time className="block text-sm font-normal leading-none text-gray-400">
-                  {format(new Date(post.date), 'EEE, MMMM d')}
-                </time>
-              </li>
+              <PostItem post={post} />
             </article>
           );
         })}
       <CommitInfo />
     </ol>
   );
+}
+
+export default function HomePage() {
+  if (allPosts.length === 0) {
+    <EmptyPost />
+  }
+
+  return <PostList posts={allPosts} />;
 }
