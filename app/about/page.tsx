@@ -23,6 +23,15 @@ function About() {
         <Icon icon="skill-icons:nextjs-dark" />
         <Icon icon="skill-icons:react-dark" />
         <Icon icon="skill-icons:tailwindcss-dark" />
+        <Icon icon="skill-icons:javascript" />
+        <Icon icon="skill-icons:neovim-dark" />
+        <Icon icon="skill-icons:lua-dark" />
+        <Icon icon="skill-icons:vscode-dark" />
+        <Icon icon="skill-icons:linux-dark" />
+        <Icon icon="skill-icons:git" />
+        <Icon icon="skill-icons:github-dark" />
+        <Icon icon="skill-icons:gitlab-dark" />
+        <Icon icon="skill-icons:vercel-dark" />
       </div>
     </div>
   );
