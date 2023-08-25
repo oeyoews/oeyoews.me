@@ -1,10 +1,9 @@
-import HeatmapComponent from '@/components/CalendarPost';
+import CalendarHeatmapComponent from '@/components/CalendarPost';
 
 import { allPosts } from '@/.contentlayer/generated';
 
-
 function page() {
-  return <HeatmapComponent datas={allPosts} />;
+  return <CalendarHeatmapComponent datas={allPosts} />;
 }
 
 export default page;
