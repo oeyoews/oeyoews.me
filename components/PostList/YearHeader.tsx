@@ -1,6 +1,6 @@
 import { FcApproval } from "react-icons/fc";
 
-function YearHeader({ postYear }) {
+function YearHeader({ postYear }: { postYear: number }) {
 	return (
 		<li className="text-xs" key={`year-header-${postYear}`}>
 			<span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
