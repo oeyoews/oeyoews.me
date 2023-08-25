@@ -91,3 +91,22 @@ react 当前的生态有点类似与 archlinux, neovim, 很容易产生 break ch
 
 * 每次修改 next.config.js, 都需要重启
 * 最近 nextjs 更新后, blurdata 的效果更差了
+
+* 如果 mp3 文件没有放在 public 目录下, 而是放在 src 或者其他目录下, 则需要在 next.config.js 文件中自定义 webpack 配置
+
+```mp3.config.js
+  webpack: (
+    config,
+    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack },
+  ) => {
+    config.module.rules.push({
+      test: /\.mp3$/,
+      type: 'asset/resource',
+      generator: {
+        filename: 'static/chunks/[path][name].[hash][ext]',
+      },
+    });
+    // Important: return the modified config
+    return config;
+  },
+```
