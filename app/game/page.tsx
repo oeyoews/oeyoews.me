@@ -1,4 +1,4 @@
-import Board from '@/components/Board';
+import Board from '@/components/PostList/game/Board';
 
 export default function page() {
   return (

@@ -1,39 +1,17 @@
 'use client';
 
 import { useState } from 'react';
+import Square from './Square';
 
 import calculateWinner from '@/lib/calculateWinner';
 import confetti from 'canvas-confetti';
 import sound from 'use-sound';
+import Flag from './Flag';
 
 // TODO: 如果还剩下一个格子, 自动填充
 // TODO: 开始游戏前可以切换黑白棋
 // TODO: 支持双击撤回棋子
 // TODO: 选择是否开启声音
-function Square({
-  value,
-  onSquareClick,
-}: {
-  value: number;
-  onSquareClick: () => void;
-}) {
-  return (
-    <button
-      className="border border-white font-bold w-16 h-16"
-      onClick={onSquareClick}
-    >
-      {value}
-    </button>
-  );
-}
-
-function Flag({ color }: { color: 'white' | 'black' }) {
-  return (
-    <div
-      className={`w-4 rounded-full h-4 bg-${color} align-middle mx-1 inline-block`}
-    ></div>
-  );
-}
 
 export default function Board() {
   const [whiteClick] = sound('/sounds/click01.mp3');
@@ -58,7 +36,7 @@ export default function Board() {
   } else if (hasWinner !== false) {
     status = (
       <div className="bg-yellow-500 px-2 rounded-lg">
-        Next: {xIsNext ? <Flag color="white" /> : <Flag color="black" />}
+        Next: <Flag color={xIsNext ? 'white' : 'black'} />
       </div>
     );
   }
