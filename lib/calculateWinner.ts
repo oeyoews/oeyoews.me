@@ -19,7 +19,11 @@ export default function calculateWinner(squares: any[]) {
       squares[a].props.color === squares[b].props.color &&
       squares[a].props.color === squares[c].props.color
     ) {
-      return squares[a].props.color;
+      // return squares[a].props.color;
+      return {
+        winner: squares[a].props.color,
+        winningLine: lines[i], // 返回胜利的颜色和连线
+      };
     }
   }
 

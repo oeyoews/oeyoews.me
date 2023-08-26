@@ -12,6 +12,7 @@ import Flag from './Flag';
 // TODO: 开始游戏前可以切换黑白棋
 // TODO: 支持双击撤回棋子
 // TODO: 选择是否开启声音
+// 支持高亮连线
 
 export default function Board() {
   const [whiteClick] = sound('/sounds/click01.mp3');
@@ -20,7 +21,9 @@ export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const [hasWinner, setHasWinner] = useState<null | boolean>(null);
-  const winner = calculateWinner(squares);
+  const winner = calculateWinner(squares)?.winner
+  const winningLine = calculateWinner(squares)?.winningLine
+  // console.log(JSON.stringify(winningLine, null, 2))
   const [start, setStart] = useState(false);
   let status;
   function handleRestart() {
@@ -69,8 +72,10 @@ export default function Board() {
   }
 
   function renderSquare(i: number) {
+    const isWinningSquare = winningLine && winningLine.includes(i);
+
     return (
-      <Square key={i} value={squares[i]} onSquareClick={() => handleClick(i)} />
+      <Square key={i} value={squares[i]} onSquareClick={() => handleClick(i)} isWinning={isWinningSquare} />
     );
   }
 
