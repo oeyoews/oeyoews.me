@@ -111,3 +111,26 @@ export default function Demo() {
   );
 }
 ```
+
+## 父子组件通信(其实就是嵌套组件)
+
+> 其实不必要纠结这些, 主要就是函数之间参数的传递, 不过是作用范围不同, 所以才有了 f-s(组件里面套一个组件), 类似的还有兄弟组件(并列的组件), 跨组件通信
+
+f -> s props
+s -> f callback function
+
+```jsx
+const Father = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <>
+      <div>计数值：{count}</div>
+      <Son setCount={setCount} />
+    </>
+  );
+};
+
+const Son = ({ setCount }) => {
+  return <button onClick={() => setCount((count) => count + 1)}>点击+1</button>;
+};
+```
