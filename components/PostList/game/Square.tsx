@@ -7,7 +7,7 @@ interface SquareProps {
 // TODO: support mouse hover to prevew next square
 // 需要追踪每一个button的状态
 function Square({ value, onSquareClick, isWinning }: SquareProps) {
-	const winnerColor = isWinning && 'bg-yellow-500'
+	const winnerColor = isWinning && 'bg-yellow-500 animate-pulse rounded-full border-none';
 	return (
 		<button className={`group border border-white font-bold w-16 h-16 ${winnerColor}`} onClick={onSquareClick} >
 			{value}
