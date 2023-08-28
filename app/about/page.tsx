@@ -38,6 +38,7 @@ function About() {
         <Icon icon="skill-icons:github-dark" />
         <Icon icon="skill-icons:gitlab-dark" />
         <Icon icon="skill-icons:vercel-dark" />
+        <Icon icon="devicon:webstorm" />
       </div>
     </div>
   );
