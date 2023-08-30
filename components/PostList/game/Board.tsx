@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+
+import Flag from './Flag';
 import Square from './Square';
 
 import calculateWinner from '@/lib/calculateWinner';
 import confetti from 'canvas-confetti';
 import sound from 'use-sound';
-import Flag from './Flag';
 
 // TODO: 如果还剩下一个格子, 自动填充
 // TODO: 开始游戏前可以切换黑白棋
@@ -21,8 +22,8 @@ export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const [hasWinner, setHasWinner] = useState<null | boolean>(null);
-  const winner = calculateWinner(squares)?.winner
-  const winningLine = calculateWinner(squares)?.winningLine
+  const winner = calculateWinner(squares)?.winner;
+  const winningLine = calculateWinner(squares)?.winningLine;
   // console.log(JSON.stringify(winningLine, null, 2))
   const [start, setStart] = useState(false);
   let status;
@@ -31,7 +32,6 @@ export default function Board() {
     setXIsNext(true); // 重置下一个玩家
     setHasWinner(null);
   }
-
 
   if (winner) {
     confetti();
@@ -75,13 +75,21 @@ export default function Board() {
     const isWinningSquare = winningLine && winningLine.includes(i);
 
     return (
-      <Square key={i} value={squares[i]} onSquareClick={() => handleClick(i)} isWinning={isWinningSquare} />
+      <Square
+        key={i}
+        value={squares[i]}
+        onSquareClick={() => handleClick(i)}
+        isWinning={isWinningSquare}
+      />
     );
   }
 
   return (
     <div className="flex justify-center items-center flex-col">
-      <div className="w-48 h-48 bg-yellow-600 text-white relative rounded-lg" id='square'>
+      <div
+        className="w-48 h-48 bg-yellow-600 text-white relative rounded-lg"
+        id="square"
+      >
         {!start ? (
           <button
             onClick={() => {
@@ -103,24 +111,25 @@ export default function Board() {
           ))
         )}
       </div>
-      <div id='game-status' className='text-center'>
-        <div className="my-4">
-          {start && status}
-        </div>
+      <div id="game-status" className="text-center">
+        <div className="my-4">{start && status}</div>
         <div className="inline-block mx-2">
           {hasWinner === false && !winner && (
-            <div className="px-2 bg-black text-white" title='平局'>平局</div>
+            <div className="px-2 bg-black text-white" title="平局">
+              平局
+            </div>
           )}
         </div>
         {(winner || hasWinner === false) && (
           <button
             className="bg-black text-white px-2 my-1"
             onClick={handleRestart}
-            title='点击重新游戏'
+            title="点击重新游戏"
           >
             重新游戏
           </button>
-        )}</div>
-    </div >
+        )}
+      </div>
+    </div>
   );
 }

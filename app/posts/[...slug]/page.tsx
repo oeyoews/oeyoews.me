@@ -14,13 +14,7 @@ interface PostProps {
 
 async function getPostFromParams(params: PostProps['params']) {
   const slug = params?.slug?.join('/');
-  const post = allPosts.find((post) => post.slugAsParams === slug);
-
-  if (!post) {
-    null;
-  }
-
-  return post;
+  return allPosts.find((post) => post.slugAsParams === slug);
 }
 
 export async function generateMetadata({
@@ -28,13 +22,9 @@ export async function generateMetadata({
 }: PostProps): Promise<Metadata> {
   const post = await getPostFromParams(params);
 
-  if (!post) {
-    return {};
-  }
-
   return {
-    title: post.title,
-    description: post.description,
+    title: post?.title || 'Not Found',
+    description: post?.description,
   };
 }
 

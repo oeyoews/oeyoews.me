@@ -41,7 +41,7 @@ export default function Nav() {
         <Link href="/game" title="Game">
           <FcGrid className={LinkClass} />
         </Link>
-        <Link href="/projects" title='Projects'>
+        <Link href="/projects" title="Projects">
           <FcDisplay className={LinkClass} />
         </Link>
         <Music />

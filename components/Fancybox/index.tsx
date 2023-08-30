@@ -28,8 +28,8 @@ interface FancyboxOptionsProp {
     keyboard: {
       Delete: string;
       Escape: string;
-    }
-  }
+    };
+  };
 }
 
 function Fancybox(props: {

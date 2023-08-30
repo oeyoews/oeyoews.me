@@ -4,6 +4,9 @@ import ReactEChartsCore from 'echarts-for-react/lib/core';
 
 import { useRouter } from 'next/navigation';
 
+import Drag from '../motion/Drag';
+
+import type { Post } from '@/.contentlayer/generated';
 import { addYears, endOfMonth, format, startOfMonth, subYears } from 'date-fns';
 import { HeatmapChart } from 'echarts/charts';
 import {
@@ -14,11 +17,7 @@ import {
   VisualMapComponent,
 } from 'echarts/components';
 import * as echarts from 'echarts/core';
-import {
-  SVGRenderer,
-} from 'echarts/renderers';
-import Drag from '../motion/Drag';
-import type { Post } from '@/.contentlayer/generated';
+import { SVGRenderer } from 'echarts/renderers';
 
 echarts.use([
   CalendarComponent,
@@ -63,11 +62,11 @@ function CalendarHeatmapComponent({ datas }: { datas: Post[] }) {
       left: 'center',
       textStyle: {
         fontSize: 16,
-      }
+      },
     },
     tooltip: {
       position: 'top',
-      formatter: function (params: { value: string[]; }) {
+      formatter: function (params: { value: string[] }) {
         const date = params.value[0];
         const count = params.value[1];
         const matchingTitles: string[] = [];

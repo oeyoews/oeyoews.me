@@ -79,7 +79,7 @@ declare module 'react-aplayer' {
       show: any;
       hide: any;
       toggle: any;
-      audios: { url: string; id: string; name: string; url: string }[];
+      audios: { id: string; name: string; url: string }[];
     };
   }
   export default ReactAplayer;

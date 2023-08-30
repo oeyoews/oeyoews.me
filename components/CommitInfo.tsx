@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { getLastCommit } from 'git-last-commit';
 
 async function CommitInfo() {
-   const { hash, shortHash } = await new Promise<{
+  const { hash, shortHash } = await new Promise<{
     hash: string;
     shortHash: string;
   }>((resolve) => {

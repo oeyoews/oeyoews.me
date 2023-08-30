@@ -3,8 +3,8 @@
 import { ReactElement, useState } from 'react';
 import { AiOutlineSend } from 'react-icons/ai';
 
-import useStore from '@/lib/store';
 import { Post } from '@/.contentlayer/generated';
+import useStore from '@/lib/store';
 
 function PasswordProtectedContent({
   post,
@@ -27,7 +27,7 @@ function PasswordProtectedContent({
 
   return (
     <div>
-      {!post.password && !post.draft === true && children}
+      {!post.password && !post.draft && children}
       {post.draft && (
         <div className="prose">
           <small className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">

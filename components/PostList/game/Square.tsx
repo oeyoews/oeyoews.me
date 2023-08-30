@@ -1,21 +1,25 @@
 interface SquareProps {
-	value: number | JSX.Element;
-	onSquareClick: () => void;
-	isWinning: boolean | undefined;
+  value: number | JSX.Element;
+  onSquareClick: () => void;
+  isWinning: boolean | undefined;
 }
 
 // TODO: support mouse hover to prevew next square
 // 需要追踪每一个button的状态
 function Square({ value, onSquareClick, isWinning }: SquareProps) {
-	const winnerColor = isWinning && 'bg-yellow-500 animate-pulse rounded-full border-none';
-	return (
-		<button className={`group border border-white font-bold w-16 h-16 ${winnerColor}`} onClick={onSquareClick} >
-			{value}
-			{/* <div className="group-hover:scale-100 scale-0 transition-all duration-400 hidden group-hover:inline">
+  const winnerColor =
+    isWinning && 'bg-yellow-500 animate-pulse rounded-full border-none';
+  return (
+    <button
+      className={`group border border-white font-bold w-16 h-16 ${winnerColor}`}
+      onClick={onSquareClick}
+    >
+      {value}
+      {/* <div className="group-hover:scale-100 scale-0 transition-all duration-400 hidden group-hover:inline">
 				<Flag color="white" />
 			</div> */}
-		</button >
-	);
+    </button>
+  );
 }
 
 export default Square;
