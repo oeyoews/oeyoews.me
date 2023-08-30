@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm vercel:content && next build",
+    "vercel:content": "tiged oeyoews/nextjs-mdx-blog-content content",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write ."
