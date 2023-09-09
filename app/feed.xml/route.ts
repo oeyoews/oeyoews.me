@@ -44,7 +44,7 @@ export async function GET() {
 
   return new Response(xml, {
     headers: {
-      'Content-Type': 'application/atom+xml; chatset=utf-8',
+      'Content-Type': 'application/xml',
     },
   });
 }
