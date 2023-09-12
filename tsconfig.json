@@ -30,8 +30,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".contentlayer/generated",
-    "bun-types"
+    ".contentlayer/generated"
   ],
   "exclude": ["node_modules", "**/*.mp3", "articles"]
 }
