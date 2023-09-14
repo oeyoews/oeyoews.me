@@ -9,6 +9,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Nextjs Blog',
   description: 'Nextjs + TypeScript + Tailwindcss + contentlayer',
+  manifest: '/manifest.json',
   alternates: {
     canonical: '/feed.xml',
     types: {
