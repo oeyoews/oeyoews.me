@@ -98,9 +98,6 @@ dependencies:
   tiged:
     specifier: ^2.12.5
     version: 2.12.5
-  use-sound:
-    specifier: ^4.0.1
-    version: 4.0.1(react@18.2.0)
   vaul:
     specifier: ^0.3.4
     version: 0.3.4(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)
@@ -3521,10 +3518,6 @@ packages:
       space-separated-tokens: 2.0.2
     dev: false
 
-  /howler@2.2.3:
-    resolution: {integrity: sha512-QM0FFkw0LRX1PR8pNzJVAY25JhIWvbKMBFM4gqk+QdV+kPXOhleWGCB6AiAF/goGjIHK2e/nIElplvjQwhr0jg==}
-    dev: false
-
   /html-void-elements@2.0.1:
     resolution: {integrity: sha512-0quDb7s97CfemeJAnW9wC0hw78MtW7NU3hqtCD75g2vFlDLt36llsYD7uB7SUzojLMP24N5IatXf7ylGXiGG9A==}
     dev: false
@@ -6283,15 +6276,6 @@ packages:
       detect-node-es: 1.1.0
       react: 18.2.0
       tslib: 2.6.1
-    dev: false
-
-  /use-sound@4.0.1(react@18.2.0):
-    resolution: {integrity: sha512-hykJ86kNcu6y/FzlSHcQxhjSGMslZx2WlfLpZNoPbvueakv4OF3xPxEtGV2YmculrIaH0tPp9LtG4jgy17xMWg==}
-    peerDependencies:
-      react: '>=16.8'
-    dependencies:
-      howler: 2.2.3
-      react: 18.2.0
     dev: false
 
   /use-sync-external-store@1.2.0(react@18.2.0):

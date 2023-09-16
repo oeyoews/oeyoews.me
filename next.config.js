@@ -17,20 +17,6 @@ const nextConfig = {
       },
     ];
   },
-  webpack: (
-    config,
-    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack },
-  ) => {
-    config.module.rules.push({
-      test: /\.mp3$/,
-      type: 'asset/resource',
-      generator: {
-        filename: 'static/chunks/[path][name].[hash][ext]',
-      },
-    });
-    // Important: return the modified config
-    return config;
-  },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactStrictMode: true,
   experimental: {
