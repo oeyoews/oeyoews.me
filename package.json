@@ -43,7 +43,6 @@
     "rss": "^1.2.2",
     "sweetalert2": "^11.7.28",
     "tiged": "^2.12.5",
-    "vaul": "^0.3.7",
     "zustand": "^4.4.1"
   },
   "devDependencies": {

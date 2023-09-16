@@ -1,4 +1,4 @@
-import { FcFolder, FcOpenedFolder } from 'react-icons/fc';
+import { FcFolder } from 'react-icons/fc';
 
 import Link from 'next/link';
 
@@ -14,8 +14,7 @@ function PostItem({ post, index }: { post: Post; index: number }) {
   return (
     <li className="ml-6 group my-8">
       <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
-        <FcFolder className="group-hover:hidden h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
-        <FcOpenedFolder className="hidden group-hover:block h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
+        <FcFolder className="h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
       </span>
       <Link
         href={post.slug}

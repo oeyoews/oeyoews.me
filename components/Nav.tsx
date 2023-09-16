@@ -1,17 +1,8 @@
-import {
-  FcAdvertising,
-  FcDatabase,
-  FcFlashOn,
-  FcIdea,
-  FcPlanner,
-} from 'react-icons/fc';
+import { FcAdvertising, FcIdea, FcPlanner } from 'react-icons/fc';
 
 import Link from 'next/link';
 
 import Music from './Music';
-import VaulButton from './VaulButton';
-
-import HomePage from '@/app/posts/page';
 
 export default function Nav() {
   const LinkClass = 'w-5 h-5';
@@ -24,21 +15,9 @@ export default function Nav() {
         <Link href="/posts" title="Blog">
           <FcIdea className={LinkClass} />
         </Link>
-        <Link href="/feed.xml" title="Rss" target="_blank">
-          <FcFlashOn className={LinkClass} />
-        </Link>
-        <VaulButton
-          buttonText={<FcDatabase className={LinkClass} />}
-          title="文章列表"
-        >
-          <HomePage />
-        </VaulButton>
         <Link href="/about" title="About">
           <FcAdvertising className={LinkClass} />
         </Link>
-        {/*<Link href="/projects" title="Projects">*/}
-        {/*  <FcDisplay className={LinkClass} />*/}
-        {/*</Link>*/}
         <Music />
       </nav>
     </div>

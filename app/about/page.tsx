@@ -29,6 +29,7 @@ function About() {
         <Icon icon="skill-icons:react-dark" />
         <Icon icon="skill-icons:tailwindcss-dark" />
         <Icon icon="skill-icons:javascript" />
+        <Icon icon="skill-icons:typescript" />
         <Icon icon="skill-icons:neovim-dark" />
         <Icon icon="skill-icons:lua-dark" />
         <Icon icon="skill-icons:vscode-dark" />
@@ -39,6 +40,9 @@ function About() {
         <Icon icon="skill-icons:gitlab-dark" />
         <Icon icon="skill-icons:vercel-dark" />
         <Icon icon="devicon:webstorm" />
+        <Icon icon="skill-icons:nodejs-dark" />
+        <Icon icon="vscode-icons:file-type-bun" />
+        <Icon icon="vscode-icons:file-type-docker" />
       </div>
     </div>
   );
