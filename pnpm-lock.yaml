@@ -26,6 +26,9 @@ dependencies:
   canvas-confetti:
     specifier: ^1.6.0
     version: 1.6.0
+  ci-info:
+    specifier: ^3.8.0
+    version: 3.8.0
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
@@ -2224,6 +2227,11 @@ packages:
   /chownr@2.0.0:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
     engines: {node: '>=10'}
+    dev: false
+
+  /ci-info@3.8.0:
+    resolution: {integrity: sha512-eXTggHWSooYhq49F2opQhuHWgzucfF2YgODK4e1566GQs5BIfP30B0oenwBJHfWxAs2fyPB1s7Mg949zLf61Yw==}
+    engines: {node: '>=8'}
     dev: false
 
   /client-only@0.0.1:

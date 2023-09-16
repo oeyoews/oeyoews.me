@@ -1,9 +1,7 @@
 import {
   FcAdvertising,
   FcDatabase,
-  FcDisplay,
   FcFlashOn,
-  FcGrid,
   FcIdea,
   FcPlanner,
 } from 'react-icons/fc';
@@ -38,12 +36,9 @@ export default function Nav() {
         <Link href="/about" title="About">
           <FcAdvertising className={LinkClass} />
         </Link>
-        <Link href="/game" title="Game">
-          <FcGrid className={LinkClass} />
-        </Link>
-        <Link href="/projects" title="Projects">
-          <FcDisplay className={LinkClass} />
-        </Link>
+        {/*<Link href="/projects" title="Projects">*/}
+        {/*  <FcDisplay className={LinkClass} />*/}
+        {/*</Link>*/}
         <Music />
       </nav>
     </div>

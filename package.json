@@ -6,8 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "pnpm vercel:content && next build",
-    "vercel:content": "tiged oeyoews/nextjs-mdx-blog-content content",
+    "build": "node build.mjs",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write ."
@@ -20,6 +19,7 @@
     "@types/rss": "^0.0.30",
     "bright": "^0.8.4",
     "canvas-confetti": "^1.6.0",
+    "ci-info": "^3.8.0",
     "clsx": "^2.0.0",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
