@@ -29,7 +29,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <body className={`antialiased ${inter.className}`}>
         <NextTopLoader />
-        <div className="max-w-2xl mx-auto py-10 px-4">
+        <div className="max-w-4xl mx-auto py-10 px-4">
           <Nav />
           {children}
         </div>
