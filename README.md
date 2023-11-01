@@ -13,4 +13,4 @@ https://nextjs.oeyoewl.top
 
 ## TODO
 
-- [ ] 添加短句功能
+- [ ] 支持 mdx 的特殊符号
