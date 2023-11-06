@@ -6,6 +6,7 @@ interface Tiddler {
   created: string;
   creator: string;
   modified: string;
+  description: string;
 }
 
 interface PostInfo {

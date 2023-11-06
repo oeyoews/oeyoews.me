@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import Tiddler from '@/components/Tiddler';
 
 async function getData() {
@@ -14,10 +16,19 @@ export default async function Page() {
 
   const tiddlers = data
     .sort((a, b) => (a.created > b.created ? -1 : 1))
-    .slice(0, 99)
-    .map((tiddler) => {
-      return <Tiddler {...tiddler} key={tiddler.title} />;
+    .map(({ title }) => {
+      return (
+        <>
+          <li>
+            <Link href={`/tiddlers/${title}`}>{title}</Link>
+          </li>
+        </>
+      );
     });
 
-  return tiddlers;
+  return (
+    <div className="prose prose-indigo max-w-none">
+      <ul>{tiddlers}</ul>
+    </div>
+  );
 }
