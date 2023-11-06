@@ -1,3 +1,5 @@
+import { SiTiddlywiki } from 'react-icons/si';
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
@@ -5,6 +7,8 @@ import NextTopLoader from 'nextjs-toploader';
 import Nav from '@/components/Nav';
 
 import './globals.css';
+
+import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
   title: 'Nextjs Blog',
@@ -32,6 +36,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <div className="max-w-4xl mx-auto py-10 px-4">
           <Nav />
           {children}
+          <Toaster
+            position="top-right"
+            richColors={true}
+            loadingIcon={<SiTiddlywiki />}
+            invert={true}
+          />
         </div>
       </body>
     </html>

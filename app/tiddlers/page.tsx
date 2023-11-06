@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { FcFolder } from 'react-icons/fc';
+import { SiTiddlywiki } from 'react-icons/si';
 
 import Link from 'next/link';
 
@@ -14,6 +15,7 @@ import formattedTime from '@/lib/formattedTime';
 import getTiddlerData from '@/lib/getTiddlerData';
 import useStore from '@/lib/store';
 import { format } from 'date-fns';
+import { toast } from 'sonner';
 
 function TiddlerItem({ tiddler, index }: { tiddler: Tiddler; index: number }) {
   const { title, slug, created } = tiddler;
@@ -72,19 +74,29 @@ export default function HomePage() {
   }
 
   const handleLoadMore = () => {
+    if (tiddlers.length < tiddlerstore.loadedItems) {
+      toast.error('没有更多了');
+      return;
+    }
     tiddlerstore.setLoadedItems(tiddlerstore.loadedItems + 10);
+    toast.success('加载成功');
   };
 
   const [hasloaded, setHasloaded] = useState(false);
 
   useEffect(() => {
-    getTiddlerData()
-      .then((data) => {
-        setData(data);
-      })
-      .then(() => {
-        setHasloaded(true);
-      });
+    const fetchData = () => {
+      return getTiddlerData()
+        .then((data) => {
+          setData(data);
+        })
+        .then(() => {
+          setHasloaded(true);
+        });
+    };
+    fetchData().then(() => {
+      // hasloaded && toast.success('加载成功');
+    });
   }, []);
 
   const tiddlers = data.sort((a, b) => (a.date > b.date ? -1 : 1));

@@ -13,7 +13,6 @@ export default async function getTiddlerData(tiddlerjsonfile = TidderJsonFile) {
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
-  console.log('连接成功', tiddlerjsonfile);
   const data: Tiddler[] = await res.json();
   return data.map((tiddler) => ({
     ...tiddler,

@@ -45,6 +45,7 @@
     "remark-gfm": "^3.0.1",
     "remark-toc": "^8.0.1",
     "rss": "^1.2.2",
+    "sonner": "^1.2.0",
     "sweetalert2": "^11.9.0",
     "tiged": "^2.12.5",
     "zustand": "^4.4.6"
