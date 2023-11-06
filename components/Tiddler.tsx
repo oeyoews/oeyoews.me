@@ -36,7 +36,12 @@ export default function Tiddler(tiddler: Tiddler) {
         </h1>
         <div className="not-prose flex justify-center space-x-2 text-gray-800 font-mono">
           {creator && <div className="rounded px-1 bg-rose-50">{creator}</div>}
-          {tags && <div className="rounded px-1 bg-yellow-100 ">{tags}</div>}
+          {tags &&
+            tags.split(' ').map((tag) => (
+              <div key={tag} className="rounded px-1 bg-yellow-100">
+                {tag}
+              </div>
+            ))}
           <div className="rounded px-1 bg-indigo-200">{date}</div>
         </div>
 
