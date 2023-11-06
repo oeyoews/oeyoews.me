@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { FcFolder } from 'react-icons/fc';
-import { SiTiddlywiki } from 'react-icons/si';
 
 import Link from 'next/link';
 
@@ -74,7 +73,7 @@ export default function HomePage() {
   }
 
   const handleLoadMore = () => {
-    if (tiddlers.length < tiddlerstore.loadedItems) {
+    if (data.length < tiddlerstore.loadedItems) {
       toast.error('没有更多了');
       return;
     }
@@ -99,19 +98,16 @@ export default function HomePage() {
     });
   }, []);
 
-  const tiddlers = data.sort((a, b) => (a.date > b.date ? -1 : 1));
-
-  if (!data.length) {
-    // return <EmptyPost />;
-    // return <div className="flex justify-center items-center">Coming</div>;
-  }
+  // if (!data.length) {
+  //   return <EmptyPost />;
+  // }
 
   return (
     <>
-      <CalendarHeatmapComponent datas={tiddlers} />
-      <TiddlersList tiddlers={tiddlers} />
+      <CalendarHeatmapComponent datas={data} />
+      <TiddlersList tiddlers={data} />
 
-      {tiddlers.length > tiddlerstore.loadedItems && (
+      {data.length > tiddlerstore.loadedItems && (
         <button
           onClick={handleLoadMore}
           className="text-sm font-medium text-neutral-600 hover:text-neutral-800 bg-neutral-200 rounded px-2 font-mono py-1"

@@ -14,9 +14,13 @@ export default async function getTiddlerData(tiddlerjsonfile = TidderJsonFile) {
     throw new Error('Failed to fetch data');
   }
   const data: Tiddler[] = await res.json();
-  return data.map((tiddler) => ({
-    ...tiddler,
-    slug: md5(tiddler.title),
-    date: formattedTime(tiddler.created),
-  }));
+  return data
+    .map((tiddler) => ({
+      ...tiddler,
+      slug: md5(tiddler.title),
+      date: formattedTime(tiddler.created),
+    }))
+    .sort((a, b) => {
+      return a.date > b.date ? -1 : 1;
+    });
 }
