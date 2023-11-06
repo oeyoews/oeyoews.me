@@ -19,6 +19,12 @@
   }
 }
 
+@layer components {
+  .warning {
+    @apply bg-yellow-400;
+  }
+}
+
 a {
   text-decoration: none !important;
 }
@@ -67,4 +73,9 @@ a {
 
 .prose *:hover > .anchor {
   @apply visible;
+}
+
+.remark-container {
+  color: red;
+  background-color: 'blue';
 }

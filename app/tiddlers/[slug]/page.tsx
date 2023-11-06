@@ -13,5 +13,5 @@ export default async function Page({ params }: { params: { slug: string } }) {
     return notFound();
   }
 
-  return <Tiddler {...tiddler} key={tiddler.title} />;
+  return <Tiddler {...tiddler} />;
 }

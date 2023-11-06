@@ -83,6 +83,9 @@ dependencies:
   rehype-slug:
     specifier: ^5.1.0
     version: 5.1.0
+  remark-custom-container:
+    specifier: ^1.3.1
+    version: 1.3.1
   remark-emoji:
     specifier: ^4.0.1
     version: 4.0.1
@@ -5300,6 +5303,12 @@ packages:
       '@types/hast': 2.3.7
       hast-util-to-html: 8.0.4
       unified: 10.1.2
+    dev: false
+
+  /remark-custom-container@1.3.1:
+    resolution: {integrity: sha512-yu2P4r/Pk2PS7rF9NcWUfz5Va2nuuXq5PtyitOgOGNMhgWTznNnvzu9n1xeaEnzLL/NMHpu7btt/Z46m8O9lhg==}
+    dependencies:
+      unist-util-visit: 4.1.2
     dev: false
 
   /remark-emoji@4.0.1:

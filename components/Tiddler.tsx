@@ -1,9 +1,9 @@
 import Markdown from 'react-markdown';
 
 import { Code } from 'bright';
-import rehypeSlug from 'rehype-slug';
+// @ts-ignore
+import remarkContainer from 'remark-custom-container';
 import remarkEmoji from 'remark-emoji';
-import remarkToc from 'remark-toc';
 
 Code.lineNumbers = true;
 Code.theme = 'one-dark-pro';
@@ -47,9 +47,11 @@ export default function Tiddler(tiddler: Tiddler) {
 
         <Markdown
           // @ts-ignore
-          remarkPlugins={[remarkEmoji]} // gfm table will cause error
-          // @ts-ignore
-          rehypePlugins={[rehypeSlug, remarkToc]}
+          // container not work, be hidden
+          remarkPlugins={[
+            [remarkContainer, { className: 'warning' }],
+            remarkEmoji,
+          ]} // gfm table will cause error
           skipHtml={false}
           components={components}
         >

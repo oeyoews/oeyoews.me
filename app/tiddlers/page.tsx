@@ -9,7 +9,7 @@ export default async function Page() {
     .sort((a, b) => (a.created > b.created ? -1 : 1))
     .map(({ title, slug }) => {
       return (
-        <li key={slug}>
+        <li key={title}>
           <Link href={`/tiddlers/${slug}`}>{title.replace(/\//g, '-')}</Link>
         </li>
       );
