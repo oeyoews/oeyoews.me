@@ -29,7 +29,7 @@ echarts.use([
   VisualMapComponent,
 ]);
 
-function CalendarHeatmapComponent({ datas }: { datas: Post[] }) {
+function CalendarHeatmapComponent({ datas }: { datas: Post[] | Tiddler[] }) {
   const postCounts: DataObject = {};
 
   datas.forEach((post) => {
@@ -165,7 +165,8 @@ function CalendarHeatmapComponent({ datas }: { datas: Post[] }) {
 
   return (
     <Drag>
-      <ReactEChartsCore echarts={echarts} option={option} onEvents={onEvents} />
+      {/* onEvents={onEvents} */}
+      <ReactEChartsCore echarts={echarts} option={option} />
     </Drag>
   );
 }

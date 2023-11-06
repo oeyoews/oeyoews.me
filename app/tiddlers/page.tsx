@@ -5,6 +5,7 @@ import { FcFolder } from 'react-icons/fc';
 
 import Link from 'next/link';
 
+import CalendarHeatmapComponent from '@/components/CalendarPost';
 import EmptyPost from '@/components/PostList/EmptyPost';
 import Badge from '@/components/PostList/PostBadges';
 import YearHeader from '@/components/PostList/YearHeader';
@@ -88,6 +89,7 @@ export default function HomePage() {
 
   return (
     <>
+      <CalendarHeatmapComponent datas={tiddlers} />
       <TiddlersList tiddlers={tiddlers} />
       {tiddlers.length > loadedItems && (
         <button
