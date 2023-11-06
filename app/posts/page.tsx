@@ -43,10 +43,7 @@ function PostList({ posts }: { posts: Post[] }) {
   let currentYear: number;
 
   return (
-    <ol
-      className="prose relative list-none border-gray-100/80 border-l-4"
-      key={'all-posts'}
-    >
+    <ol className="prose relative list-none border-gray-100/80 border-l-4">
       {posts
         .sort((a, b) => {
           return a.date > b.date ? -1 : 1;
