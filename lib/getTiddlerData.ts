@@ -1,3 +1,4 @@
+import formattedTime from './formattedTime';
 import slugifyTitle from './slugifyTitle';
 
 export default async function getTiddlerData() {
@@ -9,5 +10,6 @@ export default async function getTiddlerData() {
   return data.map((tiddler) => ({
     ...tiddler,
     slug: slugifyTitle(tiddler.title),
+    date: formattedTime(tiddler.created),
   }));
 }
