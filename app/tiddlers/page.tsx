@@ -74,11 +74,18 @@ export default function HomePage() {
     setLoadedItems((prevCount) => prevCount + 30);
   };
 
+  const [url, setUrl] = useState(process.env.NEXT_PUBLIC_TiddlerJsonFile);
+  const [hasloaded, setHasloaded] = useState(false);
+
   useEffect(() => {
-    getTiddlerData().then((data) => {
-      setData(data);
-    });
-  }, []);
+    getTiddlerData()
+      .then((data) => {
+        setData(data);
+      })
+      .then(() => {
+        setHasloaded(true);
+      });
+  }, [url]);
 
   const tiddlers = data.sort((a, b) => (a.date > b.date ? -1 : 1));
 
@@ -86,11 +93,37 @@ export default function HomePage() {
     // return <EmptyPost />;
     // return <div className="flex justify-center items-center">Coming</div>;
   }
+  const handleUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUrl(event.target.value);
+  };
 
   return (
     <>
       <CalendarHeatmapComponent datas={tiddlers} />
+      {hasloaded && (
+        <div className="flex justify-center items-center">
+          <input
+            type="text"
+            placeholder="输入新的 url"
+            value={url}
+            onChange={handleUrlChange}
+            className="mr-4 py-2 px-3 rounded-md border-gray-300 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-indigo-500 w-96"
+          />
+          <button
+            onClick={() => {
+              if (!url) return;
+              getTiddlerData(url).then((data) => {
+                setData(data);
+              });
+            }}
+            className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
+          >
+            更新数据
+          </button>
+        </div>
+      )}
       <TiddlersList tiddlers={tiddlers} />
+
       {tiddlers.length > loadedItems && (
         <button
           onClick={handleLoadMore}
