@@ -1,6 +1,5 @@
 import Markdown from 'react-markdown';
 
-import formattedTime from '@/lib/formattedTime';
 import { Code } from 'bright';
 // @ts-ignore
 import remarkContainer from 'remark-custom-container';
