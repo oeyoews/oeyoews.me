@@ -18,3 +18,5 @@ https://nextjs.oeyoewl.top
 ## TODO
 
 - tid to md/html
+- url 问题
+- 支持动态加载不同 json
