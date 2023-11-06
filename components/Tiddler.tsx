@@ -36,11 +36,14 @@ export default function Tiddler(tiddler: Tiddler) {
         <div className="not-prose flex justify-center space-x-2 text-gray-800 font-mono">
           {creator && <div className="rounded px-1 bg-rose-50">{creator}</div>}
           {tags &&
-            tags.split(' ').map((tag) => (
-              <div key={tag} className="rounded px-1 bg-yellow-100">
-                {tag}
-              </div>
-            ))}
+            tags
+              .split(' ')
+              .filter((tag) => !tag.startsWith('$:/'))
+              .map((tag) => (
+                <div key={tag} className="rounded px-1 bg-yellow-100">
+                  {tag}
+                </div>
+              ))}
           <div className="rounded px-1 bg-indigo-200">{date}</div>
         </div>
 
