@@ -1,7 +1,5 @@
 import Link from 'next/link';
 
-import Tiddler from '@/components/Tiddler';
-
 async function getData() {
   const res = await fetch('https://neotw.oeyoewl.top/markdown.json');
   if (!res.ok) {

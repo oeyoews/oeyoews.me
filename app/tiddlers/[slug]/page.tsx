@@ -9,15 +9,11 @@ async function getData() {
   return res.json();
 }
 
-export default async function Page() {
+export default async function Page({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const data: Tiddler[] = await getData();
 
-  const tiddlers = data
-    .sort((a, b) => (a.created > b.created ? -1 : 1))
-    .slice(0, 99)
-    .map((tiddler) => {
-      return <Tiddler {...tiddler} key={tiddler.title} />;
-    });
+  const tiddler = data.filter((tiddler) => tiddler.title === slug)[0];
 
-  return tiddlers;
+  return <Tiddler {...tiddler} key={tiddler.title} />;
 }
