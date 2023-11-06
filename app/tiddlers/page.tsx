@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import { FcFolder } from 'react-icons/fc';
 
 import Link from 'next/link';
@@ -36,43 +39,64 @@ function TiddlerItem({ tiddler, index }: { tiddler: Tiddler; index: number }) {
   );
 }
 
-function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
-  let currentYear: number;
+export default function HomePage() {
+  const [loadedItems, setLoadedItems] = useState(30);
+  const [data, setData] = useState<Tiddler[]>([]);
 
-  return (
-    <ol className="prose relative list-none border-gray-100/80 border-l-4">
-      {tiddlers.map((tiddler, index) => {
-        const { title, created } = tiddler;
-        const postYear = new Date(formattedTime(created)).getFullYear();
+  function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
+    let currentYear: number;
+    return (
+      <ol className="prose relative list-none border-gray-100/80 border-l-4">
+        {tiddlers.slice(0, loadedItems).map((tiddler, index) => {
+          const { title, created } = tiddler;
+          const postYear = new Date(formattedTime(created)).getFullYear();
 
-        const yearHeader =
-          currentYear !== postYear ? <YearHeader postYear={postYear} /> : null;
+          const yearHeader =
+            currentYear !== postYear ? (
+              <YearHeader postYear={postYear} />
+            ) : null;
 
-        currentYear = postYear;
+          currentYear = postYear;
 
-        return (
-          <article key={title}>
-            {yearHeader}
-            <TiddlerItem tiddler={tiddler} index={index} />
-          </article>
-        );
-      })}
-    </ol>
-  );
-}
+          return (
+            <article key={title}>
+              {yearHeader}
+              <TiddlerItem tiddler={tiddler} index={index} />
+            </article>
+          );
+        })}
+      </ol>
+    );
+  }
 
-export default async function HomePage() {
-  const data: Tiddler[] = await getTiddlerData();
+  const handleLoadMore = () => {
+    setLoadedItems((prevCount) => prevCount + 30);
+  };
+
+  useEffect(() => {
+    getTiddlerData().then((data) => {
+      setData(data);
+    });
+  }, []);
 
   const tiddlers = data.sort((a, b) => (a.date > b.date ? -1 : 1));
 
   if (!data.length) {
-    return <EmptyPost />;
+    // return <EmptyPost />;
+    // return <div className="flex justify-center items-center">Coming</div>;
   }
 
   return (
-    <div className="prose prose-indigo max-w-none">
+    <>
       <TiddlersList tiddlers={tiddlers} />
-    </div>
+      {tiddlers.length > loadedItems && (
+        <button
+          onClick={handleLoadMore}
+          className="text-sm font-medium text-neutral-600 hover:text-neutral-800 bg-neutral-200 rounded px-2 font-mono py-1"
+        >
+          加载更多
+        </button>
+      )}
+    </>
   );
 }
