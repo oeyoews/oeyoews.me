@@ -12,6 +12,7 @@ import YearHeader from '@/components/PostList/YearHeader';
 
 import formattedTime from '@/lib/formattedTime';
 import getTiddlerData from '@/lib/getTiddlerData';
+import useStore from '@/lib/store';
 import { format } from 'date-fns';
 
 function TiddlerItem({ tiddler, index }: { tiddler: Tiddler; index: number }) {
@@ -41,14 +42,14 @@ function TiddlerItem({ tiddler, index }: { tiddler: Tiddler; index: number }) {
 }
 
 export default function HomePage() {
-  const [loadedItems, setLoadedItems] = useState(30);
+  const tiddlerstore = useStore();
   const [data, setData] = useState<Tiddler[]>([]);
 
   function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
     let currentYear: number;
     return (
       <ol className="prose relative list-none border-gray-100/80 border-l-4">
-        {tiddlers.slice(0, loadedItems).map((tiddler, index) => {
+        {tiddlers.slice(0, tiddlerstore.loadedItems).map((tiddler, index) => {
           const { title, created } = tiddler;
           const postYear = new Date(formattedTime(created)).getFullYear();
 
@@ -71,7 +72,7 @@ export default function HomePage() {
   }
 
   const handleLoadMore = () => {
-    setLoadedItems((prevCount) => prevCount + 30);
+    tiddlerstore.setLoadedItems(tiddlerstore.loadedItems + 10);
   };
 
   const [hasloaded, setHasloaded] = useState(false);
@@ -98,7 +99,7 @@ export default function HomePage() {
       <CalendarHeatmapComponent datas={tiddlers} />
       <TiddlersList tiddlers={tiddlers} />
 
-      {tiddlers.length > loadedItems && (
+      {tiddlers.length > tiddlerstore.loadedItems && (
         <button
           onClick={handleLoadMore}
           className="text-sm font-medium text-neutral-600 hover:text-neutral-800 bg-neutral-200 rounded px-2 font-mono py-1"
