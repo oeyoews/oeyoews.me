@@ -1,3 +1,13 @@
+interface Tiddler {
+  title: string;
+  text: string;
+  tags: string;
+  type: string;
+  created: string;
+  creator: string;
+  modified: string;
+}
+
 interface PostInfo {
   count: number;
   titles: string[];
