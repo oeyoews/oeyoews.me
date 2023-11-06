@@ -1,5 +1,6 @@
 import formattedTime from './formattedTime';
-import slugifyTitle from './slugifyTitle';
+
+import md5 from 'md5';
 
 export default async function getTiddlerData() {
   const res = await fetch('https://neotw.oeyoewl.top/markdown.json', {
@@ -11,7 +12,7 @@ export default async function getTiddlerData() {
   const data: Tiddler[] = await res.json();
   return data.map((tiddler) => ({
     ...tiddler,
-    slug: slugifyTitle(tiddler.title),
+    slug: md5(tiddler.title),
     date: formattedTime(tiddler.created),
   }));
 }
