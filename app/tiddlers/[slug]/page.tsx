@@ -1,19 +1,17 @@
+import { notFound } from 'next/navigation';
+
 import Tiddler from '@/components/Tiddler';
 
-async function getData() {
-  const res = await fetch('https://neotw.oeyoewl.top/markdown.json');
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-}
+import getTiddlerData from '@/lib/getTiddlerData';
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  const data: Tiddler[] = await getData();
+  const data: Tiddler[] = await getTiddlerData();
 
-  const tiddler = data.filter((tiddler) => tiddler.title === slug)[0];
+  const tiddler = data.filter((tiddler) => tiddler.slug === slug)[0];
+  if (!tiddler) {
+    return notFound();
+  }
 
   return <Tiddler {...tiddler} key={tiddler.title} />;
 }

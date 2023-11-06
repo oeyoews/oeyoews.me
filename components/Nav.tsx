@@ -1,4 +1,5 @@
 import { FcAdvertising, FcIdea, FcPlanner } from 'react-icons/fc';
+import { SiTiddlywiki } from 'react-icons/si';
 
 import Link from 'next/link';
 
@@ -14,6 +15,9 @@ export default function Nav() {
         </Link>
         <Link href="/posts" title="Blog">
           <FcIdea className={LinkClass} />
+        </Link>
+        <Link href="/tiddlers" title="tiddlers">
+          <SiTiddlywiki className={LinkClass} />
         </Link>
         <Link href="/about" title="About">
           <FcAdvertising className={LinkClass} />

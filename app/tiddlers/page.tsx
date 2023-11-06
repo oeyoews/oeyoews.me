@@ -1,26 +1,17 @@
 import Link from 'next/link';
 
-async function getData() {
-  const res = await fetch('https://neotw.oeyoewl.top/markdown.json');
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-}
+import getTiddlerData from '@/lib/getTiddlerData';
 
 export default async function Page() {
-  const data: Tiddler[] = await getData();
+  const data: Tiddler[] = await getTiddlerData();
 
   const tiddlers = data
     .sort((a, b) => (a.created > b.created ? -1 : 1))
-    .map(({ title }) => {
+    .map(({ title, slug }) => {
       return (
-        <>
-          <li>
-            <Link href={`/tiddlers/${title}`}>{title}</Link>
-          </li>
-        </>
+        <li key={slug}>
+          <Link href={`/tiddlers/${slug}`}>{title}</Link>
+        </li>
       );
     });
 
