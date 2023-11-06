@@ -50,7 +50,7 @@ export default makeSource({
   documentTypes: [Post],
   mdx: {
     remarkPlugins: [
-      remarkGfm,
+      remarkGfm, // gfm 对一些内容会导致报错
       remarkEmoji,
       [
         remarkToc,
