@@ -11,6 +11,10 @@ https://nextjs.oeyoewl.top
 - SSG 静态生成
 - 借助 contentlayer 和 next-contentlayer, 几乎不需要写一行逻辑代码, 你只需要关注 UI 代码即可
 
+## Tiddlywiki
+
+- 支持 tiddler 导出的 json 文件作为数据源(仅支持 md tiddler 目前), 实时刷新, 数据已进行缓存.
+
 ## TODO
 
-- tiddlerjsonfile 地址问题
+- tid to md/html

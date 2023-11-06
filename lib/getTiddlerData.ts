@@ -3,7 +3,8 @@ import formattedTime from './formattedTime';
 import md5 from 'md5';
 
 const TidderJsonFile =
-  process.env.TiddlerJsonFile || 'https://neotw.vercel.app/markdown.json';
+  process.env.NEXT_PUBLIC_TiddlerJsonFile ||
+  'https://neotw.vercel.app/markdown.json';
 
 export default async function getTiddlerData(tiddlerjsonfile = TidderJsonFile) {
   const res = await fetch(tiddlerjsonfile, {
@@ -12,7 +13,7 @@ export default async function getTiddlerData(tiddlerjsonfile = TidderJsonFile) {
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
-  // console.log('连接成功', TidderJsonFile);
+  console.log('连接成功', tiddlerjsonfile);
   const data: Tiddler[] = await res.json();
   return data.map((tiddler) => ({
     ...tiddler,
