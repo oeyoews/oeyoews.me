@@ -2,13 +2,17 @@ import formattedTime from './formattedTime';
 
 import md5 from 'md5';
 
-export default async function getTiddlerData() {
-  const res = await fetch('https://neotw.oeyoewl.top/markdown.json', {
+const TidderJsonFile =
+  process.env.TiddlerJsonFile || 'https://neotw.vercel.app/markdown.json';
+
+export default async function getTiddlerData(tiddlerjsonfile = TidderJsonFile) {
+  const res = await fetch(tiddlerjsonfile, {
     cache: 'force-cache',
   });
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
+  // console.log('连接成功', TidderJsonFile);
   const data: Tiddler[] = await res.json();
   return data.map((tiddler) => ({
     ...tiddler,
