@@ -10,7 +10,7 @@ export default async function Page() {
     .map(({ title, slug }) => {
       return (
         <li key={slug}>
-          <Link href={`/tiddlers/${slug}`}>{title}</Link>
+          <Link href={`/tiddlers/${slug}`}>{title.replace(/\//g, '-')}</Link>
         </li>
       );
     });

@@ -1,4 +1,4 @@
-import slugify from 'slugify';
+import slugifyTitle from './slugifyTitle';
 
 export default async function getTiddlerData() {
   const res = await fetch('https://neotw.oeyoewl.top/markdown.json');
@@ -8,6 +8,6 @@ export default async function getTiddlerData() {
   const data: Tiddler[] = await res.json();
   return data.map((tiddler) => ({
     ...tiddler,
-    slug: slugify(tiddler.title, { lower: true }),
+    slug: slugifyTitle(tiddler.title),
   }));
 }

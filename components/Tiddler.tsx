@@ -3,6 +3,7 @@ import Markdown from 'react-markdown';
 import { Code } from 'bright';
 import rehypeSlug from 'rehype-slug';
 import remarkEmoji from 'remark-emoji';
+import remarkGfm from 'remark-gfm';
 import remarkToc from 'remark-toc';
 
 Code.lineNumbers = true;
@@ -46,7 +47,8 @@ export default function Tiddler(tiddler: Tiddler) {
         </div>
 
         <Markdown
-          remarkPlugins={[remarkEmoji]}
+          // @ts-ignore
+          remarkPlugins={[remarkGfm, remarkEmoji]}
           // @ts-ignore
           rehypePlugins={[rehypeSlug, remarkToc]}
           skipHtml={false}
