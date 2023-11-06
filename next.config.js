@@ -1,5 +1,6 @@
 const { withContentlayer } = require('next-contentlayer');
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   async rewrites() {
     return [
@@ -18,17 +19,15 @@ const nextConfig = {
     ];
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  reactStrictMode: true,
-  experimental: {
-    // mdxRs: true,
-  },
+  reactStrictMode: false,
   images: {
-    domains: [
-      'bing.com',
-      'images.unsplash.com',
-      'plus.unsplash.com',
-      'nextjs.oeyoewl.top',
-      'cdn.jsdelivr.net',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+        port: '',
+        pathname: '**',
+      },
     ],
   },
 };
