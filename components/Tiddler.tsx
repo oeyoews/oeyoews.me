@@ -1,6 +1,5 @@
 import Markdown from 'react-markdown';
 
-import formattedTime from '@/lib/formattedTime';
 import { Code } from 'bright';
 import { format } from 'date-fns';
 // @ts-ignore
