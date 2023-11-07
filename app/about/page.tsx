@@ -1,6 +1,5 @@
 import Icon from '@/components/Icon';
 
-// not work for static route???
 export function generateStaticParams({ params }: { params: Params }) {
   return [params.slug];
 }
