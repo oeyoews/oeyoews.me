@@ -43,7 +43,6 @@ function TiddlerItem({ tiddler, index }: { tiddler: Tiddler; index: number }) {
 export default function HomePage() {
   const tiddlerstore = useStore();
   const [data, setData] = useState<Tiddler[]>([]);
-  const [searchTerm, setSearchTerm] = useState('');
   const [initialData, setIntialData] = useState<Tiddler[]>([]);
   function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
     // if (!tiddlers.length) return;
@@ -91,14 +90,15 @@ export default function HomePage() {
     setHasloaded(true);
   };
 
+  const [searchTerm, setSearchTerm] = useState('');
   const handleSearchChange = (event: any) => {
-    const newsearchTerm = event.target.value;
-    setSearchTerm(newsearchTerm);
+    setSearchTerm(event.target.value);
   };
 
   useEffect(() => {
     if (!searchTerm) {
       setData(initialData);
+      toast.success('加载成功');
       return;
     }
     const filteredData = data.filter((tiddler) =>
@@ -106,7 +106,7 @@ export default function HomePage() {
     );
     if (!filteredData.length) return;
     setData(filteredData);
-  }, [searchTerm]); // 不要加额外的依赖
+  }, [searchTerm, data, initialData]);
 
   useEffect(() => {
     fetchData();
