@@ -81,21 +81,15 @@ export default function HomePage() {
   };
 
   const [hasloaded, setHasloaded] = useState(false);
+  const fetchData = async () => {
+    const data = await getTiddlerData();
+    setData(data);
+    setIntialData(data);
+    setHasloaded(true);
+  };
 
   useEffect(() => {
-    const fetchData = () => {
-      return getTiddlerData()
-        .then((data) => {
-          setData(data);
-          setIntialData(data);
-        })
-        .then(() => {
-          setHasloaded(true);
-        });
-    };
-    fetchData().then(() => {
-      // hasloaded && toast.success('加载成功');
-    });
+    fetchData();
   }, []);
 
   const handleSearchChange = (event: any) => {

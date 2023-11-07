@@ -5,7 +5,7 @@ export function generateStaticParams({ params }: { params: Params }) {
   return [params.slug];
 }
 
-function About() {
+export default function About() {
   return (
     <div className="prose">
       <h4 className="text-xs my-2">
@@ -47,5 +47,3 @@ function About() {
     </div>
   );
 }
-
-export default About;
