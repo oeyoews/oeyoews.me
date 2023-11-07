@@ -76,7 +76,7 @@ export default function HomePage() {
       toast.error('没有更多了');
       return;
     }
-    tiddlerstore.setLoadedItems(tiddlerstore.loadedItems + 10);
+    tiddlerstore.setLoadedItems(tiddlerstore.loadedItems + 30);
     toast.success('加载成功');
   };
 
