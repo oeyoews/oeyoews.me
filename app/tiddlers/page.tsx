@@ -113,6 +113,7 @@ export default function HomePage() {
     const filteredData = data.filter((tiddler) =>
       tiddler.title.toLowerCase().includes(searchTerm.toLowerCase()),
     );
+    if (!filteredData.length) return;
     setData(filteredData);
   }, [searchTerm]);
 
