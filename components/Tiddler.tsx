@@ -6,24 +6,24 @@ import { format } from 'date-fns';
 import remarkContainer from 'remark-custom-container';
 import remarkEmoji from 'remark-emoji';
 
-Code.lineNumbers = true;
-Code.theme = 'one-dark-pro';
+// Code.lineNumbers = true;
+// Code.theme = 'one-dark-pro';
 
 export default function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   const components = {
-    pre: ({
-      children,
-      ...props
-    }: React.DetailedHTMLProps<
-      React.HTMLAttributes<HTMLElement>,
-      HTMLPreElement
-    >) => {
-      return (
-        <Code {...props} className="not-prose">
-          {children}
-        </Code>
-      );
-    },
+    // pre: ({
+    //   children,
+    //   ...props
+    // }: React.DetailedHTMLProps<
+    //   React.HTMLAttributes<HTMLElement>,
+    //   HTMLPreElement
+    // >) => {
+    //   return (
+    //     <Code {...props} className="not-prose">
+    //       {children}
+    //     </Code>
+    //   );
+    // },
   };
 
   const { title, text, tags, creator, date } = tiddler;

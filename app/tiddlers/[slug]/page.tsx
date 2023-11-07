@@ -1,42 +1,26 @@
-import { type Metadata } from 'next';
-import { notFound } from 'next/navigation';
+'use client';
+
+import { useEffect, useState } from 'react';
 
 import Tiddler from '@/components/Tiddler';
 
 import getTiddlerData from '@/lib/getTiddlerData';
 
-async function getTiddler(slug: string) {
-  const tiddlers = await getTiddlerData();
-  return tiddlers.find((tiddler) => tiddler.slug === slug);
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
+export default function DemoPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  const tiddler = await getTiddler(slug);
-  return {
-    title: tiddler?.title,
-    description: tiddler?.description,
-  };
-}
+  const [tiddler, setTiddler] = useState<Tiddler>();
+  useEffect(() => {
+    getTiddlerData().then((tiddlers) => {
+      const tiddler = tiddlers.find((tiddler) => {
+        if (tiddler.slug === slug) {
+          return tiddler;
+        }
+      });
+      // @ts-ignore
+      setTiddler(tiddler);
+    });
+  }, [slug]);
 
-export async function generateStaticParams() {
-  const tiddlers = await getTiddlerData();
-
-  return tiddlers.map((tiddler) => ({
-    slug: tiddler.slug,
-  }));
-}
-
-export default async function Page({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-  const tiddler = await getTiddler(slug);
-  if (!tiddler) {
-    return notFound();
-  }
-
-  return <Tiddler tiddler={tiddler} />;
+  // @ts-ignore
+  return tiddler && <Tiddler tiddler={tiddler} />;
 }
