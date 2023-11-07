@@ -1,9 +1,5 @@
 ![next-mdx](./public/next-mdx.png)
 
-## Preview
-
-https://nextjs.oeyoewl.top
-
 ## Features
 
 - 全文 RSS 输出
