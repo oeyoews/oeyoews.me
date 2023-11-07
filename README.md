@@ -11,3 +11,7 @@
 ## TODO
 
 - 支持动态加载不同 json
+
+## Recipes
+
+- 如果你使用 tiddlyhost, 你可以使用 https://balloonvendor.tiddlyhost.com/tiddlers.json 这种地址, 无需自己构建 json
