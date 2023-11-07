@@ -9,10 +9,10 @@ const TidderJsonFile =
 export default async function getTiddlerData(tiddlerjsonfile = TidderJsonFile) {
   const res = await fetch(tiddlerjsonfile, {
     // 'force-cache' is the default, and can be omitted
-    cache: 'force-cache',
-    mode: 'cors',
-    method: 'GET',
-    credentials: 'include', // 发送凭据，允许包含 cookie 在内的身份验证信息
+    // cache: 'force-cache',
+    // mode: 'cors',
+    // method: 'GET',
+    // credentials: 'include', // 发送凭据，允许包含 cookie 在内的身份验证信息
     // headers: {
     //   Authorization: '', // 设置自定义的 Authorization 请求头
     // },
