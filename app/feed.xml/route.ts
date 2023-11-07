@@ -1,5 +1,6 @@
 // https://validator.w3.org/feed/#validate_by_input
 import { allPosts } from '@/.contentlayer/generated';
+import getTiddlerData from '@/lib/getTiddlerData';
 import { marked } from 'marked';
 import RSS from 'rss';
 
@@ -20,6 +21,22 @@ export async function GET() {
     pubDate: new Date(),
     feed_url: `${domain}/feed.xml`,
     site_url: domain as string,
+  });
+
+  const tiddlers = await getTiddlerData();
+
+  tiddlers.forEach(({ title, text, date, slug }) => {
+    feed.item({
+      title,
+      description: renderPost(text),
+      // maybe sue gray-matter not use remote-mdx's matter
+      // description: renderPost(post.content),
+      url: `${domain}${slug}`,
+      author: 'oeyoews',
+      date,
+      categories: ['blog'],
+      // custom_elements: [{ content: post.description }],
+    });
   });
 
   allPosts
