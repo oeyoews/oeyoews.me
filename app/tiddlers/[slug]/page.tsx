@@ -1,5 +1,5 @@
+import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Metadata, ResolvingMetadata } from 'next/types';
 
 import Tiddler from '@/components/Tiddler';
 

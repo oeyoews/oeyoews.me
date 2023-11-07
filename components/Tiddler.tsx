@@ -54,7 +54,7 @@ export default function Tiddler(tiddler: Tiddler) {
             [remarkContainer, { className: 'warning' }],
             remarkEmoji,
           ]} // gfm table will cause error
-          skipHtml={false}
+          skipHtml={true}
           components={components}
         >
           {text}
