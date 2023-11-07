@@ -133,7 +133,7 @@ export default function HomePage() {
           placeholder="Search Tiddlers"
         />
       )}
-      {!data.length && (
+      {!data.length && hasloaded && (
         <div className="font-mono my-4 text-lg flex justify-center items-center">
           <h1>Nothing</h1>
         </div>
