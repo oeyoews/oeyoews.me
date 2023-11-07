@@ -10,7 +10,7 @@ import remarkEmoji from 'remark-emoji';
 Code.lineNumbers = true;
 Code.theme = 'one-dark-pro';
 
-export default function Tiddler(tiddler: Tiddler) {
+export default function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   const components = {
     pre: ({
       children,
