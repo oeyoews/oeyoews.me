@@ -7,13 +7,13 @@ const TidderJsonFile =
   'https://neotw.vercel.app/markdown.json';
 
 export default async function getTiddlerData(tiddlerjsonfile = TidderJsonFile) {
-  const res = await fetch(
-    tiddlerjsonfile,
-    // {
+  const res = await fetch(tiddlerjsonfile, {
     // 'force-cache' is the default, and can be omitted
     // cache: 'force-cache',
-    // }
-  );
+    next: {
+      revalidate: 3600, // In 3600 seconds update
+    },
+  });
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
