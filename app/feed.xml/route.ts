@@ -12,7 +12,7 @@ marked.setOptions({
 });
 const renderPost = (md: string) => marked.parse(md);
 // const domain = process.env.DOMAIN;
-const domain = 'https://nextjs.oeyoewl.top';
+const domain = 'https://neotw.vercel.app';
 
 export async function GET() {
   const feed = new RSS({
@@ -25,6 +25,7 @@ export async function GET() {
 
   const tiddlers = await getTiddlerData();
 
+  // TODO: 似乎下面的feed item 就不可用了
   tiddlers.forEach(({ title, text, date, slug }) => {
     feed.item({
       title,

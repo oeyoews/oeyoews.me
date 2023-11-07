@@ -4,6 +4,11 @@ const { withContentlayer } = require('next-contentlayer');
 const nextConfig = {
   async rewrites() {
     return [
+      // 似乎/不起作用 , 后面需要加名字
+      {
+        source: '/index',
+        destination: '/tiddlers',
+      },
       {
         source: '/rss',
         destination: '/feed.xml',
