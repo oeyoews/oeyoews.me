@@ -89,10 +89,6 @@ export default function HomePage() {
     setHasloaded(true);
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   const handleSearchChange = (event: any) => {
     const newsearchTerm = event.target.value;
     setSearchTerm(newsearchTerm);
@@ -109,6 +105,10 @@ export default function HomePage() {
     if (!filteredData.length) return;
     setData(filteredData);
   }, [searchTerm]); // 不要加额外的依赖
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   // if (!data.length) {
   //   return <EmptyPost />;
