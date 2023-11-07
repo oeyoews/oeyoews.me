@@ -45,7 +45,8 @@ function TiddlerItem({ tiddler, index }: { tiddler: Tiddler; index: number }) {
 export default function HomePage() {
   const tiddlerstore = useStore();
   const [data, setData] = useState<Tiddler[]>([]);
-
+  const [searchTerm, setSearchTerm] = useState('');
+  const [initialData, setIntialData] = useState<Tiddler[]>([]);
   function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
     let currentYear: number;
     return (
@@ -88,6 +89,7 @@ export default function HomePage() {
       return getTiddlerData()
         .then((data) => {
           setData(data);
+          setIntialData(data);
         })
         .then(() => {
           setHasloaded(true);
@@ -98,6 +100,22 @@ export default function HomePage() {
     });
   }, []);
 
+  const handleSearchChange = (event: any) => {
+    const newsearchTerm = event.target.value;
+    setSearchTerm(newsearchTerm);
+  };
+
+  useEffect(() => {
+    if (!searchTerm) {
+      setData(initialData);
+      return;
+    }
+    const filteredData = data.filter((tiddler) =>
+      tiddler.title.toLowerCase().includes(searchTerm.toLowerCase()),
+    );
+    setData(filteredData);
+  }, [searchTerm]);
+
   // if (!data.length) {
   //   return <EmptyPost />;
   // }
@@ -105,6 +123,21 @@ export default function HomePage() {
   return (
     <>
       <CalendarHeatmapComponent datas={data} />
+      {hasloaded && (
+        <input
+          className="w-full focus:ring-2 focus:ring-indigo-500 outline-indigo-400 focus:ring-opacity-50 rounded px-2 font-mono py-1"
+          autoFocus={true}
+          type="text"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          placeholder="Search Tiddlers"
+        />
+      )}
+      {!data.length && (
+        <div className="font-mono my-4 text-lg flex justify-center items-center">
+          <h1>Nothing</h1>
+        </div>
+      )}
       <TiddlersList tiddlers={data} />
 
       {data.length > tiddlerstore.loadedItems && (
