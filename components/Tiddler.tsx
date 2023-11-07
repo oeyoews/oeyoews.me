@@ -47,7 +47,7 @@ export default function Tiddler(tiddler: Tiddler) {
                 </div>
               ))}
           <div className="rounded px-1 bg-indigo-200">
-            {format(date, 'EEEE, MMMM d')}
+            {format(date, 'yyyy-MM-dd')}
           </div>
         </div>
 
