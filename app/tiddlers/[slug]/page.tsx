@@ -5,7 +5,7 @@ import Tiddler from '@/components/Tiddler';
 
 import getTiddlerData from '@/lib/getTiddlerData';
 
-export async function getTiddler(slug: string) {
+async function getTiddler(slug: string) {
   const tiddlers = await getTiddlerData();
   return tiddlers.find((tiddler) => tiddler.slug === slug);
 }
