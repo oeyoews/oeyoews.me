@@ -1,10 +1,13 @@
 export default function formattedTime(created: string) {
-  if (!created) return '1970-01-01';
-  const year = created?.substring(0, 4);
-  const month = created?.substring(4, 6);
-  const day = created?.substring(6, 8);
-  const hour = created?.substring(8, 10);
-  const minutes = created?.substring(10, 12);
-  const seconds = created?.substring(12, 14);
-  return `${year}-${month}-${day}T${hour}:${minutes}:${seconds}`;
+  if (!created) return '1970-01-01'; // 如果输入的日期时间字符串为空，则返回默认值'1970-01-01'
+  const parsedDate = new Date(
+    `${created.slice(0, 4)}-${created.slice(4, 6)}-${created.slice(
+      6,
+      8,
+    )}T${created.slice(8, 10)}:${created.slice(10, 12)}:${created.slice(
+      12,
+      14,
+    )}`,
+  );
+  return parsedDate.toISOString().slice(0, 19).replace('T', ' '); // 返回符合ISO 8601标准的日期时间字符串，形如'YYYY-MM-DD HH:MM:SS'
 }
