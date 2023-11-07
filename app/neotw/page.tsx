@@ -98,7 +98,6 @@ export default function HomePage() {
   useEffect(() => {
     if (!searchTerm) {
       setData(initialData);
-      toast.success('加载成功');
       return;
     }
     const filteredData = data.filter((tiddler) =>
@@ -111,10 +110,6 @@ export default function HomePage() {
   useEffect(() => {
     fetchData();
   }, []);
-
-  // if (!data.length) {
-  //   return <EmptyPost />;
-  // }
 
   return (
     hasloaded && (

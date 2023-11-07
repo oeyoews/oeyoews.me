@@ -32,7 +32,7 @@ echarts.use([
 function CalendarHeatmapComponent({ datas }: { datas: Post[] | Tiddler[] }) {
   const postCounts: DataObject = {};
 
-  if (!datas.length) return;
+  // if (!datas.length) return;
   datas.forEach((post) => {
     const date = format(new Date(post.date), 'yyyy-MM-dd');
     if (date in postCounts) {
