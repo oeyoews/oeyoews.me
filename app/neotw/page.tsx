@@ -121,7 +121,7 @@ export default function HomePage() {
           type="text"
           value={searchTerm}
           onChange={handleSearchChange}
-          placeholder="Search Tiddlers"
+          placeholder="Search Tiddlers(local)"
         />
         {!data.length && (
           <div className="font-mono my-4 text-lg flex justify-center items-center">

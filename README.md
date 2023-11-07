@@ -7,6 +7,7 @@
 - 全文 RSS 输出
 - Echarts 文章日历统计
 - SSG 静态生成
+- 支持 online/local json
 
 ## TODO
 
