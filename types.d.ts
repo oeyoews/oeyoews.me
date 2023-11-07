@@ -11,6 +11,12 @@ interface Tiddler {
   date: Date;
 }
 
+interface AdditionalProperties {
+  [key: string]: any;
+}
+
+type TiddlerFull = Tiddler & AdditionalProperties;
+
 interface PostInfo {
   count: number;
   titles: string[];

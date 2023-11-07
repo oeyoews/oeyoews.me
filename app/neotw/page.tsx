@@ -9,7 +9,7 @@ import CalendarHeatmapComponent from '@/components/CalendarPost';
 import Badge from '@/components/PostList/PostBadges';
 import YearHeader from '@/components/PostList/YearHeader';
 
-import getTiddlerData from '@/lib/getTiddlerData';
+import getTiddlerJsonData from '@/lib/getTiddlerJsonData';
 import useStore from '@/lib/store';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
@@ -22,7 +22,7 @@ function TiddlerItem({ tiddler, index }: { tiddler: Tiddler; index: number }) {
         <FcFolder className="h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
       </span>
       <Link
-        href={`/tiddlers/${slug}`}
+        href={`/neotw/${slug}`}
         className="text-xs rounded-md"
         title="点击阅读全文"
       >
@@ -82,16 +82,14 @@ export default function HomePage() {
   };
 
   const [hasloaded, setHasloaded] = useState(false);
-  const fetchData = async () => {
-    const data = await getTiddlerData();
+  const fetchData = () => {
+    const data = getTiddlerJsonData();
+    // @ts-ignore
     setData(data);
+    // @ts-ignore
     setIntialData(data);
     setHasloaded(true);
   };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   const handleSearchChange = (event: any) => {
     const newsearchTerm = event.target.value;
@@ -109,6 +107,10 @@ export default function HomePage() {
     if (!filteredData.length) return;
     setData(filteredData);
   }, [searchTerm]); // 不要加额外的依赖
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   // if (!data.length) {
   //   return <EmptyPost />;
