@@ -5,8 +5,11 @@ import Tiddler from '@/components/Tiddler';
 
 import getTiddlerData from '@/lib/getTiddlerData';
 
-export async function generateMetadata({ params }: any): Promise<Metadata> {
-  // read route params
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const { slug } = params;
   const tiddlers: Tiddler[] = await getTiddlerData();
   const tiddler = tiddlers.find((tiddler) => tiddler.slug === slug);
