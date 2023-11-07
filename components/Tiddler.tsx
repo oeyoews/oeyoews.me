@@ -1,6 +1,8 @@
 import Markdown from 'react-markdown';
 
+import formattedTime from '@/lib/formattedTime';
 import { Code } from 'bright';
+import { format } from 'date-fns';
 // @ts-ignore
 import remarkContainer from 'remark-custom-container';
 import remarkEmoji from 'remark-emoji';
@@ -44,7 +46,9 @@ export default function Tiddler(tiddler: Tiddler) {
                   {tag}
                 </div>
               ))}
-          <div className="rounded px-1 bg-indigo-200">{date}</div>
+          <div className="rounded px-1 bg-indigo-200">
+            {format(date, 'EEEE, MMMM d')}
+          </div>
         </div>
 
         <Markdown

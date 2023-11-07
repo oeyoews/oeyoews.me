@@ -6,18 +6,16 @@ import { FcFolder } from 'react-icons/fc';
 import Link from 'next/link';
 
 import CalendarHeatmapComponent from '@/components/CalendarPost';
-import EmptyPost from '@/components/PostList/EmptyPost';
 import Badge from '@/components/PostList/PostBadges';
 import YearHeader from '@/components/PostList/YearHeader';
 
-import formattedTime from '@/lib/formattedTime';
 import getTiddlerData from '@/lib/getTiddlerData';
 import useStore from '@/lib/store';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 
 function TiddlerItem({ tiddler, index }: { tiddler: Tiddler; index: number }) {
-  const { title, slug, created } = tiddler;
+  const { title, slug, date } = tiddler;
   return (
     <li className="ml-6 group my-8">
       <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
@@ -36,7 +34,7 @@ function TiddlerItem({ tiddler, index }: { tiddler: Tiddler; index: number }) {
         </h2>
       </Link>
       <time className="block text-sm font-normal leading-none text-gray-400">
-        {format(new Date(formattedTime(created)), 'EEE, MMMM d')}
+        {format(date, 'EEE, MMMM d')}
       </time>
     </li>
   );
@@ -52,8 +50,8 @@ export default function HomePage() {
     return (
       <ol className="prose relative list-none border-gray-100/80 border-l-4">
         {tiddlers.slice(0, tiddlerstore.loadedItems).map((tiddler, index) => {
-          const { title, created } = tiddler;
-          const postYear = new Date(formattedTime(created)).getFullYear();
+          const { title, date } = tiddler;
+          const postYear = new Date(date).getFullYear();
 
           const yearHeader =
             currentYear !== postYear ? (
@@ -115,16 +113,16 @@ export default function HomePage() {
     );
     if (!filteredData.length) return;
     setData(filteredData);
-  }, [searchTerm]);
+  }, [searchTerm]); // 不要加额外的依赖
 
   // if (!data.length) {
   //   return <EmptyPost />;
   // }
 
   return (
-    <>
-      <CalendarHeatmapComponent datas={data} />
-      {hasloaded && (
+    hasloaded && (
+      <div>
+        <CalendarHeatmapComponent datas={data} />
         <input
           className="w-full focus:ring-2 focus:ring-indigo-500 outline-indigo-400 focus:ring-opacity-50 rounded px-2 font-mono py-1"
           autoFocus={true}
@@ -133,22 +131,21 @@ export default function HomePage() {
           onChange={handleSearchChange}
           placeholder="Search Tiddlers"
         />
-      )}
-      {!data.length && hasloaded && (
-        <div className="font-mono my-4 text-lg flex justify-center items-center">
-          <h1>Nothing</h1>
-        </div>
-      )}
-      <TiddlersList tiddlers={data} />
-
-      {data.length > tiddlerstore.loadedItems && (
-        <button
-          onClick={handleLoadMore}
-          className="text-sm font-medium text-neutral-600 hover:text-neutral-800 bg-neutral-200 rounded px-2 font-mono py-1"
-        >
-          加载更多
-        </button>
-      )}
-    </>
+        {!data.length && (
+          <div className="font-mono my-4 text-lg flex justify-center items-center">
+            <h1>Nothing</h1>
+          </div>
+        )}
+        <TiddlersList tiddlers={data} />
+        {data.length > tiddlerstore.loadedItems && (
+          <button
+            onClick={handleLoadMore}
+            className="text-sm font-medium text-neutral-600 hover:text-neutral-800 bg-neutral-200 rounded px-2 font-mono py-1"
+          >
+            加载更多
+          </button>
+        )}
+      </div>
+    )
   );
 }

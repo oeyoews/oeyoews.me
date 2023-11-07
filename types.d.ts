@@ -8,7 +8,7 @@ interface Tiddler {
   modified: string;
   description: string;
   slug: string;
-  date: string;
+  date: Date;
 }
 
 interface PostInfo {
