@@ -14,6 +14,7 @@ https://nextjs.oeyoewl.top
 ## Tiddlywiki
 
 - 支持 tiddler 导出的 json 文件作为数据源(仅支持 md tiddler 目前), 实时刷新, 数据已进行缓存.
+- use SSG.
 
 ## TODO
 
