@@ -31,7 +31,7 @@ export default function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   return (
     <>
       <div className="prose prose-indigo max-w-none mb-8">
-        <h1 className="my-4 truncate capitalize text-balance">
+        <h1 className="my-4 capitalize text-balance">
           {title.replace(/-/g, ' ')}
         </h1>
         <div className="not-prose flex justify-center space-x-2 text-gray-800 font-mono">
