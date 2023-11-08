@@ -16,10 +16,11 @@ export function generateMetadata({
   params: { slug: string };
 }): Metadata {
   const { slug } = params;
-  const tiddler = getTiddler(slug);
+  // @ts-ignore
+  const { title, description } = getTiddler(slug);
   return {
-    title: tiddler?.title,
-    description: tiddler?.description,
+    title,
+    description,
   };
 }
 
