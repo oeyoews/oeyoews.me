@@ -29,7 +29,11 @@ echarts.use([
   VisualMapComponent,
 ]);
 
-function CalendarHeatmapComponent({ datas }: { datas: Post[] | Tiddler[] }) {
+function CalendarHeatmapComponent({
+  datas,
+}: {
+  datas: Post[] | TiddlerMetadata[];
+}) {
   const postCounts: DataObject = {};
 
   // if (!datas.length) return;

@@ -8,9 +8,13 @@ import TiddlerItem from '@/components/TiddlerItem';
 import useStore from '@/lib/store';
 import { toast } from 'sonner';
 
-export default function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
+export default function TiddlersList({
+  tiddlers,
+}: {
+  tiddlers: TiddlerMetadata[];
+}) {
   const tiddlerstore = useStore();
-  const [data, setData] = useState<Tiddler[]>([]);
+  const [data, setData] = useState<TiddlerMetadata[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [hasLoaded, setHasLoaded] = useState(false);
 

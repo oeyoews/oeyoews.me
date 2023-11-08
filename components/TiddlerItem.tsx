@@ -11,7 +11,7 @@ export default function TiddlerItem({
   tiddler,
   index,
 }: {
-  tiddler: Tiddler;
+  tiddler: TiddlerMetadata;
   index: number;
 }) {
   const { title, slug, date } = tiddler;

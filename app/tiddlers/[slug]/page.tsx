@@ -6,7 +6,7 @@ import Tiddler from '@/components/Tiddler';
 import getTiddlerData from '@/lib/getTiddlerData';
 
 async function getTiddler(slug: string) {
-  const tiddlers = await getTiddlerData();
+  const { tiddlers } = await getTiddlerData();
   return tiddlers.find((tiddler) => tiddler.slug === slug);
 }
 
@@ -24,7 +24,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const tiddlers = await getTiddlerData();
+  const { tiddlers } = await getTiddlerData();
 
   return tiddlers.map((tiddler) => ({
     slug: tiddler.slug,

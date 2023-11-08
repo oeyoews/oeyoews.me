@@ -22,7 +22,7 @@ export async function GET() {
     site_url: domain as string,
   });
 
-  const tiddlers = await getTiddlerData();
+  const { tiddlers } = await getTiddlerData();
 
   // TODO: 似乎下面的feed item 就不可用了
   tiddlers.forEach(({ title, text, date, slug }) => {

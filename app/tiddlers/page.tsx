@@ -13,11 +13,11 @@ export function generateMetadata(): Metadata {
 }
 
 export default async function TiddlersHomepage() {
-  const tiddlers = await getTiddlerData();
+  const { tiddlersMetadata } = await getTiddlerData();
   return (
     <>
-      <CalendarHeatmapComponent datas={tiddlers} />
-      <TiddlersList tiddlers={tiddlers} />
+      <CalendarHeatmapComponent datas={tiddlersMetadata} />
+      <TiddlersList tiddlers={tiddlersMetadata} />
     </>
   );
 }

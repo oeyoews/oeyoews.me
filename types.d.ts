@@ -1,21 +1,23 @@
-interface Tiddler {
+interface TiddlerBaseMetadata {
   title: string;
-  text: string;
   tags: string;
   type: string;
   created: string;
   creator: string;
   modified: string;
   description: string;
+}
+
+interface TiddlerVanillaMetadata extends TiddlerBaseMetadata {
+  text: string;
+}
+
+interface TiddlerMetadata extends TiddlerBaseMetadata {
   slug: string;
   date: Date;
 }
 
-interface AdditionalProperties {
-  [key: string]: any;
-}
-
-type TiddlerFull = Tiddler & AdditionalProperties;
+type Tiddler = TiddlerVanillaMetadata & TiddlerMetadata;
 
 interface PostInfo {
   count: number;
