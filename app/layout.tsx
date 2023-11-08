@@ -1,13 +1,13 @@
 import { SiTiddlywiki } from 'react-icons/si';
 
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 
 import Nav from '@/components/Nav';
 
 import './globals.css';
 
+import { GeistMono, GeistSans } from 'geist/font';
 import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
@@ -22,8 +22,6 @@ export const metadata: Metadata = {
   },
 };
 
-const inter = Inter({ subsets: ['latin'] });
-
 interface RootLayoutProps {
   children: React.ReactNode;
 }
@@ -31,7 +29,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`antialiased ${inter.className}`}>
+      <body className={`antialiased ${GeistSans.className}`}>
         <NextTopLoader />
         <div className="max-w-4xl mx-auto py-10 px-4">
           <Nav />

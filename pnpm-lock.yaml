@@ -50,6 +50,9 @@ dependencies:
   framer-motion:
     specifier: ^10.16.4
     version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+  geist:
+    specifier: ^1.0.1
+    version: 1.0.1(next@14.0.1)
   git-last-commit:
     specifier: ^1.0.1
     version: 1.0.1
@@ -2884,6 +2887,14 @@ packages:
 
   /fuzzysearch@1.0.3:
     resolution: {integrity: sha512-s+kNWQuI3mo9OALw0HJ6YGmMbLqEufCh2nX/zzV5CrICQ/y4AwPxM+6TIiF9ItFCHXFCyM/BfCCmN57NTIJuPg==}
+    dev: false
+
+  /geist@1.0.1(next@14.0.1):
+    resolution: {integrity: sha512-OrEqHRZKXCzB5ezrlOayJvZhDnwyQUXHo+3diSQ1pqroQqfdHlRYSjeHbQDtg2BvuTmCsdku3L0zFOkspXUrcw==}
+    peerDependencies:
+      next: ^13.2 || ^14
+    dependencies:
+      next: 14.0.1(@opentelemetry/api@1.6.0)(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
   /get-caller-file@2.0.5:

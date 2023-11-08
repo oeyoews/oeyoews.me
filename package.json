@@ -27,6 +27,7 @@
     "echarts": "^5.4.3",
     "echarts-for-react": "^3.0.2",
     "framer-motion": "^10.16.4",
+    "geist": "^1.0.1",
     "git-last-commit": "^1.0.1",
     "marked": "^7.0.5",
     "md5": "^2.3.0",
