@@ -61,7 +61,7 @@
     "postcss": "^8.4.31",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
-    "tailwindcss": "0.0.0-insiders.eeec89a",
+    "tailwindcss": "0.0.0-insiders.0b7f27c",
     "typescript": "5.1.3"
   }
 }
