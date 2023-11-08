@@ -30,10 +30,6 @@ export default function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
     toast.success('加载成功');
   };
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
-  };
-
   useEffect(() => {
     if (!searchTerm) {
       setData(tiddlers);
@@ -74,7 +70,7 @@ export default function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
           autoFocus={true}
           type="text"
           value={searchTerm}
-          onChange={handleSearchChange}
+          onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search Tiddlers (online)"
         />
         {TiddlerListContent}
