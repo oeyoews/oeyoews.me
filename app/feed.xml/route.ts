@@ -11,8 +11,7 @@ marked.setOptions({
   renderer,
 });
 const renderPost = (md: string) => marked.parse(md);
-// const domain = process.env.DOMAIN;
-const domain = 'https://neotw.vercel.app';
+const domain = process.env.Domain;
 
 export async function GET() {
   const feed = new RSS({
