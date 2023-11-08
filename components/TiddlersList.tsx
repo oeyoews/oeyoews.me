@@ -2,19 +2,23 @@
 
 import { useEffect, useState } from 'react';
 
-import CalendarHeatmapComponent from '@/components/CalendarPost';
 import YearHeader from '@/components/PostList/YearHeader';
 import TiddlerItem from '@/components/TiddlerItem';
 
-import getTiddlerData from '@/lib/getTiddlerData';
 import useStore from '@/lib/store';
 import { toast } from 'sonner';
 
-export default function TiddlersList() {
+export default function TiddlersList({
+  tiddlers,
+  children,
+}: {
+  tiddlers: Tiddler[];
+  children?: React.ReactNode;
+}) {
   const tiddlerstore = useStore();
   const [data, setData] = useState<Tiddler[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [initialData, setIntialData] = useState<Tiddler[]>([]);
+  const [initialData, setIntialData] = useState<Tiddler[]>(tiddlers);
   function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
     // if (!tiddlers.length) return;
     let currentYear: number;
@@ -52,12 +56,9 @@ export default function TiddlersList() {
   };
 
   const [hasloaded, setHasloaded] = useState(false);
-  const fetchData = async () => {
-    const data = await getTiddlerData();
-    setData(data);
-    setIntialData(data);
-    setHasloaded(true);
-  };
+  useEffect(() => {
+    if (tiddlers) setHasloaded(true);
+  }, [tiddlers]);
 
   const handleSearchChange = (event: any) => {
     const newsearchTerm = event.target.value;
@@ -76,41 +77,32 @@ export default function TiddlersList() {
     setData(filteredData);
   }, [searchTerm]); // 不要加额外的依赖
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  // if (!data.length) {
-  //   return <EmptyPost />;
-  // }
+  const TiddlersListItem = (
+    <div>
+      <input
+        className="w-full focus:ring-2 focus:ring-indigo-500 outline-indigo-400 focus:ring-opacity-50 rounded px-2 font-mono py-1"
+        autoFocus={true}
+        type="text"
+        value={searchTerm}
+        onChange={handleSearchChange}
+        placeholder="Search Tiddlers (online)"
+      />
+      <TiddlersList tiddlers={data} />
+      {data.length > tiddlerstore.loadedItems && (
+        <button
+          onClick={handleLoadMore}
+          className="text-sm font-medium text-neutral-600 hover:text-neutral-800 bg-neutral-200 rounded px-2 font-mono py-1"
+        >
+          加载更多
+        </button>
+      )}
+    </div>
+  );
 
   return (
-    hasloaded && (
-      <div>
-        <CalendarHeatmapComponent datas={data} />
-        <input
-          className="w-full focus:ring-2 focus:ring-indigo-500 outline-indigo-400 focus:ring-opacity-50 rounded px-2 font-mono py-1"
-          autoFocus={true}
-          type="text"
-          value={searchTerm}
-          onChange={handleSearchChange}
-          placeholder="Search Tiddlers (online)"
-        />
-        {/* {!data.length && (
-          <div className="font-mono my-4 text-lg flex justify-center items-center">
-            <h1>Nothing</h1>
-          </div>
-        )} */}
-        <TiddlersList tiddlers={data} />
-        {data.length > tiddlerstore.loadedItems && (
-          <button
-            onClick={handleLoadMore}
-            className="text-sm font-medium text-neutral-600 hover:text-neutral-800 bg-neutral-200 rounded px-2 font-mono py-1"
-          >
-            加载更多
-          </button>
-        )}
-      </div>
-    )
+    <>
+      {children}
+      {hasloaded && TiddlersListItem}
+    </>
   );
 }
