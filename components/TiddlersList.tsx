@@ -12,32 +12,14 @@ export default function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
   const tiddlerstore = useStore();
   const [data, setData] = useState<Tiddler[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
-  function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
-    // if (!tiddlers.length) return;
-    let currentYear: number;
-    return (
-      <ol className="prose relative list-none border-gray-100/80 border-l-4">
-        {tiddlers.slice(0, tiddlerstore.loadedItems).map((tiddler, index) => {
-          const { title, date } = tiddler;
-          const postYear = new Date(date).getFullYear();
+  const [hasLoaded, setHasLoaded] = useState(false);
 
-          const yearHeader =
-            currentYear !== postYear ? (
-              <YearHeader postYear={postYear} />
-            ) : null;
-
-          currentYear = postYear;
-
-          return (
-            <article key={title}>
-              {yearHeader}
-              <TiddlerItem tiddler={tiddler} index={index} />
-            </article>
-          );
-        })}
-      </ol>
-    );
-  }
+  useEffect(() => {
+    if (tiddlers && tiddlers.length > 0) {
+      setData(tiddlers);
+      setHasLoaded(true);
+    }
+  }, [tiddlers]);
 
   const handleLoadMore = () => {
     if (data.length < tiddlerstore.loadedItems) {
@@ -48,14 +30,8 @@ export default function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
     toast.success('加载成功');
   };
 
-  const [hasloaded, setHasloaded] = useState(false);
-  useEffect(() => {
-    if (tiddlers) setHasloaded(true);
-  }, [tiddlers]);
-
-  const handleSearchChange = (event: any) => {
-    const newsearchTerm = event.target.value;
-    setSearchTerm(newsearchTerm);
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
   };
 
   useEffect(() => {
@@ -63,34 +39,54 @@ export default function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
       setData(tiddlers);
       return;
     }
-    const filteredData = data.filter((tiddler) =>
+    const filteredData = tiddlers.filter((tiddler) =>
       tiddler.title.toLowerCase().includes(searchTerm.toLowerCase()),
     );
-    if (!filteredData.length) return;
     setData(filteredData);
-  }, [searchTerm]); // 不要加额外的依赖
+  }, [searchTerm, tiddlers]);
+  let currentYear: number;
 
-  const TiddlersListItem = (
-    <div>
-      <input
-        className="w-full focus:ring-2 focus:ring-indigo-500 outline-indigo-400 focus:ring-opacity-50 rounded px-2 font-mono py-1"
-        autoFocus={true}
-        type="text"
-        value={searchTerm}
-        onChange={handleSearchChange}
-        placeholder="Search Tiddlers (online)"
-      />
-      <TiddlersList tiddlers={data} />
-      {data.length > tiddlerstore.loadedItems && (
-        <button
-          onClick={handleLoadMore}
-          className="text-sm font-medium text-neutral-600 hover:text-neutral-800 bg-neutral-200 rounded px-2 font-mono py-1"
-        >
-          加载更多
-        </button>
-      )}
-    </div>
+  const TiddlerListContent = (
+    <ol className="prose relative list-none border-gray-100/80 border-l-4">
+      {data.slice(0, tiddlerstore.loadedItems).map((tiddler, index) => {
+        const { title, date } = tiddler;
+        const postYear = new Date(date).getFullYear();
+        const yearHeader = currentYear !== postYear && (
+          <YearHeader postYear={postYear} />
+        );
+        currentYear = postYear;
+
+        return (
+          <article key={title}>
+            {yearHeader}
+            <TiddlerItem tiddler={tiddler} index={index} />
+          </article>
+        );
+      })}
+    </ol>
   );
 
-  return hasloaded && TiddlersListItem;
+  return (
+    hasLoaded && (
+      <div>
+        <input
+          className="w-full focus:ring-2 focus:ring-indigo-500 outline-indigo-400 focus:ring-opacity-50 rounded px-2 font-mono py-1"
+          autoFocus={true}
+          type="text"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          placeholder="Search Tiddlers (online)"
+        />
+        {TiddlerListContent}
+        {data.length > tiddlerstore.loadedItems && (
+          <button
+            onClick={handleLoadMore}
+            className="text-sm font-medium text-neutral-600 hover:text-neutral-800 bg-neutral-200 rounded px-2 font-mono py-1"
+          >
+            加载更多
+          </button>
+        )}
+      </div>
+    )
+  );
 }
