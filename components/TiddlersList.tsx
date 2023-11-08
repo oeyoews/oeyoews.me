@@ -8,17 +8,10 @@ import TiddlerItem from '@/components/TiddlerItem';
 import useStore from '@/lib/store';
 import { toast } from 'sonner';
 
-export default function TiddlersList({
-  tiddlers,
-  children,
-}: {
-  tiddlers: Tiddler[];
-  children?: React.ReactNode;
-}) {
+export default function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
   const tiddlerstore = useStore();
   const [data, setData] = useState<Tiddler[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [initialData, setIntialData] = useState<Tiddler[]>(tiddlers);
   function TiddlersList({ tiddlers }: { tiddlers: Tiddler[] }) {
     // if (!tiddlers.length) return;
     let currentYear: number;
@@ -67,7 +60,7 @@ export default function TiddlersList({
 
   useEffect(() => {
     if (!searchTerm) {
-      setData(initialData);
+      setData(tiddlers);
       return;
     }
     const filteredData = data.filter((tiddler) =>
@@ -99,10 +92,5 @@ export default function TiddlersList({
     </div>
   );
 
-  return (
-    <>
-      {children}
-      {hasloaded && TiddlersListItem}
-    </>
-  );
+  return hasloaded && TiddlersListItem;
 }

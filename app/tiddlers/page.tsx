@@ -6,8 +6,9 @@ import getTiddlerData from '@/lib/getTiddlerData';
 export default async function TiddlersHomepage() {
   const tiddlers = await getTiddlerData();
   return (
-    <TiddlersList tiddlers={tiddlers}>
+    <>
       <CalendarHeatmapComponent datas={tiddlers} />
-    </TiddlersList>
+      <TiddlersList tiddlers={tiddlers} />
+    </>
   );
 }
