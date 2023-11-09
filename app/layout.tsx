@@ -11,7 +11,10 @@ import { GeistSans } from 'geist/font/sans';
 import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
-  title: 'Nextjs Blog',
+  title: {
+    default: 'Nextjs Blog',
+    template: '%s | Nextjs Blog',
+  },
   description: 'Nextjs + TypeScript + Tailwindcss + contentlayer',
   manifest: '/manifest.json',
   alternates: {
