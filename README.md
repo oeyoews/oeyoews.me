@@ -20,6 +20,10 @@
 - 打开.env 文件将 xxx.tiddlyhost.com/xxx, 替换成你自己的 tiddlyhost 地址
 - 或者从 tiddlywiki 导出 json 文件, 替换 public/markdown.json 文件
 
+## Preview
+
+* https://nextjs-mdx-blog-e73cgvcgz-oeyoews.vercel.app/
+
 ## Deploy
 
 由于 Next.js 支持此静态导出，因此它可以部署和托管在任何可以提供 HTML/CSS/JS 静态资产的 Web 服务器上(比如 gh-pages)。, 但是不建议使用静态部署方式, 因为不会动态刷新(不过由于此仓库支持 local json, 也可以和 tw 部署结合, 实时构建)
