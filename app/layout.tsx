@@ -6,7 +6,8 @@ import NextTopLoader from 'nextjs-toploader';
 import './globals.css';
 
 import Nav from '@/app/ui/Nav';
-import { GeistMono, GeistSans } from 'geist/font';
+import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
 import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {

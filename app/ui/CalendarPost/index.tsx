@@ -2,6 +2,7 @@
 
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 
+import type { Route } from 'next';
 import { useRouter } from 'next/navigation';
 
 import type { Post } from '@/.contentlayer/generated';
@@ -161,7 +162,7 @@ function CalendarHeatmapComponent({
     dblclick: (params: { data: string[] }) => {
       datas.forEach((post) => {
         if (format(new Date(post.date), 'yyyy-MM-dd') === params.data[0]) {
-          router.push(`${post.slug}`);
+          router.push(`${post.slug as Route}`);
         }
       });
     },
