@@ -46,7 +46,7 @@ const nextConfig = {
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   experimental: {
-    typedRoutes: false,
+    // typedRoutes: false,
   },
   reactStrictMode: false,
   images: {
