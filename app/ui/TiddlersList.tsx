@@ -68,7 +68,7 @@ export default function TiddlersList({
 
   const handleSearch = useDebouncedCallback((value) => {
     setSearchTerm(value);
-  }, 100);
+  }, 300);
 
   return (
     hasLoaded && (
@@ -77,7 +77,6 @@ export default function TiddlersList({
           className="w-full focus:ring-2 focus:ring-indigo-500 outline-indigo-400 focus:ring-opacity-50 rounded px-2 font-mono py-1"
           autoFocus={true}
           type="text"
-          value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
           placeholder="Search Tiddlers (online)"
         />
