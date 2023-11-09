@@ -21,22 +21,24 @@ export default function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   const filteredTag = tags?.split(' ').filter((tag) => !tag.startsWith('$:/'));
   const imageClasses = clsx(
     'rounded-xl object-cover object-center aspect-video h-48 shadow',
-    !pageCover && 'hidden',
+    // !pageCover && 'hidden', // 缺少src, 会有警告
   );
   const warnClassed = clsx(
-    'text-center rounded p-2 my-2 text-red-500 bg-red-100',
+    'text-center rounded p-2 my-4 text-red-500 bg-red-100',
     type === 'text/markdown' && 'hidden',
   );
 
   return (
     <div className="prose prose-indigo max-w-none mb-8">
-      <Image
-        src={pageCover}
-        alt={title}
-        width={1200}
-        height={180}
-        className={imageClasses}
-      />
+      {pageCover && (
+        <Image
+          src={pageCover}
+          alt={title}
+          width={1200}
+          height={480}
+          className={imageClasses}
+        />
+      )}
       <h1 className="my-8 capitalize text-balance">
         {title.replace(/-/g, ' ')}
       </h1>
