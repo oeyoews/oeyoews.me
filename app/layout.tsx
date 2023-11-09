@@ -3,10 +3,9 @@ import { SiTiddlywiki } from 'react-icons/si';
 import type { Metadata } from 'next';
 import NextTopLoader from 'nextjs-toploader';
 
-import Nav from '@/components/Nav';
-
 import './globals.css';
 
+import Nav from '@/app/ui/Nav';
 import { GeistMono, GeistSans } from 'geist/font';
 import { Toaster } from 'sonner';
 

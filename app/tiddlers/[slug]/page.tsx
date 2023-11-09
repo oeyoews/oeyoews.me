@@ -1,9 +1,8 @@
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import Tiddler from '@/components/Tiddler';
-
-import getTiddlerData from '@/lib/getTiddlerData';
+import getTiddlerData from '@/app/lib/getTiddlerData';
+import Tiddler from '@/app/ui/Tiddler';
 
 async function getTiddler(slug: string) {
   const { tiddlers } = await getTiddlerData();

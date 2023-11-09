@@ -1,6 +1,6 @@
 // https://validator.w3.org/feed/#validate_by_input
 import { allPosts } from '@/.contentlayer/generated';
-import getTiddlerData from '@/lib/getTiddlerData';
+import getTiddlerData from '@/app/lib/getTiddlerData';
 import { marked } from 'marked';
 import RSS from 'rss';
 

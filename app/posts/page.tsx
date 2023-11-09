@@ -2,11 +2,10 @@ import { FcFolder } from 'react-icons/fc';
 
 import Link from 'next/link';
 
-import CommitInfo from '@/components/CommitInfo';
-import EmptyPost from '@/components/PostList/EmptyPost';
-import Badge from '@/components/PostList/PostBadges';
-import YearHeader from '@/components/PostList/YearHeader';
-
+import CommitInfo from '@/app/ui/CommitInfo';
+import EmptyPost from '@/app/ui/PostList/EmptyPost';
+import Badge from '@/app/ui/PostList/PostBadges';
+import YearHeader from '@/app/ui/PostList/YearHeader';
 import { type Post, allPosts } from 'contentlayer/generated';
 import { format } from 'date-fns';
 

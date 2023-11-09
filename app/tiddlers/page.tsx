@@ -1,9 +1,8 @@
 import { type Metadata } from 'next';
 
-import CalendarHeatmapComponent from '@/components/CalendarPost';
-import TiddlersList from '@/components/TiddlersList';
-
-import getTiddlerData from '@/lib/getTiddlerData';
+import getTiddlerData from '@/app/lib/getTiddlerData';
+import CalendarHeatmapComponent from '@/app/ui/CalendarPost';
+import TiddlersList from '@/app/ui/TiddlersList';
 
 export function generateMetadata(): Metadata {
   return {

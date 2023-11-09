@@ -6,7 +6,7 @@ import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
 
 import dynamic from 'next/dynamic';
 
-import useStore from '@/lib/store';
+import useStore from '@/app/lib/store';
 import musicList from '@/musicList';
 import clsx from 'clsx';
 

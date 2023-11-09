@@ -2,10 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
-import YearHeader from '@/components/PostList/YearHeader';
-import TiddlerItem from '@/components/TiddlerItem';
-
-import useStore from '@/lib/store';
+import useStore from '@/app/lib/store';
+import YearHeader from '@/app/ui/PostList/YearHeader';
+import TiddlerItem from '@/app/ui/TiddlerItem';
 import { toast } from 'sonner';
 
 export default function TiddlersList({

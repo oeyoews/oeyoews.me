@@ -3,7 +3,7 @@ import { SiTiddlywiki } from 'react-icons/si';
 
 import Link from 'next/link';
 
-import Music from './Music';
+import Music from '@/app/ui/Music';
 
 export default function Nav() {
   const LinkClass = 'w-5 h-5';
@@ -27,7 +27,7 @@ export default function Nav() {
         <Link href="/about" title="About">
           <FcAdvertising className={LinkClass} />
         </Link>
-        <Music />
+        {/* <Music /> */}
       </nav>
     </div>
   );

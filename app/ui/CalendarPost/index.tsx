@@ -4,9 +4,8 @@ import ReactEChartsCore from 'echarts-for-react/lib/core';
 
 import { useRouter } from 'next/navigation';
 
-import Drag from '../motion/Drag';
-
 import type { Post } from '@/.contentlayer/generated';
+import Drag from '@/app/ui/motion/Drag';
 import { addYears, endOfMonth, format, startOfMonth, subYears } from 'date-fns';
 import { HeatmapChart } from 'echarts/charts';
 import {
