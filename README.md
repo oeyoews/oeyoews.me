@@ -1,4 +1,4 @@
-![next-mdx](./public/next-mdx.png)
+![nextjs-tiddlywiki](https://github.com/oeyoews/nextjs-mdx-blog/blob/main/public/next-mdx.png?raw=true)
 
 > [!IMPORTANT]
 > 这是一个从 nextjs-mdx-blog 抽离出来的 tiddlywiki 分支, 暂时没有放到一个单独的仓库.
