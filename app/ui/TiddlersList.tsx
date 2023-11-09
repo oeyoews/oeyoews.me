@@ -6,6 +6,7 @@ import useStore from '@/app/lib/store';
 import YearHeader from '@/app/ui/PostList/YearHeader';
 import TiddlerItem from '@/app/ui/TiddlerItem';
 import { toast } from 'sonner';
+import { useDebouncedCallback } from 'use-debounce';
 
 export default function TiddlersList({
   tiddlers,
@@ -65,6 +66,10 @@ export default function TiddlersList({
     </ol>
   );
 
+  const handleSearch = useDebouncedCallback((value) => {
+    setSearchTerm(value);
+  }, 100);
+
   return (
     hasLoaded && (
       <div>
@@ -73,7 +78,7 @@ export default function TiddlersList({
           autoFocus={true}
           type="text"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={(e) => handleSearch(e.target.value)}
           placeholder="Search Tiddlers (online)"
         />
         {TiddlerListContent}
