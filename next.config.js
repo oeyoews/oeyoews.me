@@ -2,6 +2,16 @@ const { withContentlayer } = require('next-contentlayer');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // rules: [
+  //   {
+  //     test: /\.(png|jpe?g|gif|webp)$/i,
+  //     use: [
+  //       {
+  //         loader: 'file-loader',
+  //       },
+  //     ],
+  //   },
+  // ],
   async headers() {
     return [
       {
