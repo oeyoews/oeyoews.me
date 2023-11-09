@@ -6,6 +6,7 @@ interface TiddlerBaseMetadata {
   creator: string;
   modified: string;
   description: string;
+  ['page-cover']: string;
 }
 
 interface TiddlerVanillaMetadata extends TiddlerBaseMetadata {

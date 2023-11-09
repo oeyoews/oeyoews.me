@@ -27,6 +27,10 @@ export default async function getTiddlerData(tiddlerjsonfile = TidderJsonFile) {
   }
   const data: TiddlerVanillaMetadata[] = await res.json();
   const tiddlers: Tiddler[] = data
+    .filter(
+      ({ type }) =>
+        type === 'text/markdown' || type === 'text/vnd.tiddlywiki' || !type,
+    )
     .map((tiddler) => ({
       ...tiddler,
       slug: md5(tiddler.title),

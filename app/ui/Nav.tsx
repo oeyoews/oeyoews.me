@@ -8,7 +8,7 @@ import Music from '@/app/ui/Music';
 export default function Nav() {
   const LinkClass = 'w-5 h-5';
   return (
-    <div className="flex items-center justify-between print:hidden mb-8">
+    <div className="flex items-center justify-between print:hidden mb-8 sticky">
       <nav className="ml-auto text-sm font-medium space-x-6 flex flex-row">
         <Link href="/" title="Home">
           <FcPlanner className={LinkClass} />
