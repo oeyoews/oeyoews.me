@@ -1,5 +1,6 @@
 import { FcFolder } from 'react-icons/fc';
 
+import type { Route } from 'next';
 import Link from 'next/link';
 
 import CommitInfo from '@/app/ui/CommitInfo';
@@ -16,7 +17,7 @@ function PostItem({ post, index }: { post: Post; index: number }) {
         <FcFolder className="h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
       </span>
       <Link
-        href={post.slug}
+        href={post.slug as Route}
         className="text-xs rounded-md"
         title="点击阅读全文"
       >
