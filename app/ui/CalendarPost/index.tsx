@@ -63,7 +63,7 @@ function CalendarHeatmapComponent({
 
   const option = {
     title: {
-      text: `共有 ${datas.length} 篇文章`,
+      text: `共有 ${datas.length.toLocaleString()} 篇文章`,
       left: 'center',
       textStyle: {
         fontSize: 16,

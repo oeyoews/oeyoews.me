@@ -47,6 +47,7 @@ export default function Tiddler({ tiddler }: { tiddler: Tiddler }) {
               ))}
           <div className="rounded px-1 bg-indigo-200">
             {format(date, 'yyyy-MM-dd')}
+            {/* {date.toISOString().split('T')[0]} */}
           </div>
         </div>
 
