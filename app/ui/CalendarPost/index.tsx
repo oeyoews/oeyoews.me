@@ -5,7 +5,6 @@ import ReactEChartsCore from 'echarts-for-react/lib/core';
 import type { Route } from 'next';
 import { useRouter } from 'next/navigation';
 
-import type { Post } from '@/.contentlayer/generated';
 import Drag from '@/app/ui/motion/Drag';
 import { addYears, endOfMonth, format, startOfMonth, subYears } from 'date-fns';
 import { HeatmapChart } from 'echarts/charts';
@@ -29,11 +28,7 @@ echarts.use([
   VisualMapComponent,
 ]);
 
-function CalendarHeatmapComponent({
-  datas,
-}: {
-  datas: Post[] | TiddlerMetadata[];
-}) {
+function CalendarHeatmapComponent({ datas }: { datas: TiddlerMetadata[] }) {
   const postCounts: DataObject = {};
 
   // if (!datas.length) return;
