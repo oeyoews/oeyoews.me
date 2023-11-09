@@ -1,7 +1,7 @@
 ![nextjs-tiddlywiki](https://github.com/oeyoews/nextjs-mdx-blog/blob/main/public/next-mdx.png?raw=true)
 
 > [!IMPORTANT]
-> 这是一个从 nextjs-mdx-blog 抽离出来的 tiddlywiki 分支, 暂时没有放到一个单独的仓库.
+> 这是一个从 [nextjs-mdx-blog](https://github.com/oeyoews/nextjs-mdx-blog) 抽离出来的 tiddlywiki 分支, 暂时没有放到一个单独的仓库.
 > 仅仅支持渲染 markdown, 暂时还没有进行过滤非 md 文件, 默认你的 tw 文件都是 markdown 文件
 
 ## Features
