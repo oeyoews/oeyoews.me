@@ -16,9 +16,13 @@
 
 ## Usage
 
-- fork 此仓库, 修改 tiddlywiki branch 的内容
+- fork 此仓库(branch: tiddlywiki)
 - 打开.env 文件将 xxx.tiddlyhost.com/xxx, 替换成你自己的 tiddlyhost 地址
 - 或者从 tiddlywiki 导出 json 文件, 替换 public/markdown.json 文件
+
+## Deploy
+
+...
 
 ## TODO
 
