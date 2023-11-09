@@ -1,3 +1,5 @@
+# Nextjs Tiddlywiki Starter Kit
+
 ![nextjs-tiddlywiki](https://github.com/oeyoews/nextjs-mdx-blog/blob/main/public/next-mdx.png?raw=true)
 
 > [!IMPORTANT]
@@ -22,7 +24,7 @@
 
 ## Preview
 
-* https://nextjs-mdx-blog-e73cgvcgz-oeyoews.vercel.app/
+- https://nextjs-mdx-blog-e73cgvcgz-oeyoews.vercel.app/
 
 ## Deploy
 
