@@ -2,7 +2,10 @@
 
 > [!IMPORTANT]
 > 这是一个从 [nextjs-mdx-blog](https://github.com/oeyoews/nextjs-mdx-blog) 抽离出来的 tiddlywiki 分支, 暂时没有放到一个单独的仓库.
-> 仅仅支持渲染 markdown, 暂时还没有进行过滤非 md 文件, 默认你的 tw 文件都是 markdown 文件
+> 默认使用 markdown 的形式渲染, wikitext 也可以渲染, 不过部分高级语法不会得到支持.
+
+- https://colorplay.tiddlyhost.com/tiddlers.json(wikitext)
+- https://balloonvendor.tiddlyhost.com/tiddlers.json(markdown)
 
 ## Features
 
