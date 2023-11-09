@@ -1,13 +1,10 @@
 import Image from 'next/image';
 
-import MDXImage from '../../public/next-mdx.png';
 import TiddlerComponents from './TiddlerComponents';
 
 import Icon from '@/app/ui/Icon';
 import clsx from 'clsx';
 import { format } from 'date-fns';
-// @ts-ignore
-import lqip from 'lqip-modern';
 
 export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   const {
@@ -30,8 +27,6 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
     'text-center rounded p-2 my-4 text-red-500 bg-red-100',
     type === 'text/markdown' && 'hidden',
   );
-  const result = await lqip(MDXImage);
-
   return (
     <div className="prose prose-indigo max-w-none mb-8">
       {pageCover && (
@@ -41,7 +36,7 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
           width={1200}
           height={480}
           placeholder="blur"
-          blurDataURL={result.metadata.dataURIBase64}
+          // blurDataURL={result.metadata.dataURIBase64}
           className={imageClasses}
         />
       )}
