@@ -45,6 +45,9 @@ const nextConfig = {
     ];
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  experimental: {
+    typedRoutes: true,
+  },
   reactStrictMode: false,
   images: {
     remotePatterns: [
