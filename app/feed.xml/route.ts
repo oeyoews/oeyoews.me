@@ -1,5 +1,4 @@
 // https://validator.w3.org/feed/#validate_by_input
-import { allPosts } from '@/.contentlayer/generated';
 import getTiddlerData from '@/app/lib/getTiddlerData';
 import { marked } from 'marked';
 import RSS from 'rss';
@@ -24,7 +23,6 @@ export async function GET() {
 
   const { tiddlers } = await getTiddlerData();
 
-  // TODO: 似乎下面的feed item 就不可用了
   tiddlers.forEach(({ title, text, date, slug }) => {
     feed.item({
       title,
@@ -38,22 +36,6 @@ export async function GET() {
       // custom_elements: [{ content: post.description }],
     });
   });
-
-  allPosts
-    .filter((post) => !(post.password || post.draft === true))
-    .forEach((post) => {
-      feed.item({
-        title: post.title,
-        description: renderPost(post.body.raw),
-        // maybe sue gray-matter not use remote-mdx's matter
-        // description: renderPost(post.content),
-        url: `${domain}${post.slug}`,
-        author: 'oeyoews',
-        date: post.date,
-        categories: ['blog'],
-        // custom_elements: [{ content: post.description }],
-      });
-    });
 
   const xml = feed.xml({
     indent: true,
