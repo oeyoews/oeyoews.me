@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // output: 'export', // 支持静态部署
   async headers() {
     return [
       {

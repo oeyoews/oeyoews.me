@@ -1,5 +1,3 @@
-'use server';
-
 import formattedTime from './formattedTime';
 
 import md5 from 'md5';
