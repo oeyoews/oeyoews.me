@@ -1,8 +1,5 @@
-import { allPosts } from '@/.contentlayer/generated';
-import CalendarHeatmapComponent from '@/app/ui/CalendarPost';
-
 function page() {
-  return <CalendarHeatmapComponent datas={allPosts} />;
+  return <>coming...</>;
 }
 
 export default page;

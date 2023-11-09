@@ -20,9 +20,6 @@
 }
 
 @layer components {
-  .warning {
-    @apply bg-yellow-400;
-  }
 }
 
 a {
@@ -73,9 +70,4 @@ a {
 
 .prose *:hover > .anchor {
   @apply visible;
-}
-
-.remark-container {
-  color: red;
-  background-color: 'blue';
 }

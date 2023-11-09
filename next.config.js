@@ -1,5 +1,3 @@
-const { withContentlayer } = require('next-contentlayer');
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
@@ -27,27 +25,16 @@ const nextConfig = {
     return [
       // 似乎/不起作用 , 后面需要加名字
       {
-        source: '/index',
+        source: '/',
         destination: '/tiddlers',
       },
       {
         source: '/rss',
         destination: '/feed.xml',
       },
-      {
-        source: '/rss.xml',
-        destination: '/feed.xml',
-      },
-      {
-        source: '/feed',
-        destination: '/feed.xml',
-      },
     ];
   },
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  experimental: {
-    // typedRoutes: false,
-  },
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
   reactStrictMode: false,
   images: {
     remotePatterns: [
@@ -61,4 +48,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withContentlayer(nextConfig);
+module.exports = nextConfig;
