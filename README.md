@@ -22,7 +22,7 @@
 
 ## Deploy
 
-由于 Next.js 支持此静态导出，因此它可以部署和托管在任何可以提供 HTML/CSS/JS 静态资产的 Web 服务器上(比如 gh-pages)。, 但是不建议使用静态部署方式, 因为不会动态刷新.建议使用 vercel 进行部署.
+由于 Next.js 支持此静态导出，因此它可以部署和托管在任何可以提供 HTML/CSS/JS 静态资产的 Web 服务器上(比如 gh-pages)。, 但是不建议使用静态部署方式, 因为不会动态刷新(不过由于此仓库支持 local json, 也可以和 tw 部署结合, 实时构建)
 
 - https://nextjs.org/docs/app/building-your-application/deploying
 - https://nextjs.org/docs/app/building-your-application/deploying/static-exports
