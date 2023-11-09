@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import Fancybox from './Fancybox';
 import TiddlerComponents from './TiddlerComponents';
 
 import Icon from '@/app/ui/Icon';
@@ -30,15 +31,18 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   return (
     <div className="prose prose-indigo max-w-none mb-8">
       {pageCover && (
-        <Image
-          src={pageCover}
-          alt={title}
-          width={1200}
-          height={480}
-          placeholder="blur"
-          // blurDataURL={result.metadata.dataURIBase64}
-          className={imageClasses}
-        />
+        <Fancybox>
+          <Image
+            src={pageCover}
+            alt={title}
+            width={1200}
+            height={480}
+            data-fancybox="gallary"
+            // placeholder="blur"
+            // blurDataURL={result.metadata.dataURIBase64}
+            className={imageClasses}
+          />
+        </Fancybox>
       )}
       <h1 className="my-8 capitalize text-balance">
         {title.replace(/-/g, ' ')}
