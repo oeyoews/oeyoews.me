@@ -19,14 +19,14 @@ export default function Nav() {
         <Link href="/tiddlers" title="tiddlers">
           <SiTiddlywiki className={LinkClass} />
         </Link>
-        <Link href="/neotw" title="neotw">
+        {/* <Link href="/neotw" title="neotw">
           <SiTiddlywiki
             className={`${LinkClass} fill-indigo-400 scale-x-[-1]`}
           />
-        </Link>
-        <Link href="/about" title="About">
+        </Link> */}
+        {/* <Link href="/about" title="About">
           <FcAdvertising className={LinkClass} />
-        </Link>
+        </Link> */}
         {/* <Music /> */}
       </nav>
     </div>
