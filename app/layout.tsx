@@ -34,8 +34,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <body className={`antialiased ${GeistSans.className}`}>
         <NextTopLoader />
+        <Nav />
         <div className="max-w-4xl mx-auto py-10 px-4">
-          <Nav />
           {children}
           <Toaster
             position="top-right"
