@@ -1,4 +1,4 @@
-import jsontiddlers from '../../public/markdown.json';
+import jsontiddlers from '../../public/tw-cn.json';
 import formattedTime from './formattedTime';
 
 import md5 from 'md5';
