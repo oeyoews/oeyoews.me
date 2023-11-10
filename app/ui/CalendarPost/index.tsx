@@ -171,7 +171,11 @@ function CalendarHeatmapComponent({
   return (
     <Drag>
       {/* onEvents={onEvents} */}
-      <ReactEChartsCore echarts={echarts} option={option} />
+      <ReactEChartsCore
+        echarts={echarts}
+        option={option}
+        className="hidden md:block"
+      />
     </Drag>
   );
 }
