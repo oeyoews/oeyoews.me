@@ -6,7 +6,7 @@ import md5 from 'md5';
 
 const TidderJsonFile =
   process.env.NEXT_PUBLIC_TiddlerJsonFile ||
-  'https://neotw.vercel.app/markdown.json';
+  'https://neotw.vercel.app/tiddlers.json';
 
 export default async function getTiddlerData(tiddlerjsonfile = TidderJsonFile) {
   const res = await fetch(tiddlerjsonfile, {
