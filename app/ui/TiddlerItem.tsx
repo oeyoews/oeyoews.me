@@ -1,4 +1,4 @@
-import { FcFolder } from 'react-icons/fc';
+import { Icon } from '@iconify/react';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -17,9 +17,12 @@ export default function TiddlerItem({
   const { title, slug, date } = tiddler;
   const pathname = usePathname();
   return (
-    <li className="ml-6 group my-8">
+    <li className="ml-6 group my-8 group">
       <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
-        <FcFolder className="h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
+        <Icon
+          icon="clarity:dot-circle-line"
+          className="stroke-2 h-4 w-4 text-gray-300/80 duration-300 transition-all group-hover:text-[#8bc34a] group-hover:scale-105"
+        />
       </span>
       <Link
         href={`${pathname}/${slug}`}
@@ -29,7 +32,7 @@ export default function TiddlerItem({
         <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition my-2 truncate text-blance capitalize">
           {title}
           {index === 0 && (
-            <Badge className="bg-green-300 font-bold" text="Latest" />
+            <Badge className="bg-neutral-200 font-bold" text="Latest" />
           )}
         </h2>
       </Link>

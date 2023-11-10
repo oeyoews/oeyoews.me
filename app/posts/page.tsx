@@ -24,7 +24,7 @@ function PostItem({ post, index }: { post: Post; index: number }) {
         <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition my-2">
           {post.title}
           {index === 0 && (
-            <Badge className="bg-green-300 font-bold" text="Latest" />
+            <Badge className="bg-neutral-100 font-bold" text="Latest" />
           )}
           {post.password && <Badge className="bg-purple-200" text="Password" />}
           {post.draft === true && (
