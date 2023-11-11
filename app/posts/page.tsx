@@ -1,9 +1,8 @@
-import { FcFolder } from 'react-icons/fc';
-
 import type { Route } from 'next';
 import Link from 'next/link';
 
 import CommitInfo from '@/app/ui/CommitInfo';
+import Icon from '@/app/ui/Icon';
 import EmptyPost from '@/app/ui/PostList/EmptyPost';
 import Badge from '@/app/ui/PostList/PostBadges';
 import YearHeader from '@/app/ui/PostList/YearHeader';
@@ -12,9 +11,12 @@ import { format } from 'date-fns';
 
 function PostItem({ post, index }: { post: Post; index: number }) {
   return (
-    <li className="ml-6 group my-8">
-      <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
-        <FcFolder className="h-4 w-4 text-gray-400 duration-300 transition-all group-hover:stroke-indigo-500" />
+    <div className="group pl-6 border-gray-100/80 border-l-2 pb-4 relative m-0">
+      <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[13px]">
+        <Icon
+          icon="clarity:dot-circle-line"
+          className="stroke-2 h-4 w-4 text-gray-300/80 duration-300 transition-all group-hover:text-[#8bc34a] group-hover:scale-105"
+        />
       </span>
       <Link
         href={post.slug as Route}
@@ -35,7 +37,7 @@ function PostItem({ post, index }: { post: Post; index: number }) {
       <time className="block text-sm font-normal leading-none text-gray-400">
         {format(new Date(post.date), 'EEE, MMMM d')}
       </time>
-    </li>
+    </div>
   );
 }
 
@@ -43,7 +45,7 @@ function PostList({ posts }: { posts: Post[] }) {
   let currentYear: number;
 
   return (
-    <ol className="prose relative list-none border-gray-100/80 border-l-4">
+    <ol className="prose relative list-none ">
       {posts
         .sort((a, b) => {
           return a.date > b.date ? -1 : 1;
@@ -59,10 +61,10 @@ function PostList({ posts }: { posts: Post[] }) {
           currentYear = postYear;
 
           return (
-            <article key={post._id}>
+            <li key={post._id}>
               {yearHeader}
               <PostItem post={post} index={index} />
-            </article>
+            </li>
           );
         })}
       <CommitInfo />

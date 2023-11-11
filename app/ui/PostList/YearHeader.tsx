@@ -2,7 +2,7 @@ import Icon from '../Icon';
 
 function YearHeader({ postYear }: { postYear: number }) {
   return (
-    <div className="text-xs" key={`year-header-${postYear}`}>
+    <div className="text-xs">
       <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-1 bg-white">
         <Icon
           icon="gg:check-o"
