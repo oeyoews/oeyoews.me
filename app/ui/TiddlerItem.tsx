@@ -18,7 +18,7 @@ export default function TiddlerItem({
   const pathname = usePathname();
   return (
     <div className="ml-6 group my-8 group">
-      <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
+      <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[13px]">
         <Icon
           icon="clarity:dot-circle-line"
           className="stroke-2 h-4 w-4 text-gray-300/80 duration-300 transition-all group-hover:text-[#8bc34a] group-hover:scale-105"
