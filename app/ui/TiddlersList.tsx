@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import useStore from '@/app/lib/store';
 import YearHeader from '@/app/ui/PostList/YearHeader';
 import TiddlerItem from '@/app/ui/TiddlerItem';
+import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 import { useDebouncedCallback } from 'use-debounce';
 
@@ -46,8 +47,33 @@ export default function TiddlersList({
   }, [searchTerm, tiddlers]);
   let currentYear: number;
 
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+
   const TiddlerListContent = (
-    <ol className="prose relative list-none border-gray-100/80 border-l-2">
+    <motion.ol
+      className="prose relative list-none border-gray-100/80 border-l-2"
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
       {data.slice(0, tiddlerstore.loadedItems).map((tiddler, index) => {
         const { title, date } = tiddler;
         const postYear = new Date(date).getFullYear();
@@ -57,13 +83,13 @@ export default function TiddlersList({
         currentYear = postYear;
 
         return (
-          <article key={title}>
+          <motion.li key={title} variants={item}>
             {yearHeader}
             <TiddlerItem tiddler={tiddler} index={index} />
-          </article>
+          </motion.li>
         );
       })}
-    </ol>
+    </motion.ol>
   );
 
   const handleSearch = useDebouncedCallback((value) => {

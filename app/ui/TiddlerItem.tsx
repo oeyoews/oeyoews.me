@@ -17,7 +17,7 @@ export default function TiddlerItem({
   const { title, slug, date } = tiddler;
   const pathname = usePathname();
   return (
-    <li className="ml-6 group my-8 group">
+    <div className="ml-6 group my-8 group">
       <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 bg-white">
         <Icon
           icon="clarity:dot-circle-line"
@@ -39,6 +39,6 @@ export default function TiddlerItem({
       <time className="block text-sm font-normal leading-none text-gray-400">
         {format(date, 'EEE, MMMM d')}
       </time>
-    </li>
+    </div>
   );
 }
