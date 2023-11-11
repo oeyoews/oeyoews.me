@@ -69,7 +69,7 @@ export default function TiddlersList({
 
   const TiddlerListContent = (
     <motion.ol
-      className="prose relative list-none"
+      className="prose list-none"
       variants={container}
       initial="hidden"
       animate="visible"
@@ -83,7 +83,7 @@ export default function TiddlersList({
         currentYear = postYear;
 
         return (
-          <motion.li key={title} variants={item}>
+          <motion.li key={title} variants={item} className="">
             {yearHeader}
             <TiddlerItem tiddler={tiddler} index={index} />
           </motion.li>

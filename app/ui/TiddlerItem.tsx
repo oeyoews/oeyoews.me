@@ -17,7 +17,7 @@ export default function TiddlerItem({
   const { title, slug, date } = tiddler;
   const pathname = usePathname();
   return (
-    <div className="group pl-6 border-gray-100/80 border-l-2 pb-4 relative m-0">
+    <div className="group pl-6 border-gray-100/80 border-l-2 pb-4 relative">
       <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[13px]">
         <Icon
           icon="clarity:dot-circle-line"
