@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import formatTitle from '../lib/formatTitle';
 import Badge from './PostList/PostBadges';
 
 import { format } from 'date-fns';
@@ -34,7 +35,7 @@ export default function TiddlerItem({
         title="点击阅读全文"
       >
         <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition mt-0 mb-2 truncate text-blance capitalize">
-          {title}
+          {formatTitle(title)}
           {index === 0 && (
             <Badge className="bg-neutral-200 font-bold" text="Latest" />
           )}

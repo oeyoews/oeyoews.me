@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import formatTitle from '../lib/formatTitle';
 import Fancybox from './Fancybox';
 import TiddlerComponents from './TiddlerComponents';
 
@@ -44,9 +45,7 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
           />
         </Fancybox>
       )}
-      <h1 className="my-8 capitalize text-balance">
-        {title.replace(/-/g, ' ')}
-      </h1>
+      <h1 className="my-8 capitalize text-balance">{formatTitle(title)}</h1>
       <div className={warnClassed}>
         <Icon icon="openmoji:warning" inline={true} className="mx-2" />
         这不是一个Markdown类型的文章
