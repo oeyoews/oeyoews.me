@@ -83,7 +83,7 @@ export default function TiddlersList({
         currentYear = postYear;
 
         return (
-          <motion.li key={title} variants={item} className="">
+          <motion.li key={title} variants={item} className="group">
             {yearHeader}
             <TiddlerItem tiddler={tiddler} index={index} />
           </motion.li>

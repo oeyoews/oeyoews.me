@@ -23,7 +23,7 @@ function PostItem({ post, index }: { post: Post; index: number }) {
         className="text-xs rounded-md"
         title="点击阅读全文"
       >
-        <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition my-2">
+        <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition mt-0 mb-2">
           {post.title}
           {index === 0 && (
             <Badge className="bg-neutral-100 font-bold" text="Latest" />

@@ -21,6 +21,9 @@ module.exports = {
             h1: {
               marginTop: '1.3em',
             },
+            li: {
+              margin: 0,
+            },
             img: {
               margin: 'auto',
               borderRadius: theme('borderRadius.lg'),
