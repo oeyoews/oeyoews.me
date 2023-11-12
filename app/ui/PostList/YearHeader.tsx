@@ -1,18 +1,33 @@
 import Icon from '../Icon';
 
+// const zodiacs = [
+//   '🐀',
+//   '🐂',
+//   '🐅',
+//   '🐇',
+//   '🐉',
+//   '🐍',
+//   '🐎',
+//   '🐑',
+//   '🐒',
+//   '🐓',
+//   '🐕',
+//   '🐖',
+// ];
+
 const zodiacs = [
-  '🐀',
-  '🐂',
-  '🐅',
-  '🐇',
-  '🐉',
-  '🐍',
-  '🐎',
-  '🐑',
-  '🐒',
-  '🐓',
-  '🐕',
-  '🐖',
+  'mouse',
+  'ox',
+  'tiger',
+  'rabbit',
+  'dragon',
+  'snake',
+  'horse',
+  'sheep',
+  'monkey',
+  'rooster',
+  'dog',
+  'pig',
 ];
 
 function YearHeader({ postYear }: { postYear: number }) {
@@ -27,7 +42,9 @@ function YearHeader({ postYear }: { postYear: number }) {
       </span>
       <h2 className="ml-6 text-neutral-300 font-extrabold font-serif my-0">
         {postYear}
-        {zodiacs[animal]}
+        <span title={zodiacs[animal]}>
+          <Icon icon={`noto:${zodiacs[animal]}`} className="mx-2" />
+        </span>
       </h2>
     </div>
   );
