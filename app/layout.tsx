@@ -42,6 +42,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             richColors={true}
             loadingIcon={<SiTiddlywiki />}
             invert={true}
+            duration={2000}
           />
         </div>
       </body>

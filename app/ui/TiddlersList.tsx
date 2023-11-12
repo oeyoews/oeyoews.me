@@ -67,7 +67,7 @@ export default function TiddlersList({
     },
   };
 
-  const TiddlerListContent = (
+  const TiddlerListContent = () => (
     <motion.ol
       className="prose list-none my-4"
       variants={container}
@@ -106,7 +106,7 @@ export default function TiddlersList({
           onChange={(e) => handleSearch(e.target.value)}
           placeholder="Search Tiddlers (online)"
         />
-        {TiddlerListContent}
+        <TiddlerListContent />
         {data.length > tiddlerstore.loadedItems && (
           <button
             onClick={handleLoadMore}
