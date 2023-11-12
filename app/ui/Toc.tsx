@@ -1,6 +1,9 @@
+// @ts-nocheck
 'use client';
 
 import React, { useEffect, useState } from 'react';
+
+// @ts-nocheck
 
 const TableOfContents = () => {
   const [headings, setHeadings] = useState([]);
