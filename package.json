@@ -32,7 +32,7 @@
     "git-last-commit": "^1.0.1",
     "marked": "^7.0.5",
     "md5": "^2.3.0",
-    "next": "^14.0.1",
+    "next": "14.0.3-canary.3",
     "next-contentlayer": "^0.3.4",
     "nextjs-toploader": "^1.6.4",
     "react": "^18.2.0",
