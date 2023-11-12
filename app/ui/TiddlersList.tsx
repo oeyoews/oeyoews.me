@@ -69,7 +69,7 @@ export default function TiddlersList({
 
   const TiddlerListContent = (
     <motion.ol
-      className="prose list-none"
+      className="prose list-none my-4"
       variants={container}
       initial="hidden"
       animate="visible"
