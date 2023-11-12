@@ -37,5 +37,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
     return notFound();
   }
 
-  return <Tiddler tiddler={tiddler} />;
+  return (
+    <>
+      <Tiddler tiddler={tiddler} />;
+    </>
+  );
 }
