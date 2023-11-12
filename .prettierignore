@@ -1,4 +1,5 @@
 .next
-node_modules
+node_modules/
 .vscode
-.contentlayer
+.contentlayer/
+.out

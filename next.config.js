@@ -57,7 +57,7 @@ const nextConfig = {
     ],
   },
   experimental: {
-    ppr: true
+    ppr: true,
   },
 };
 
