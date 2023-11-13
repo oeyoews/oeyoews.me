@@ -1,13 +1,21 @@
-interface IssuesInfo {
+interface IssueInfo {
   open_issues: number;
 }
-interface Issues {
+interface Issue {
+  url: string;
+  responitory_url: string;
+  comments_url: string;
   title: string;
-  id: string | number;
+  id: number;
   number: number;
   html_url: string;
   body: string;
-  labels: { name: string }[];
+  user: { login: string; avatar_url: string };
+  labels: { name: string; color: string; description: string; url: string }[];
+  state: string;
+  locked: boolean;
+  create_at: string;
+  updated_at: string;
 }
 
 interface TiddlerBaseMetadata {
