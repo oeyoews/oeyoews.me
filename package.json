@@ -12,7 +12,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@fancyapps/ui": "^5.0.26",
+    "@fancyapps/ui": "^5.0.27",
     "@iconify/react": "^4.1.1",
     "@types/canvas-confetti": "^1.6.3",
     "@types/echarts": "^4.9.21",
@@ -56,12 +56,12 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
-    "@trivago/prettier-plugin-sort-imports": "^4.2.1",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "20.2.5",
     "@types/react": "18.2.8",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.53.0",
-    "eslint-config-next": "^14.0.1",
+    "eslint-config-next": "^14.0.2",
     "postcss": "^8.4.31",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
