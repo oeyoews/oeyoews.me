@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { format } from 'date-fns';
 import Badge from '~app/ui/PostList/PostBadges';
 
 export default function GithubIssueItem({
@@ -12,10 +13,10 @@ export default function GithubIssueItem({
   issue: Issue;
   index: number;
 }) {
-  const { title, create_at, html_url, number } = issue;
+  const { title, created_at, number } = issue;
   const pathname = usePathname();
   return (
-    <div className="pl-6 border-gray-100/80 border-l-2 pb-4 relative">
+    <div className="pl-6 border-gray-100/80 border-l-2 pb-8 relative my-0">
       <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[13px]">
         <Icon
           icon="clarity:dot-circle-line"
@@ -38,7 +39,9 @@ export default function GithubIssueItem({
           )}
         </h2>
       </Link>
-      {create_at}
+      <time className="block text-sm font-normal leading-none text-gray-400">
+        {format(new Date(created_at), 'EEE, MMMM d')}
+      </time>
     </div>
   );
 }

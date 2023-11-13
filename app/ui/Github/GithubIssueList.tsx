@@ -35,8 +35,8 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
       animate="visible"
     >
       {issues.map((issue, index) => {
-        const { title, create_at } = issue;
-        const postYear = new Date(create_at).getFullYear();
+        const { title, created_at } = issue;
+        const postYear = new Date(created_at).getFullYear();
         const yearHeader = currentYear !== postYear && (
           <YearHeader postYear={postYear} />
         );
@@ -44,7 +44,7 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
 
         return (
           <motion.li key={title} variants={item} className="group">
-            {/* {yearHeader} */}
+            {yearHeader}
             <GithubIssueItem issue={issue} index={index} />
           </motion.li>
         );

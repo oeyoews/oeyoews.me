@@ -14,8 +14,8 @@ interface Issue {
   labels: { name: string; color: string; description: string; url: string }[];
   state: string;
   locked: boolean;
-  create_at: string;
-  updated_at: string;
+  created_at: Date;
+  updated_at: Date;
 }
 
 interface TiddlerBaseMetadata {
