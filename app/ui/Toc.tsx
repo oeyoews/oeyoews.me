@@ -5,6 +5,14 @@ import React, { useEffect, useState } from 'react';
 
 // @ts-nocheck
 
+// @ts-nocheck
+
+// @ts-nocheck
+
+// @ts-nocheck
+
+// @ts-nocheck
+
 const TableOfContents = () => {
   const [headings, setHeadings] = useState([]);
 

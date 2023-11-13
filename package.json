@@ -9,7 +9,7 @@
     "build": "node build.mjs",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write app"
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.27",
