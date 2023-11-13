@@ -3,9 +3,9 @@ import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import formatTitle from '@/app/lib/formatTitle';
-import Badge from '@/app/ui/PostList/PostBadges';
 import { format } from 'date-fns';
+import formatTitle from '~/app/lib/formatTitle';
+import Badge from '~/app/ui/PostList/PostBadges';
 
 export default function TiddlerItem({
   tiddler,

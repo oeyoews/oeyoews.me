@@ -1,4 +1,4 @@
-import Icon from '@/app/ui/Icon';
+import Icon from '~/app/ui/Icon';
 
 export function generateStaticParams({ params }: { params: Params }) {
   return [params.slug];

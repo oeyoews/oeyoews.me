@@ -6,7 +6,6 @@ import type { Route } from 'next';
 import { useRouter } from 'next/navigation';
 
 import type { Post } from '@/.contentlayer/generated';
-import Drag from '@/app/ui/motion/Drag';
 import { addYears, endOfMonth, format, startOfMonth, subYears } from 'date-fns';
 import { HeatmapChart } from 'echarts/charts';
 import {
@@ -18,6 +17,7 @@ import {
 } from 'echarts/components';
 import * as echarts from 'echarts/core';
 import { SVGRenderer } from 'echarts/renderers';
+import Drag from '~/app/ui/motion/Drag';
 
 echarts.use([
   CalendarComponent,
