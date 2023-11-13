@@ -1,6 +1,7 @@
 interface IssueInfo {
   open_issues: number;
 }
+
 interface Issue {
   url: string;
   responitory_url: string;
@@ -16,6 +17,8 @@ interface Issue {
   locked: boolean;
   created_at: Date;
   updated_at: Date;
+  slug: string;
+  date: Date;
 }
 
 interface TiddlerBaseMetadata {

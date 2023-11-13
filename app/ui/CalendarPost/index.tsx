@@ -32,7 +32,7 @@ echarts.use([
 function CalendarHeatmapComponent({
   datas,
 }: {
-  datas: Post[] | TiddlerMetadata[];
+  datas: Post[] | TiddlerMetadata[] | Issue[];
 }) {
   const postCounts: DataObject = {};
 

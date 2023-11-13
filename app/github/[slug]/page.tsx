@@ -6,7 +6,12 @@ import Issue from '~app/ui/Github/Issue';
 
 async function getIssueBySlug(slug: string) {
   const issues = await getIssues();
-  return issues.find((issue) => issue.number === Number(slug));
+  return issues.find((issue) => issue.slug === slug);
+}
+
+export async function generateStaticParams() {
+  const issues = await getIssues();
+  return issues.map((issue) => ({ slug: issue.slug }));
 }
 
 export async function generateMetadata({

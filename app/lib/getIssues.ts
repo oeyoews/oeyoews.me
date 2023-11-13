@@ -12,7 +12,11 @@ export default async function getIssues(): Promise<Issue[]> {
     headers,
   });
   const data = await response.json();
-  return data;
+  return data.map((issue: Issue) => ({
+    ...issue,
+    date: new Date(issue.created_at),
+    slug: issue.number.toString(),
+  }));
 }
 
 export async function getIssuesInfo(): Promise<IssueInfo> {

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
-import formatTitle from '~app/lib/formatTitle';
-import getIssues, { getIssuesInfo } from '~app/lib/getIssues';
+import getIssues from '~app/lib/getIssues';
+import CalendarHeatmapComponent from '~app/ui/CalendarPost';
 import GithubIssueList from '~app/ui/Github/GithubIssueList';
 
 export function generateMetadata(): Metadata {
@@ -16,12 +16,9 @@ export default async function IssueComponent() {
   const issues = await getIssues();
 
   return (
-    <div className="prose prose-indigo max-w-4xl">
-      <h2 className="text-balance text-center capitalize mb-4">
-        {formatTitle(process.env.GITHUB_REPO as string)} issues ({issues.length}
-        ){/* {issuesInfo.open_issues} */}
-      </h2>
+    <>
+      <CalendarHeatmapComponent datas={issues} />
       <GithubIssueList issues={issues} />
-    </div>
+    </>
   );
 }

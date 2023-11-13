@@ -13,7 +13,7 @@ export default function GithubIssueItem({
   issue: Issue;
   index: number;
 }) {
-  const { title, created_at, number } = issue;
+  const { title, date, number } = issue;
   const pathname = usePathname();
   return (
     <div className="pl-6 border-gray-100/80 border-l-2 pb-4 relative my-0">
@@ -40,7 +40,7 @@ export default function GithubIssueItem({
         </h2>
       </Link>
       <time className="block text-sm font-normal leading-none text-gray-400">
-        {format(new Date(created_at), 'EEE, MMMM d')}
+        {format(new Date(date), 'EEE, MMMM d')}
       </time>
     </div>
   );
