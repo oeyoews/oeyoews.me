@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import useStore from '@/app/lib/store';
 import YearHeader from '@/app/ui/PostList/YearHeader';
-import TiddlerItem from '@/app/ui/TiddlerItem';
+import TiddlerItem from '@/app/ui/TiddlyWiki/TiddlerItem';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 import { useDebouncedCallback } from 'use-debounce';

@@ -2,7 +2,7 @@ import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import getTiddlerJsonData from '@/app/lib/getTiddlerJsonData';
-import Tiddler from '@/app/ui/Tiddler';
+import Tiddler from '@/app/ui/TiddlyWiki/Tiddler';
 
 function getTiddler(slug: string) {
   const tiddlers = getTiddlerJsonData();

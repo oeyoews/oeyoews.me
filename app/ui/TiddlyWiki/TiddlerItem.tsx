@@ -3,9 +3,8 @@ import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import formatTitle from '../lib/formatTitle';
-import Badge from './PostList/PostBadges';
-
+import formatTitle from '@/app/lib/formatTitle';
+import Badge from '@/app/ui/PostList/PostBadges';
 import { format } from 'date-fns';
 
 export default function TiddlerItem({

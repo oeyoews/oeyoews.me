@@ -1,10 +1,9 @@
 import Image from 'next/image';
 
-import formatTitle from '../lib/formatTitle';
-import Fancybox from './Fancybox';
-import TiddlerComponents from './TiddlerComponents';
-
+import formatTitle from '@/app/lib/formatTitle';
+import Fancybox from '@/app/ui/Fancybox';
 import Icon from '@/app/ui/Icon';
+import TiddlerComponents from '@/app/ui/TiddlyWiki/TiddlerComponents';
 import clsx from 'clsx';
 import { format } from 'date-fns';
 
