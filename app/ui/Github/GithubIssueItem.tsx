@@ -16,7 +16,7 @@ export default function GithubIssueItem({
   const { title, created_at, number } = issue;
   const pathname = usePathname();
   return (
-    <div className="pl-6 border-gray-100/80 border-l-2 pb-8 relative my-0">
+    <div className="pl-6 border-gray-100/80 border-l-2 pb-4 relative my-0">
       <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[13px]">
         <Icon
           icon="clarity:dot-circle-line"
