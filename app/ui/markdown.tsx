@@ -9,7 +9,7 @@ import remarkEmoji from 'remark-emoji';
 Code.lineNumbers = true;
 Code.theme = 'one-dark-pro';
 
-export default function IssueComponent({
+export default function MarkdownWrapper({
   text,
 }: {
   text: string;

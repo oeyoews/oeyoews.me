@@ -1,6 +1,6 @@
-import { FcIdea, FcPlanner } from 'react-icons/fc';
+import { FcPlanner } from 'react-icons/fc';
 import { GoIssueOpened } from 'react-icons/go';
-import { SiTiddlywiki } from 'react-icons/si';
+import { SiMdx, SiTiddlywiki } from 'react-icons/si';
 
 import Link from 'next/link';
 
@@ -13,7 +13,7 @@ export default function Nav() {
           <FcPlanner className={LinkClass} />
         </Link>
         <Link href="/posts" title="Blog">
-          <FcIdea className={LinkClass} />
+          <SiMdx className={LinkClass} />
         </Link>
         <Link href="/tiddlers" title="tiddlers">
           <SiTiddlywiki className={LinkClass} />

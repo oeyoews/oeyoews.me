@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import formatTitle from '~app/lib/formatTitle';
 import Fancybox from '~app/ui/Fancybox';
 import Icon from '~app/ui/Icon';
-import TiddlerComponents from '~app/ui/TiddlyWiki/TiddlerComponents';
+import MarkdownWrapper from '~app/ui/markdown';
 
 export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   const {
@@ -61,7 +61,7 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
           {/* {date.toISOString().split('T')[0]} */}
         </div>
       </div>
-      <TiddlerComponents text={text} />
+      <MarkdownWrapper text={text} />
     </div>
   );
 }

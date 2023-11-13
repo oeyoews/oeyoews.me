@@ -1,8 +1,13 @@
-import { allPosts } from '~.contentlayer/generated';
-import CalendarHeatmapComponent from '~app/ui/CalendarPost';
+import fs from 'fs';
+import MarkdownWrapper from '~app/ui/markdown';
 
 function page() {
-  return <CalendarHeatmapComponent datas={allPosts} />;
+  const readme = fs.readFileSync('README.md', 'utf-8');
+  return (
+    <div className="prose max-w-none">
+      <MarkdownWrapper text={readme} />
+    </div>
+  );
 }
 
 export default page;

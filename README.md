@@ -1,4 +1,4 @@
-![next-mdx](./public/next-mdx.png)
+<!-- ![next-mdx](https://github.com/oeyoews/nextjs-mdx-blog/blob/main/public/next-mdx.png?raw=true) -->
 
 > 博客分为 [mdx](https://github.com/oeyoews/nextjs-mdx-blog-content), [tiddlers](https://github.com/oeyoews/neotw-tiddlers), issues 三部分
 

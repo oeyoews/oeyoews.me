@@ -1,8 +1,6 @@
-import Link from 'next/link';
-
 import { format } from 'date-fns';
 import formatTitle from '~app/lib/formatTitle';
-import IssueComponent from '~app/ui/Github/IssueComponent';
+import MarkdownWrapper from '~app/ui/markdown';
 
 export default async function Issue({ issue }: { issue: Issue }) {
   const { title, created_at, body, html_url } = issue;
@@ -14,7 +12,7 @@ export default async function Issue({ issue }: { issue: Issue }) {
       <div className="not-prose flex justify-center space-x-2 text-gray-800 font-mono">
         <div className="rounded px-1 bg-indigo-200">{date}</div>
       </div>
-      <IssueComponent text={body} />
+      <MarkdownWrapper text={body} />
     </div>
   );
 }
