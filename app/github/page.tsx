@@ -2,6 +2,8 @@ import Markdown from 'react-markdown';
 
 import Link from 'next/link';
 
+import getIssues, { getIssuesInfo } from '../lib/getIssues';
+
 import { Code } from 'bright';
 import rehypeRaw from 'rehype-raw';
 import remarkGFM from 'remark-gfm';
@@ -10,11 +12,6 @@ Code.lineNumbers = true;
 Code.theme = 'one-dark-pro';
 
 export default async function IssueComponent() {
-  const response = await fetch(
-    'https://api.github.com/repos/oeyoews/neotw/issues',
-  );
-  const data = await response.json();
-
   const components = {
     pre: ({
       children,
@@ -30,11 +27,15 @@ export default async function IssueComponent() {
       );
     },
   };
+  const issuesInfo = await getIssuesInfo();
+  const issues = await getIssues();
 
   return (
     <div className="prose prose-indigo max-w-4xl">
-      <h2>neotw issues ({data.length})</h2>
-      {data.map(({ id, number, html_url, title, body, labels }: any) => (
+      <h2>
+        neotw issues ({issues.length}) {issuesInfo.open_issues}
+      </h2>
+      {issues.map(({ id, number, html_url, title, body, labels }: any) => (
         <div key={id}>
           <Link href={html_url} target="_blank">
             <h2 className="my-2">

@@ -1,3 +1,15 @@
+interface IssuesInfo {
+  open_issues: number;
+}
+interface Issues {
+  title: string;
+  id: string | number;
+  number: number;
+  html_url: string;
+  body: string;
+  labels: { name: string }[];
+}
+
 interface TiddlerBaseMetadata {
   title: string;
   tags: string;
