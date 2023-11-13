@@ -3,7 +3,7 @@
 import { ReactElement, useState } from 'react';
 import { AiOutlineSend } from 'react-icons/ai';
 
-import { Post } from '@/.contentlayer/generated';
+import { Post } from '~/.contentlayer/generated';
 import useStore from '~/app/lib/store';
 
 function PasswordProtectedContent({
