@@ -1,9 +1,6 @@
 import IssueComponent from './IssueComponent';
 
-import clsx from 'clsx';
-import { format } from 'date-fns';
 import formatTitle from '~/app/lib/formatTitle';
-import Icon from '~/app/ui/Icon';
 
 export default async function Issue({ issue }: { issue: Issue }) {
   const { title, create_at, body } = issue;
