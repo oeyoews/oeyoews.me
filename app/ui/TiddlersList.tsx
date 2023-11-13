@@ -99,13 +99,13 @@ export default function TiddlersList({
   return (
     hasLoaded && (
       <div>
-        <input
+        {/* <input
           className="w-full focus:ring-2 focus:ring-indigo-500 outline-indigo-400 focus:ring-opacity-50 rounded px-2 font-mono py-1"
           autoFocus={true}
           type="text"
           onChange={(e) => handleSearch(e.target.value)}
           placeholder="Search Tiddlers (online)"
-        />
+        /> */}
         <TiddlerListContent />
         {data.length > tiddlerstore.loadedItems && (
           <button
