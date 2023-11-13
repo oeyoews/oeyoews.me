@@ -16,8 +16,8 @@ import {
 } from 'echarts/components';
 import * as echarts from 'echarts/core';
 import { SVGRenderer } from 'echarts/renderers';
-import type { Post } from '~/.contentlayer/generated';
-import Drag from '~/app/ui/motion/Drag';
+import type { Post } from '~.contentlayer/generated';
+import Drag from '~app/ui/motion/Drag';
 
 echarts.use([
   CalendarComponent,

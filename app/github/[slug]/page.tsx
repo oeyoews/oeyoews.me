@@ -1,8 +1,8 @@
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import getIssues from '~/app/lib/getIssues';
-import Issue from '~/app/ui/Github/Issue';
+import getIssues from '~app/lib/getIssues';
+import Issue from '~app/ui/Github/Issue';
 
 async function getIssueBySlug(slug: string) {
   const issues = await getIssues();

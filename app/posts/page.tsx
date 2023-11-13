@@ -3,11 +3,11 @@ import Link from 'next/link';
 
 import { type Post, allPosts } from 'contentlayer/generated';
 import { format } from 'date-fns';
-import Icon from '~/app/ui/Icon';
-import EmptyPost from '~/app/ui/PostList/EmptyPost';
-import Badge from '~/app/ui/PostList/PostBadges';
-import YearHeader from '~/app/ui/PostList/YearHeader';
-import CommitInfo from '~/app/ui/git/CommitInfo';
+import Icon from '~app/ui/Icon';
+import EmptyPost from '~app/ui/PostList/EmptyPost';
+import Badge from '~app/ui/PostList/PostBadges';
+import YearHeader from '~app/ui/PostList/YearHeader';
+import CommitInfo from '~app/ui/git/CommitInfo';
 
 function PostItem({ post, index }: { post: Post; index: number }) {
   return (

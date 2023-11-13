@@ -8,7 +8,7 @@ import './globals.css';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
 import { Toaster } from 'sonner';
-import Nav from '~/app/ui/Nav';
+import Nav from '~app/ui/Nav';
 
 export const metadata: Metadata = {
   title: {

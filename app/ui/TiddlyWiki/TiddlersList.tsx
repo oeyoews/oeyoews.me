@@ -5,9 +5,9 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 import { useDebouncedCallback } from 'use-debounce';
-import useStore from '~/app/lib/store';
-import YearHeader from '~/app/ui/PostList/YearHeader';
-import TiddlerItem from '~/app/ui/TiddlyWiki/TiddlerItem';
+import useStore from '~app/lib/store';
+import YearHeader from '~app/ui/PostList/YearHeader';
+import TiddlerItem from '~app/ui/TiddlyWiki/TiddlerItem';
 
 export default function TiddlersList({
   tiddlers,

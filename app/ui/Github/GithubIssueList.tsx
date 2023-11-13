@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import GithubIssueItem from '~/app/ui/Github/GithubIssueItem';
-import YearHeader from '~/app/ui/PostList/YearHeader';
+import GithubIssueItem from '~app/ui/Github/GithubIssueItem';
+import YearHeader from '~app/ui/PostList/YearHeader';
 
 export default function GithubIssueList({ issues }: { issues: Issue[] }) {
   let currentYear: number;

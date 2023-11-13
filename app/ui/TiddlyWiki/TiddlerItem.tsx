@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { format } from 'date-fns';
-import formatTitle from '~/app/lib/formatTitle';
-import Badge from '~/app/ui/PostList/PostBadges';
+import formatTitle from '~app/lib/formatTitle';
+import Badge from '~app/ui/PostList/PostBadges';
 
 export default function TiddlerItem({
   tiddler,

@@ -1,8 +1,8 @@
 // https://validator.w3.org/feed/#validate_by_input
 import { marked } from 'marked';
 import RSS from 'rss';
-import { allPosts } from '~/.contentlayer/generated';
-import getTiddlerData from '~/app/lib/getTiddlerData';
+import { allPosts } from '~.contentlayer/generated';
+import getTiddlerData from '~app/lib/getTiddlerData';
 
 const renderer = new marked.Renderer();
 marked.setOptions({

@@ -1,6 +1,6 @@
 import IssueComponent from './IssueComponent';
 
-import formatTitle from '~/app/lib/formatTitle';
+import formatTitle from '~app/lib/formatTitle';
 
 export default async function Issue({ issue }: { issue: Issue }) {
   const { title, create_at, body } = issue;

@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import Badge from '~/app/ui/PostList/PostBadges';
+import Badge from '~app/ui/PostList/PostBadges';
 
 export default function GithubIssueItem({
   issue,
