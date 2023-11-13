@@ -97,25 +97,25 @@ export default function TiddlersList({
   }, 300);
 
   return (
-    hasLoaded && (
-      <div>
-        {/* <input
+    // hasLoaded && (
+    <div>
+      {/* <input
           className="w-full focus:ring-2 focus:ring-indigo-500 outline-indigo-400 focus:ring-opacity-50 rounded px-2 font-mono py-1"
           autoFocus={true}
           type="text"
           onChange={(e) => handleSearch(e.target.value)}
           placeholder="Search Tiddlers (online)"
         /> */}
-        <TiddlerListContent />
-        {data.length > tiddlerstore.loadedItems && (
-          <button
-            onClick={handleLoadMore}
-            className="text-sm font-medium text-neutral-600 hover:text-neutral-800 bg-neutral-200 rounded px-2 font-mono py-1"
-          >
-            加载更多
-          </button>
-        )}
-      </div>
-    )
+      <TiddlerListContent />
+      {data.length > tiddlerstore.loadedItems && (
+        <button
+          onClick={handleLoadMore}
+          className="text-sm font-medium text-neutral-600 hover:text-neutral-800 bg-neutral-200 rounded px-2 font-mono py-1"
+        >
+          加载更多
+        </button>
+      )}
+    </div>
   );
+  // );
 }
