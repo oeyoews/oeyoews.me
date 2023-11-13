@@ -24,6 +24,10 @@ export async function getIssuesInfo(): Promise<IssueInfo> {
   const response = await fetch(baseurl, {
     method: 'GET',
     headers,
+    // cache: 'no-store',
+    next: {
+      revalidate: 3600,
+    },
   });
   const data = await response.json();
   return data;
