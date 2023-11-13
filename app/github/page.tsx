@@ -1,5 +1,6 @@
 import Markdown from 'react-markdown';
 
+import { Metadata } from 'next';
 import Link from 'next/link';
 
 import getIssues, { getIssuesInfo } from '../lib/getIssues';
@@ -10,6 +11,13 @@ import remarkGFM from 'remark-gfm';
 
 Code.lineNumbers = true;
 Code.theme = 'one-dark-pro';
+
+export function generateMeta(): Metadata {
+  return {
+    title: 'neotw issues',
+    description: 'neotw issues',
+  };
+}
 
 export default async function IssueComponent() {
   const components = {
