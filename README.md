@@ -1,6 +1,6 @@
 ![next-mdx](./public/next-mdx.png)
 
-> 博客分为两部分, [mdx](https://github.com/oeyoews/nextjs-mdx-blog-content) 和 [tiddlers](https://github.com/oeyoews/neotw-tiddlers)
+> 博客分为 [mdx](https://github.com/oeyoews/nextjs-mdx-blog-content), [tiddlers](https://github.com/oeyoews/neotw-tiddlers), issues 三部分
 
 ## Features
 
