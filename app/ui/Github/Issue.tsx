@@ -10,9 +10,7 @@ export default async function Issue({ issue }: { issue: Issue }) {
 
   return (
     <div className="prose prose-indigo max-w-none mb-8">
-      <Link href={html_url} target="_blank">
-        <h1 className="my-8 capitalize text-balance">{formatTitle(title)}</h1>
-      </Link>
+      <h1 className="my-8 capitalize text-balance">{formatTitle(title)}</h1>
       <div className="not-prose flex justify-center space-x-2 text-gray-800 font-mono">
         <div className="rounded px-1 bg-indigo-200">{date}</div>
       </div>

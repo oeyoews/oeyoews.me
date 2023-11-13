@@ -6,8 +6,9 @@ const headers = {
   Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
 };
 
-export default async function getIssues(): Promise<Issue[]> {
-  const response = await fetch(`${baseurl}/issues`, {
+// https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28
+export default async function getIssues(page = 1): Promise<Issue[]> {
+  const response = await fetch(`${baseurl}/issues?page=${page}&per_page=30`, {
     method: 'GET',
     headers,
   });
@@ -26,4 +27,19 @@ export async function getIssuesInfo(): Promise<IssueInfo> {
   });
   const data = await response.json();
   return data;
+}
+
+export async function getAllIssues() {
+  const issuesInfo = await getIssuesInfo();
+  const issues: Issue[] = [];
+  const pages = Math.ceil(issuesInfo.open_issues / 30);
+  for (let i = 0; i < pages; i++) {
+    issues.push(...(await getIssues(i + 1)));
+  }
+  return issues;
+}
+
+export async function getIssueBySlug(slug: string) {
+  const issues = await getAllIssues();
+  return issues.find((issue) => issue.slug === slug);
 }

@@ -1,16 +1,11 @@
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import getIssues from '~app/lib/getIssues';
+import getIssues, { getAllIssues, getIssueBySlug } from '~app/lib/getIssues';
 import Issue from '~app/ui/Github/Issue';
 
-async function getIssueBySlug(slug: string) {
-  const issues = await getIssues();
-  return issues.find((issue) => issue.slug === slug);
-}
-
 export async function generateStaticParams() {
-  const issues = await getIssues();
+  const issues = await getAllIssues();
   return issues.map((issue) => ({ slug: issue.slug }));
 }
 
