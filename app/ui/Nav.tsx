@@ -1,9 +1,8 @@
-import { FcAdvertising, FcIdea, FcPlanner } from 'react-icons/fc';
+import { FcIdea, FcPlanner } from 'react-icons/fc';
+import { GoIssueOpened } from 'react-icons/go';
 import { SiTiddlywiki } from 'react-icons/si';
 
 import Link from 'next/link';
-
-import Music from '~app/ui/Music';
 
 export default function Nav() {
   const LinkClass = 'w-5 h-5';
@@ -19,15 +18,9 @@ export default function Nav() {
         <Link href="/tiddlers" title="tiddlers">
           <SiTiddlywiki className={LinkClass} />
         </Link>
-        {/* <Link href="/neotw" title="neotw">
-          <SiTiddlywiki
-            className={`${LinkClass} fill-indigo-400 scale-x-[-1]`}
-          />
-        </Link> */}
-        {/* <Link href="/about" title="About">
-          <FcAdvertising className={LinkClass} />
-        </Link> */}
-        {/* <Music /> */}
+        <Link href="/github" title="issues">
+          <GoIssueOpened className={`${LinkClass} text-lime-700`} />
+        </Link>
       </nav>
     </div>
   );

@@ -1,4 +1,5 @@
-const baseurl = `https://api.github.com/repos/oeyoews/neotw`;
+const baseurl = `https://api.github.com/repos/${process.env.GITHUB_REPO}`;
+
 const headers = {
   Accept: 'application/vnd.github+json',
   'Content-Type': 'application/json',

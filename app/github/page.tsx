@@ -11,13 +11,14 @@ export function generateMetadata(): Metadata {
 }
 
 export default async function IssueComponent() {
-  const issuesInfo = await getIssuesInfo();
+  // const issuesInfo = await getIssuesInfo();
   const issues = await getIssues();
 
   return (
     <div className="prose prose-indigo max-w-4xl">
       <h2>
-        neotw issues ({issues.length}) {issuesInfo.open_issues}
+        {process.env.GITHUB_REPO} issues ({issues.length})
+        {/* {issuesInfo.open_issues} */}
       </h2>
       <GithubIssueList issues={issues} />
     </div>
