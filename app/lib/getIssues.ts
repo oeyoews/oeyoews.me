@@ -15,7 +15,7 @@ export default async function getIssues(): Promise<Issue[]> {
   return data.map((issue: Issue) => ({
     ...issue,
     date: new Date(issue.created_at),
-    slug: issue.number.toString(),
+    slug: issue.id.toString(),
   }));
 }
 

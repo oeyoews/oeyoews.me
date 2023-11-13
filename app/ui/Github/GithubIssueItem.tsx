@@ -13,7 +13,7 @@ export default function GithubIssueItem({
   issue: Issue;
   index: number;
 }) {
-  const { title, date, number } = issue;
+  const { title, date, slug } = issue;
   const pathname = usePathname();
   return (
     <div className="pl-6 border-gray-100/80 border-l-2 pb-4 relative my-0">
@@ -28,7 +28,7 @@ export default function GithubIssueItem({
         />
       </span>
       <Link
-        href={`${pathname}/${number}`}
+        href={`${pathname}/${slug}`}
         className="text-xs rounded-md"
         title="点击阅读全文"
       >

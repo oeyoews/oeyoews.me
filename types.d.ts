@@ -3,6 +3,7 @@ interface IssueInfo {
 }
 
 interface Issue {
+  id: string;
   url: string;
   responitory_url: string;
   comments_url: string;
