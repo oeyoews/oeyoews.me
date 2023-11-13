@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import formatTitle from '~app/lib/formatTitle';
 import Fancybox from '~app/ui/Fancybox';
 import Icon from '~app/ui/Icon';
-import MarkdownWrapper from '~app/ui/markdown';
+import MarkdownWrapper from '~app/ui/Markdown';
 
 export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   const {

@@ -1,11 +1,13 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
 import { Code } from 'bright';
+import Icon from '~app/ui/Icon';
 
 Code.lineNumbers = false;
 Code.theme = 'one-dark-pro';
 
 const components = {
+  Icon,
   pre: ({
     children,
     ...props
@@ -21,12 +23,8 @@ const components = {
   },
 };
 
-interface MdxProps {
-  code: string;
-}
-
-export function Mdx({ code }: MdxProps) {
+export function Mdx({ code }: { code: string }) {
   const Component = useMDXComponent(code);
 
-  return <Component components={components as any} />;
+  return <Component components={components} />;
 }

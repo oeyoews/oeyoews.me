@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import formatTitle from '~app/lib/formatTitle';
-import MarkdownWrapper from '~app/ui/markdown';
+import MarkdownWrapper from '~app/ui/Markdown';
 
 export default async function Issue({ issue }: { issue: Issue }) {
   const { title, created_at, body, html_url } = issue;
