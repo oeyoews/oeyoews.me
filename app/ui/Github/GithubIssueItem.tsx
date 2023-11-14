@@ -44,6 +44,10 @@ export default function GithubIssueItem({
           #{number}
         </Link>
         <time className="">{format(new Date(date), 'EEE, MMMM d')}</time>
+        <div className="space-x-1">
+          <Icon icon="octicon:comment-24" className="h-4 w-4 text-gray-400" />
+          <span>{issue.comments}</span>
+        </div>
       </div>
     </div>
   );
