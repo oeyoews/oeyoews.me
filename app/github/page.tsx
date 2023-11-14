@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { getAllIssues } from '~app/lib/getIssues';
+import { getAllIssues, getIssueComments } from '~app/lib/getIssues';
 import CalendarHeatmapComponent from '~app/ui/CalendarPost';
 import GithubIssueList from '~app/ui/Github/GithubIssueList';
 

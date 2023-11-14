@@ -47,3 +47,15 @@ export async function getIssueBySlug(slug: string) {
   const issues = await getAllIssues();
   return issues.find((issue) => issue.slug === slug);
 }
+
+export async function getIssueComments(
+  issueNumber: number,
+): Promise<IssueComment[]> {
+  const response = await fetch(`${baseurl}/issues/${issueNumber}/comments`, {
+    method: 'GET',
+    headers,
+  });
+  const data = await response.json();
+  return data;
+  // return data.map(({ body }: IssueComment) => body);
+}

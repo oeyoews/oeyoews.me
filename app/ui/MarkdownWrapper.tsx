@@ -8,7 +8,13 @@ import remarkEmoji from 'remark-emoji';
 Code.lineNumbers = true;
 Code.theme = 'one-dark-pro';
 
-export default function MarkdownWrapper({ text }: { text: string }) {
+export default function MarkdownWrapper({
+  text,
+  classNames,
+}: {
+  text: string | null;
+  classNames?: string;
+}) {
   const components = {
     pre: ({
       children,
@@ -31,6 +37,7 @@ export default function MarkdownWrapper({ text }: { text: string }) {
       rehypePlugins={[rehypeRaw]}
       skipHtml={false}
       components={components}
+      className={classNames}
     >
       {text}
     </Markdown>
