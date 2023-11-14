@@ -1,7 +1,5 @@
 import Image from 'next/image';
 
-import ViewCounter from '../Viewcounter';
-
 import clsx from 'clsx';
 import { format } from 'date-fns';
 import formatTitle from '~app/lib/formatTitle';
@@ -64,7 +62,6 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
         </div>
       </div>
       <MarkdownWrapper text={text} />
-      <ViewCounter slug={title} />
     </div>
   );
 }
