@@ -8,10 +8,13 @@ const headers = {
 
 // https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28
 export default async function getIssues(page = 1): Promise<Issue[]> {
-  const response = await fetch(`${baseurl}/issues?page=${page}&per_page=30`, {
-    method: 'GET',
-    headers,
-  });
+  const response = await fetch(
+    `${baseurl}/issues?page=${page}&per_page=30&state=closed`,
+    {
+      method: 'GET',
+      headers,
+    },
+  );
   const data = await response.json();
   return data.map((issue: Issue) => ({
     ...issue,
