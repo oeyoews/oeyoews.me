@@ -1,5 +1,4 @@
 import Icon from '~app/ui/Icon';
-import ViewCounter from '~app/ui/Viewcounter';
 
 export function generateStaticParams({ params }: { params: Params }) {
   return [params.slug];
@@ -8,7 +7,6 @@ export function generateStaticParams({ params }: { params: Params }) {
 export default function About() {
   return (
     <div className="prose prose-indigo">
-      <ViewCounter slug="about" />
       <h4 className="text-xs my-2">
         <span className="bg-black text-white font-semibold px-1 rounded-sm py-1">
           About
