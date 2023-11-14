@@ -1,21 +1,21 @@
 import { format } from 'date-fns';
 import formatTitle from '~app/lib/formatTitle';
-import { getIssueComments } from '~app/lib/getIssues';
 import MarkdownWrapper from '~app/ui/MarkdownWrapper';
 
-export default async function Issue({ issue }: { issue: Issue }) {
-  const { title, created_at, number, body, html_url } = issue;
+export default async function Issue({
+  issue,
+  comments,
+}: {
+  issue: Issue;
+  comments: IssueComment[];
+}) {
+  const { title, created_at, body } = issue;
   const date = format(new Date(created_at), 'yyyy-MM-dd');
-  const issueComments = await getIssueComments(number);
 
   const Comments = () => {
-    return (
-      <div className="">
-        {issueComments.map(({ body, id }) => (
-          <MarkdownWrapper key={id} text={body} />
-        ))}
-      </div>
-    );
+    return comments.map(({ body, id }) => (
+      <MarkdownWrapper key={id} text={body} />
+    ));
   };
 
   return (

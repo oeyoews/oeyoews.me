@@ -4,6 +4,7 @@ import { Code } from 'bright';
 import rehypeRaw from 'rehype-raw';
 import remarkContainer from 'remark-custom-container';
 import remarkEmoji from 'remark-emoji';
+import remarkGfm from 'remark-gfm';
 
 Code.lineNumbers = true;
 Code.theme = 'one-dark-pro';
@@ -33,7 +34,8 @@ export default function MarkdownWrapper({
 
   return (
     <Markdown
-      remarkPlugins={[[remarkContainer, { className: '' }], remarkEmoji]} // gfm table will cause error
+      // @ts-ignore
+      remarkPlugins={[[remarkContainer], remarkEmoji, remarkGfm]} // gfm table will cause error
       rehypePlugins={[rehypeRaw]}
       skipHtml={false}
       components={components}

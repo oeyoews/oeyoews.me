@@ -1,7 +1,11 @@
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import getIssues, { getAllIssues, getIssueBySlug } from '~app/lib/getIssues';
+import {
+  getAllIssues,
+  getIssueBySlug,
+  getIssueComments,
+} from '~app/lib/getIssues';
 import Issue from '~app/ui/Github/Issue';
 
 export async function generateStaticParams() {
@@ -23,9 +27,10 @@ export async function generateMetadata({
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const issue = await getIssueBySlug(params.slug);
+  const comments = await getIssueComments(issue?.number as number);
   if (!issue) {
     return notFound();
   }
 
-  return <Issue issue={issue} />;
+  return <Issue issue={issue} comments={comments} />;
 }
