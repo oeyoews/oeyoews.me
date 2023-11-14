@@ -6,6 +6,7 @@ import formatTitle from '~app/lib/formatTitle';
 import Fancybox from '~app/ui/Fancybox';
 import Icon from '~app/ui/Icon';
 import MarkdownWrapper from '~app/ui/MarkdownWrapper';
+import ViewCounter from '~app/ui/Viewcounter';
 
 export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   const {
@@ -61,6 +62,7 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
           {/* {date.toISOString().split('T')[0]} */}
         </div>
       </div>
+      <ViewCounter slug={title} />
       <MarkdownWrapper text={text} />
     </div>
   );
