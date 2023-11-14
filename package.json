@@ -18,6 +18,7 @@
     "@types/echarts": "^4.9.21",
     "@types/md5": "^2.3.5",
     "@types/rss": "^0.0.30",
+    "@vercel/kv": "^1.0.0",
     "bright": "^0.8.4",
     "canvas-confetti": "^1.9.0",
     "ci-info": "^3.9.0",

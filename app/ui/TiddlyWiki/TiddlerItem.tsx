@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 import formatTitle from '~app/lib/formatTitle';
 import Badge from '~app/ui/PostList/PostBadges';
 
-export default function TiddlerItem({
+export default async function TiddlerItem({
   tiddler,
   index,
 }: {
