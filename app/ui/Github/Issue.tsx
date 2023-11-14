@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { format } from 'date-fns';
 import formatTitle from '~app/lib/formatTitle';
 import { getIssueComments } from '~app/lib/getIssues';
