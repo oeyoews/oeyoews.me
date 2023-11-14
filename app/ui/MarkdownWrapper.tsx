@@ -12,9 +12,11 @@ Code.theme = 'one-dark-pro';
 export default function MarkdownWrapper({
   text,
   classNames,
+  enableGFM = false,
 }: {
   text: string | null;
   classNames?: string;
+  enableGFM?: boolean;
 }) {
   const components = {
     pre: ({
@@ -32,10 +34,15 @@ export default function MarkdownWrapper({
     },
   };
 
+  const remarkPlugins = [remarkContainer, remarkEmoji];
+  if (enableGFM) {
+    // @ts-ignore
+    remarkPlugins.push(remarkGfm);
+  }
+
   return (
     <Markdown
-      // @ts-ignore
-      remarkPlugins={[[remarkContainer], remarkEmoji, remarkGfm]} // gfm table will cause error
+      remarkPlugins={remarkPlugins}
       rehypePlugins={[rehypeRaw]}
       skipHtml={false}
       components={components}

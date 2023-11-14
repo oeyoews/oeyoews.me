@@ -24,7 +24,7 @@ export default async function Issue({
       <div className="not-prose flex justify-center space-x-2 text-gray-800 font-mono">
         <div className="rounded px-1 bg-indigo-200">{date}</div>
       </div>
-      {body && <MarkdownWrapper text={`${body}`} />}
+      {body && <MarkdownWrapper text={`${body}`} enableGFM={true} />}
       <Comments />
     </div>
   );
