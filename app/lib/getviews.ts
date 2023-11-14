@@ -1,5 +1,4 @@
-'use server';
-
+// 'use server';
 import { kv } from '@vercel/kv';
 
 export default async function getViews(slug: string, increment = false) {
