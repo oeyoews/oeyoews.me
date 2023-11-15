@@ -43,7 +43,9 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
         currentYear = postYear;
 
         return (
-          <motion.li key={title} variants={item} className="group">
+          <motion.li key={title}
+            // variants={item}
+            className="group">
             {yearHeader}
             <GithubIssueItem issue={issue} index={index} />
           </motion.li>
