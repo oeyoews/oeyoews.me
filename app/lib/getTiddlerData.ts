@@ -1,5 +1,6 @@
 'use server';
 
+import { create } from './fetch';
 import formattedTime from './formattedTime';
 
 import md5 from 'md5';
@@ -8,17 +9,12 @@ const TidderJsonFile =
   process.env.TiddlerJsonFile || 'https://neotw.vercel.app/tiddlers.json';
 
 export default async function getTiddlerData(tiddlerjsonfile = TidderJsonFile) {
-  const res = await fetch(tiddlerjsonfile, {
-    // 'force-cache' is the default, and can be omitted
-    // cache: 'force-cache',
-    // mode: 'cors',
-    // method: 'GET',
-    // credentials: 'include', // 发送凭据，允许包含 cookie 在内的身份验证信息
-    // headers: {
-    //   Authorization: '', // 设置自定义的 Authorization 请求头
-    // },
-    next: {
-      revalidate: 3600, // In 3600 seconds update
+  const fetch = create(tiddlerjsonfile);
+  const res = await fetch({
+    options: {
+      next: {
+        revalidate: 3600,
+      },
     },
   });
   if (!res.ok) {
