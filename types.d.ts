@@ -1,3 +1,15 @@
+interface ITiddlywikiStatus {
+  username: string;
+  anonymous: boolean;
+  read_only: boolean;
+  logout_is_available: boolean;
+  space: {
+    recipe: string;
+    // is_default: boolean;
+  };
+  tiddlywiki_version: string;
+}
+
 interface IssueComment {
   url: string;
   html_url: string;

@@ -1,4 +1,5 @@
 import { BsBook, BsCircle, BsFiletypeMdx, BsWikipedia } from 'react-icons/bs';
+import { SiTiddlywiki } from 'react-icons/si';
 
 import Link from 'next/link';
 
@@ -9,6 +10,9 @@ export default function Nav() {
       <nav className="ml-auto text-sm font-medium space-x-6 flex flex-row">
         <Link href="/" title="Home">
           <BsBook className={LinkClass} />
+        </Link>
+        <Link href="/tiddlywiki" title="tiddlywiki">
+          <SiTiddlywiki className={LinkClass} />
         </Link>
         <Link href="/posts" title="Blog">
           <BsFiletypeMdx className={LinkClass} />

@@ -1,5 +1,3 @@
-import { SiTiddlywiki } from 'react-icons/si';
-
 import type { Metadata } from 'next';
 import NextTopLoader from 'nextjs-toploader';
 
@@ -40,9 +38,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Toaster
             position="top-right"
             richColors={true}
-            loadingIcon={<SiTiddlywiki />}
+            // loadingIcon={<SiTiddlywiki />}
             invert={true}
-            duration={2000}
+            duration={3000}
           />
         </div>
       </body>
