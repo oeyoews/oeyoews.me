@@ -15,7 +15,8 @@ export default async function TiddlersHomepage() {
   const { tiddlersMetadata } = await getTiddlerData();
   return (
     <>
-      <CalendarHeatmapComponent datas={tiddlersMetadata} />
+      {/* 无法显示 */}
+      {/* <CalendarHeatmapComponent datas={tiddlersMetadata} /> */}
       <TiddlersList tiddlers={tiddlersMetadata} />
     </>
   );
