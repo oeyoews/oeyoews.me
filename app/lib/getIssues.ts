@@ -1,3 +1,5 @@
+import { create } from './fetch';
+
 const baseurl = `https://api.github.com/repos/${process.env.GITHUB_REPO}`;
 
 const headers = {
@@ -6,16 +8,17 @@ const headers = {
   Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
 };
 
+const fetch = create(baseurl);
+
 // https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28
 export default async function getIssues(page = 1): Promise<Issue[]> {
-  const response = await fetch(
-    `${baseurl}/issues?page=${page}&per_page=30&state=closed`,
-    {
-      method: 'GET',
+  const res = await fetch({
+    url: `/issues?page=${page}&per_page=30&state=closed`,
+    options: {
       headers,
     },
-  );
-  const data = await response.json();
+  });
+  const data = await res.json();
   return data.map((issue: Issue) => ({
     ...issue,
     date: new Date(issue.created_at),
@@ -23,20 +26,20 @@ export default async function getIssues(page = 1): Promise<Issue[]> {
   }));
 }
 
-export async function getIssuesInfo(): Promise<IssueInfo> {
-  const response = await fetch(baseurl, {
-    method: 'GET',
-    headers,
-    // cache: 'no-store',
-    next: {
-      revalidate: 3600,
+export const getIssuesInfo = async (): Promise<IssueInfo> => {
+  const res = await fetch({
+    url: '',
+    options: {
+      headers,
+      next: {
+        revalidate: 3600,
+      },
     },
   });
-  const data = await response.json();
-  return data;
-}
+  return await res.json();
+};
 
-export async function getAllIssues() {
+export const getAllIssues = async () => {
   const issuesInfo = await getIssuesInfo();
   const issues: Issue[] = [];
   const pages = Math.ceil(issuesInfo.open_issues / 30);
@@ -44,21 +47,21 @@ export async function getAllIssues() {
     issues.push(...(await getIssues(i + 1)));
   }
   return issues;
-}
+};
 
-export async function getIssueBySlug(slug: string) {
+export const getIssueBySlug = async (slug: string) => {
   const issues = await getAllIssues();
   return issues.find((issue) => issue.slug === slug);
-}
+};
 
-export async function getIssueComments(
+export const getIssueComments = async (
   issueNumber: number,
-): Promise<IssueComment[]> {
-  const response = await fetch(`${baseurl}/issues/${issueNumber}/comments`, {
-    method: 'GET',
-    headers,
+): Promise<IssueComment[]> => {
+  const res = await fetch({
+    url: `/issues/${issueNumber}/comments`,
+    options: {
+      headers,
+    },
   });
-  const data = await response.json();
-  return data;
-  // return data.map(({ body }: IssueComment) => body);
-}
+  return await res.json();
+};
