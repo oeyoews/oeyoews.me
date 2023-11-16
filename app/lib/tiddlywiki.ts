@@ -1,22 +1,24 @@
-const createURL = (url: string) => {
-  const baseurl = process.env.TIDDLYWIKI_HOST;
-  return `${baseurl}${url}`;
-};
+const baseurl = process.env.TIDDLYWIKI_HOST;
 
-const options = {
-  next: {
-    revalidate: 3600,
-  },
-};
+function fetcht(url: string, options?: RequestInit): Promise<Response> {
+  const defaultOptions: RequestInit = {
+    mode: 'cors',
+    next: { revalidate: 3600 },
+    headers: { 'Content-Type': 'application/json' },
+  };
+  const mergedOptions: RequestInit = { ...defaultOptions, ...options };
+
+  return fetch(`${baseurl}${url}`, mergedOptions);
+}
 
 export const getTiddlywikiStatus = async () => {
-  const res = await fetch(createURL('/status'), options);
+  const res = await fetcht('/status');
   const tiddlywikistatus: ITiddlywikiStatus = await res.json();
   return tiddlywikistatus;
 };
 
 export const getAllTiddlers = async () => {
-  const res = await fetch(createURL('/recipes/default/tiddlers.json'), options);
+  const res = await fetcht('/recipes/default/tiddlers.json');
   const tiddlers: Tiddler[] = await res.json();
   return tiddlers;
 };
