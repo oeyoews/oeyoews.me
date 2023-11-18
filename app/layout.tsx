@@ -1,3 +1,5 @@
+import { Toaster } from 'react-hot-toast';
+
 import type { Metadata } from 'next';
 import NextTopLoader from 'nextjs-toploader';
 
@@ -5,7 +7,6 @@ import './globals.css';
 
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
-import { Toaster } from 'sonner';
 import Nav from '~app/ui/Nav';
 
 export const metadata: Metadata = {
@@ -35,13 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Nav />
         <div className="max-w-4xl mx-auto py-10 px-4">
           {children}
-          <Toaster
-            position="top-right"
-            richColors={true}
-            // loadingIcon={<SiTiddlywiki />}
-            invert={true}
-            duration={3000}
-          />
+          <Toaster />
         </div>
       </body>
     </html>

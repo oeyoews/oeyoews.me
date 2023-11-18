@@ -1,12 +1,11 @@
 'use client';
 
 import { useEffect } from 'react';
-
-import { toast } from 'sonner';
+import { toast } from 'react-hot-toast';
 
 export const Announcement = ({ text }: { text: string }) => {
   useEffect(() => {
-    toast.info(text, {});
+    toast(text, {});
   }, [text]);
   return null;
 };

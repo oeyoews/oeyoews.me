@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 import { motion } from 'framer-motion';
-import { toast } from 'sonner';
 import { useDebouncedCallback } from 'use-debounce';
 import useStore from '~app/lib/store';
 import YearHeader from '~app/ui/PostList/YearHeader';
