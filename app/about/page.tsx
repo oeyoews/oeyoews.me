@@ -1,9 +1,5 @@
 import Icon from '~app/ui/Icon';
 
-export function generateStaticParams({ params }: { params: Params }) {
-  return [params.slug];
-}
-
 export default function About() {
   return (
     <div className="prose prose-indigo">
