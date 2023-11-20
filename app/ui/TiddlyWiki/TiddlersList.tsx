@@ -14,7 +14,7 @@ export default function TiddlersList({
 }: {
   tiddlers: TiddlerMetadata[];
 }) {
-  const tiddlerstore = useStore();
+  const { firstLoading, loadedItems, setLoadedItems } = useStore();
   const [data, setData] = useState<TiddlerMetadata[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -27,11 +27,11 @@ export default function TiddlersList({
   }, [tiddlers]);
 
   const handleLoadMore = () => {
-    if (data.length < tiddlerstore.loadedItems) {
+    if (data.length < loadedItems) {
       toast.error('没有更多了');
       return;
     }
-    tiddlerstore.setLoadedItems(tiddlerstore.loadedItems + 30);
+    setLoadedItems(loadedItems + 30);
     toast.success('加载成功');
   };
 
@@ -71,10 +71,10 @@ export default function TiddlersList({
     <motion.ol
       className="prose list-none my-4"
       variants={container}
-      initial="hidden"
+      initial={firstLoading ? 'hidden' : 'visible'}
       animate="visible"
     >
-      {data.slice(0, tiddlerstore.loadedItems).map((tiddler, index) => {
+      {data.slice(0, loadedItems).map((tiddler, index) => {
         const { title, date } = tiddler;
         const postYear = new Date(date).getFullYear();
         const yearHeader = currentYear !== postYear && (
@@ -83,11 +83,7 @@ export default function TiddlersList({
         currentYear = postYear;
 
         return (
-          <motion.li
-            key={title}
-            // variants={item}
-            className="group"
-          >
+          <motion.li key={title} variants={item} className="group">
             {yearHeader}
             <TiddlerItem tiddler={tiddler} index={index} />
           </motion.li>
@@ -111,7 +107,7 @@ export default function TiddlersList({
           placeholder="Search Tiddlers (online)"
         /> */}
       <TiddlerListContent />
-      {data.length > tiddlerstore.loadedItems && (
+      {data.length > loadedItems && (
         <button
           onClick={handleLoadMore}
           className="text-sm font-medium text-neutral-600 hover:text-neutral-800 bg-neutral-200 rounded px-2 font-mono py-1"

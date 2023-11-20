@@ -1,10 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import useStore from '~app/lib/store';
 import GithubIssueItem from '~app/ui/Github/GithubIssueItem';
 import YearHeader from '~app/ui/PostList/YearHeader';
 
 export default function GithubIssueList({ issues }: { issues: Issue[] }) {
+  const statusStore = useStore();
   let currentYear: number;
 
   const container = {
@@ -31,8 +33,8 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
     <motion.ol
       className="prose list-none my-4"
       variants={container}
-      initial="hidden"
-      animate="visible"
+      initial={statusStore.firstLoading ? 'hidden' : 'visible'}
+      animate={'visible'}
     >
       {issues.map((issue, index) => {
         const { title, created_at } = issue;
@@ -43,9 +45,7 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
         currentYear = postYear;
 
         return (
-          <motion.li key={title}
-            // variants={item}
-            className="group">
+          <motion.li key={title} variants={item} className="group">
             {yearHeader}
             <GithubIssueItem issue={issue} index={index} />
           </motion.li>
