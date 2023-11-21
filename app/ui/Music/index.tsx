@@ -1,17 +1,15 @@
 'use client';
 
-import { useRef } from 'react';
+import { lazy, useRef } from 'react';
 import { ReactAplayerMethods } from 'react-aplayer';
 import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
-
-import dynamic from 'next/dynamic';
 
 import clsx from 'clsx';
 import useStore from '~app/lib/store';
 import musicList from '~musicList';
 
 // if use useEffect adjudge window, not work, so use dynamic ???
-const ReactAplayer = dynamic(() => import('react-aplayer'), { ssr: false });
+const ReactAplayer = lazy(() => import('react-aplayer'));
 
 function Music() {
   const musicStore = useStore();
