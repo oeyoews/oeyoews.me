@@ -6,15 +6,17 @@ import toast from 'react-hot-toast';
 import useStore from '~app/lib/store';
 
 export default function FirstLoading() {
-  const { firstLoading, setFirstLoading } = useStore();
+  const { firstLoading, setNotFirstLoading } = useStore();
   useEffect(() => {
-    if (firstLoading === true) {
-      setFirstLoading(false);
-      toast('欢迎来到我的博客', {
-        icon: '👋',
-      });
-    }
-  }, [firstLoading, setFirstLoading]);
+    setTimeout(() => {
+      setNotFirstLoading();
+    }, 3000);
+
+    // layout 上面 不会卸载, 因为是全局的, 一直呈现
+    // return () => {
+    //   setNotFirstLoading();
+    // };
+  }, [firstLoading, setNotFirstLoading]);
 
   return <></>;
 }

@@ -14,7 +14,7 @@ type PasswordStoreActions = {
   setPassword: (password: string) => void;
   setShowContent: (show: boolean) => void;
   setIsPlaying: (isPlaying: boolean) => void;
-  setFirstLoading: (firstLoading: boolean) => void;
+  setNotFirstLoading: () => void;
 };
 
 type UsePasswordStore = PasswordStoreState & PasswordStoreActions;
@@ -31,7 +31,7 @@ const useStore = create<UsePasswordStore>((set) => ({
   setPassword: (password) => set({ enteredPassword: password }),
   setShowContent: (show) => set({ showContent: show }),
   setIsPlaying: (isPlaying) => set({ isPlaying: isPlaying }),
-  setFirstLoading: (firstLoading) => set({ firstLoading }),
+  setNotFirstLoading: () => set({ firstLoading: false }),
 }));
 
 export default useStore;
