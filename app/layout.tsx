@@ -4,7 +4,6 @@ import type { Metadata } from 'next';
 import NextTopLoader from 'nextjs-toploader';
 
 import './globals.css';
-import FirstLoading from './ui/FirstLoading';
 
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
@@ -35,7 +34,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className={`antialiased ${GeistSans.className}`}>
         <NextTopLoader />
         <Nav />
-        <FirstLoading />
         <div className="max-w-4xl mx-auto py-10 px-4">
           {children}
           <Toaster />
