@@ -1,5 +1,5 @@
-import GeneralLoading from './ui/GeneralLoading';
+import Spinner from '~ui/Spinner';
 
 export default function Loading() {
-  return <GeneralLoading />;
+  return <Spinner />;
 }

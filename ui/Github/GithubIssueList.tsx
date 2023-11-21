@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import useStore from '~app/lib/store';
-import GithubIssueItem from '~app/ui/Github/GithubIssueItem';
-import YearHeader from '~app/ui/PostList/YearHeader';
+import useStore from '~lib/store';
+import GithubIssueItem from '~ui/Github/GithubIssueItem';
+import YearHeader from '~ui/PostList/YearHeader';
 
 export default function GithubIssueList({ issues }: { issues: Issue[] }) {
   const statusStore = useStore();

@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 
-import useStore from '~app/lib/store';
+import useStore from '~lib/store';
 
 export default function FirstLoading() {
   const { firstLoading, setNotFirstLoading } = useStore();

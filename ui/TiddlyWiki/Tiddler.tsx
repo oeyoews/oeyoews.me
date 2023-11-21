@@ -2,10 +2,10 @@ import Image from 'next/image';
 
 import clsx from 'clsx';
 import { format } from 'date-fns';
-import formatTitle from '~app/lib/formatTitle';
-import Fancybox from '~app/ui/Fancybox';
-import Icon from '~app/ui/Icon';
-import MarkdownWrapper from '~app/ui/MarkdownWrapper';
+import formatTitle from '~lib/formatTitle';
+import Fancybox from '~ui/Fancybox';
+import Icon from '~ui/Icon';
+import MarkdownWrapper from '~ui/MarkdownWrapper';
 
 export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   const {

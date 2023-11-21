@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { allPosts } from 'contentlayer/generated';
-import { Mdx } from '~app/ui/Mdx';
-import PasswordProtectedContent from '~app/ui/PasswordPost';
+import { Mdx } from '~ui/Mdx';
+import PasswordProtectedContent from '~ui/PasswordPost';
 
 interface PostProps {
   params: {

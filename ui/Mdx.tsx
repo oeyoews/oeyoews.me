@@ -1,7 +1,7 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
 import { Code } from 'bright';
-import Icon from '~app/ui/Icon';
+import Icon from '~ui/Icon';
 
 Code.lineNumbers = false;
 Code.theme = 'one-dark-pro';

@@ -1,5 +1,5 @@
-import { getAllTiddlers, getTiddlywikiStatus } from '~app/lib/tiddlywiki';
-import { Announcement } from '~app/ui/Announcement';
+import { getAllTiddlers, getTiddlywikiStatus } from '~lib/tiddlywiki';
+import { Announcement } from '~ui/Announcement';
 
 // TODO: 也许可以将tw作为一个工具, 不用启动浏览器实例, 但是同时可以api 进行增删改查
 const description =

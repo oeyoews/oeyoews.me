@@ -2,7 +2,7 @@
 import { marked } from 'marked';
 import RSS from 'rss';
 import { allPosts } from '~.contentlayer/generated';
-import getTiddlerData from '~app/lib/getTiddlerData';
+import getTiddlerData from '~lib/getTiddlerData';
 
 const renderer = new marked.Renderer();
 marked.setOptions({

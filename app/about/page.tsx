@@ -1,4 +1,4 @@
-import Icon from '~app/ui/Icon';
+import Icon from '~ui/Icon';
 
 export default function About() {
   return (

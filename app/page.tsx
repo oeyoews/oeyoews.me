@@ -1,5 +1,5 @@
 import fs from 'fs';
-import MarkdownWrapper from '~app/ui/MarkdownWrapper';
+import MarkdownWrapper from '~ui/MarkdownWrapper';
 
 export default async function page() {
   const readme = fs.readFileSync('README.md', 'utf-8');

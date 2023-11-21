@@ -3,11 +3,10 @@ import { Toaster } from 'react-hot-toast';
 import type { Metadata } from 'next';
 import NextTopLoader from 'nextjs-toploader';
 
-import './globals.css';
-
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
-import Nav from '~app/ui/Nav';
+import '~app/globals.css';
+import Nav from '~ui/Nav';
 
 export const metadata: Metadata = {
   title: {

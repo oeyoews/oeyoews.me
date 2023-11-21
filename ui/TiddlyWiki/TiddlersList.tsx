@@ -5,9 +5,9 @@ import { toast } from 'react-hot-toast';
 
 import { motion } from 'framer-motion';
 import { useDebouncedCallback } from 'use-debounce';
-import useStore from '~app/lib/store';
-import YearHeader from '~app/ui/PostList/YearHeader';
-import TiddlerItem from '~app/ui/TiddlyWiki/TiddlerItem';
+import useStore from '~lib/store';
+import YearHeader from '~ui/PostList/YearHeader';
+import TiddlerItem from '~ui/TiddlyWiki/TiddlerItem';
 
 export default function TiddlersList({
   tiddlers,

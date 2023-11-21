@@ -2,11 +2,11 @@ import { lazy } from 'react';
 
 import type { Metadata } from 'next';
 
-import getTiddlerData from '~app/lib/getTiddlerData';
-import FirstLoading from '~app/ui/FirstLoading';
-import TiddlersList from '~app/ui/TiddlyWiki/TiddlersList';
+import getTiddlerData from '~lib/getTiddlerData';
+import FirstLoading from '~ui/FirstLoading';
+import TiddlersList from '~ui/TiddlyWiki/TiddlersList';
 
-const CalendarHeatmapComponent = lazy(() => import('~app/ui/CalendarPost'));
+const CalendarHeatmapComponent = lazy(() => import('~ui/CalendarPost'));
 
 export function generateMetadata(): Metadata {
   return {

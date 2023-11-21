@@ -2,11 +2,11 @@ import { lazy } from 'react';
 
 import { Metadata } from 'next';
 
-import { getAllIssues } from '~app/lib/getIssues';
-import FirstLoading from '~app/ui/FirstLoading';
-import GithubIssueList from '~app/ui/Github/GithubIssueList';
+import { getAllIssues } from '~lib/getIssues';
+import FirstLoading from '~ui/FirstLoading';
+import GithubIssueList from '~ui/Github/GithubIssueList';
 
-const CalendarHeatmapComponent = lazy(() => import('~app/ui/CalendarPost'));
+const CalendarHeatmapComponent = lazy(() => import('~ui/CalendarPost'));
 
 export function generateMetadata(): Metadata {
   return {

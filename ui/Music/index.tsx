@@ -5,7 +5,7 @@ import { ReactAplayerMethods } from 'react-aplayer';
 import { RiNeteaseCloudMusicFill } from 'react-icons/ri';
 
 import clsx from 'clsx';
-import useStore from '~app/lib/store';
+import useStore from '~lib/store';
 import musicList from '~musicList';
 
 // if use useEffect adjudge window, not work, so use dynamic ???
