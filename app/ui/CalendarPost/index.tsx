@@ -174,7 +174,7 @@ function CalendarHeatmapComponent({
       <ReactEChartsCore
         echarts={echarts}
         option={option}
-        className="hidden md:block"
+        className="hidden md:block md:w-[880px]"
       />
     </Drag>
   );

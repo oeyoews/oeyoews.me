@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-import { type Metadata } from 'next';
+import type { Metadata } from 'next';
 
 import getTiddlerData from '~app/lib/getTiddlerData';
 import TiddlersList from '~app/ui/TiddlyWiki/TiddlersList';
@@ -18,9 +18,9 @@ export default async function TiddlersHomepage() {
   const { tiddlersMetadata } = await getTiddlerData();
   return (
     <>
-      {/* 无法显示 */}
-      <CalendarHeatmapComponent datas={tiddlersMetadata} />
-      {/* <TiddlersList tiddlers={tiddlersMetadata} /> */}
+      {/* 总是丢失 似乎是由于 async */}
+      {/* <CalendarHeatmapComponent datas={tiddlersMetadata} /> */}
+      <TiddlersList tiddlers={tiddlersMetadata} />
     </>
   );
 }
