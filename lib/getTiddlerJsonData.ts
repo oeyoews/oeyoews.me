@@ -1,7 +1,6 @@
-import jsontiddlers from '../../public/tiddlers.json';
-import formattedTime from './formattedTime';
-
 import md5 from 'md5';
+import jsontiddlers from '~/public/tiddlers.json';
+import formattedTime from '~lib/formattedTime';
 
 export default function getTiddlerJsonData() {
   return jsontiddlers
