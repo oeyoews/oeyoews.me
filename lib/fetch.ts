@@ -3,10 +3,10 @@ type Config = {
   options?: RequestInit;
 };
 
-function customFetch(
+const customFetch = (
   finalURL: string,
   options?: RequestInit,
-): Promise<Response> {
+): Promise<Response> => {
   const defaultOptions: RequestInit = {
     mode: 'cors',
     next: { revalidate: 3600 },
@@ -14,7 +14,7 @@ function customFetch(
   };
   const mergedOptions: RequestInit = { ...defaultOptions, ...options };
   return fetch(finalURL, mergedOptions);
-}
+};
 
 export const create = (baseURL: string) => {
   return function (config: Config): Promise<any> {
