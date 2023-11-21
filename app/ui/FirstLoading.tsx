@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 import useStore from '~app/lib/store';
 
@@ -13,8 +14,11 @@ export default function FirstLoading() {
     // }, 1000);
 
     // TODO: layout 上不会卸载组件, 因为是全局的, 一直呈现
+
     return () => {
-      setNotFirstLoading();
+      if (firstLoading) {
+        setNotFirstLoading();
+      }
     };
     // return () => {
     //   clearTimeout(timeoutId);
