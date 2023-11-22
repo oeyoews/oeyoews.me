@@ -1,5 +1,3 @@
-'use server';
-
 import md5 from 'md5';
 import { create } from '~lib/fetch';
 import formattedTime from '~lib/formattedTime';

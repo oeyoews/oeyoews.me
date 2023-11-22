@@ -1,4 +1,4 @@
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 
 import { Code } from 'bright';
 import Icon from '~ui/Icon';
@@ -23,8 +23,21 @@ const components = {
   },
 };
 
-export function Mdx({ code }: { code: string }) {
-  const Component = useMDXComponent(code);
+const MDX = ({ source }: { source: any }) => {
+  return (
+    <div className="prose">
+      <MDXRemote
+        components={components}
+        options={{
+          mdxOptions: {
+            remarkPlugins: [],
+            rehypePlugins: [],
+          },
+        }}
+        source={source}
+      />
+    </div>
+  );
+};
 
-  return <Component components={components} />;
-}
+export default MDX;
