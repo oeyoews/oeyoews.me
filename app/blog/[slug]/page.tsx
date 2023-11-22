@@ -27,14 +27,8 @@ import Spinner from '~ui/Spinner';
 //   );
 // }
 
-interface PostProps {
-  params: {
-    slug: string;
-  };
-}
-
-async function getPostFromParams(params: PostProps['params']) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug);
+function getPostFromParams(slug: string) {
+  const post = getBlogPosts().find((post) => post.slug === slug);
   return post;
 }
 
@@ -46,14 +40,14 @@ async function getPostFromParams(params: PostProps['params']) {
 //   };
 // }
 
-// export async function generateStaticParams(): Promise<PostProps['params'][]> {
-//   return allPosts.map((post) => ({
-//     slug: post.slugAsParams.split('/'),
-//   }));
-// }
+export async function generateStaticParams() {
+  return getBlogPosts().map(({ slug }) => ({
+    slug,
+  }));
+}
 
-export default async function PostPage({ params }: PostProps) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug);
+export default async function PostPage({ params }: { params: Params }) {
+  const post = getPostFromParams(params.slug);
   if (!post) {
     notFound();
   }
@@ -63,7 +57,12 @@ export default async function PostPage({ params }: PostProps) {
       <h1 className="mb-2 text-3xl">{post.metadata.title}</h1>
       <hr className="my-4 border-2 border-gray-100 rounded-full" />
       <PasswordProtectedContent post={post}>
-        <MDX source={post.content} />
+        <Suspense fallback={<Spinner center={true} size={88} />}>
+          <h2>{post?.metadata.title}</h2>
+          <article>
+            <MDX source={post?.content} />
+          </article>
+        </Suspense>
       </PasswordProtectedContent>
     </article>
   );
