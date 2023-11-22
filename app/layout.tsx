@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     default: 'Nextjs Blog',
     template: '%s | Nextjs Blog',
   },
-  description: 'Nextjs + TypeScript + Tailwindcss + contentlayer',
+  description: 'Nextjs + TypeScript + Tailwindcss + MDX',
   manifest: '/manifest.json',
   alternates: {
     canonical: '/feed.xml',

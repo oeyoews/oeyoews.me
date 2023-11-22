@@ -16,7 +16,6 @@ import {
 } from 'echarts/components';
 import * as echarts from 'echarts/core';
 import { SVGRenderer } from 'echarts/renderers';
-import type { Post } from '~.contentlayer/generated';
 import Drag from '~ui/motion/Drag';
 
 echarts.use([
@@ -32,7 +31,7 @@ echarts.use([
 function CalendarHeatmapComponent({
   datas,
 }: {
-  datas: Post[] | TiddlerMetadata[] | Issue[];
+  datas: any[] | TiddlerMetadata[] | Issue[];
 }) {
   const postCounts: DataObject = {};
 
