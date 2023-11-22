@@ -11,7 +11,7 @@ import Spinner from '~ui/Spinner';
 
 export default function Page({ params }: { params: Params }) {
   const { slug } = params;
-  const post = getBlogPosts().find((post) => post.slug === slug[0]);
+  const post = getBlogPosts().find((post) => post.slug === slug);
 
   if (!post) {
     notFound();
