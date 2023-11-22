@@ -1,4 +1,5 @@
 import { type Metadata } from 'next';
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { notFound } from 'next/navigation';
 
 import getTiddlerData from '~lib/getTiddlerData';
@@ -30,11 +31,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: { params: Params }) {
   const { slug } = params;
   const tiddler = await getTiddler(slug);
   if (!tiddler) {
-    return notFound();
+    notFound();
   }
 
   return <Tiddler tiddler={tiddler} />;

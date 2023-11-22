@@ -9,10 +9,9 @@ import { getBlogPosts } from '~app/blog/db/blog';
 import PasswordProtectedContent from '~ui/PasswordPost';
 import Spinner from '~ui/Spinner';
 
-export default function Page({ params }: { params: { slug: string } }) {
+export default function Page({ params }: { params: Params }) {
   const { slug } = params;
-  let post = getBlogPosts().find((post) => post.slug === slug);
-  console.log(getBlogPosts());
+  const post = getBlogPosts().find((post) => post.slug === slug[0]);
 
   if (!post) {
     notFound();
