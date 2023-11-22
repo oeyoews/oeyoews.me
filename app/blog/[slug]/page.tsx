@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: Params }) {
 export async function generateStaticParams() {
   const posts = getBlogPosts();
   // @ts-ignore
-  return posts.map((posts) => ({ slug: posts.metadata.slug }));
+  return posts.map((posts) => ({ slug: posts.slug }));
 }
 
 export default async function PostPage({ params }: { params: Params }) {
