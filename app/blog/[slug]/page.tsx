@@ -28,16 +28,13 @@ import Spinner from '~ui/Spinner';
 // }
 
 function getPostFromParams(slug: string) {
-  const post = getBlogPosts().find((post) => post.slug === slug);
-  return {
-    slug: post?.slug,
-  };
+  return getBlogPosts().find((post) => post.slug === slug);
 }
 
 export async function generateMetadata({ params }: { params: Params }) {
   const post = await getPostFromParams(params.slug);
   return {
-    title: post.slug,
+    title: post?.slug,
   };
 }
 
@@ -54,9 +51,9 @@ export default async function PostPage({ params }: { params: Params }) {
   }
 
   return (
-    <article className="py-6 prose prose-img:rounded-md">
+    <article className="py-6 prose max-w-none prose-img:rounded-md">
       {/* @ts-ignore */}
-      <h1 className="mb-2 text-3xl">{post.metadata.title}</h1>
+      <h1 className="mb-2 text-3xl">{post.slug}</h1>
       <hr className="my-4 border-2 border-gray-100 rounded-full" />
       <PasswordProtectedContent post={post}>
         <Suspense fallback={<Spinner center={true} size={88} />}>

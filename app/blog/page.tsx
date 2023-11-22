@@ -19,19 +19,20 @@ function PostItem({ post, index }: { post: any; index: number }) {
         />
       </span>
       <Link
-        href={post.slug as Route}
+        href={`/blog/${post.slug}` as Route}
         className="text-xs rounded-md"
         title="点击阅读全文"
       >
         <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition mt-0 mb-2">
-          {post.title}
+          {post.metadata.title}
           {index === 0 && (
             <Badge className="bg-neutral-100 font-bold" text="Latest" />
           )}
-          {post.password && <Badge className="bg-purple-200" text="Password" />}
+          {/* TODO */}
+          {/* {post.password && <Badge className="bg-purple-200" text="Password" />}
           {post.draft === true && (
             <Badge className="bg-gray-100" text="Draft" />
-          )}
+          )} */}
         </h2>
       </Link>
       <time className="block text-sm font-normal leading-none text-gray-400">
@@ -48,7 +49,7 @@ function PostList({ posts }: { posts: any[] }) {
     <ol className="prose list-none">
       {posts
         .sort((a, b) => {
-          return a.date > b.date ? -1 : 1;
+          return a.metadata.date > b.metadata.date ? -1 : 1;
         })
         .map((post, index) => {
           const postYear = new Date(post.metadata.date).getFullYear();

@@ -25,7 +25,7 @@ const components = {
 
 const MDX = ({ source }: { source: any }) => {
   return (
-    <div className="prose">
+    <div className="">
       <MDXRemote
         components={components}
         options={{
