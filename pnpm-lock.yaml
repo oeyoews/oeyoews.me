@@ -104,9 +104,6 @@ dependencies:
   rss:
     specifier: ^1.2.2
     version: 1.2.2
-  sweetalert2:
-    specifier: ^11.9.0
-    version: 11.9.0
   tiged:
     specifier: ^2.12.5
     version: 2.12.5
@@ -4611,10 +4608,6 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
-
-  /sweetalert2@11.9.0:
-    resolution: {integrity: sha512-PA3qinKZMNGAhA+AUu2wU7yQOpeZCgOaYWRcg26f4cZN6f7M9iPBuobsxOhR9EHs7ihUIxT6vhAMiB4kcmk1SA==}
-    dev: false
 
   /tailwindcss@0.0.0-insiders.0b7f27c:
     resolution: {integrity: sha512-CHJeocQPGMh3weRr8YBmK10PoQetR6fXJrBC9yiljE1Al5upy5R6pEOxWWgtFsiFE05YghBGueoiabVYqJU/PA==}
