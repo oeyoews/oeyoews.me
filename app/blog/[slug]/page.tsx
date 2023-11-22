@@ -58,7 +58,6 @@ export default async function PostPage({ params }: { params: Params }) {
       <hr className="my-4 border-2 border-gray-100 rounded-full" />
       <PasswordProtectedContent post={post}>
         <Suspense fallback={<Spinner center={true} size={88} />}>
-          <h2>{post?.metadata.title}</h2>
           <article>
             <MDX source={post?.content} />
           </article>
