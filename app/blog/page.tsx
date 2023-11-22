@@ -45,7 +45,7 @@ function PostList({ posts }: { posts: any[] }) {
   let currentYear: number;
 
   return (
-    <ol className="prose list-none ">
+    <ol className="prose list-none">
       {posts
         .sort((a, b) => {
           return a.date > b.date ? -1 : 1;
@@ -61,7 +61,7 @@ function PostList({ posts }: { posts: any[] }) {
           currentYear = postYear;
 
           return (
-            <li key={post._id}>
+            <li key={post.metadata.title}>
               {yearHeader}
               <PostItem post={post} index={index} />
             </li>
