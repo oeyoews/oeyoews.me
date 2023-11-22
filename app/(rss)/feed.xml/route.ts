@@ -1,7 +1,7 @@
 // https://validator.w3.org/feed/#validate_by_input
 import { marked } from 'marked';
 import RSS from 'rss';
-import { allPosts } from '~.contentlayer/generated';
+import { getBlogPosts } from '~app/blog/db/blog';
 import getTiddlerData from '~lib/getTiddlerData';
 
 const renderer = new marked.Renderer();
@@ -39,17 +39,19 @@ export async function GET() {
     });
   });
 
-  allPosts
-    .filter((post) => !(post.password || post.draft === true))
+  const posts = getBlogPosts();
+  posts
+    // TODO
+    // .filter((post) => !(post.metadata?.password || post.metadata.draft === true))
     .forEach((post) => {
       feed.item({
-        title: post.title,
-        description: renderPost(post.body.raw),
+        title: post.metadata.title,
+        description: renderPost(post.content),
         // maybe sue gray-matter not use remote-mdx's matter
         // description: renderPost(post.content),
         url: `${domain}${post.slug}`,
         author: 'oeyoews',
-        date: post.date,
+        date: post.metadata.date,
         categories: ['blog'],
         // custom_elements: [{ content: post.description }],
       });
