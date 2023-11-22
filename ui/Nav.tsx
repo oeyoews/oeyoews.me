@@ -20,7 +20,7 @@ export default function Nav() {
     },
     {
       title: 'Blog',
-      path: '/posts',
+      path: '/blog',
       icon: <BsFiletypeMdx />,
     },
     {

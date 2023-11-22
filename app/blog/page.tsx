@@ -2,7 +2,7 @@ import type { Route } from 'next';
 import Link from 'next/link';
 
 import { format } from 'date-fns';
-import { getBlogPosts } from '~app/posts/db/blog';
+import { getBlogPosts } from '~app/blog/db/blog';
 import Icon from '~ui/Icon';
 import EmptyPost from '~ui/PostList/EmptyPost';
 import Badge from '~ui/PostList/PostBadges';

@@ -3,7 +3,7 @@ import path from 'path';
 
 type Metadata = {
   title: string;
-  publishedAt: string;
+  date: string;
   summary: string;
   image?: string;
 };
@@ -35,26 +35,20 @@ function readMDXFile(filePath: any) {
   return parseFrontmatter(rawContent);
 }
 
-function extractTweetIds(content: any) {
-  let tweetMatches = content.match(/<StaticTweet\sid="[0-9]+"\s\/>/g);
-  return tweetMatches?.map((tweet: any) => tweet.match(/[0-9]+/g)[0]) || [];
-}
-
 function getMDXData(dir: any) {
   let mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
     let { metadata, content } = readMDXFile(path.join(dir, file));
     let slug = path.basename(file, path.extname(file));
-    let tweetIds = extractTweetIds(content);
     return {
       metadata,
       slug,
-      tweetIds,
       content,
     };
   });
 }
 
+// dir: content
 export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), 'content'));
+  return getMDXData(path.join(process.cwd(), process.env.CONTENT || 'content'));
 }

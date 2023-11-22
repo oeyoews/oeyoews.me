@@ -6,12 +6,13 @@ import { notFound } from 'next/navigation';
 
 import { getBlogPosts } from '../db/blog';
 
-import MDX from '~app/posts/Mdx';
+import MDX from '~app/blog/Mdx';
 import PasswordProtectedContent from '~ui/PasswordPost';
 import Spinner from '~ui/Spinner';
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  const { slug } = params;
+  let post = await getBlogPosts().find((post) => post.slug === slug);
   console.log(post?.slug, params.slug);
   if (!post) {
     notFound();
