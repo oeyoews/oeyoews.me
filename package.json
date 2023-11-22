@@ -29,6 +29,7 @@
     "marked": "^7.0.5",
     "md5": "^2.3.0",
     "next": "14.0.2",
+    "next-mdx-remote": "^4.4.1",
     "nextjs-toploader": "^1.6.4",
     "react": "^18.2.0",
     "react-aplayer": "^1.0.0",
