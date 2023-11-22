@@ -33,10 +33,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className={`antialiased ${GeistSans.className}`}>
         <NextTopLoader />
         <Nav />
-        <div className="max-w-4xl mx-auto py-10 px-4">
-          {children}
-          <Toaster />
-        </div>
+        <Toaster />
+        <div className="max-w-4xl mx-auto py-10 px-4">{children}</div>
       </body>
     </html>
   );

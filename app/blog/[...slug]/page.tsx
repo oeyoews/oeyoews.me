@@ -4,23 +4,23 @@ import { Metadata } from 'next';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 
-import { getBlogPosts } from '../db/blog';
-
 import MDX from '~app/blog/Mdx';
+import { getBlogPosts } from '~app/blog/db/blog';
 import PasswordProtectedContent from '~ui/PasswordPost';
 import Spinner from '~ui/Spinner';
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default function Page({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  let post = await getBlogPosts().find((post) => post.slug === slug);
-  console.log(post?.slug, params.slug);
+  let post = getBlogPosts().find((post) => post.slug === slug);
+  console.log(getBlogPosts());
+
   if (!post) {
     notFound();
   }
 
   return (
     <div className="prose">
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<Spinner center={true} size={88} />}>
         <h2>{post?.metadata.title}</h2>
         <article>
           <MDX source={post?.content} />
