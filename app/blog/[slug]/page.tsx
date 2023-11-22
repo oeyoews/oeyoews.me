@@ -9,45 +9,40 @@ import { getBlogPosts } from '~app/blog/db/blog';
 import PasswordProtectedContent from '~ui/PasswordPost';
 import Spinner from '~ui/Spinner';
 
-export default function Page({ params }: { params: Params }) {
-  const { slug } = params;
-  const post = getBlogPosts().find((post) => post.slug === slug);
+// export default function Page({ params }: { params: Params }) {
+//   const { slug } = params;
+//   const post = getBlogPosts().find((post) => post.slug === slug);
+//   if (!post) {
+//     notFound();
+//   }
+//   return (
+//     <div className="prose">
+//       <Suspense fallback={<Spinner center={true} size={88} />}>
+//         <h2>{post?.metadata.title}</h2>
+//         <article>
+//           <MDX source={post?.content} />
+//         </article>
+//       </Suspense>
+//     </div>
+//   );
+// }
 
-  if (!post) {
-    notFound();
-  }
-
-  return (
-    <div className="prose">
-      <Suspense fallback={<Spinner center={true} size={88} />}>
-        <h2>{post?.metadata.title}</h2>
-        <article>
-          <MDX source={post?.content} />
-        </article>
-      </Suspense>
-    </div>
-  );
+interface PostProps {
+  params: {
+    slug: string;
+  };
 }
 
-// interface PostProps {
-//   params: {
-//     slug: string[];
-//   };
-// }
-
-// async function getPostFromParams(params: PostProps['params']) {
-//   const slug = params?.slug?.join('/');
-//   return allPosts.find((post) => post.slugAsParams === slug);
-// }
+async function getPostFromParams(params: PostProps['params']) {
+  const post = getBlogPosts().find((post) => post.slug === params.slug);
+  return post;
+}
 
 // export async function generateMetadata({
 //   params,
 // }: PostProps): Promise<Metadata> {
 //   const post = await getPostFromParams(params);
-
 //   return {
-//     title: post?.title || 'Not Found',
-//     description: post?.description,
 //   };
 // }
 
@@ -57,20 +52,19 @@ export default function Page({ params }: { params: Params }) {
 //   }));
 // }
 
-// export default async function PostPage({ params }: PostProps) {
-//   const post = await getPostFromParams(params);
+export default async function PostPage({ params }: PostProps) {
+  const post = getBlogPosts().find((post) => post.slug === params.slug);
+  if (!post) {
+    notFound();
+  }
 
-//   if (!post) {
-//     notFound();
-//   }
-
-//   return (
-//     <article className="py-6 prose prose-img:rounded-md">
-//       <h1 className="mb-2 text-3xl">{post.title}</h1>
-//       <hr className="my-4 border-2 border-gray-100 rounded-full" />
-//       <PasswordProtectedContent post={post}>
-//         <Mdx code={post.body.code} />
-//       </PasswordProtectedContent>
-//     </article>
-//   );
-// }
+  return (
+    <article className="py-6 prose prose-img:rounded-md">
+      <h1 className="mb-2 text-3xl">{post.metadata.title}</h1>
+      <hr className="my-4 border-2 border-gray-100 rounded-full" />
+      <PasswordProtectedContent post={post}>
+        <MDX source={post.content} />
+      </PasswordProtectedContent>
+    </article>
+  );
+}
