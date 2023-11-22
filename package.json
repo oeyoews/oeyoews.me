@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "node build.mjs",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write app"
