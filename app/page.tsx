@@ -1,7 +1,7 @@
 import fs from 'fs';
 import MarkdownWrapper from '~ui/MarkdownWrapper';
 
-export default async function page() {
+const page = () => {
   const readme = fs.readFileSync('README.md', 'utf-8');
 
   return (
@@ -9,4 +9,5 @@ export default async function page() {
       <MarkdownWrapper text={readme} />
     </div>
   );
-}
+};
+export default page;

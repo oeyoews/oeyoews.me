@@ -75,6 +75,7 @@ function PostList({ posts }: { posts: any[] }) {
 
 export default function HomePage() {
   const posts = getBlogPosts();
+
   if (!posts.length) {
     return <EmptyPost />;
   }
