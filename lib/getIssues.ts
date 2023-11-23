@@ -3,7 +3,7 @@ import { create } from './fetch';
 const baseurl = `https://api.github.com/repos/${process.env.GITHUB_REPO}`;
 
 const headers = {
-  Accept: 'application/vnd.issue+json',
+  Accept: 'application/vnd.github+json',
   'Content-Type': 'application/json',
   Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
 };

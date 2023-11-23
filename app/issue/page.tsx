@@ -5,8 +5,8 @@ import { getAllIssues } from '~lib/getIssues';
 
 export function generateMetadata(): Metadata {
   return {
-    title: 'neotw issues',
-    description: 'neotw issues',
+    title: 'issues',
+    description: 'issues',
   };
 }
 
