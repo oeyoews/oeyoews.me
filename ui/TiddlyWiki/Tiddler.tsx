@@ -5,7 +5,6 @@ import { format } from 'date-fns';
 import formatTitle from '~lib/formatTitle';
 import { Divider, H1 } from '~ui/Article';
 import Fancybox from '~ui/Fancybox';
-import Icon from '~ui/Icon';
 import MarkdownWrapper from '~ui/MarkdownWrapper';
 import Badge from '~ui/PostList/PostBadges';
 
@@ -20,7 +19,6 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
     type,
   } = tiddler;
 
-  const tagClasses = clsx('rounded px-1 bg-yellow-100', !tags && 'hidden');
   const filteredTag = tags?.split(' ').filter((tag) => !tag.startsWith('$:/'));
   const imageClasses = clsx(
     'rounded-xl object-cover object-center aspect-video h-48 shadow',
