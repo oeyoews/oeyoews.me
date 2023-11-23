@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import formatTitle from '~lib/formatTitle';
+import formatTitle from '~lib/format/formatTitle';
 import { Divider, H1 } from '~ui/Article';
 import MarkdownWrapper from '~ui/MarkdownWrapper';
 import Badge from '~ui/PostList/PostBadges';

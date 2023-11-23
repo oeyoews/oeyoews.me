@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import clsx from 'clsx';
 import { format } from 'date-fns';
-import formatTitle from '~lib/formatTitle';
+import formatTitle from '~lib/format/formatTitle';
 import { Divider, H1 } from '~ui/Article';
 import Fancybox from '~ui/Fancybox';
 import MarkdownWrapper from '~ui/MarkdownWrapper';

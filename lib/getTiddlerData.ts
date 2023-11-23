@@ -1,6 +1,6 @@
 import md5 from 'md5';
 import { create } from '~lib/fetch';
-import formattedTime from '~lib/formattedTime';
+import formattedTime from '~lib/format/formattedTime';
 
 const TidderJsonFile =
   process.env.TiddlerJsonFile || 'https://neotw.vercel.app/tiddlers.json';
