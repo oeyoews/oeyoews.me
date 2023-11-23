@@ -2,7 +2,7 @@ import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { getAllIssues, getIssueBySlug, getIssueComments } from '~lib/getIssues';
-import Issue from '~components/Github/Issue';
+import Issue from '~components/GitHubIssue/Issue';
 
 export async function generateStaticParams() {
   const issues = await getAllIssues();

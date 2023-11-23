@@ -1,7 +1,7 @@
 'use client';
 
 import useStore from '~lib/store';
-import GithubIssueItem from '~components/Github/GithubIssueItem';
+import GithubIssueItem from '~components/GitHubIssue/GithubIssueItem';
 import YearHeader from '~components/PostList/YearHeader';
 
 export default function GithubIssueList({ issues }: { issues: Issue[] }) {
