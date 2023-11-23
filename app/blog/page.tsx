@@ -1,6 +1,3 @@
-import React from 'react';
-
-import type { Route } from 'next';
 import Link from 'next/link';
 
 import { format } from 'date-fns';
