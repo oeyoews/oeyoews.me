@@ -3,8 +3,6 @@ import { Toaster } from 'react-hot-toast';
 import type { Metadata } from 'next';
 import NextTopLoader from 'nextjs-toploader';
 
-import { GeistMono } from 'geist/font/mono';
-import { GeistSans } from 'geist/font/sans';
 import '~app/globals.css';
 import Nav from '~ui/Nav';
 
@@ -30,7 +28,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={`antialiased ${GeistSans.className}`}>
+      <body className={`antialiased`}>
         <NextTopLoader />
         <Nav />
         <Toaster />

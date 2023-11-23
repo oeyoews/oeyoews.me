@@ -12,10 +12,7 @@ module.exports = {
   },
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['var(--font-geist-sans)'],
-        mono: ['var(--font-geist-mono)'],
-      },
+      fontFamily: {},
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
@@ -40,5 +37,5 @@ module.exports = {
       }),
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/typography'), require('daisyui')],
 };
