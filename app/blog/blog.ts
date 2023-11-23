@@ -1,4 +1,5 @@
 import fs from 'fs';
+import md5 from 'md5';
 import path from 'path';
 
 type Metadata = {
@@ -44,7 +45,7 @@ const parseFrontmatter = (fileContent: string, fileName: string) => {
     // No frontmatter found, use default values
     return {
       metadata: {
-        title: fileName, // Use file name as the default title
+        title: fileName.replace(/\.mdx?$/, ''), // Use file name as the default title
         date: new Date().toISOString(), // Use current date as the default
         summary: '',
         image: '',
@@ -55,7 +56,6 @@ const parseFrontmatter = (fileContent: string, fileName: string) => {
     };
   }
 };
-
 
 const getMDXFiles = (dir: string) => {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
@@ -71,7 +71,10 @@ const getMDXData = (dir: string) => {
   const mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
     const { metadata, content } = readMDXFile(file, dir);
-    const slug = path.basename(file, path.extname(file));
+    const filename = path
+      .basename(file, path.extname(file))
+      .replace(/\.mdx?$/, '');
+    const slug = md5(filename);
     return {
       metadata,
       slug,
@@ -79,7 +82,6 @@ const getMDXData = (dir: string) => {
     };
   });
 };
-
 
 export const getBlogPosts = () => {
   const content = process.env.content || 'content';
