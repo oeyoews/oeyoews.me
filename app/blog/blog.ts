@@ -2,6 +2,12 @@ import fs from 'fs';
 import md5 from 'md5';
 import path from 'path';
 
+export type Post = {
+  metadata: Metadata;
+  slug: string;
+  content: string;
+};
+
 type Metadata = {
   title: string;
   date: string;
@@ -67,7 +73,7 @@ const readMDXFile = (fileName: string, dir: string) => {
   return parseFrontmatter(rawContent, fileName);
 };
 
-const getMDXData = (dir: string) => {
+const getMDXData = (dir: string): Post[] => {
   const mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
     const { metadata, content } = readMDXFile(file, dir);

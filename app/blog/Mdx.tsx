@@ -25,18 +25,10 @@ const components = {
 
 const MDX = ({ source }: { source: any }) => {
   return (
-    <div className="">
       <MDXRemote
         components={components}
-        options={{
-          mdxOptions: {
-            remarkPlugins: [],
-            rehypePlugins: [],
-          },
-        }}
         source={source}
       />
-    </div>
   );
 };
 
