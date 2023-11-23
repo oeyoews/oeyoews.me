@@ -7,6 +7,7 @@ export default function Badge({
 }) {
   return (
     <sup
+      key={text}
       className={`${className} rounded-sm text-xs px-1 mx-1 font-light inline-flex`}
     >
       {text}
