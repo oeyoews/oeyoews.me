@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 
 import MDX from '~app/blog/Mdx';
 import { getBlogPosts, getPostFromParams } from '~app/blog/db/blog';
+import { Divider, H1 } from '~ui/Article';
 import PasswordProtectedContent from '~ui/PasswordPost';
 import Spinner from '~ui/Spinner';
 
@@ -28,8 +29,8 @@ const PostPage = ({ params }: { params: Params }) => {
 
   return (
     <article className="py-6 prose prose-img:rounded-md max-w-none">
-      <h1 className="mb-2 text-3xl">{post.slug}</h1>
-      <div className="divider"></div>
+      <H1 title={post.slug} />
+      <Divider />
       <PasswordProtectedContent post={post}>
         <Suspense fallback={<Spinner center={true} size={88} />}>
           <article>

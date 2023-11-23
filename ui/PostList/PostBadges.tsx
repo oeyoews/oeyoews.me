@@ -5,11 +5,5 @@ export default function Badge({
   text: string;
   className?: string;
 }) {
-  return (
-    <sup
-      className={`${className} badge badge-outline badge-sm rounded-sm ml-1 font-normal`}
-    >
-      {text}
-    </sup>
-  );
+  return <div className={`${className} badge badge-outline`}>{text}</div>;
 }

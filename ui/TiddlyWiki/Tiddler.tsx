@@ -3,9 +3,11 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import { format } from 'date-fns';
 import formatTitle from '~lib/formatTitle';
+import { Divider, H1 } from '~ui/Article';
 import Fancybox from '~ui/Fancybox';
 import Icon from '~ui/Icon';
 import MarkdownWrapper from '~ui/MarkdownWrapper';
+import Badge from '~ui/PostList/PostBadges';
 
 export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   const {
@@ -44,22 +46,18 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
           />
         </Fancybox>
       )}
-      <h1 className="my-8 capitalize text-balance">{formatTitle(title)}</h1>
-      <div className={warnClassed}>
-        <Icon icon="openmoji:warning" inline={true} className="mx-2" />
+      <H1 title={formatTitle(title)} />
+      <Divider />
+      {/* <div className={warnClassed}>
         这不是一个Markdown类型的文章
-      </div>
-      <div className="not-prose flex justify-center space-x-2 text-gray-800 font-mono">
-        {creator && <div className="rounded px-1 bg-rose-50">{creator}</div>}
+        <Icon icon="openmoji:warning" inline={true} className="mx-2" />
+      </div> */}
+      <div className="text-center space-x-2">
+        {creator && <Badge text={creator} />}
         {filteredTag?.map((tag) => (
-          <div key={tag} className={tagClasses}>
-            {tag}
-          </div>
+          <Badge text={tag} key={tag} className="rounded-sm" />
         ))}
-        <div className="rounded px-1 bg-indigo-200">
-          {format(date, 'yyyy-MM-dd')}
-          {/* {date.toISOString().split('T')[0]} */}
-        </div>
+        <Badge text={format(date, 'yyyy-MM-dd')} className="rounded-sm" />
       </div>
       <MarkdownWrapper text={text} />
     </div>

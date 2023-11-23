@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const issue = await getIssueBySlug(params.slug);
   const comments = await getIssueComments(issue?.number as number);
   if (!issue) {
-    return notFound();
+    notFound();
   }
 
   return <Issue issue={issue} comments={comments} />;

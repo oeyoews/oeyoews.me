@@ -2,6 +2,7 @@ import { format } from 'date-fns';
 import formatTitle from '~lib/formatTitle';
 import { Divider, H1 } from '~ui/Article';
 import MarkdownWrapper from '~ui/MarkdownWrapper';
+import Badge from '~ui/PostList/PostBadges';
 
 export default async function Issue({
   issue,
@@ -16,19 +17,6 @@ export default async function Issue({
   const Comments = () => {
     return comments.map(({ body, id, user: { avatar_url, login } }) => (
       <div key={id}>
-        {/* <img
-          src={avatar_url}
-          alt={login}
-          loading="lazy"
-          className="w-5 h-5 rounded-full inline"
-        /> */}
-        {/* <Image
-          src="//avatars.githubusercontent.com/u/72405338?v=4"
-          alt={login}
-          width={22}
-          height={22}
-          className="inline rounded-full"
-        /> */}
         <MarkdownWrapper text={body} />
       </div>
     ));
@@ -38,8 +26,8 @@ export default async function Issue({
     <div className="prose prose-indigo max-w-none mb-8 overflow-auto">
       <H1 title={formatTitle(title)} />
       <Divider />
-      <div className="not-prose flex justify-center space-x-2 text-gray-800 font-mono">
-        <div className="rounded px-1 bg-indigo-200">{date}</div>
+      <div className="text-center">
+        <Badge text={date} className="badage rounded-sm" />
       </div>
       {body && <MarkdownWrapper text={`${body}`} enableGFM={false} />}
       <Comments />
