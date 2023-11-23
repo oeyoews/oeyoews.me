@@ -1,5 +1,6 @@
 import Image, { ImageProps } from 'next/image';
 
+// fancybox
 function Imagec({ ...props }: ImageProps) {
   return (
     <div className="flex justify-center items-center">

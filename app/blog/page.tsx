@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { format } from 'date-fns';
-import { getBlogPosts } from '~app/blog/db/blog';
+import { getBlogPosts } from '~app/blog/blog';
 import CommitInfo from '~ui/CommitInfo';
 import Icon from '~ui/Icon';
 import EmptyPost from '~ui/PostList/EmptyPost';

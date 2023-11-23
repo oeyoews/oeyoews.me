@@ -4,7 +4,7 @@ import { ReactElement, useState } from 'react';
 import { AiOutlineSend } from 'react-icons/ai';
 
 import useStore from '~lib/store';
-import { DraftSkeleton } from '~ui/Skeleton';
+import { DraftSkeleton } from '~ui/Skeleton/Skeleton';
 
 function PasswordProtectedContent({
   post,
