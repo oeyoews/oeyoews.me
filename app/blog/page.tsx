@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 import { format } from 'date-fns';
 import { getBlogPosts } from '~app/blog/db/blog';
+import CommitInfo from '~ui/CommitInfo';
 import Icon from '~ui/Icon';
 import EmptyPost from '~ui/PostList/EmptyPost';
 import Badge from '~ui/PostList/PostBadges';
 import YearHeader from '~ui/PostList/YearHeader';
-import CommitInfo from '~ui/git/CommitInfo';
 
 const PostItem = ({ post, index }: any) => {
   const { metadata } = post;
