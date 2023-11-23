@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import NextTopLoader from 'nextjs-toploader';
 
 import '~app/globals.css';
-import Nav from '~ui/Nav';
+import Nav from '~components/Nav';
 
 export const metadata: Metadata = {
   title: {

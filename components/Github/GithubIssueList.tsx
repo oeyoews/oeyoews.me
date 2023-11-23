@@ -1,8 +1,8 @@
 'use client';
 
 import useStore from '~lib/store';
-import GithubIssueItem from '~ui/Github/GithubIssueItem';
-import YearHeader from '~ui/PostList/YearHeader';
+import GithubIssueItem from '~components/Github/GithubIssueItem';
+import YearHeader from '~components/PostList/YearHeader';
 
 export default function GithubIssueList({ issues }: { issues: Issue[] }) {
   const statusStore = useStore();

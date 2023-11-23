@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 import { format } from 'date-fns';
 import formatTitle from '~lib/formatTitle';
-import Badge from '~ui/PostList/PostBadges';
+import Badge from '~components/PostList/PostBadges';
 
 export default async function TiddlerItem({
   tiddler,

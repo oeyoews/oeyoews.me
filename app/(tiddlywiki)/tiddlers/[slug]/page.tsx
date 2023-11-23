@@ -3,7 +3,7 @@ import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { notFound } from 'next/navigation';
 
 import getTiddlerData from '~lib/getTiddlerData';
-import Tiddler from '~ui/TiddlyWiki/Tiddler';
+import Tiddler from '~components/TiddlyWiki/Tiddler';
 
 async function getTiddler(slug: string) {
   const { tiddlers } = await getTiddlerData();

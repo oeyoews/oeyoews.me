@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { format } from 'date-fns';
-import Badge from '~ui/PostList/PostBadges';
+import Badge from '~components/PostList/PostBadges';
 
 export default function GithubIssueItem({
   issue,

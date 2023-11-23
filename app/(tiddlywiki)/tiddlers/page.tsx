@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import getTiddlerData from '~lib/getTiddlerData';
-import TiddlersList from '~ui/TiddlyWiki/TiddlersList';
+import TiddlersList from '~components/TiddlyWiki/TiddlersList';
 
 export function generateMetadata(): Metadata {
   return {

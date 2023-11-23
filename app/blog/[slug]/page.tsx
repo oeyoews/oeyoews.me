@@ -5,8 +5,8 @@ import { notFound } from 'next/navigation';
 
 import MDX from '~app/blog/Mdx';
 import { getBlogPosts, getPostFromParams } from '~app/blog/blog';
-import PasswordProtectedContent from '~ui/PasswordPost';
-import Spinner from '~ui/Spinner';
+import PasswordProtectedContent from '~components/PasswordPost';
+import Spinner from '~components/Spinner';
 
 export const generateMetadata = ({ params }: { params: Params }): Metadata => {
   const post = getPostFromParams(params.slug);

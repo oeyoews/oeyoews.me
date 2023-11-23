@@ -1,7 +1,7 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
 import { Code } from 'bright';
-import Icon from '~ui/Icon';
+import Icon from '~components/Icon';
 
 Code.lineNumbers = false;
 Code.theme = 'one-dark-pro';

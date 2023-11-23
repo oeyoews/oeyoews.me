@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 
 import useStore from '~lib/store';
-import YearHeader from '~ui/PostList/YearHeader';
-import TiddlerItem from '~ui/TiddlyWiki/TiddlerItem';
+import YearHeader from '~components/PostList/YearHeader';
+import TiddlerItem from '~components/TiddlyWiki/TiddlerItem';
 
 export default function TiddlersList({
   tiddlers,

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import { format } from 'date-fns';
 import formatTitle from '~lib/formatTitle';
-import MarkdownWrapper from '~ui/MarkdownWrapper';
+import MarkdownWrapper from '~components/MarkdownWrapper';
 
 export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   const {
