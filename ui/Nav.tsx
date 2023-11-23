@@ -2,10 +2,7 @@ import React from 'react';
 import { BsBook, BsCircle, BsFiletypeMdx, BsWikipedia } from 'react-icons/bs';
 import { SiTiddlywiki } from 'react-icons/si';
 
-import Image from 'next/image';
 import Link from 'next/link';
-
-import nextjsImage from '~public/512x512.png';
 
 export default function Nav() {
   const LinkClass = 'w-5 h-5 shadownone';
@@ -44,7 +41,6 @@ export default function Nav() {
     <div className="navbar bg-base-200 backdrop-blur-md sticky top-0 inset-x-0 py-0 z-[999] ">
       <div className="flex-1 space-x-1 hidden md:block">
         <Link href={'/'} className="btn btn-ghost text-xl">
-          {/* <Image src={nextjsImage} className="avatar w-4" alt="logo" /> */}
           NextJs Blog
         </Link>
       </div>
