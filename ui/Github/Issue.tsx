@@ -25,8 +25,8 @@ export default async function Issue({
   return (
     <div className="prose prose-indigo max-w-none mb-8 overflow-auto">
       <H1 title={formatTitle(title)} />
-      <Divider />
       <div className="text-center">
+        <Divider />
         <Badge text={date} className="badage rounded-sm" />
       </div>
       {body && <MarkdownWrapper text={`${body}`} enableGFM={false} />}
