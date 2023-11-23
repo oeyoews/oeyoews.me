@@ -29,7 +29,7 @@ const PostPage = ({ params }: { params: Params }) => {
   return (
     <article className="py-6 prose prose-img:rounded-md max-w-none">
       <h1 className="mb-2 text-3xl">{post.slug}</h1>
-      <hr className="my-4 border-2 border-gray-100 rounded-full" />
+      <div className="divider"></div>
       <PasswordProtectedContent post={post}>
         <Suspense fallback={<Spinner center={true} size={88} />}>
           <article>
