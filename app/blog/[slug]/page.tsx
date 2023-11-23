@@ -11,7 +11,7 @@ import Spinner from '~components/Spinner';
 export const generateMetadata = ({ params }: { params: Params }): Metadata => {
   const post = getPostFromParams(params.slug);
   return {
-    title: post?.slug,
+    title: post?.metadata.title,
   };
 };
 
