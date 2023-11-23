@@ -1,3 +1,4 @@
+// add center
 export const DraftSkeleton = () => {
   return (
     <div className="flex flex-col gap-4 w-96">

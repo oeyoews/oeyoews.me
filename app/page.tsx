@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import Icon from '~ui/Icon';
+import { DraftSkeleton } from '~ui/Skeleton';
 
 const page = () => {
   // > 此网站分为 [mdx](https://github.com/oeyoews/nextjs-mdx-blog/content), [tiddlers](https://github.com/oeyoews/neotw-tiddlers),[issues](https://github.com/oeyoews/neotw-tiddlers/issues) 三部分组成
@@ -24,23 +25,24 @@ const page = () => {
 
   return (
     // 有时list-disc 不显示
-    <div className="prose mx-2 flex justify-center space-x-2 max-w-none">
-      {/* <p>网站文章由下面三部分组成</p> */}
-      {sections.map((section, index) => (
-        <div key={index}>
-          <button className="btn">
-            <Link
-              href={section.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={section.name}
-            >
-              <span className="mx-1 capitalize">{section.name}</span>
-              <Icon icon={section.icon} className="h-4 w-4" />
-            </Link>
-          </button>
-        </div>
-      ))}
+    <div className="prose max-w-none">
+      <div className="flex justify-center space-x-2 my-2">
+        {sections.map((section, index) => (
+          <div key={index}>
+            <button className="btn">
+              <Link
+                href={section.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={section.name}
+              >
+                <span className="mx-1 capitalize">{section.name}</span>
+                <Icon icon={section.icon} className="h-4 w-4" />
+              </Link>
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
