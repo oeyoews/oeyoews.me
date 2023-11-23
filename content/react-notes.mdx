@@ -1,0 +1,139 @@
+---
+title: 'React Notes'
+date: '2023-08-03'
+description: '一些 React 笔记'
+---
+
+## children props
+
+If use children as props, you should use this below format
+
+```jsx
+// mycomponent.jsx
+function MyComponent({..., children}) {
+  return (
+    <div>
+      {children}
+    </div>
+  )
+}
+
+// app.jsx
+
+<MyComponent>
+  {children}
+</MyComponent>
+```
+
+在 React <Icon icon="skill-icons:react-dark" /> 中，如果你不想使用条件渲染，而是使用 Enum 来控制组件的显示，可以通过使用 Enum 的值作为组件的 props 来实现。下面是一个示例：
+
+首先，定义一个 Enum，可以是一个对象或者一个数组，它包含所有可能的值以及对应的组件：
+
+```jsx
+const EnumComponents = {
+  ComponentA: ComponentA,
+  ComponentB: ComponentB,
+  ComponentC: ComponentC,
+};
+```
+
+然后，在父组件中，使用 Enum 的值作为 props 传递给子组件：
+
+```jsx
+function ParentComponent({ enumValue }) {
+  const Component = EnumComponents[enumValue];
+
+  return <Component />;
+}
+```
+
+在上面的例子中，根据传递给`ParentComponent`的`enumValue`值，选择相应的组件进行渲染。
+
+这样，你就可以通过改变`enumValue`的值来动态地显示不同的组件，而不是使用条件语句进行渲染。
+
+## Hooks
+
+- useEffect, useRef, useState
+
+```ref.tsx
+function App() {
+  const myDivRef = useRef<HTMLDivElement>(null);
+  let [count, setCount] = React.useState(0);
+
+  const updateText = () => {
+    if (myDivRef.current) {
+      myDivRef.current.textContent = '这是更新后的文本内容。update';
+      setCount(++count);
+    } else {
+      console.log('元素不存在');
+    }
+  };
+
+  //   如果不使用useEffect, 会在渲染之前就进行dom操作,引起错误
+  // 一般ref不进行view 更新, 这里使用useeffect, 手动处理
+  useEffect(() => {
+    // 判断目标元素是否存在, 如果不进行判断, 会报错
+    if (myDivRef.current) {
+      myDivRef.current.textContent = '这是更新后的文本内容。 useEffect';
+      console.log(count); // 这个值是最新的
+    }
+  }, [count]);
+
+  return (
+    <div>
+      {/* 将 useRef 引用绑定到 div 元素 */}
+      <div ref={myDivRef}>这是初始文本内容</div>
+      <div>{count}</div>
+      <button onClick={updateText}>update</button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+```useEffect.tsx
+export default function Demo() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  // 开始是 ... hi ..., useEffect 重新渲染ui的时候, fullName 会被重新计算
+  const fullName = firstName + ' ' + lastName;
+  console.log('updated');
+  useEffect(() => {
+    setFirstName('Taylor');
+    setLastName('Wlin');
+  }, []);
+
+  return (
+    <>
+      <div>{fullName}</div>
+    </>
+  );
+}
+```
+
+## 父子组件通信(其实就是嵌套组件)
+
+> 目前使用最多是 f-> s, 因为要符合高内聚,低耦合, 不必要的情况需要复杂的组件通信(组件通信俗称参数传递, 听起来很高大上, 让人感觉很难的样子)
+> 其实不必要纠结这些, 主要就是函数之间参数的传递, 不过是作用范围不同, 所以才有了 f-s(组件里面套一个组件), 类似的还有兄弟组件(并列的组件), 跨组件通信
+
+f -> s props
+s -> f callback function
+
+```jsx
+const Father = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <>
+      <div>计数值：{count}</div>
+      <Son setCount={setCount} />
+    </>
+  );
+};
+
+const Son = ({ setCount }) => {
+  return <button onClick={() => setCount((count) => count + 1)}>点击+1</button>;
+};
+```
+
+- 如果你发现你的代码有很多重复的地方, 那么你一定需要循环(loop)

@@ -1,0 +1,71 @@
+---
+title: 为什么我喜欢使用mdx写blog
+date: '2023-04-17'
+draft: true
+---
+
+## Nextjs Mdx
+
+next/mdx 仅仅支持 app/pages 目录下的 mdx 文件, 但是我们可以使用软链接把 articles 目录放在项目的根目录下面, 方便查找, 此外我还写了一个快速创建文章的脚本, 有点 hugo nex article(记不得具体是什么命令了) 的命令了
+
+```js
+const prompts = require('prompts');
+const fs = require('fs');
+
+async function createArticle() {
+  const response = await prompts([
+    // 获取用户输入的目录名和标题
+    {
+      type: 'text',
+      name: 'directoryName',
+      message: '请输入目录名：',
+      validate: (value) => {
+        if (!/^[A-Za-z0-9-]+$/.test(value)) {
+          return '目录名必须由字母组成';
+        }
+        if (fs.existsSync(`app/articles/${value}`)) {
+          return '目录已存在，请重新输入';
+        }
+        return true;
+      },
+    },
+    {
+      type: 'text',
+      name: 'title',
+      message: '请输入标题：',
+    },
+  ]);
+
+  const { directoryName, title } = response;
+
+  // 创建page.mdx文件并写入内容
+  const content = `export const metadata = {
+  title: '${title}',
+  date: '${getCurrentDate()}',
+};`;
+
+  // 创建目录
+  if (directoryName) {
+    fs.mkdirSync(`app/articles/${directoryName}`, { recursive: true });
+    fs.writeFileSync(`app/articles/${directoryName}/page.mdx`, content);
+
+    console.log(`${directoryName} 文章已成功创建！`);
+  } else {
+    console.log('文章创建失败!');
+  }
+}
+
+function getCurrentDate() {
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+  const day = String(currentDate.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+createArticle();
+```
+
+由于 @next/mdx 不支持 frontmatter 扩展 metadata, 想要在页面除了展示 pagd.mdx 的内容, 还需要自定义展示 metadata 的内容, 达到 frontmetadata 的作用, 使用二级动态 layout(这不是很符合 nextjs 直觉), 如果在根目录使用 loading, 二级 layout 的内容不会即使刷新(page.mdx 的内容是正常工作的), 需要二次刷新
+
+> cms, static, md, mdx(待续)
