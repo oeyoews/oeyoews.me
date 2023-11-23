@@ -14,22 +14,7 @@ export default async function Issue({
 
   const Comments = () => {
     return comments.map(({ body, id, user: { avatar_url, login } }) => (
-      <div key={id}>
-        {/* <img
-          src={avatar_url}
-          alt={login}
-          loading="lazy"
-          className="w-5 h-5 rounded-full inline"
-        /> */}
-        {/* <Image
-          src="//avatars.githubusercontent.com/u/72405338?v=4"
-          alt={login}
-          width={22}
-          height={22}
-          className="inline rounded-full"
-        /> */}
-        <MarkdownWrapper text={body} />
-      </div>
+        <MarkdownWrapper text={body} key={id} />
     ));
   };
 
