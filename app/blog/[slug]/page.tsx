@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import MDX from '~app/blog/Mdx';
-import { getBlogPosts, getPostFromParams } from '~app/blog/db/blog';
+import { getBlogPosts, getPostFromParams } from '~app/blog/blog';
 import PasswordProtectedContent from '~ui/PasswordPost';
 import Spinner from '~ui/Spinner';
 

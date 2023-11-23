@@ -6,7 +6,6 @@ type PasswordStoreState = {
   showContent: boolean;
   isPlaying: boolean;
   isClient: boolean;
-  firstLoading: boolean;
 };
 
 type PasswordStoreActions = {
@@ -14,7 +13,6 @@ type PasswordStoreActions = {
   setPassword: (password: string) => void;
   setShowContent: (show: boolean) => void;
   setIsPlaying: (isPlaying: boolean) => void;
-  setNotFirstLoading: () => void;
 };
 
 type UsePasswordStore = PasswordStoreState & PasswordStoreActions;
@@ -25,13 +23,11 @@ const useStore = create<UsePasswordStore>((set) => ({
   isPlaying: false,
   showContent: false,
   isClient: false,
-  firstLoading: true,
 
   setLoadedItems: (loadedItems) => set({ loadedItems }),
   setPassword: (password) => set({ enteredPassword: password }),
   setShowContent: (show) => set({ showContent: show }),
   setIsPlaying: (isPlaying) => set({ isPlaying: isPlaying }),
-  setNotFirstLoading: () => set({ firstLoading: false }),
 }));
 
 export default useStore;

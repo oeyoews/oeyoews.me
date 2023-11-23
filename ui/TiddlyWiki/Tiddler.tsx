@@ -3,7 +3,6 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import { format } from 'date-fns';
 import formatTitle from '~lib/formatTitle';
-import Fancybox from '~ui/Fancybox';
 import Icon from '~ui/Icon';
 import MarkdownWrapper from '~ui/MarkdownWrapper';
 
@@ -31,7 +30,6 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   return (
     <div className="prose prose-indigo max-w-none mb-8">
       {pageCover && (
-        <Fancybox>
           <Image
             src={pageCover}
             alt={title}
@@ -42,7 +40,6 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
             // blurDataURL={result.metadata.dataURIBase64}
             className={imageClasses}
           />
-        </Fancybox>
       )}
       <h1 className="my-8 capitalize text-balance">{formatTitle(title)}</h1>
       <div className={warnClassed}>

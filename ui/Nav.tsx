@@ -1,6 +1,5 @@
 import React from 'react';
 import { BsBook, BsCircle, BsFiletypeMdx, BsWikipedia } from 'react-icons/bs';
-import { SiTiddlywiki } from 'react-icons/si';
 
 import Link from 'next/link';
 
@@ -12,11 +11,6 @@ export default function Nav() {
       title: 'Home',
       path: '/',
       icon: <BsBook />,
-    },
-    {
-      title: 'tiddlywiki',
-      path: '/tiddlywiki',
-      icon: <SiTiddlywiki />,
     },
     {
       title: 'Blog',
