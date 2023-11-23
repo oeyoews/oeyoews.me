@@ -1,7 +1,7 @@
 // https://validator.w3.org/feed/#validate_by_input
 import { marked } from 'marked';
 import RSS from 'rss';
-import { getBlogPosts } from '~app/blog/db/blog';
+import { getBlogPosts } from '~app/blog/blog';
 import getTiddlerData from '~lib/getTiddlerData';
 
 const renderer = new marked.Renderer();

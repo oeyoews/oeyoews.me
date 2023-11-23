@@ -4,10 +4,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import MDX from '~app/blog/Mdx';
-import { getBlogPosts, getPostFromParams } from '~app/blog/db/blog';
+import { getBlogPosts, getPostFromParams } from '~app/blog/blog';
 import { Divider, H1 } from '~ui/Article';
 import PasswordProtectedContent from '~ui/PasswordPost';
-import Spinner from '~ui/Spinner';
+import Spinner from '~ui/Skeleton/Spinner';
 
 export const generateMetadata = ({ params }: { params: Params }): Metadata => {
   const post = getPostFromParams(params.slug);
