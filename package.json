@@ -9,7 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write app"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.27",

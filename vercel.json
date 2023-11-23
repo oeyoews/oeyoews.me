@@ -1,15 +1,15 @@
 {
-	"$schema": "https://openapi.vercel.sh/vercel.json",
-	"installCommand": "pnpm install --frozen-lockfile",
-	"buildCommand": "pnpm build",
-	"cleanUrls": true,
-	"trailingSlash": false,
-	"github": {
-		"silent": true
-	},
-	"git": {
-		"deploymentEnabled": {
-			"gh-pages": false
-		}
-	}
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm build",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "github": {
+    "silent": true
+  },
+  "git": {
+    "deploymentEnabled": {
+      "gh-pages": false
+    }
+  }
 }
