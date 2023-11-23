@@ -15,6 +15,7 @@ function PasswordProtectedContent({
   const [enteredPassword, setEnteredPassword] = useState('');
 
   const passwordStore = useStore();
+  const metadata = post.metadata;
 
   const handlePasswordSubmit = () => {
     if (post.password === enteredPassword) {
@@ -26,15 +27,15 @@ function PasswordProtectedContent({
 
   return (
     <div>
-      {!post.password && !post.draft && children}
-      {post.draft && (
+      {!metadata.password && !metadata.draft && children}
+      {metadata.draft && (
         <div className="prose">
           <small className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             正在努力编写中 ...
           </small>
         </div>
       )}
-      {post.password && !passwordStore.showContent ? (
+      {metadata.password && !passwordStore.showContent ? (
         <form
           className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-100 p-1 rounded-md flex mx-2"
           autoComplete="off"
@@ -46,9 +47,6 @@ function PasswordProtectedContent({
               placeholder="password"
               value={enteredPassword}
               onChange={(e) => setEnteredPassword(e.target.value)}
-              // 输入密码正确的时候自动触发回车
-              // chrome 不起作用, 在疑似登录表单中，谷歌浏览器倾向于忽略该值，而提供密码自动填充功能
-              autoComplete="off"
             />
           </label>
           <button
