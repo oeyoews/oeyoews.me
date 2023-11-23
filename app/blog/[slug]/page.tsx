@@ -27,7 +27,7 @@ const PostPage = ({ params }: { params: Params }) => {
   }
 
   return (
-    <article className="py-6 prose max-w-none prose-img:rounded-md">
+    <article className="py-6 prose prose-img:rounded-md">
       <h1 className="mb-2 text-3xl">{post.slug}</h1>
       <hr className="my-4 border-2 border-gray-100 rounded-full" />
       <PasswordProtectedContent post={post}>
