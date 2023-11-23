@@ -10,6 +10,7 @@ type Metadata = {
   draft: boolean | string;
 };
 
+// mdx-remote 也是支持parsefrontmatter, 不过不能直接传到mdxremote 需要compile, 不够方便
 const parseFrontmatter = (fileContent: string) => {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   const match = frontmatterRegex.exec(fileContent);
