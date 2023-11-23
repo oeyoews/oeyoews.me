@@ -41,7 +41,7 @@ export default function Nav() {
   return (
     <div className="navbar bg-base-200 backdrop-blur-md sticky  top-0 inset-x-0 py-0">
       <div className="flex-1 space-x-1 hidden md:block">
-        <Link href={'/'} className="btn btn-ghost btn-sm text-xl">
+        <Link href={'/'} className="btn btn-ghost text-xl">
           {/* <Image src={nextjsImage} className="avatar w-4" alt="logo" /> */}
           NextJs Blog
         </Link>
@@ -52,7 +52,7 @@ export default function Nav() {
             <Link
               key={link.title}
               href={link.path}
-              className="btn"
+              className="btn btn-ghost"
               data-tip={link.title}
             >
               {React.cloneElement(link.icon, { className: LinkClass })}
