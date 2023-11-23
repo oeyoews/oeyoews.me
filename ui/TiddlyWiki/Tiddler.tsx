@@ -3,7 +3,6 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import { format } from 'date-fns';
 import formatTitle from '~lib/formatTitle';
-import Icon from '~ui/Icon';
 import MarkdownWrapper from '~ui/MarkdownWrapper';
 
 export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
@@ -42,10 +41,6 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
           />
       )}
       <h1 className="my-8 capitalize text-balance">{formatTitle(title)}</h1>
-      <div className={warnClassed}>
-        <Icon icon="openmoji:warning" inline={true} className="mx-2" />
-        这不是一个Markdown类型的文章
-      </div>
       <div className="not-prose flex justify-center space-x-2 text-gray-800 font-mono">
         {creator && <div className="rounded px-1 bg-rose-50">{creator}</div>}
         {filteredTag?.map((tag) => (

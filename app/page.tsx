@@ -24,7 +24,7 @@ const page = () => {
 
   return (
     // 有时list-disc 不显示
-    <div className="prose mx-2 flex justify-center space-x-2">
+    <div className="prose max-w-none mx-2 flex justify-center space-x-2">
       {/* <p>网站文章由下面三部分组成</p> */}
       {sections.map((section, index) => (
         <div key={index}>

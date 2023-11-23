@@ -34,10 +34,10 @@ export default async function Issue({
   };
 
   return (
-    <div className="prose prose-indigo max-w-none mb-8 overflow-auto">
+    <div className="prose max-w-none mb-8 overflow-auto">
       <h1 className="my-8 capitalize text-balance">{formatTitle(title)}</h1>
       <div className="not-prose flex justify-center space-x-2 text-gray-800 font-mono">
-        <div className="rounded px-1 bg-indigo-200">{date}</div>
+        <div className="rounded px-1 bg-neutral-200/80">{date}</div>
       </div>
       {body && <MarkdownWrapper text={`${body}`} enableGFM={false} />}
       <Comments />
