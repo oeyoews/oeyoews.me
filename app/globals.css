@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* dayui 如果在layer 遇到注释会报错 */
 @layer base {
-  /* p {
-    @apply indent-4;
-  } */
   svg {
     display: inline;
   }
