@@ -24,7 +24,7 @@ export default function Nav() {
     },
     {
       title: 'issues',
-      path: '/github',
+      path: '/issue',
       icon: <BsCircle />,
     },
   ];
