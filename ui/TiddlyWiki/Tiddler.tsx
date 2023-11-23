@@ -55,9 +55,9 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
       <div className="text-center space-x-2">
         {creator && <Badge text={creator} />}
         {filteredTag?.map((tag) => (
-          <Badge text={tag} key={tag} className="rounded-sm" />
+          <Badge text={tag} key={tag} />
         ))}
-        <Badge text={format(date, 'yyyy-MM-dd')} className="rounded-sm" />
+        <Badge text={format(date, 'yyyy-MM-dd')} />
       </div>
       <MarkdownWrapper text={text} />
     </div>

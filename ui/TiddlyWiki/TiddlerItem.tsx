@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 import formatTitle from '~lib/formatTitle';
 import Badge from '~ui/PostList/PostBadges';
 
-export default async function TiddlerItem({
+export default function TiddlerItem({
   tiddler,
   index,
 }: {
@@ -35,7 +35,7 @@ export default async function TiddlerItem({
       >
         <h2 className="mt-0 mb-2 truncate text-blance capitalize">
           {formatTitle(title)}
-          {index === 0 && <Badge className="" text="Latest" />}
+          {index === 0 && <Badge className="ml-1" text="Latest" />}
         </h2>
       </Link>
       <time className="block text-sm font-normal leading-none text-gray-400">

@@ -13,11 +13,13 @@ const PostItem = ({ post, index }: any) => {
 
   const badges = [];
   if (index === 0)
-    badges.push(<Badge key={index} className="" text="Latest" />);
+    badges.push(<Badge key={index} className="ml-1" text="Latest" />);
   if (metadata.password)
-    badges.push(<Badge key={index} className="badge-error" text="Password" />);
+    badges.push(
+      <Badge key={index} className="ml-1 badge-error" text="Password" />,
+    );
   if (metadata.draft === true)
-    badges.push(<Badge key={index} className="badge-info" text="Draft" />);
+    badges.push(<Badge key={index} className="ml-1 badge-info" text="Draft" />);
 
   return (
     <div className="group pl-6 border-l-4 border-neutral-950 pb-4 relative m-0">

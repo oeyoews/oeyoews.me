@@ -5,5 +5,7 @@ export default function Badge({
   text: string;
   className?: string;
 }) {
-  return <div className={`${className} badge badge-outline`}>{text}</div>;
+  return (
+    <div className={`${className} badge badge-outline rounded-sm`}>{text}</div>
+  );
 }
