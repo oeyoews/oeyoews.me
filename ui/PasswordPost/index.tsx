@@ -18,7 +18,7 @@ function PasswordProtectedContent({
   const metadata = post.metadata;
 
   const handlePasswordSubmit = () => {
-    if (post.password === enteredPassword) {
+    if (metadata.password === enteredPassword) {
       passwordStore.setShowContent(true);
     } else {
       // alert('密码错误');
@@ -27,9 +27,10 @@ function PasswordProtectedContent({
 
   return (
     <div>
+      {/* 如果其他文章输入密码, 会影响 */}
       {!metadata.password && !metadata.draft && children}
       {metadata.draft && (
-        <div className="prose">
+        <div className="prose max-w-none">
           <small className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             正在努力编写中 ...
           </small>
@@ -45,7 +46,7 @@ function PasswordProtectedContent({
               type="password"
               className="bg-gray-100 border-none rounded p-2 focus:outline-none mx-2"
               placeholder="password"
-              value={enteredPassword}
+              // value={enteredPassword}
               onChange={(e) => setEnteredPassword(e.target.value)}
             />
           </label>
@@ -57,10 +58,7 @@ function PasswordProtectedContent({
           </button>
         </form>
       ) : (
-        <div>
-          {/* Content of the article */}
-          {passwordStore.showContent && children}
-        </div>
+        <>{passwordStore.showContent && children}</>
       )}
     </div>
   );

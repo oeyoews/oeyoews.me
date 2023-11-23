@@ -10,6 +10,7 @@ import YearHeader from '~ui/PostList/YearHeader';
 import CommitInfo from '~ui/git/CommitInfo';
 
 function PostItem({ post, index }: { post: any; index: number }) {
+  const metadata = post.metadata;
   return (
     <div className="group pl-6 border-gray-100/80 border-l-2 pb-4 relative m-0">
       <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[13px]">
@@ -24,25 +25,27 @@ function PostItem({ post, index }: { post: any; index: number }) {
         title="点击阅读全文"
       >
         <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition mt-0 mb-2">
-          {post.metadata.title}
+          {metadata.title}
           {index === 0 && (
             <Badge className="bg-neutral-100 font-bold" text="Latest" />
           )}
           {/* TODO */}
-          {/* {post.password && <Badge className="bg-purple-200" text="Password" />}
-          {post.draft === true && (
+          {metadata.password && (
+            <Badge className="bg-purple-200" text="Password" />
+          )}
+          {metadata.draft === true && (
             <Badge className="bg-gray-100" text="Draft" />
-          )} */}
+          )}
         </h2>
       </Link>
       <time className="block text-sm font-normal leading-none text-gray-400">
-        {format(new Date(post.metadata.date), 'EEE, MMMM d')}
+        {format(new Date(metadata.date), 'EEE, MMMM d')}
       </time>
     </div>
   );
 }
 
-function PostList({ posts }: { posts: any[] }) {
+const PostList = ({ posts }: { posts: any[] }) => {
   let currentYear: number;
 
   return (
@@ -71,7 +74,7 @@ function PostList({ posts }: { posts: any[] }) {
       <CommitInfo />
     </ol>
   );
-}
+};
 
 export default function HomePage() {
   const posts = getBlogPosts();
