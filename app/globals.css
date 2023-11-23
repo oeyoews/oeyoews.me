@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  /* p {
-    @apply indent-4;
-  } */
   svg {
     display: inline;
   }
@@ -25,10 +22,6 @@
 a {
   text-decoration: none !important;
 }
-
-/* a::after {
-  content: "↗";
-} */
 
 @keyframes comeInOut {
   0% {
