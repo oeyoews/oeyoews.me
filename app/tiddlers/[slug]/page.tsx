@@ -2,8 +2,8 @@ import { type Metadata } from 'next';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { notFound } from 'next/navigation';
 
-import getTiddlerData from '~lib/getTiddlerData';
 import Tiddler from '~components/TiddlyWiki/Tiddler';
+import getTiddlerData from '~lib/getTiddlerData';
 
 async function getTiddler(slug: string) {
   const { tiddlers } = await getTiddlerData();

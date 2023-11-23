@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
-import { getAllIssues } from '~lib/getIssues';
 import GithubIssueList from '~components/GitHubIssue/GithubIssueList';
+import { getAllIssues } from '~lib/getIssues';
 
 export function generateMetadata(): Metadata {
   return {

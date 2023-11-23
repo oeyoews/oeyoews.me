@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
-import formatTitle from '~lib/formatTitle';
 import MarkdownWrapper from '~components/MarkdownWrapper';
+import formatTitle from '~lib/formatTitle';
 
 export default async function Issue({
   issue,
@@ -14,7 +14,7 @@ export default async function Issue({
 
   const Comments = () => {
     return comments.map(({ body, id, user: { avatar_url, login } }) => (
-        <MarkdownWrapper text={body} key={id} />
+      <MarkdownWrapper text={body} key={id} />
     ));
   };
 

@@ -2,8 +2,8 @@ import Image from 'next/image';
 
 import clsx from 'clsx';
 import { format } from 'date-fns';
-import formatTitle from '~lib/formatTitle';
 import MarkdownWrapper from '~components/MarkdownWrapper';
+import formatTitle from '~lib/formatTitle';
 
 export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   const {
@@ -29,16 +29,16 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   return (
     <div className="prose prose-indigo max-w-none mb-8">
       {pageCover && (
-          <Image
-            src={pageCover}
-            alt={title}
-            width={1200}
-            height={480}
-            data-fancybox="gallary"
-            // placeholder="blur"
-            // blurDataURL={result.metadata.dataURIBase64}
-            className={imageClasses}
-          />
+        <Image
+          src={pageCover}
+          alt={title}
+          width={1200}
+          height={480}
+          data-fancybox="gallary"
+          // placeholder="blur"
+          // blurDataURL={result.metadata.dataURIBase64}
+          className={imageClasses}
+        />
       )}
       <h1 className="my-8 capitalize text-balance">{formatTitle(title)}</h1>
       <div className="not-prose flex justify-center space-x-2 text-gray-800 font-mono">
