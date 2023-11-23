@@ -8,12 +8,10 @@ import GithubIssueList from '~ui/Github/GithubIssueList';
 
 const CalendarHeatmapComponent = lazy(() => import('~ui/CalendarPost'));
 
-export function generateMetadata(): Metadata {
-  return {
-    title: 'neotw issues',
-    description: 'neotw issues',
-  };
-}
+export const metadata = {
+  title: 'issues',
+  description: 'issues',
+};
 
 export default async function IssueComponent() {
   const issues = await getAllIssues();
@@ -21,7 +19,7 @@ export default async function IssueComponent() {
   return (
     <>
       <FirstLoading />
-      <CalendarHeatmapComponent datas={issues} />
+      {/* <CalendarHeatmapComponent datas={issues} /> */}
       <GithubIssueList issues={issues} />
     </>
   );

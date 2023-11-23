@@ -6,13 +6,15 @@ import { ColorRing } from 'react-loader-spinner';
 export default function Spinner({
   center = true,
   size = 40,
+  className,
 }: {
   center?: boolean;
   size?: number;
+  className?: string;
 }) {
   const classname = center ? 'flex justify-center items-center' : '';
   return (
-    <div className={classname}>
+    <div className={`${className} ${classname}`}>
       <ColorRing
         visible={true}
         height={size}

@@ -15,11 +15,13 @@ export default function Nav() {
       title: 'Home',
       path: '/',
       icon: <BsBook />,
+      disabled: true,
     },
     {
       title: 'tiddlywiki',
       path: '/tiddlywiki',
       icon: <SiTiddlywiki />,
+      disabled: true,
     },
     {
       title: 'Blog',
@@ -39,7 +41,7 @@ export default function Nav() {
   ];
 
   return (
-    <div className="navbar bg-base-200 backdrop-blur-md sticky  top-0 inset-x-0 py-0">
+    <div className="navbar bg-base-200 backdrop-blur-md sticky  top-0 inset-x-0 py-0 z-[999]">
       <div className="flex-1 space-x-1 hidden md:block">
         <Link href={'/'} className="btn btn-ghost text-xl">
           {/* <Image src={nextjsImage} className="avatar w-4" alt="logo" /> */}
@@ -48,16 +50,18 @@ export default function Nav() {
       </div>
       <div className="flex-none">
         <ul className="">
-          {links.map((link) => (
-            <Link
-              key={link.title}
-              href={link.path}
-              className="btn btn-ghost"
-              data-tip={link.title}
-            >
-              {React.cloneElement(link.icon, { className: LinkClass })}
-            </Link>
-          ))}
+          {links
+            .filter((link) => !link.disabled)
+            .map((link) => (
+              <Link
+                key={link.title}
+                href={link.path}
+                className="btn btn-ghost"
+                data-tip={link.title}
+              >
+                {React.cloneElement(link.icon, { className: LinkClass })}
+              </Link>
+            ))}
         </ul>
       </div>
     </div>
