@@ -24,17 +24,24 @@ const page = () => {
 
   return (
     // 有时list-disc 不显示
-    <ul className="prose list-disc mx-2">
+    <div className="prose mx-2 flex justify-center space-x-2">
       {/* <p>网站文章由下面三部分组成</p> */}
       {sections.map((section, index) => (
-        <li key={index}>
-          <Link href={section.link} target="_blank" rel="noopener noreferrer">
-            <span className="mx-1 capitalize">{section.name}</span>
-            <Icon icon={section.icon} className="h-4 w-4" />
-          </Link>
-        </li>
+        <div key={index}>
+          <button className="bg-neutral-200/50 hover:bg-neutral-200/80 hover:shadow px-2 py-1 rounded m-1">
+            <Link
+              href={section.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={section.name}
+            >
+              <span className="mx-1 capitalize">{section.name}</span>
+              <Icon icon={section.icon} className="h-4 w-4" />
+            </Link>
+          </button>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
 
