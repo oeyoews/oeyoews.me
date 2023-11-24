@@ -5,8 +5,10 @@ import { notFound } from 'next/navigation';
 
 import MDX from '~app/blog/Mdx';
 import { getBlogPosts, getPostFromParams } from '~app/blog/blog';
+import { Article, Divider, H1 } from '~components/ArticleComponents';
 import PasswordProtectedContent from '~components/PasswordPost';
 import Spinner from '~components/Spinner';
+import formattedTime from '~lib/formattedTime';
 
 export const generateMetadata = ({ params }: { params: Params }): Metadata => {
   const post = getPostFromParams(params.slug);
@@ -22,22 +24,22 @@ export const generateStaticParams = () => {
 
 const PostPage = ({ params }: { params: Params }) => {
   const post = getPostFromParams(params.slug);
+
   if (!post) {
     notFound();
   }
 
   return (
-    <article className="py-6 prose prose-img:rounded-md max-w-none">
-      <h1 className="mb-2 text-3xl">{post.metadata.title}</h1>
-      <hr className="my-4 border-2 border-gray-100 rounded-full" />
+
+    <Article>
+      <H1>{post.metadata.title}</H1>
+      <Divider />
       <PasswordProtectedContent post={post}>
-        <Suspense fallback={<Spinner center={true} size={88} />}>
-          <article>
-            <MDX source={post.content} />
-          </article>
+        <Suspense fallback={<Spinner center size={88} />}>
+          <MDX source={post.content} />
         </Suspense>
       </PasswordProtectedContent>
-    </article>
+    </Article>
   );
 };
 
