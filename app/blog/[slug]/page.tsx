@@ -8,7 +8,6 @@ import { getBlogPosts, getPostFromParams } from '~app/blog/blog';
 import { Article, Divider, H1 } from '~components/ArticleComponents';
 import PasswordProtectedContent from '~components/PasswordPost';
 import Spinner from '~components/Spinner';
-import formattedTime from '~lib/formattedTime';
 
 export const generateMetadata = ({ params }: { params: Params }): Metadata => {
   const post = getPostFromParams(params.slug);
