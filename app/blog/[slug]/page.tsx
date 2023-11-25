@@ -30,7 +30,6 @@ const PostPage = ({ params }: { params: Params }) => {
   }
 
   return (
-
     <Article>
       <H1>{post.metadata.title}</H1>
       <Divider />

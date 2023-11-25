@@ -1,9 +1,4 @@
-import {
-  format,
-  formatDistance,
-  formatDistanceToNow,
-  formatRelative,
-} from 'date-fns';
+import { format, formatDistanceToNow } from 'date-fns';
 import { Article, Divider, H1 } from '~components/ArticleComponents';
 import MarkdownWrapper from '~components/MarkdownWrapper';
 import formatTitle from '~lib/formatTitle';

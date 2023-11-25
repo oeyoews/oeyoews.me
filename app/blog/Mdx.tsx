@@ -24,12 +24,7 @@ const components = {
 };
 
 const MDX = ({ source }: { source: any }) => {
-  return (
-      <MDXRemote
-        components={components}
-        source={source}
-      />
-  );
+  return <MDXRemote components={components} source={source} />;
 };
 
 export default MDX;
