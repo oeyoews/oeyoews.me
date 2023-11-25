@@ -7,7 +7,7 @@ const page = () => {
   const sections = [
     {
       name: 'mdx',
-      link: 'https://github.com/oeyoews/nextjs-mdx-blog/tree/main/content',
+      link: 'https://github.com/oeyoews/nextjs-mdx-blog/tree/oeyoews/content',
       icon: 'vscode-icons:file-type-light-mdx',
     },
     {
