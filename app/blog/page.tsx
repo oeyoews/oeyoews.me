@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { format } from 'date-fns';
+import { Post } from '~app/blog/blog';
 import { getBlogPosts } from '~app/blog/blog';
 import CommitInfo from '~components/CommitInfo';
 import Icon from '~components/Icon';
@@ -46,8 +47,8 @@ const PostItem = ({ post, index }: any) => {
   );
 };
 
-// @ts-ignore
-const sortByDateDesc = (a, b) => (a.metadata.date > b.metadata.date ? -1 : 1);
+const sortByDateDesc = (a: Post, b: Post) =>
+  new Date(a.metadata.date) > new Date(b.metadata.date) ? -1 : 1;
 
 const HomePage = () => {
   const posts = getBlogPosts();
