@@ -40,7 +40,7 @@ const PostItem = ({ post, index }: any) => {
         </h2>
       </Link>
       <time className="block text-sm font-normal leading-none text-gray-400">
-        {format(new Date(metadata.date), 'EEE, MMMM d')}
+        {metadata.date && format(new Date(metadata.date), 'EEE, MMMM d')}
       </time>
     </div>
   );

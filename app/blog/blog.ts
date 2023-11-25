@@ -63,23 +63,34 @@ const parseFrontmatter = (fileContent: string, fileName: string) => {
   }
 };
 
-const getMDXFiles = (dir: string) => {
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
+const getMDXFilesRecursive = (dir: string): string[] => {
+  let mdxFiles: string[] = [];
+  const files = fs.readdirSync(dir);
+
+  files.forEach((file) => {
+    const filePath = path.join(dir, file);
+    const isDirectory = fs.statSync(filePath).isDirectory();
+
+    if (isDirectory) {
+      // Recursively get MDX files from subdirectories
+      mdxFiles = mdxFiles.concat(getMDXFilesRecursive(filePath));
+    } else if (path.extname(file) === '.mdx') {
+      mdxFiles.push(filePath);
+    }
+  });
+
+  return mdxFiles;
 };
 
-const readMDXFile = (fileName: string, dir: string) => {
-  const filePath = path.join(dir, fileName);
+const readMDXFile = (filePath: string) => {
   const rawContent = fs.readFileSync(filePath, 'utf-8');
-  return parseFrontmatter(rawContent, fileName);
+  return parseFrontmatter(rawContent, path.basename(filePath));
 };
-
 const getMDXData = (dir: string): Post[] => {
-  const mdxFiles = getMDXFiles(dir);
-  return mdxFiles.map((file) => {
-    const { metadata, content } = readMDXFile(file, dir);
-    const filename = path
-      .basename(file, path.extname(file))
-      .replace(/\.mdx?$/, '');
+  const mdxFiles = getMDXFilesRecursive(dir);
+  return mdxFiles.map((filePath) => {
+    const { metadata, content } = readMDXFile(filePath);
+    const filename = path.basename(filePath, path.extname(filePath));
     const slug = md5(filename);
     return {
       metadata,
