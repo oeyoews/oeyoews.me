@@ -17,11 +17,20 @@ type Metadata = {
   draft: boolean | string;
 };
 
+const getDefaultDate = (filePath: string): string => {
+  const stats = fs.statSync(filePath);
+  return new Date(stats.birthtime).toISOString();
+};
+
 const parseDate = (dateString: string): string | number => {
   const parsedDate = Date.parse(dateString);
   return isNaN(parsedDate) ? dateString : parsedDate;
 };
-const parseFrontmatter = (fileContent: string, fileName: string) => {
+const parseFrontmatter = (
+  fileContent: string,
+  fileName: string,
+  filePath: string,
+) => {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   const match = frontmatterRegex.exec(fileContent);
 
@@ -44,6 +53,9 @@ const parseFrontmatter = (fileContent: string, fileName: string) => {
         value = parseDate(value);
       }
       metadata[key.trim() as keyof Metadata] = value;
+      if (!metadata.date) {
+        metadata.date = getDefaultDate(filePath);
+      }
     });
 
     return { metadata: metadata as Metadata, content };
@@ -52,7 +64,7 @@ const parseFrontmatter = (fileContent: string, fileName: string) => {
     return {
       metadata: {
         title: fileName.replace(/\.mdx?$/, ''), // Use file name as the default title
-        date: new Date().toISOString(), // Use current date as the default
+        date: getDefaultDate(filePath),
         summary: '',
         image: '',
         password: '',
@@ -84,7 +96,7 @@ const getMDXFilesRecursive = (dir: string): string[] => {
 
 const readMDXFile = (filePath: string) => {
   const rawContent = fs.readFileSync(filePath, 'utf-8');
-  return parseFrontmatter(rawContent, path.basename(filePath));
+  return parseFrontmatter(rawContent, path.basename(filePath), filePath);
 };
 const getMDXData = (dir: string): Post[] => {
   const mdxFiles = getMDXFilesRecursive(dir);
