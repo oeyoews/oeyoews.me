@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 import fs from 'fs';
 import md5 from 'md5';
 import path from 'path';
@@ -11,15 +12,15 @@ export type Post = {
 type Metadata = {
   title: string;
   date: string;
-  summary: string;
-  image: string;
-  password: string;
-  draft: boolean | string;
+  summary?: string;
+  image?: string;
+  password?: string;
+  draft?: boolean | string;
 };
 
 const getDefaultDate = (filePath: string): string => {
   const stats = fs.statSync(filePath);
-  return new Date(stats.birthtime).toISOString();
+  return new Date(stats.birthtime).toLocaleString();
 };
 
 const parseDate = (dateString: string): string | number => {
@@ -33,6 +34,8 @@ const parseFrontmatter = (
 ) => {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   const match = frontmatterRegex.exec(fileContent);
+  const defaultDate = getDefaultDate(filePath);
+  const defaultTitle = fileName.replace(/\.mdx?$/, ''); // Use file name as the default title
 
   if (match) {
     const frontMatterBlock = match[1];
@@ -54,21 +57,24 @@ const parseFrontmatter = (
       }
       metadata[key.trim() as keyof Metadata] = value;
       if (!metadata.date) {
-        metadata.date = getDefaultDate(filePath);
+        metadata.date = defaultDate;
       }
     });
 
     return { metadata: metadata as Metadata, content };
   } else {
     // No frontmatter found, use default values
+    const defaultFrontmatter = `---\ntitle: ${defaultTitle}\ndate: ${defaultDate}\n---`;
+    const updatedContent = `${defaultFrontmatter}\n\n${fileContent.trim()}`;
+    // Write the updated content back to the file
+    fs.writeFileSync(filePath, updatedContent);
+    console.log(
+      chalk.red(`检测到 ${filePath} 没有frontmatter`, '已经自动更新'),
+    );
     return {
       metadata: {
-        title: fileName.replace(/\.mdx?$/, ''), // Use file name as the default title
-        date: getDefaultDate(filePath),
-        summary: '',
-        image: '',
-        password: '',
-        draft: false,
+        title: defaultTitle,
+        date: defaultDate,
       },
       content: fileContent.trim(),
     };
