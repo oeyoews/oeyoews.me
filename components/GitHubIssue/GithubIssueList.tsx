@@ -2,10 +2,8 @@
 
 import GithubIssueItem from '~components/GitHubIssue/GithubIssueItem';
 import YearHeader from '~components/PostList/YearHeader';
-import useStore from '~lib/store';
 
 export default function GithubIssueList({ issues }: { issues: Issue[] }) {
-  const statusStore = useStore();
   let currentYear: number;
 
   const GithubIssueListContent = () => (

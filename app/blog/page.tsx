@@ -23,7 +23,7 @@ const PostItem = ({ post, index }: any) => {
     badges.push(<Badge key={index} className="bg-gray-100" text="Draft" />);
 
   return (
-    <div className="group pl-6 border-gray-100/80 border-l-2 pb-4 relative m-0 prose">
+    <div className="group pl-6 border-gray-100/80 border-l-2 pb-4 relative m-0">
       <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[13px]">
         <Icon
           icon="clarity:dot-circle-line"
@@ -59,7 +59,7 @@ const HomePage = () => {
   }
 
   return (
-    <ol className="list-none">
+    <ol className="list-none prose dark:prose-invert ">
       {posts.sort(sortByDateDesc).map((post, index) => {
         const postYear = new Date(post.metadata.date).getFullYear();
         const yearHeader =
