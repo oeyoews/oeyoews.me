@@ -7,7 +7,6 @@ import { Providers } from './Providers';
 
 import '~app/globals.css';
 import Nav from '~components/Nav';
-import { ThemeSwitcher } from '~components/ThemeSwitcher';
 
 export const metadata: Metadata = {
   title: {
@@ -32,9 +31,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <NextTopLoader />
         <Toaster />
         <Providers>
-          <div className="fixed bottom-2 right-2">
-            <ThemeSwitcher />
-          </div>
           <Nav />
           <main className="container mx-auto max-w-4xl py-10 px-4">
             {children}

@@ -13,15 +13,15 @@ export function ThemeSwitcher() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return <FiSun />;
+  if (!mounted) return null;
 
   return (
     <>
       <button
         onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-        className="h-8"
+        className="scale-125"
       >
-        {theme === 'light' ? <FiSun className="h-4 w-4" /> : <FiMoon />}
+        {theme === 'light' ? <FiSun className="" /> : <FiMoon />}
       </button>
     </>
   );

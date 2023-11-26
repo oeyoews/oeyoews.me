@@ -19,6 +19,19 @@
 @layer components {
 }
 
+/* 在全屏状态下隐藏元素 */
+/* .nav:-webkit-full-screen {
+  display: none !important;
+}
+
+.nav:-moz-full-screen {
+  display: none !important;
+}
+
+.nav:full-screen {
+  display: none !important;
+} */
+
 a {
   text-decoration: none !important;
 }
