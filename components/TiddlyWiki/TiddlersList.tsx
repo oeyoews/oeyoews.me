@@ -46,7 +46,7 @@ export default function TiddlersList({
   let currentYear: number;
 
   const TiddlerListContent = () => (
-    <ol className="prose list-none my-4">
+    <ol className="list-none my-4 prose dark:prose-invert">
       {data.slice(0, loadedItems).map((tiddler, index) => {
         const { title, date } = tiddler;
         const postYear = new Date(date).getFullYear();

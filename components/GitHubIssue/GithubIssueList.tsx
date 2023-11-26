@@ -9,7 +9,7 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
   let currentYear: number;
 
   const GithubIssueListContent = () => (
-    <ol className="prose list-none my-4">
+    <ol className="list-none my-4 prose dark:prose-invert">
       {issues.map((issue, index) => {
         const { title, created_at } = issue;
         const postYear = new Date(created_at).getFullYear();

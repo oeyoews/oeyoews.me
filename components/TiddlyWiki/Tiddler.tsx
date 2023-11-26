@@ -27,7 +27,7 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
     type === 'text/markdown' && 'hidden',
   );
   return (
-    <div className="prose prose-indigo max-w-none mb-8">
+    <div className="mb-8">
       {pageCover && (
         <Image
           src={pageCover}
@@ -41,7 +41,7 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
         />
       )}
       <h1 className="my-8 capitalize text-balance">{formatTitle(title)}</h1>
-      <div className="not-prose flex justify-center space-x-2 text-gray-800 font-mono">
+      {/* <div className="flex justify-center space-x-2 text-gray-800 font-mono">
         {creator && <div className="rounded px-1 bg-rose-50">{creator}</div>}
         {filteredTag?.map((tag) => (
           <div key={tag} className={tagClasses}>
@@ -50,9 +50,8 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
         ))}
         <div className="rounded px-1 bg-indigo-200">
           {format(date, 'yyyy-MM-dd')}
-          {/* {date.toISOString().split('T')[0]} */}
         </div>
-      </div>
+      </div> */}
       <MarkdownWrapper text={text} />
     </div>
   );

@@ -23,7 +23,7 @@ const PostItem = ({ post, index }: any) => {
     badges.push(<Badge key={index} className="bg-gray-100" text="Draft" />);
 
   return (
-    <div className="group pl-6 border-gray-100/80 border-l-2 pb-4 relative m-0">
+    <div className="group pl-6 border-gray-100/80 border-l-2 pb-4 relative m-0 prose">
       <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[13px]">
         <Icon
           icon="clarity:dot-circle-line"
@@ -35,7 +35,7 @@ const PostItem = ({ post, index }: any) => {
         className="text-xs rounded-md"
         title="点击阅读全文"
       >
-        <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition mt-0 mb-2">
+        <h2 className="mt-0 mb-2 capitalize">
           {metadata.title}
           {badges}
         </h2>
@@ -59,7 +59,7 @@ const HomePage = () => {
   }
 
   return (
-    <ol className="prose list-none">
+    <ol className="list-none">
       {posts.sort(sortByDateDesc).map((post, index) => {
         const postYear = new Date(post.metadata.date).getFullYear();
         const yearHeader =

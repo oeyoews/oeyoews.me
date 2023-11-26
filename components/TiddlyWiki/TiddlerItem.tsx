@@ -33,7 +33,7 @@ export default async function TiddlerItem({
         className="text-xs rounded-md"
         title="点击阅读全文"
       >
-        <h2 className="text-neutral-700 hover:text-neutral-950 duration-300 transition mt-0 mb-2 truncate text-blance capitalize">
+        <h2 className="mt-0 mb-2 truncate text-blance capitalize">
           {formatTitle(title)}
           {index === 0 && (
             <Badge className="bg-neutral-200 font-bold" text="Latest" />

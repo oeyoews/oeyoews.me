@@ -31,7 +31,7 @@ function PasswordProtectedContent({
       {/* 如果其他文章输入密码, 会影响 */}
       {!metadata.password && !metadata.draft && children}
       {metadata.draft && (
-        <div className="prose max-w-none">
+        <div className="">
           <small className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             正在努力编写中 ...
           </small>
