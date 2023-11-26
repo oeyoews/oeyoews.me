@@ -3,8 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import type { Metadata, Viewport } from 'next';
 import NextTopLoader from 'nextjs-toploader';
 
-import { Providers } from './Providers';
-
+import { Providers } from '~app/Providers';
 import '~app/globals.css';
 import Nav from '~components/Nav';
 import config from '~site/config';
