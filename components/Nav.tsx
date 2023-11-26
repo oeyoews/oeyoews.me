@@ -68,7 +68,11 @@ export default function Nav() {
     <>
       <div className="flex fixed bottom-4 right-4 space-x-4">
         <ThemeSwitcher />
-        <button onClick={toggleFullScreen} className="scale-150">
+        {/* NOTE: 手机不支持fullscreen */}
+        <button
+          onClick={toggleFullScreen}
+          className="scale-150 hidden md:block"
+        >
           {!isFullScreen ? <MdFullscreen /> : <MdFullscreenExit />}
         </button>
       </div>
