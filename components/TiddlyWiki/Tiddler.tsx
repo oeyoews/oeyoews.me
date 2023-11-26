@@ -27,7 +27,7 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
     type === 'text/markdown' && 'hidden',
   );
   return (
-    <div className="mb-8">
+    <div className="mb-8 prose dark:prose-invert">
       {pageCover && (
         <Image
           src={pageCover}
