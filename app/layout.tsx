@@ -21,9 +21,6 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-{
-  /* warning  extra attribute */
-}
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>

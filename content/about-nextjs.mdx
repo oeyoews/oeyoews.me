@@ -3,6 +3,26 @@ title: 关于使用 NextJs 的一些经验
 date: 2023-11-23
 ---
 
+## 关于 use client
+
+https://stackoverflow.com/questions/74992326/does-use-client-in-next-js-13-root-layout-make-whole-routes-client-component
+layout.js 里面是可以使用use client, 不会导致子组件全部变成 client
+
+## RSC
+
+注意: RSC 不是ssr 的升级(他们是两种不同的概念)
+
+https://nextjs.org/docs/app/building-your-application/rendering/server-components
+There are a couple of benefits to doing the rendering work on the server, including:
+
+1. Data Fetching: Server Components allow you to move data fetching to the server, closer to your data source. This can improve performance by reducing time it takes to fetch data needed for rendering, and the amount of requests the client needs to make.
+
+2. Security
+
+3. Caching:
+
+4. Bundle Sizes
+
 - 支持良好的 seo(不过个人博客站点如果访客量不大几乎没啥区别)
 - 轻量
 
