@@ -7,13 +7,14 @@ import { Providers } from './Providers';
 
 import '~app/globals.css';
 import Nav from '~components/Nav';
+import config from '~site/config';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Blog with NextJs',
-    template: '%s | Blog with NextJs',
+    default: config.title,
+    template: `%s | ${config.title}`,
   },
-  description: 'Nextjs + TypeScript + Tailwindcss + MDX',
+  description: config.description,
   manifest: '/manifest.json',
 };
 

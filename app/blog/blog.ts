@@ -2,6 +2,7 @@ import chalk from 'chalk';
 import fs from 'fs';
 import md5 from 'md5';
 import path from 'path';
+import config from '~site/config';
 
 export type Post = {
   metadata: Metadata;
@@ -119,8 +120,7 @@ const getMDXData = (dir: string): Post[] => {
 };
 
 export const getBlogPosts = () => {
-  const content = process.env.content || 'content';
-  return getMDXData(path.join(process.cwd(), content));
+  return getMDXData(path.join(process.cwd(), config.content));
 };
 
 export const getPostFromParams = (slug: string) =>

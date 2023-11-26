@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import clsx from 'clsx';
 import { format } from 'date-fns';
+import { H1 } from '~components/ArticleComponents';
 import MarkdownWrapper from '~components/MarkdownWrapper';
 import formatTitle from '~lib/formatTitle';
 
@@ -24,7 +25,9 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
   );
   const warnClassed = clsx(
     'text-center rounded p-2 my-4 text-red-500 bg-red-100',
-    type === 'text/markdown' && 'hidden',
+    {
+      hidden: type === 'text/markdown',
+    },
   );
   return (
     <div className="mb-8 prose max-w-none dark:prose-invert">
@@ -35,12 +38,10 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
           width={1200}
           height={480}
           data-fancybox="gallary"
-          // placeholder="blur"
-          // blurDataURL={result.metadata.dataURIBase64}
           className={imageClasses}
         />
       )}
-      <h1 className="my-8 capitalize text-balance">{formatTitle(title)}</h1>
+      <H1>{formatTitle(title)}</H1>
       {/* <div className="flex justify-center space-x-2 text-gray-800 font-mono">
         {creator && <div className="rounded px-1 bg-rose-50">{creator}</div>}
         {filteredTag?.map((tag) => (

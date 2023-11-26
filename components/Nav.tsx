@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { BsBook, BsCircle, BsFiletypeMdx, BsWikipedia } from 'react-icons/bs';
 import { MdFullscreen, MdFullscreenExit } from 'react-icons/md';
 
 import Link from 'next/link';
@@ -9,32 +8,11 @@ import Link from 'next/link';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 import clsx from 'clsx';
+import config from '~site/config';
 
 export default function Nav() {
   const LinkClass = 'w-5 h-5';
 
-  const links = [
-    {
-      title: 'Home',
-      path: '/',
-      icon: <BsBook />,
-    },
-    {
-      title: 'Blog',
-      path: '/blog',
-      icon: <BsFiletypeMdx />,
-    },
-    {
-      title: 'tiddlers',
-      path: '/tiddlers',
-      icon: <BsWikipedia />,
-    },
-    {
-      title: 'issues',
-      path: '/issue',
-      icon: <BsCircle />,
-    },
-  ];
   const [isFullScreen, setIsFullScreen] = useState(false);
   const toggleFullScreen = () => {
     if (!document.fullscreenElement) {
@@ -87,7 +65,7 @@ export default function Nav() {
             'ml-auto text-sm font-medium space-x-6 flex flex-row',
           )}
         >
-          {links.map((link) => (
+          {config.links.map((link) => (
             <Link
               key={link.title}
               href={link.path}

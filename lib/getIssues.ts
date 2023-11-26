@@ -1,6 +1,8 @@
 import { create } from './fetch';
 
-const baseurl = `https://api.github.com/repos/${process.env.GITHUB_REPO}`;
+import config from '~site/config';
+
+const baseurl = `https://api.github.com/repos/${config.githubRepo}`;
 
 const headers = {
   Accept: 'application/vnd.github+json',

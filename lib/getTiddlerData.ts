@@ -1,11 +1,9 @@
 import md5 from 'md5';
 import { create } from '~lib/fetch';
 import formattedTime from '~lib/formattedTime';
+import config from '~site/config';
 
-const TidderJsonFile =
-  process.env.TiddlerJsonFile || 'https://neotw.vercel.app/tiddlers.json';
-
-export default async function getTiddlerData(tiddlerjsonfile = TidderJsonFile) {
+export default async function getTiddlerData(tiddlerjsonfile = config.json) {
   const fetch = create(tiddlerjsonfile);
   const res = await fetch({
     options: {
