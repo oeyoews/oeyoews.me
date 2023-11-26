@@ -37,27 +37,31 @@ export default function Nav() {
   ];
   const [isFullScreen, setIsFullScreen] = useState(false);
   const toggleFullScreen = () => {
-    if (!isFullScreen) {
+    if (!document.fullscreenElement) {
       // 进入全屏
-      if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen();
-      }
+      document.documentElement.requestFullscreen();
+      setIsFullScreen(true);
     } else {
       // 退出全屏
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
+      document.exitFullscreen();
+      setIsFullScreen(false);
+    }
+  };
+
+  const handleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
+    if (event.key === 'f') {
+      toggleFullScreen();
     }
   };
 
   useEffect(() => {
-    document.addEventListener('fullscreenchange', () => {
-      if (document.fullscreenElement) {
-        setIsFullScreen(true);
-      } else {
-        setIsFullScreen(false);
-      }
-    });
+    // @ts-ignore
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      // @ts-ignore
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
