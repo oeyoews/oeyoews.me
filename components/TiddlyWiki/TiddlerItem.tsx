@@ -35,9 +35,7 @@ export default async function TiddlerItem({
       >
         <h2 className="mt-0 mb-2 truncate text-blance capitalize">
           {formatTitle(title)}
-          {index === 0 && (
-            <Badge className="bg-neutral-200 font-bold" text="Latest" />
-          )}
+          {index === 0 && <Badge className="" text="Latest" />}
         </h2>
       </Link>
       <time className="block text-sm font-normal leading-none text-gray-400">

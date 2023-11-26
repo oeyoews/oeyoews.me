@@ -34,9 +34,7 @@ export default function GithubIssueItem({
       >
         <h2 className="mt-0 mb-2 truncate text-blance capitalize">
           {title}
-          {index === 0 && (
-            <Badge className="bg-neutral-200 font-bold" text="Latest" />
-          )}
+          {index === 0 && <Badge className="font-bold" text="Latest" />}
         </h2>
       </Link>
       <div className="flex space-x-2 text-gray-400">

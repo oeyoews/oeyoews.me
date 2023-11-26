@@ -71,7 +71,7 @@ export default function TiddlersList({
       {data.length > loadedItems && (
         <button
           onClick={handleLoadMore}
-          className="text-sm font-medium text-neutral-600 hover:text-neutral-800 bg-neutral-200 rounded px-2 font-mono py-1"
+          className="text-sm font-medium rounded px-2 font-mono py-1"
         >
           加载更多
         </button>
