@@ -1,6 +1,6 @@
-import { Link } from '@nextui-org/link';
+import Link from 'next/link';
+
 import Icon from '~components/Icon';
-import { ThemeSwitcher } from '~components/ThemeSwitcher';
 
 const page = () => {
   // > 此网站分为 [mdx](https://github.com/oeyoews/nextjs-mdx-blog/content), [tiddlers](https://github.com/oeyoews/neotw-tiddlers),[issues](https://github.com/oeyoews/neotw-tiddlers/issues) 三部分组成
@@ -28,8 +28,6 @@ const page = () => {
       {sections.map((section, index) => (
         <div key={index}>
           <Link
-            showAnchorIcon
-            color="foreground"
             className="space-x-2"
             href={section.link}
             target="_blank"

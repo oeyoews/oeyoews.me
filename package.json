@@ -14,7 +14,6 @@
   "dependencies": {
     "@fancyapps/ui": "^5.0.27",
     "@iconify/react": "^4.1.1",
-    "@nextui-org/react": "^2.2.9",
     "@types/echarts": "^4.9.21",
     "@types/md5": "^2.3.5",
     "@types/rss": "^0.0.30",

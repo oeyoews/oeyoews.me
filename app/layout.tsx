@@ -28,7 +28,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased min-h-screen text-foreground bg-background">
+      <body className="antialiased min-h-screen">
         <NextTopLoader />
         <Toaster />
         <Providers>
