@@ -1,11 +1,15 @@
 ---
 title: 关于使用 NextJs 的一些经验
-date: 2023-11-23
+date: '2023-11-23'
 ---
 
 ## 关于 use client
 
+
+(你也可以用 `import 'client-only')[https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns]
+
 https://stackoverflow.com/questions/74992326/does-use-client-in-next-js-13-root-layout-make-whole-routes-client-component
+https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns#supported-pattern-passing-server-components-to-client-components-as-props
 layout.js 里面是可以使用use client, 不会导致子组件全部变成 client
 
 ## RSC
@@ -23,8 +27,53 @@ There are a couple of benefits to doing the rendering work on the server, includ
 
 4. Bundle Sizes
 
-- 支持良好的 seo(不过个人博客站点如果访客量不大几乎没啥区别)
-- 轻量
+React renders Server Components into a special data format(可序列的数据化的数据, 用于server=> 向 client的数据传递) called the React Server Component Payload (RSC Payload), which includes references to Client Components(占位符).
+(rsc payload 和client component进行hydration(水合), 渲染html, 使其具备交互能力)
+The React Server Components Payload is used to reconcile the Client and Server Component trees, and update the DOM.(维护dom tree)
+
+Since Client Components are rendered after Server Components, you cannot import a Server Component into a Client Component module (since it would require a new request back to the server). Instead, you can pass a Server Component as props to a Client Component. See the unsupported pattern and supported pattern sections below.
+(之所以不能嵌入就是因为最小边界时文件不是组件), props 可以保证完全区分组件类型, 使用占位符代替, 注意这里的数据必须时可序列化的, 对象/函数是不能作为props 传递的
+
+```tsx
+// clientcomponent.tsx
+'use client';
+
+import ServerComponent from './ServerComponent';
+
+export default function ClientComponent({
+  server,
+}: {
+  server: React.ReactElement;
+}) {
+  return (
+    <div>
+      <div>ClientComponent</div>
+      <div>server content is : {server}</div>
+      {/* <div>{children}</div> */}
+    </div>
+  );
+}
+
+// servercomponent.tsx
+'use server';
+
+export default async function ServerComponent() {
+  //   const a = { a: 1 }; // wrong
+  //   const aa = [{b: 2}] // wrong
+  const a = ['hi', 2]; // binggo
+  console.log('Hello from Server Component');
+  return <>Hello from Server Component {a}</>;
+}
+
+
+// page.tsx
+<ClientComponent server={<ServerComponent />} />
+// 这种传props 的用法不多, 更多的是 client component nesed to server component
+
+
+// 为了减少客户端的js bundle size, 尽量保持client component move to client, 但是 那种props  传递的server component 的用法对此没有影响, 因为客户端渲染的时候会跳过client, 要避免的主要是直接在父级直接使用client, 导致嵌入的组件全部变成了client, 尽量将client 抽离出去
+```
+
 
 自从 React18 的文档更新以后, 引起了不小的讨论, react 不再一味的像以前推荐 CRA, 而是建议使用基于 React 的框架进行学习 React, 而且这一推荐放在了很重要的开头位置(NextJs 和 React 的合作很密切)
 
