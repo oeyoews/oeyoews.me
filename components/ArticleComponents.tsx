@@ -1,5 +1,5 @@
 export const Divider = () => {
-  return <hr className="my-4 border-2 rounded-full" />;
+  return <hr className="my-4 border-2 rounded-full not-prose" />;
 };
 
 export const H1 = ({ children }: { children: React.ReactNode }) => {
@@ -8,7 +8,7 @@ export const H1 = ({ children }: { children: React.ReactNode }) => {
 
 export const Article = ({ children }: { children: React.ReactNode }) => {
   return (
-    <article className="py-6 prose prose-img:rounded-md max-w-none overflow-auto">
+    <article className="py-6 max-w-none prose dark:prose-invert prose-img:rounded-md overflow-auto">
       {children}
     </article>
   );

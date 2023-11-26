@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 export default function Badge({
   text,
   className,
@@ -7,7 +9,10 @@ export default function Badge({
 }) {
   return (
     <sup
-      className={`${className} rounded-sm text-xs px-1 mx-1 font-light inline-flex`}
+      className={clsx(
+        'rounded-sm text-xs px-1 mx-1 font-light inline-flex text-black dark:text-white',
+        className,
+      )}
     >
       {text}
     </sup>

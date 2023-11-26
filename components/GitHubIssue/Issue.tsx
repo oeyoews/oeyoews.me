@@ -25,10 +25,9 @@ export default async function Issue({
   return (
     <Article>
       <H1>{formatTitle(title)}</H1>
-      {/* <div className="not-prose flex justify-center space-x-2 text-gray-800 font-mono"> */}
-      <div className="text-sm text-center">
+      {/* <div className="text-sm text-center">
         {date}({relativeDate})
-      </div>
+      </div> */}
       {/* </div> */}
       <Divider />
       {body && <MarkdownWrapper text={`${body}`} enableGFM={false} />}

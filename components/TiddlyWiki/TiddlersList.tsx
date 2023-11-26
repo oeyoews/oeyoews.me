@@ -46,7 +46,7 @@ export default function TiddlersList({
   let currentYear: number;
 
   const TiddlerListContent = () => (
-    <ol className="prose list-none my-4">
+    <ol className="list-none my-4 prose dark:prose-invert">
       {data.slice(0, loadedItems).map((tiddler, index) => {
         const { title, date } = tiddler;
         const postYear = new Date(date).getFullYear();
@@ -71,7 +71,7 @@ export default function TiddlersList({
       {data.length > loadedItems && (
         <button
           onClick={handleLoadMore}
-          className="text-sm font-medium text-neutral-600 hover:text-neutral-800 bg-neutral-200 rounded px-2 font-mono py-1"
+          className="text-sm font-medium rounded px-2 font-mono py-1"
         >
           加载更多
         </button>
