@@ -5,14 +5,13 @@ import { ThemeProviderProps } from 'next-themes/dist/types';
 import { useRouter } from 'next/navigation';
 
 import { NextUIProvider } from '@nextui-org/system';
-import useDarkMode from 'use-dark-mode';
 
 export interface ProvidersProps {
   children: React.ReactNode;
   themeProps?: ThemeProviderProps;
 }
 
-export function Providers({ children, themeProps }: ProvidersProps) {
+export function Providers({ children }: ProvidersProps) {
   const router = useRouter();
 
   return (
