@@ -1,6 +1,6 @@
 import { Toaster } from 'react-hot-toast';
 
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import NextTopLoader from 'nextjs-toploader';
 
 import { Providers } from './Providers';
@@ -16,13 +16,13 @@ export const metadata: Metadata = {
   },
   description: config.description,
   manifest: '/manifest.json',
+};
+
+export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' },
   ],
-};
-
-export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
