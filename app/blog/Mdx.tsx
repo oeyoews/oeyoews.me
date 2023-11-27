@@ -22,7 +22,8 @@ const slugify = (str: string) => {
 
 const createHeading =
   (level: number) =>
-  ({ children }) => {
+  // eslint-disable-next-line react/display-name
+  ({ children }: any) => {
     let slug = slugify(children);
     return React.createElement(
       `h${level}`,
