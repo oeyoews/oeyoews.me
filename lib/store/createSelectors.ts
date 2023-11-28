@@ -1,3 +1,5 @@
+// https://github.com/Albert-Gao/auto-zustand-selectors-hook/blob/master/src/createSelectorFunctions.ts
+// https://docs.pmnd.rs/zustand/guides/auto-generating-selectors
 import { StoreApi, UseBoundStore } from 'zustand';
 
 export interface ZustandFuncSelectors<StateType> {
