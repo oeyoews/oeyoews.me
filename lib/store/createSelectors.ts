@@ -1,17 +1,23 @@
 import { StoreApi, UseBoundStore } from 'zustand';
 
-type WithSelectors<S> = S extends { getState: () => infer T }
-  ? S & { use: { [K in keyof T]: () => T[K] } }
-  : never;
+export interface ZustandFuncSelectors<StateType> {
+  use: {
+    [key in keyof StateType]: () => StateType[key];
+  };
+}
 
-export const createSelectors = <S extends UseBoundStore<StoreApi<object>>>(
-  _store: S,
+export const createSelectors = <StateType extends object>(
+  store: UseBoundStore<StoreApi<StateType>>,
 ) => {
-  let store = _store as WithSelectors<typeof _store>;
-  store.use = {};
-  for (let k of Object.keys(store.getState())) {
-    (store.use as any)[k] = () => store((s) => s[k as keyof typeof s]);
-  }
+  const storeIn = store as any;
 
-  return store;
+  storeIn.use = {};
+
+  Object.keys(storeIn.getState()).forEach((key) => {
+    const selector = (state: StateType) => state[key as keyof StateType];
+    storeIn.use[key] = () => storeIn(selector);
+  });
+
+  return store as UseBoundStore<StoreApi<StateType>> &
+    ZustandFuncSelectors<StateType>;
 };
