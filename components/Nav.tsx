@@ -44,7 +44,7 @@ export default function Nav() {
 
   return (
     <>
-      <div className="flex fixed bottom-4 right-4 space-x-4 print:hidden opacity-0 hover:opacity-100 transition-all">
+      <div className="backdrop-blur-md p-2 bg-black/5 dark:bg-black/90 shadow rounded-tl-md flex fixed bottom-0 right-0 space-x-4 print:hidden opacity-0 hover:opacity-100 transition-all">
         <ThemeSwitcher />
         {/* NOTE: 手机不支持fullscreen */}
         <button
