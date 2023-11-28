@@ -34,10 +34,8 @@ const page = () => {
           rel="noopener noreferrer"
           title={section.name}
         >
-          <div className="mx-1 capitalize">
-            {section.name}
-            <Icon icon={section.icon} className="h-4 w-4" />
-          </div>
+          {section.name}
+          <Icon icon={section.icon} className="h-4 w-4 mx-1" />
         </Link>
       ))}
     </div>
