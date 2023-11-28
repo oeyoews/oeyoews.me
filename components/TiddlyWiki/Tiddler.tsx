@@ -37,7 +37,6 @@ export default async function Tiddler({ tiddler }: { tiddler: Tiddler }) {
           alt={title}
           width={1200}
           height={480}
-          data-fancybox="gallary"
           className={imageClasses}
         />
       )}
