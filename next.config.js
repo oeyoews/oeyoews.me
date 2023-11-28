@@ -13,8 +13,13 @@ const nextConfig = {
       },
     ],
   },
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
   experimental: {
-    // ppr: true,
+    ppr: true,
     // optimizePackageImports: ['react-icons'],
   },
 };

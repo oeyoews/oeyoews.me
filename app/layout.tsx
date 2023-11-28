@@ -1,7 +1,6 @@
 import { Toaster } from 'react-hot-toast';
 
 import type { Metadata, Viewport } from 'next';
-import NextTopLoader from 'nextjs-toploader';
 
 import { Providers } from '~app/Providers';
 import '~app/globals.css';
@@ -35,7 +34,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased min-h-screen">
-        <NextTopLoader />
         <Toaster />
         <Providers>
           <Nav />
