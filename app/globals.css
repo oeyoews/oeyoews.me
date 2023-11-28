@@ -3,12 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+  /* iconify patch */
   svg {
     display: inline;
   }
   h1,
   h2 {
-    text-wrap: 'text-balance'
+    text-wrap: 'text-balance';
   }
 
   h1 {

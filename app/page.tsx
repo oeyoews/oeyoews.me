@@ -24,20 +24,21 @@ const page = () => {
 
   return (
     // TODO: 有时list-disc 不显示
-    <div className="mx-2 flex justify-center space-x-2">
-      {sections.map((section, index) => (
-        <div key={index}>
-          <Link
-            className="space-x-2"
-            href={section.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={section.name}
-          >
-            <span className="mx-1 capitalize">{section.name}</span>
+    <div className="mx-2 flex justify-center items-center space-x-2">
+      {sections.map((section) => (
+        <Link
+          key={section.link}
+          className="space-x-2"
+          href={section.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={section.name}
+        >
+          <div className="mx-1 capitalize">
+            {section.name}
             <Icon icon={section.icon} className="h-4 w-4" />
-          </Link>
-        </div>
+          </div>
+        </Link>
       ))}
     </div>
   );

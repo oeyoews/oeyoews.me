@@ -1,5 +1,5 @@
 'use client';
 
-import { Icon } from '@iconify/react';
+import { InlineIcon as Icon } from '@iconify/react';
 
 export default Icon;
