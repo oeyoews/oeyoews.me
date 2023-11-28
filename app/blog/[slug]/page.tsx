@@ -33,7 +33,7 @@ const PostPage = ({ params }: { params: Params }) => {
       <H1>{post.metadata.title}</H1>
       <Divider />
       <PasswordProtectedContent post={post}>
-        <Suspense fallback={<Spinner center size={88} />}>
+        <Suspense fallback={<Spinner center />}>
           <MDX source={post.content} />
         </Suspense>
       </PasswordProtectedContent>
