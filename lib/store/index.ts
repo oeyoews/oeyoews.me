@@ -1,3 +1,5 @@
+import { createSelectors } from './createSelectors';
+
 import { create } from 'zustand';
 
 interface StoreState {
@@ -14,7 +16,7 @@ interface StoreActions {
 
 type UseStore = StoreState & StoreActions;
 
-const useStore = create<UseStore>()((set) => ({
+const useBlogStoreBase = create<UseStore>()((set) => ({
   loadedItems: 30,
   enteredPassword: '',
   showContent: false,
@@ -23,4 +25,6 @@ const useStore = create<UseStore>()((set) => ({
   setShowContent: (show) => set({ showContent: show }),
 }));
 
-export default useStore;
+const useBlogStore = createSelectors(useBlogStoreBase);
+
+export default useBlogStore;

@@ -4,7 +4,7 @@ import { ReactElement, useState } from 'react';
 import { AiOutlineSend } from 'react-icons/ai';
 
 import type { Post } from '~app/blog/blog';
-import useStore from '~lib/store';
+import useBlogStore from '~lib/store';
 
 function PasswordProtectedContent({
   post,
@@ -15,12 +15,14 @@ function PasswordProtectedContent({
 }) {
   const [enteredPassword, setEnteredPassword] = useState('');
 
-  const passwordStore = useStore();
+  const showContent = useBlogStore.use.showContent();
+  const setShowContent = useBlogStore.use.setShowContent();
+
   const metadata = post.metadata;
 
   const handlePasswordSubmit = () => {
     if (metadata.password === enteredPassword) {
-      passwordStore.setShowContent(true);
+      setShowContent(true);
     } else {
       // alert('密码错误');
     }
@@ -37,7 +39,7 @@ function PasswordProtectedContent({
           </small>
         </div>
       )}
-      {metadata.password && !passwordStore.showContent ? (
+      {metadata.password && !showContent ? (
         <form
           className="justify-center p-1 rounded-md flex mx-2"
           autoComplete="off"
@@ -59,7 +61,7 @@ function PasswordProtectedContent({
           </button>
         </form>
       ) : (
-        <>{passwordStore.showContent && children}</>
+        <>{showContent && children}</>
       )}
     </div>
   );

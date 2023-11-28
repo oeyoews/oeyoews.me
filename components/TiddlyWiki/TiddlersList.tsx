@@ -5,14 +5,15 @@ import { toast } from 'react-hot-toast';
 
 import YearHeader from '~components/PostList/YearHeader';
 import TiddlerItem from '~components/TiddlyWiki/TiddlerItem';
-import useStore from '~lib/store';
+import useBlogStore from '~lib/store';
 
 export default function TiddlersList({
   tiddlers,
 }: {
   tiddlers: TiddlerMetadata[];
 }) {
-  const { loadedItems, setLoadedItems } = useStore();
+  const loadedItems = useBlogStore.use.loadedItems();
+  const setLoadedItems = useBlogStore.use.setLoadedItems();
   const [data, setData] = useState<TiddlerMetadata[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [hasLoaded, setHasLoaded] = useState(false);
