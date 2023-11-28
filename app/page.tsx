@@ -35,6 +35,7 @@ const page = () => {
           title={section.name}
         >
           {section.name}
+          {/* NOTE: IOS 不显示 */}
           <Icon icon={section.icon} className="h-4 w-4 mx-1" />
         </Link>
       ))}
