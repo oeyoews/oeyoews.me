@@ -1,8 +1,9 @@
 import Link from 'next/link';
 
 import { format } from 'date-fns';
-import { Post } from '~app/blog/blog';
-import { getBlogPosts } from '~app/blog/blog';
+import { Post } from '~app/[locale]/blog/blog';
+import { getBlogPosts } from '~app/[locale]/blog/blog';
+import { getI18n } from '~app/locales/server';
 import CommitInfo from '~components/CommitInfo';
 import Icon from '~components/Icon';
 import EmptyPost from '~components/PostList/EmptyPost';
@@ -48,30 +49,37 @@ const PostItem = ({ post, index }: any) => {
 const sortByDateDesc = (a: Post, b: Post) =>
   new Date(a.metadata.date) > new Date(b.metadata.date) ? -1 : 1;
 
-const HomePage = () => {
+const HomePage = async () => {
   const posts = getBlogPosts();
   let currentYear: any = null;
+
+  const t = await getI18n();
 
   if (!posts.length) {
     return <EmptyPost />;
   }
 
   return (
-    <ol className="list-none prose dark:prose-invert ">
-      {posts.sort(sortByDateDesc).map((post, index) => {
-        const postYear = new Date(post.metadata.date).getFullYear();
-        const yearHeader =
-          currentYear !== postYear ? <YearHeader postYear={postYear} /> : null;
-        currentYear = postYear;
-        return (
-          <li key={post.metadata.title}>
-            {yearHeader}
-            <PostItem post={post} index={index} />
-          </li>
-        );
-      })}
-      <CommitInfo />
-    </ol>
+    <>
+      <p className="mb-4">{t('welcome', { name: <strong>oeyoews</strong> })}</p>
+      <ol className="list-none prose dark:prose-invert ">
+        {posts.sort(sortByDateDesc).map((post, index) => {
+          const postYear = new Date(post.metadata.date).getFullYear();
+          const yearHeader =
+            currentYear !== postYear ? (
+              <YearHeader postYear={postYear} />
+            ) : null;
+          currentYear = postYear;
+          return (
+            <li key={post.metadata.title}>
+              {yearHeader}
+              <PostItem post={post} index={index} />
+            </li>
+          );
+        })}
+        <CommitInfo />
+      </ol>
+    </>
   );
 };
 

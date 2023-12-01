@@ -2,7 +2,7 @@ import { Toaster } from 'react-hot-toast';
 
 import type { Metadata, Viewport } from 'next';
 
-import { Providers } from '~app/Providers';
+import { Providers } from '~app/[locale]/Providers';
 import '~app/globals.css';
 import Nav from '~components/Nav';
 import config from '~site/config';
