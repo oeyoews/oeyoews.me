@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { format } from 'date-fns';
 import { Post } from '~app/[locale]/blog/blog';
 import { getBlogPosts } from '~app/[locale]/blog/blog';
-import { getI18n } from '~app/locales/server';
+import { getI18n, getScopedI18n } from '~app/locales/server';
 import CommitInfo from '~components/CommitInfo';
 import Icon from '~components/Icon';
 import EmptyPost from '~components/PostList/EmptyPost';
@@ -54,6 +54,7 @@ const HomePage = async () => {
   let currentYear: any = null;
 
   const t = await getI18n();
+  const scopedT = await getScopedI18n('Blog');
 
   if (!posts.length) {
     return <EmptyPost />;
@@ -65,7 +66,7 @@ const HomePage = async () => {
         <p className="mb-4">
           {t('welcome', { name: <strong>oeyoews</strong> })}
         </p>
-        <p>{t('Blog.desc')}</p>
+        <p>{scopedT('desc')}</p>
       </div>
       <ol className="list-none prose dark:prose-invert ">
         {posts.sort(sortByDateDesc).map((post, index) => {
