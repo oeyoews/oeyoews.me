@@ -9,7 +9,7 @@ import EmptyPost from '~components/PostList/EmptyPost';
 import Badge from '~components/PostList/PostBadges';
 import YearHeader from '~components/PostList/YearHeader';
 
-const PostItem = ({ post, index }: any) => {
+const PostItem = ({ post, index }: { post: Post; index: number }) => {
   const { metadata } = post;
 
   const badges = [];

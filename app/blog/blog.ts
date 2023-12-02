@@ -4,20 +4,20 @@ import md5 from 'md5';
 import path from 'path';
 import config from '~site/config';
 
-export type Post = {
+export interface Post {
   metadata: Metadata;
   slug: string;
   content: string;
-};
+}
 
-type Metadata = {
+interface Metadata {
   title: string;
   date: string;
   summary?: string;
   image?: string;
   password?: string;
   draft?: boolean | string;
-};
+}
 
 const getDefaultDate = (filePath: string): string => {
   const stats = fs.statSync(filePath);

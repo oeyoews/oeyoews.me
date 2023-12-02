@@ -17,7 +17,7 @@ const customFetch = (
 };
 
 export const create = (baseURL: string) => {
-  return function (config: Config): Promise<any> {
+  return function (config: Config) {
     const { url, options } = config;
     const finalURL = url ? baseURL + url : baseURL;
     return customFetch(finalURL, options);
