@@ -2,14 +2,14 @@ import { setStaticParamsLocale } from 'next-international/server';
 import Link from 'next/link';
 
 import { format } from 'date-fns';
-import { Post } from '~app/[locale]/blog/blog';
-import { getBlogPosts } from '~app/[locale]/blog/blog';
 import { getI18n, getScopedI18n } from '~app/locales/server';
 import CommitInfo from '~components/CommitInfo';
 import Icon from '~components/Icon';
 import EmptyPost from '~components/PostList/EmptyPost';
 import Badge from '~components/PostList/PostBadges';
 import YearHeader from '~components/PostList/YearHeader';
+import { Post } from '~lib/Blog/blog';
+import { getBlogPosts } from '~lib/Blog/blog';
 
 const PostItem = ({ post, index }: any) => {
   const { metadata } = post;
