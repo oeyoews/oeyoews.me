@@ -24,6 +24,7 @@ export default function Nav() {
         <button
           onClick={toggleFullScreen}
           className="scale-150 hidden md:block"
+          aria-label="fullscreen"
         >
           {!isFullScreen ? <MdFullscreen /> : <MdFullscreenExit />}
         </button>
