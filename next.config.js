@@ -3,6 +3,19 @@ const nextConfig = {
   reactStrictMode: false,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactStrictMode: false,
+  // i18n: {
+  //   locales: ['en', 'zh'],
+  //   defaultLocale: 'zh',
+  // },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/tiddlers',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

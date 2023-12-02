@@ -11,11 +11,11 @@ const config = {
   githubRepo: 'oeyoews/neotw-tiddlers', // issue repo
   description: 'Nextjs + TypeScript + Tailwindcss + MDX',
   links: [
-    {
-      title: 'Home',
-      path: '/',
-      icon: <BsBook />,
-    },
+    // {
+    //   title: 'Home',
+    //   path: '/',
+    //   icon: <BsBook />,
+    // },
     {
       title: 'Blog',
       path: '/blog',
