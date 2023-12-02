@@ -13,11 +13,10 @@ async function CommitInfo() {
   return (
     <Link
       href={`https://github.com/oeyoews/nextjs-mdx-blog/commit/${hash}`}
-      className="text-gray-400"
       target="_blank"
       title="查看最后一次提交变更"
     >
-      <button className="rounded px-1 font-semibold text-gray-200">
+      <button className="text-neutral-300 dark:text-neutral-800 font-serif select-none">
         Build {shortHash}
       </button>
     </Link>

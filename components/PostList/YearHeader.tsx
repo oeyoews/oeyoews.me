@@ -40,12 +40,12 @@ function YearHeader({ postYear }: { postYear: number }) {
           className="h-4 w-4 duration-300 transition-all text-[#8bc34a]"
         />
       </span>
-      <h2 className="ml-6 text-neutral-300 font-extrabold font-serif my-0">
+      <div className="text-xl ml-6 select-none text-neutral-300  dark:text-neutral-800 font-extrabold font-serif my-0">
         {postYear}
         <span title={zodiacs[animal]}>
           <Icon icon={`noto:${zodiacs[animal]}`} className="mx-2" />
         </span>
-      </h2>
+      </div>
     </div>
   );
 }
