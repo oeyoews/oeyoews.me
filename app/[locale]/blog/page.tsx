@@ -7,8 +7,7 @@ import Icon from '~components/Icon';
 import EmptyPost from '~components/PostList/EmptyPost';
 import Badge from '~components/PostList/PostBadges';
 import YearHeader from '~components/PostList/YearHeader';
-import { Post } from '~lib/blog/blog';
-import { getBlogPosts } from '~lib/blog/blog';
+import { Post, getBlogPosts } from '~lib/blog';
 
 const PostItem = ({ post, index }: any) => {
   const { metadata } = post;
