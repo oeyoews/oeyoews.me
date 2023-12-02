@@ -1,9 +1,11 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { MdFullscreen, MdFullscreenExit } from 'react-icons/md';
 
 import Link from 'next/link';
+
+import { useFullScreen } from '~lib/hooks/useFullScreen';
 
 import { ThemeSwitcher } from './ThemeSwitcher';
 
@@ -12,35 +14,7 @@ import config from '~site/config';
 
 export default function Nav() {
   const LinkClass = 'w-5 h-5';
-
-  const [isFullScreen, setIsFullScreen] = useState(false);
-  const toggleFullScreen = () => {
-    if (!document.fullscreenElement) {
-      // 进入全屏
-      document.documentElement.requestFullscreen();
-      setIsFullScreen(true);
-    } else {
-      // 退出全屏
-      document.exitFullscreen();
-      setIsFullScreen(false);
-    }
-  };
-
-  const handleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
-    if (event.key === 'f') {
-      toggleFullScreen();
-    }
-  };
-
-  useEffect(() => {
-    // @ts-ignore
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      // @ts-ignore
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { isFullScreen, toggleFullScreen } = useFullScreen();
 
   return (
     <>
