@@ -7,7 +7,7 @@ import { Article, Divider, H1 } from '~components/ArticleComponents';
 import MDX from '~components/Blog/Mdx';
 import PasswordProtectedContent from '~components/PasswordPost';
 import Spinner from '~components/Spinner';
-import { getBlogPosts, getPostFromParams } from '~lib/blog/blog';
+import { getBlogPosts, getPostFromParams } from '~lib/blog';
 
 export const generateMetadata = ({ params }: { params: Params }): Metadata => {
   const post = getPostFromParams(params.slug);
