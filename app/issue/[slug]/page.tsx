@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import Issue from '~components/GitHubIssue/Issue';
 import { getAllIssues, getIssueBySlug, getIssueComments } from '~lib/getIssues';
 
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const issues = await getAllIssues();
   return issues.map((issue) => ({ slug: issue.slug }));
