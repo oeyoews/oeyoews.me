@@ -34,7 +34,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased min-h-screen">
-        <Toaster />
+        <Toaster
+          toastOptions={{
+            duration: 1000,
+          }}
+        />
         <Providers>
           <Nav />
           <main className="container mx-auto max-w-4xl py-10 px-4">
