@@ -9,9 +9,9 @@ interface StoreState {
 }
 
 interface StoreActions {
-  setLoadedItems: (loadedItems: number) => void;
-  setPassword: (password: string) => void;
-  setShowContent: (show: boolean) => void;
+  setLoadedItems: (loadedItems: StoreState['loadedItems']) => void;
+  setPassword: (password: StoreState['enteredPassword']) => void;
+  setShowContent: (showContent: StoreState['showContent']) => void;
 }
 
 type UseStore = StoreState & StoreActions;
@@ -22,7 +22,7 @@ const useBlogStoreBase = create<UseStore>()((set) => ({
   showContent: false,
   setLoadedItems: (loadedItems) => set({ loadedItems }),
   setPassword: (enteredPassword) => set({ enteredPassword }),
-  setShowContent: (show) => set({ showContent: show }),
+  setShowContent: (showContent) => set({ showContent }),
 }));
 
 const useBlogStore = createSelectors(useBlogStoreBase);
