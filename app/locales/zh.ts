@@ -1,5 +1,10 @@
 export default {
+  Blog: {
+    desc: '使用 Next.js 和 MDX',
+  },
+  Tiddler: {},
+  Issus: {},
+  // misc
   hello: '你好',
-  'hello.world': '你好',
-  welcome: '欢迎 {name}!',
+  welcome: '你好 {name}!',
 } as const;

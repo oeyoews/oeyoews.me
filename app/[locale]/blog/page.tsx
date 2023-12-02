@@ -61,7 +61,12 @@ const HomePage = async () => {
 
   return (
     <>
-      <p className="mb-4">{t('welcome', { name: <strong>oeyoews</strong> })}</p>
+      <div>
+        <p className="mb-4">
+          {t('welcome', { name: <strong>oeyoews</strong> })}
+        </p>
+        <p>{t('Blog.desc')}</p>
+      </div>
       <ol className="list-none prose dark:prose-invert ">
         {posts.sort(sortByDateDesc).map((post, index) => {
           const postYear = new Date(post.metadata.date).getFullYear();

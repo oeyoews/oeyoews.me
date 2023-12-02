@@ -1,6 +1,10 @@
-// locales/en.ts
 export default {
+  Blog: {
+    desc: 'Using Next.js and MDX',
+  },
+  Tiddler: {},
+  Issus: {},
+  // misc
   hello: 'Hello',
-  'hello.world': 'Hello world!',
   welcome: 'Hello {name}!',
 } as const;
