@@ -1,9 +1,15 @@
 import Link from 'next/link';
 
+import { getStaticParams } from '~app/locales/server';
 import Icon from '~components/Icon';
 
-const page = () => {
+export function generateStaticParams() {
+  return getStaticParams();
+}
+
+const Page = ({ params: { locale } }: { params: { locale: string } }) => {
   // > 此网站分为 [mdx](https://github.com/oeyoews/nextjs-mdx-blog/content), [tiddlers](https://github.com/oeyoews/neotw-tiddlers),[issues](https://github.com/oeyoews/neotw-tiddlers/issues) 三部分组成
+
   const sections = [
     {
       name: 'mdx',
@@ -43,4 +49,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
