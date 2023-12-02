@@ -1,4 +1,3 @@
-import { setStaticParamsLocale } from 'next-international/server';
 import Link from 'next/link';
 
 import { format } from 'date-fns';
@@ -8,8 +7,8 @@ import Icon from '~components/Icon';
 import EmptyPost from '~components/PostList/EmptyPost';
 import Badge from '~components/PostList/PostBadges';
 import YearHeader from '~components/PostList/YearHeader';
-import { Post } from '~lib/Blog/blog';
-import { getBlogPosts } from '~lib/Blog/blog';
+import { Post } from '~lib/blog/blog';
+import { getBlogPosts } from '~lib/blog/blog';
 
 const PostItem = ({ post, index }: any) => {
   const { metadata } = post;
@@ -50,10 +49,9 @@ const PostItem = ({ post, index }: any) => {
 const sortByDateDesc = (a: Post, b: Post) =>
   new Date(a.metadata.date) > new Date(b.metadata.date) ? -1 : 1;
 
-const HomePage = async ({ params }: { params: { locale: string } }) => {
+const HomePage = async () => {
   const posts = getBlogPosts();
   let currentYear: any = null;
-  setStaticParamsLocale(params.locale);
 
   const t = await getI18n();
   const scopedT = await getScopedI18n('Blog');

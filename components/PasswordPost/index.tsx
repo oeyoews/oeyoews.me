@@ -3,7 +3,7 @@
 import { ReactElement, useState } from 'react';
 import { AiOutlineSend } from 'react-icons/ai';
 
-import type { Post } from '~lib/Blog/blog';
+import type { Post } from '~lib/blog/blog';
 import useBlogStore from '~lib/store';
 
 function PasswordProtectedContent({
