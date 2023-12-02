@@ -8,6 +8,7 @@ export default {
   Issues: {
     desc: '使用 GitHub Issues',
   },
+  Misc: {},
   // misc
   hello: '你好',
   welcome: '你好 {name}!',
