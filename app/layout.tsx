@@ -23,7 +23,8 @@ export const viewport: Viewport = {
   ],
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
+  maximumScale: 1.5,
+  userScalable: true,
 };
 
 interface RootLayoutProps {

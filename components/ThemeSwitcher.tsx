@@ -20,6 +20,7 @@ export function ThemeSwitcher() {
       <button
         onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
         className="scale-125"
+        aria-label="theme switch"
       >
         {theme === 'light' ? <FiSun className="" /> : <FiMoon />}
       </button>

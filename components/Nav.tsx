@@ -44,6 +44,7 @@ export default function Nav() {
               key={link.title}
               href={link.path}
               className="flex items-center space-x-2 duration-300 transition"
+              aria-label={link.title}
             >
               {React.cloneElement(link.icon, { className: LinkClass })}
             </Link>
