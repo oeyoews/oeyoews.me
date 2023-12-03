@@ -1,6 +1,5 @@
-import { BsBook, BsCircle, BsFiletypeMdx, BsWikipedia } from 'react-icons/bs';
+import { BsCircle, BsFiletypeMdx, BsWikipedia } from 'react-icons/bs';
 
-// blog config
 const config = {
   title: 'Blog with NextJs',
   content: 'content', // mdx directory
@@ -10,12 +9,8 @@ const config = {
       : 'https://neotw.vercel.app/tiddlers.json', // tiddler file
   githubRepo: 'oeyoews/neotw-tiddlers', // issue repo
   description: 'Nextjs + TypeScript + Tailwindcss + MDX',
+  domain: 'https://nextjs-mdx-blog-tailwindcss.vercel.app',
   links: [
-    // {
-    //   title: 'Home',
-    //   path: '/',
-    //   icon: <BsBook />,
-    // },
     {
       title: 'Blog',
       path: '/blog',

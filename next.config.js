@@ -3,15 +3,11 @@ const nextConfig = {
   reactStrictMode: false,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactStrictMode: false,
-  // i18n: {
-  //   locales: ['en', 'zh'],
-  //   defaultLocale: 'zh',
-  // },
   async redirects() {
     return [
       {
         source: '/',
-        destination: '/tiddlers',
+        destination: '/blog',
         permanent: true,
       },
     ];
