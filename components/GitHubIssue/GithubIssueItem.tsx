@@ -24,14 +24,7 @@ export default function GithubIssueItem({
   return (
     <>
       {children}
-      <li
-        className={clsx(
-          'pl-4 border-gray-100/80 pb-4 relative my-0 border-l-2 group',
-          {
-            'border-transparent': order === 'end',
-          },
-        )}
-      >
+      <Timeline.Li order={order}>
         <Timeline.Dot />
         <Link
           href={`${pathname}/${slug}`}
@@ -53,7 +46,7 @@ export default function GithubIssueItem({
             <span>{issue.comments}</span>
           </div>
         </div>
-      </li>
+      </Timeline.Li>
     </>
   );
 }
