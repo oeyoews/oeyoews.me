@@ -6,11 +6,15 @@ import YearHeader from '~components/PostList/YearHeader';
 export default function GithubIssueList({ issues }: { issues: Issue[] }) {
   let currentYear: number;
 
+  const sortByDate = (a: Issue, b: Issue) => {
+    return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
+  };
+
   const GithubIssueListContent = () => (
-    <ol className="list-none my-4 prose dark:prose-invert">
-      {issues.map((issue, index) => {
-        const { title, created_at } = issue;
-        const postYear = new Date(created_at).getFullYear();
+    <ul className="list-none my-4 prose dark:prose-invert">
+      {issues.sort(sortByDate).map((issue, index) => {
+        const { title, updated_at } = issue;
+        const postYear = new Date(updated_at).getFullYear();
         const yearHeader = currentYear !== postYear && (
           <YearHeader postYear={postYear} />
         );
@@ -23,7 +27,7 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
           </li>
         );
       })}
-    </ol>
+    </ul>
   );
 
   return <GithubIssueListContent />;

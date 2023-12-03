@@ -34,7 +34,7 @@ export function useFullScreen(): FullScreenHook {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'f') {
+      if (event.key === 'F') {
         toggleFullScreen();
       }
     };

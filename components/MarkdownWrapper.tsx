@@ -35,10 +35,8 @@ export default function MarkdownWrapper({
   };
 
   const remarkPlugins = [remarkContainer, remarkEmoji];
-  if (enableGFM) {
-    // @ts-ignore
-    remarkPlugins.push(remarkGfm);
-  }
+  // @ts-ignore
+  enableGFM && remarkPlugins.push(remarkGfm);
 
   return (
     <Markdown

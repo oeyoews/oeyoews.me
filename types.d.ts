@@ -84,7 +84,7 @@ interface Issue {
   comments: number;
   created_at: Date;
   updated_at: Date;
-  closed_at: null;
+  closed_at: Date;
   // author_association: AuthorAssociation;
   active_lock_reason: null;
   body: null | string;
