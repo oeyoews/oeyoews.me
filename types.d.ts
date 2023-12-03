@@ -60,7 +60,8 @@ interface User {
 }
 
 interface IssueInfo {
-  open_issues: number;
+  total_count: number;
+  items: Issue[];
 }
 
 interface Issue {

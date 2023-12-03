@@ -1,5 +1,5 @@
 import GithubIssueList from '~components/GitHubIssue/GithubIssueList';
-import { getAllIssues } from '~lib/getIssues';
+import { getAllIssues } from '~lib/issues/getIssues';
 
 export const metadata = {
   title: 'issues',
@@ -9,7 +9,7 @@ export const metadata = {
 export default async function IssueComponent() {
   const issues = await getAllIssues();
 
-  // console.log(issues.filter((issue) => issue.number === 56 && issue));
+  console.log(issues.map((issue) => issue.number));
 
   return <GithubIssueList issues={issues} />;
 }

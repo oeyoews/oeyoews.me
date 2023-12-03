@@ -1,4 +1,5 @@
-import { create } from './fetch';
+import { create } from '../fetch';
+import { getIssuesInfo } from './getTotalIssues';
 
 import config from '~site/config';
 
@@ -13,6 +14,7 @@ const headers = {
 const fetch = create(baseurl);
 
 // https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28
+
 export default async function getIssues(page = 1): Promise<Issue[]> {
   const res = await fetch({
     url: `/issues?page=${page}&per_page=30&state=closed`,
@@ -28,26 +30,14 @@ export default async function getIssues(page = 1): Promise<Issue[]> {
   }));
 }
 
-export const getIssuesInfo = async (): Promise<IssueInfo> => {
-  const res = await fetch({
-    url: '',
-    options: {
-      headers,
-      next: {
-        revalidate: 3600,
-      },
-    },
-  });
-  return await res.json();
-};
-
 export const getAllIssues = async () => {
   const issuesInfo = await getIssuesInfo();
   const issues: Issue[] = [];
-  const pages = Math.ceil(issuesInfo.open_issues / 30);
+  const pages = Math.ceil(issuesInfo.total_count / 30);
   for (let i = 0; i < pages; i++) {
     issues.push(...(await getIssues(i + 1)));
   }
+
   return issues;
 };
 

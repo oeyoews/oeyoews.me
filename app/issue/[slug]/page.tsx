@@ -2,7 +2,11 @@ import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import Issue from '~components/GitHubIssue/Issue';
-import { getAllIssues, getIssueBySlug, getIssueComments } from '~lib/getIssues';
+import {
+  getAllIssues,
+  getIssueBySlug,
+  getIssueComments,
+} from '~lib/issues/getIssues';
 
 export const revalidate = 60;
 
