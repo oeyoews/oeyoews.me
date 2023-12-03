@@ -1,7 +1,9 @@
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import Issue from '~components/GitHubIssue/Issue';
+import { Article, Divider, H1 } from '~components/ArticleComponents';
+import MarkdownWrapper from '~components/MarkdownWrapper';
+import formatTitle from '~lib/formatTitle';
 import {
   getAllIssues,
   getIssueBySlug,
@@ -30,9 +32,21 @@ export async function generateMetadata({
 export default async function Page({ params }: { params: { slug: string } }) {
   const issue = await getIssueBySlug(params.slug);
   const comments = await getIssueComments(issue?.number as number);
+
   if (!issue) {
     return notFound();
   }
 
-  return <Issue issue={issue} comments={comments} />;
+  return (
+    <Article>
+      <H1>{formatTitle(issue.title)}</H1>
+      <Divider />
+      {issue.body && (
+        <MarkdownWrapper text={`${issue.body}`} enableGFM={false} />
+      )}
+      {comments.map(({ body, id }) => (
+        <MarkdownWrapper text={body} key={id} />
+      ))}
+    </Article>
+  );
 }

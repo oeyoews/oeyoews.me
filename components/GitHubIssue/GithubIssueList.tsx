@@ -1,8 +1,6 @@
-'use client';
-
 import GithubIssueItem from '~components/GitHubIssue/GithubIssueItem';
-import YearHeader from '~components/PostList/YearHeader';
 import Timeline from '~components/Timeline';
+import YearHeader from '~components/YearHeader';
 
 export default function GithubIssueList({ issues }: { issues: Issue[] }) {
   let currentYear: number;

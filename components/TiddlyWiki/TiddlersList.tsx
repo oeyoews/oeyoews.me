@@ -3,9 +3,9 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 
-import YearHeader from '~components/PostList/YearHeader';
 import TiddlerItem from '~components/TiddlyWiki/TiddlerItem';
 import Timeline from '~components/Timeline';
+import YearHeader from '~components/YearHeader';
 import useBlogStore from '~lib/store';
 
 export default function TiddlersList({

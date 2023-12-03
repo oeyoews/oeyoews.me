@@ -3,13 +3,12 @@ import Link from 'next/link';
 import { format } from 'date-fns';
 import { Post } from '~app/blog/blog';
 import { getBlogPosts } from '~app/blog/blog';
+import Badge from '~components/Badge';
 import CommitInfo from '~components/CommitInfo';
-import EmptyPost from '~components/PostList/EmptyPost';
-import Badge from '~components/PostList/PostBadges';
-import YearHeader from '~components/PostList/YearHeader';
 import Timeline from '~components/Timeline';
+import YearHeader from '~components/YearHeader';
 
-const PostItem = ({
+const BlogItem = ({
   post,
   index,
   order,
@@ -61,7 +60,7 @@ const HomePage = () => {
   let currentYear: any = null;
 
   if (!posts.length) {
-    return <EmptyPost />;
+    return null;
   }
 
   return (
@@ -72,14 +71,14 @@ const HomePage = () => {
           currentYear !== postYear ? <YearHeader postYear={postYear} /> : null;
         currentYear = postYear;
         return (
-          <PostItem
+          <BlogItem
             post={post}
             index={index}
             key={post.metadata.title}
             order={index === posts.length - 1 ? 'end' : 'normal'}
           >
             {yearHeader}
-          </PostItem>
+          </BlogItem>
         );
       })}
       <CommitInfo />

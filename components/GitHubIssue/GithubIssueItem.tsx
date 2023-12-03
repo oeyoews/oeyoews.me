@@ -1,11 +1,8 @@
-import { Icon } from '@iconify/react';
-
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
-import clsx from 'clsx';
 import { format } from 'date-fns';
-import Badge from '~components/PostList/PostBadges';
+import Badge from '~components/Badge';
+import Icon from '~components/Icon';
 import Timeline from '~components/Timeline';
 
 export default function GithubIssueItem({
@@ -20,14 +17,13 @@ export default function GithubIssueItem({
   children: React.ReactNode;
 }) {
   const { title, date, slug, html_url, number } = issue;
-  const pathname = usePathname();
   return (
     <>
       {children}
       <Timeline.Li order={order}>
         <Timeline.Dot />
         <Link
-          href={`${pathname}/${slug}`}
+          href={`/issue/${slug}`}
           className="text-xs rounded-md"
           title="点击阅读全文"
         >
