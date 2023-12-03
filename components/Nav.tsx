@@ -1,15 +1,12 @@
 'use client';
 
 import React from 'react';
-import { useEffect } from 'react';
 import { Button } from 'react-daisyui';
 import { MdFullscreen, MdFullscreenExit } from 'react-icons/md';
 
 import Link from 'next/link';
 
 import { useFullScreen } from '~lib/hooks/useFullScreen';
-
-import { ThemeSwitcher } from './ThemeSwitcher';
 
 import clsx from 'clsx';
 import config from '~site/config';

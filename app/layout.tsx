@@ -2,10 +2,8 @@ import { Toaster } from 'react-hot-toast';
 
 import type { Metadata, Viewport } from 'next';
 
-import { Providers } from './Providers';
-
 import '~app/globals.css';
-import Nav from '~components/Nav';
+import NavBar from '~components/NavBar';
 import config from '~site/config';
 
 export const metadata: Metadata = {
@@ -41,7 +39,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             duration: 1000,
           }}
         />
-        <Nav />
+        <NavBar />
         <main className="container mx-auto max-w-4xl py-10 px-4">
           {children}
         </main>
