@@ -72,7 +72,7 @@ interface Issue {
   html_url: string;
   id: number;
   node_id: string;
-  number: number;
+  number: number; // issue 编号
   title: string;
   user: User;
   labels: any[];
@@ -91,7 +91,7 @@ interface Issue {
   reactions: Reactions;
   timeline_url: string;
   performed_via_github_app: null;
-  state_reason: null;
+  state_reason: 'not_planned' | null;
   slug: string;
   date: Date;
 }

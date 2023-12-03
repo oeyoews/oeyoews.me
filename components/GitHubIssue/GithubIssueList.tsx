@@ -12,21 +12,24 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
 
   const GithubIssueListContent = () => (
     <ul className="list-none my-4 prose dark:prose-invert">
-      {issues.sort(sortByDate).map((issue, index) => {
-        const { title, updated_at } = issue;
-        const postYear = new Date(updated_at).getFullYear();
-        const yearHeader = currentYear !== postYear && (
-          <YearHeader postYear={postYear} />
-        );
-        currentYear = postYear;
+      {issues
+        .filter((issue) => issue.state_reason !== 'not_planned')
+        .sort(sortByDate)
+        .map((issue, index) => {
+          const { title, updated_at } = issue;
+          const postYear = new Date(updated_at).getFullYear();
+          const yearHeader = currentYear !== postYear && (
+            <YearHeader postYear={postYear} />
+          );
+          currentYear = postYear;
 
-        return (
-          <li key={title} className="group">
-            {yearHeader}
-            <GithubIssueItem issue={issue} index={index} />
-          </li>
-        );
-      })}
+          return (
+            <li key={title} className="group">
+              {yearHeader}
+              <GithubIssueItem issue={issue} index={index} />
+            </li>
+          );
+        })}
     </ul>
   );
 
