@@ -5,6 +5,7 @@ import { toast } from 'react-hot-toast';
 
 import YearHeader from '~components/PostList/YearHeader';
 import TiddlerItem from '~components/TiddlyWiki/TiddlerItem';
+import Timeline from '~components/Timeline';
 import useBlogStore from '~lib/store';
 
 export default function TiddlersList({
@@ -47,7 +48,7 @@ export default function TiddlersList({
   let currentYear: number;
 
   const TiddlerListContent = () => (
-    <ol className="list-none my-4 prose dark:prose-invert">
+    <Timeline>
       {data.slice(0, loadedItems).map((tiddler, index) => {
         const { title, date } = tiddler;
         const postYear = new Date(date).getFullYear();
@@ -57,13 +58,17 @@ export default function TiddlersList({
         currentYear = postYear;
 
         return (
-          <li key={title} className="group">
+          <TiddlerItem
+            tiddler={tiddler}
+            index={index}
+            key={title}
+            order={index === data.length - 1 ? 'end' : 'normal'}
+          >
             {yearHeader}
-            <TiddlerItem tiddler={tiddler} index={index} />
-          </li>
+          </TiddlerItem>
         );
       })}
-    </ol>
+    </Timeline>
   );
 
   return (

@@ -7,15 +7,17 @@ import CommitInfo from '~components/CommitInfo';
 import EmptyPost from '~components/PostList/EmptyPost';
 import Badge from '~components/PostList/PostBadges';
 import YearHeader from '~components/PostList/YearHeader';
-import Dot from '~components/Timeline/Dot';
+import Timeline from '~components/Timeline';
 
 const PostItem = ({
   post,
   index,
+  order,
   children,
 }: {
   post: Post;
   index: number;
+  order: Order;
   children: any;
 }) => {
   const { metadata } = post;
@@ -31,8 +33,8 @@ const PostItem = ({
   return (
     <>
       {children}
-      <li className="group pl-6 border-gray-100/80 border-l-2 pb-6 relative m-0">
-        <Dot />
+      <Timeline.Li order={order}>
+        <Timeline.Dot />
         <Link
           href={`/blog/${post.slug}`}
           className="text-xs rounded-md"
@@ -46,7 +48,7 @@ const PostItem = ({
         <time className="block text-sm font-normal leading-none text-gray-400">
           {metadata.date && format(new Date(metadata.date), 'EEE, MMMM d')}
         </time>
-      </li>
+      </Timeline.Li>
     </>
   );
 };
@@ -63,20 +65,25 @@ const HomePage = () => {
   }
 
   return (
-    <ul className="list-none prose dark:prose-invert ">
+    <Timeline>
       {posts.sort(sortByDateDesc).map((post, index) => {
         const postYear = new Date(post.metadata.date).getFullYear();
         const yearHeader =
           currentYear !== postYear ? <YearHeader postYear={postYear} /> : null;
         currentYear = postYear;
         return (
-          <PostItem post={post} index={index} key={post.metadata.title}>
+          <PostItem
+            post={post}
+            index={index}
+            key={post.metadata.title}
+            order={index === posts.length - 1 ? 'end' : 'normal'}
+          >
             {yearHeader}
           </PostItem>
         );
       })}
       <CommitInfo />
-    </ul>
+    </Timeline>
   );
 };
 

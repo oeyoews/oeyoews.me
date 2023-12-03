@@ -2,6 +2,7 @@
 
 import GithubIssueItem from '~components/GitHubIssue/GithubIssueItem';
 import YearHeader from '~components/PostList/YearHeader';
+import Timeline from '~components/Timeline';
 
 export default function GithubIssueList({ issues }: { issues: Issue[] }) {
   let currentYear: number;
@@ -15,7 +16,7 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
   );
 
   const GithubIssueListContent = () => (
-    <ul className="list-none my-4 prose dark:prose-invert">
+    <Timeline>
       {filteredIssues.sort(sortByDate).map((issue, index) => {
         const { title, updated_at } = issue;
         const postYear = new Date(updated_at).getFullYear();
@@ -35,7 +36,7 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
           </GithubIssueItem>
         );
       })}
-    </ul>
+    </Timeline>
   );
 
   return <GithubIssueListContent />;

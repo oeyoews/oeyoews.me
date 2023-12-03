@@ -8,9 +8,5 @@ export const metadata = {
 
 export default async function TiddlersHomepage() {
   const { tiddlersMetadata } = await getTiddlerData();
-  return (
-    <>
-      <TiddlersList tiddlers={tiddlersMetadata} />
-    </>
-  );
+  return <TiddlersList tiddlers={tiddlersMetadata} />;
 }

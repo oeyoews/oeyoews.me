@@ -1,3 +1,13 @@
+type Order = 'end' | 'normal';
+
+interface ChildrenProps {
+  children: React.ReactNode;
+}
+
+interface ChildrenSubProps extends ChildrenProps {
+  order?: Order;
+}
+
 interface ITiddlywikiStatus {
   username: string;
   anonymous: boolean;

@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import { format } from 'date-fns';
 import Badge from '~components/PostList/PostBadges';
-import Dot from '~components/Timeline/Dot';
+import Timeline from '~components/Timeline';
 
 export default function GithubIssueItem({
   issue,
@@ -16,8 +16,8 @@ export default function GithubIssueItem({
 }: {
   issue: Issue;
   index: number;
-  order?: 'end' | 'normal';
-  children: any;
+  order?: Order;
+  children: React.ReactNode;
 }) {
   const { title, date, slug, html_url, number } = issue;
   const pathname = usePathname();
@@ -26,13 +26,13 @@ export default function GithubIssueItem({
       {children}
       <li
         className={clsx(
-          'pl-6 border-gray-100/80 pb-4 relative my-0 border-l-2 group',
+          'pl-4 border-gray-100/80 pb-4 relative my-0 border-l-2 group',
           {
             'border-transparent': order === 'end',
           },
         )}
       >
-        <Dot />
+        <Timeline.Dot />
         <Link
           href={`${pathname}/${slug}`}
           className="text-xs rounded-md"
