@@ -23,7 +23,7 @@ export default function TimeLine({ post }: { post: Post[] }) {
             format(new Date(item.metadata.date), 'EEE, MMMM d yyyy')}
         </Timeline.Start>
         <Timeline.Middle />
-        <Timeline.End className="rounded-md -z-50">
+        <Timeline.End className="rounded-md">
           <Link href={`${pathname}/${item.slug}`}>{item.metadata.title}</Link>
         </Timeline.End>
       </Timeline.Item>
