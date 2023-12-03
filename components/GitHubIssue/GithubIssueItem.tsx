@@ -1,11 +1,11 @@
 import { Icon } from '@iconify/react';
+import { FaRegDotCircle } from 'react-icons/fa';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import clsx from 'clsx';
 import { format } from 'date-fns';
-import { JsxElement } from 'typescript';
 import Badge from '~components/PostList/PostBadges';
 
 export default function GithubIssueItem({
@@ -33,14 +33,7 @@ export default function GithubIssueItem({
         )}
       >
         <span className="absolute flex items-center justify-center rounded-full -left-[9px]">
-          <Icon
-            icon="clarity:dot-circle-line"
-            className="h-4 w-4 text-gray-300/80 transition-all group-hover:scale-0 group-hover:hidden"
-          />
-          <Icon
-            icon="carbon:circle-filled"
-            className="h-4 w-4 text-gray-300/80 transition-all group-hover:text-lime-500 hidden group-hover:block delay-100 scale-0 group-hover:scale-105 duration-800"
-          />
+          <FaRegDotCircle className="h-4 w-4 text-gray-300/80 duration-300 transition-all group-hover:text-[#8bc34a] group-hover:scale-105" />
         </span>
         <Link
           href={`${pathname}/${slug}`}
