@@ -34,29 +34,6 @@ export async function generateStaticParams() {
   }));
 }
 
-function Tiddler({ tiddler }: { tiddler: Tiddler }) {
-  const { title, text, 'page-cover': pageCover } = tiddler;
-
-  const imageClasses = clsx(
-    'rounded-xl object-cover object-center aspect-video h-48 shadow',
-  );
-  return (
-    <Article>
-      {pageCover && (
-        <Image
-          src={pageCover}
-          alt={title}
-          width={1200}
-          height={480}
-          className={imageClasses}
-        />
-      )}
-      <H1>{formatTitle(title)}</H1>
-      <MarkdownWrapper text={text} />
-    </Article>
-  );
-}
-
 export default async function Page({ params }: { params: Params }) {
   const { slug } = params;
   const tiddler = await getTiddler(slug);
@@ -65,5 +42,23 @@ export default async function Page({ params }: { params: Params }) {
     notFound();
   }
 
-  return <Tiddler tiddler={tiddler} />;
+  const { title, text, 'page-cover': pageCover } = tiddler;
+
+  return (
+    <Article>
+      {pageCover && (
+        <Image
+          src={pageCover}
+          alt={title}
+          width={1200}
+          height={480}
+          className={clsx(
+            'rounded-xl object-cover object-center aspect-video h-48 shadow',
+          )}
+        />
+      )}
+      <H1>{formatTitle(title)}</H1>
+      <MarkdownWrapper text={text} />
+    </Article>
+  );
 }
