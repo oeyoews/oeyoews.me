@@ -9,7 +9,7 @@ export const metadata = {
 export default async function IssueComponent() {
   const issues = await getAllIssues();
 
-  console.log(issues.map((issue) => issue.number));
+  // console.log(issues.map((issue) => issue.number === 2 && issue));
 
   return <GithubIssueList issues={issues} />;
 }

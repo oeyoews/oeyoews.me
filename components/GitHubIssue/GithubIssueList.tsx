@@ -12,7 +12,11 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
   };
 
   const filteredIssues = issues.filter(
-    (issue) => issue.state_reason !== 'not_planned',
+    (issue) =>
+      !(
+        issue.state_reason === 'not_planned' ||
+        Object.hasOwn(issue, 'pull_request')
+      ),
   );
 
   const GithubIssueListContent = () => (

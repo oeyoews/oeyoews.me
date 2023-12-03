@@ -105,6 +105,13 @@ interface Issue {
   state_reason: 'not_planned' | null;
   slug: string;
   date: Date;
+  pull_request?: {
+    url: string;
+    html_url: string;
+    diff_url: string;
+    patch_url: string;
+    merged_at: Date;
+  };
 }
 
 interface TiddlerBaseMetadata {
