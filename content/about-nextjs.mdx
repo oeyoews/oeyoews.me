@@ -5,16 +5,15 @@ date: '2023-11-23'
 
 ## 关于 use client
 
-
 [你也可以用 `import 'client-only'](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns)
 
 https://stackoverflow.com/questions/74992326/does-use-client-in-next-js-13-root-layout-make-whole-routes-client-component
 https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns#supported-pattern-passing-server-components-to-client-components-as-props
-layout.js 里面是可以使用use client, 不会导致子组件全部变成 client
+layout.js 里面是可以使用 use client, 不会导致子组件全部变成 client
 
 ## RSC
 
-注意: RSC 不是ssr 的升级(他们是两种不同的概念)
+注意: RSC 不是 ssr 的升级(他们是两种不同的概念)
 
 https://nextjs.org/docs/app/building-your-application/rendering/server-components
 There are a couple of benefits to doing the rendering work on the server, including:
@@ -27,12 +26,12 @@ There are a couple of benefits to doing the rendering work on the server, includ
 
 4. Bundle Sizes
 
-React renders Server Components into a special data format(可序列的数据化的数据, 用于server=> 向 client的数据传递) called the React Server Component Payload (RSC Payload), which includes references to Client Components(占位符).
-(rsc payload 和client component进行hydration(水合), 渲染html, 使其具备交互能力)
-The React Server Components Payload is used to reconcile the Client and Server Component trees, and update the DOM.(维护dom tree)
+React renders Server Components into a special data format(可序列的数据化的数据, 用于 server=> 向 client 的数据传递) called the React Server Component Payload (RSC Payload), which includes references to Client Components(占位符).
+(rsc payload 和 client component 进行 hydration(水合), 渲染 html, 使其具备交互能力)
+The React Server Components Payload is used to reconcile the Client and Server Component trees, and update the DOM.(维护 dom tree)
 
 Since Client Components are rendered after Server Components, you cannot import a Server Component into a Client Component module (since it would require a new request back to the server). Instead, you can pass a Server Component as props to a Client Component. See the unsupported pattern and supported pattern sections below.
-(之所以不能嵌入就是因为最小边界时文件不是组件), props 可以保证完全区分组件类型, 使用占位符代替, 注意这里的数据必须时可序列化的, 对象/函数是不能作为props 传递的
+(之所以不能嵌入就是因为最小边界时文件不是组件), props 可以保证完全区分组件类型, 使用占位符代替, 注意这里的数据必须时可序列化的, 对象/函数是不能作为 props 传递的
 
 ```tsx
 // clientcomponent.tsx
@@ -73,7 +72,6 @@ export default async function ServerComponent() {
 
 // 为了减少客户端的js bundle size, 尽量保持client component move to client, 但是 那种props  传递的server component 的用法对此没有影响, 因为客户端渲染的时候会跳过client, 要避免的主要是直接在父级直接使用client, 导致嵌入的组件全部变成了client, 尽量将client 抽离出去
 ```
-
 
 自从 React18 的文档更新以后, 引起了不小的讨论, react 不再一味的像以前推荐 CRA, 而是建议使用基于 React 的框架进行学习 React, 而且这一推荐放在了很重要的开头位置(NextJs 和 React 的合作很密切)
 
