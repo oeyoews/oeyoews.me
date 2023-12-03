@@ -1,2 +1,5 @@
-.next
-pnpm-lock.yml
+.next/
+node_modules/
+out/
+dist/
+pnpm-lock.yaml
