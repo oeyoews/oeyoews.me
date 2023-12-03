@@ -53,7 +53,7 @@ const PostItem = ({
   );
 };
 
-const sortByDateDesc = (a: Post, b: Post) =>
+const sortByDate = (a: Post, b: Post) =>
   new Date(a.metadata.date) > new Date(b.metadata.date) ? -1 : 1;
 
 const HomePage = () => {
@@ -66,7 +66,7 @@ const HomePage = () => {
 
   return (
     <Timeline>
-      {posts.sort(sortByDateDesc).map((post, index) => {
+      {posts.sort(sortByDate).map((post, index) => {
         const postYear = new Date(post.metadata.date).getFullYear();
         const yearHeader =
           currentYear !== postYear ? <YearHeader postYear={postYear} /> : null;
