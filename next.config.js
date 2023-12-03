@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: false,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactStrictMode: false,
+  transpilePackages: ['react-daisyui'],
   // i18n: {
   //   locales: ['en', 'zh'],
   //   defaultLocale: 'zh',

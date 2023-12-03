@@ -19,16 +19,16 @@ export function useFullScreen(): FullScreenHook {
       document.exitFullscreen();
       setIsFullScreen(false);
 
-      toast(`退出全屏`, {
-        icon: '🖥️',
-        position: 'bottom-right',
-        // TODO: darkmode automatically
-        // style: {
-        //   borderRadius: '10px',
-        //   background: '#333',
-        //   color: '#fff',
-        // },
-      });
+      // toast(`退出全屏`, {
+      //   icon: '🖥️',
+      //   position: 'bottom-right',
+      //   // TODO: darkmode automatically
+      //   // style: {
+      //   //   borderRadius: '10px',
+      //   //   background: '#333',
+      //   //   color: '#fff',
+      //   // },
+      // });
     }
   };
 

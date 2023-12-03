@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import { useEffect } from 'react';
+import { Button } from 'react-daisyui';
 import { MdFullscreen, MdFullscreenExit } from 'react-icons/md';
 
 import Link from 'next/link';
@@ -18,16 +20,18 @@ export default function Nav() {
 
   return (
     <>
-      <div className="backdrop-blur-md p-2 bg-black/5 dark:bg-black/90 shadow rounded-tl-md flex fixed bottom-0 right-0 space-x-4 print:hidden opacity-0 hover:opacity-100 transition-all">
-        <ThemeSwitcher />
-        {/* NOTE: 手机不支持fullscreen */}
-        <button
+      <div className="flex fixed bottom-4 right-4 print:hidden opacity-100 hover:opacity-100 transition-all">
+        <Button
           onClick={toggleFullScreen}
-          className="scale-150 hidden md:block"
+          className="hidden md:block btn-square"
           aria-label="fullscreen"
         >
-          {!isFullScreen ? <MdFullscreen /> : <MdFullscreenExit />}
-        </button>
+          {!isFullScreen ? (
+            <MdFullscreen size={28} />
+          ) : (
+            <MdFullscreenExit size={28} />
+          )}
+        </Button>
       </div>
       <div
         className={clsx(

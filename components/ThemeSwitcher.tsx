@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { Button } from 'react-daisyui';
 import { FiMoon, FiSun } from 'react-icons/fi';
 
 import { useTheme } from 'next-themes';
@@ -17,13 +18,13 @@ export function ThemeSwitcher() {
 
   return (
     <>
-      <button
+      <Button
+        color="neutral"
         onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-        className="scale-125"
         aria-label="theme switch"
       >
-        {theme === 'light' ? <FiSun className="" /> : <FiMoon />}
-      </button>
+        {theme === 'light' ? <FiSun className="scale-125" /> : <FiMoon />}
+      </Button>
     </>
   );
 }
