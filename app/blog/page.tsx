@@ -8,6 +8,7 @@ import Icon from '~components/Icon';
 import EmptyPost from '~components/PostList/EmptyPost';
 import Badge from '~components/PostList/PostBadges';
 import YearHeader from '~components/PostList/YearHeader';
+import TimeLine from '~components/TimeLine';
 
 const PostItem = ({ post, index }: { post: Post; index: number }) => {
   const { metadata } = post;
@@ -57,21 +58,26 @@ const HomePage = () => {
   }
 
   return (
-    <ol className="list-none prose dark:prose-invert ">
-      {posts.sort(sortByDateDesc).map((post, index) => {
-        const postYear = new Date(post.metadata.date).getFullYear();
-        const yearHeader =
-          currentYear !== postYear ? <YearHeader postYear={postYear} /> : null;
-        currentYear = postYear;
-        return (
-          <li key={post.metadata.title}>
-            {yearHeader}
-            <PostItem post={post} index={index} />
-          </li>
-        );
-      })}
-      <CommitInfo />
-    </ol>
+    <>
+      <TimeLine post={posts} />
+      {/* <ol className="list-none prose dark:prose-invert ">
+        {posts.sort(sortByDateDesc).map((post, index) => {
+          const postYear = new Date(post.metadata.date).getFullYear();
+          const yearHeader =
+            currentYear !== postYear ? (
+              <YearHeader postYear={postYear} />
+            ) : null;
+          currentYear = postYear;
+          return (
+            <li key={post.metadata.title}>
+              {yearHeader}
+              <PostItem post={post} index={index} />
+            </li>
+          );
+        })}
+        <CommitInfo />
+      </ol> */}
+    </>
   );
 };
 

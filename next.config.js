@@ -12,7 +12,7 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/tiddlers',
+        destination: '/blog',
         permanent: true,
       },
     ];
