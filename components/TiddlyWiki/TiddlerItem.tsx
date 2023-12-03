@@ -1,10 +1,9 @@
-import { FaRegDotCircle } from 'react-icons/fa';
-
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { format } from 'date-fns';
 import Badge from '~components/PostList/PostBadges';
+import Dot from '~components/Timeline/Dot';
 import formatTitle from '~lib/formatTitle';
 
 export default async function TiddlerItem({
@@ -18,9 +17,7 @@ export default async function TiddlerItem({
   const pathname = usePathname();
   return (
     <div className="pl-6 border-gray-100/80 border-l-2 pb-4 relative">
-      <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[13px]">
-        <FaRegDotCircle className="h-4 w-4 text-gray-300/80 duration-300 transition-all group-hover:text-[#8bc34a] group-hover:scale-105" />
-      </span>
+      <Dot />
       <Link
         href={`${pathname}/${slug}`}
         className="text-xs rounded-md"

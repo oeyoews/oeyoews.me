@@ -1,5 +1,3 @@
-import { FaRegDotCircle } from 'react-icons/fa';
-
 import Link from 'next/link';
 
 import { format } from 'date-fns';
@@ -9,6 +7,7 @@ import CommitInfo from '~components/CommitInfo';
 import EmptyPost from '~components/PostList/EmptyPost';
 import Badge from '~components/PostList/PostBadges';
 import YearHeader from '~components/PostList/YearHeader';
+import Dot from '~components/Timeline/Dot';
 
 const PostItem = ({
   post,
@@ -32,10 +31,8 @@ const PostItem = ({
   return (
     <>
       {children}
-      <li className="group pl-6 border-gray-100/80 border-l-2 pb-4 relative m-0">
-        <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[13px]">
-          <FaRegDotCircle className="h-4 w-4 text-gray-300/80 duration-300 transition-all group-hover:text-[#8bc34a] group-hover:scale-105" />
-        </span>
+      <li className="group pl-6 border-gray-100/80 border-l-2 pb-6 relative m-0">
+        <Dot />
         <Link
           href={`/blog/${post.slug}`}
           className="text-xs rounded-md"

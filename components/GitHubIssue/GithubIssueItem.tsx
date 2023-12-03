@@ -1,5 +1,4 @@
 import { Icon } from '@iconify/react';
-import { FaRegDotCircle } from 'react-icons/fa';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -7,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import { format } from 'date-fns';
 import Badge from '~components/PostList/PostBadges';
+import Dot from '~components/Timeline/Dot';
 
 export default function GithubIssueItem({
   issue,
@@ -32,9 +32,7 @@ export default function GithubIssueItem({
           },
         )}
       >
-        <span className="absolute flex items-center justify-center rounded-full -left-[9px]">
-          <FaRegDotCircle className="h-4 w-4 text-gray-300/80 duration-300 transition-all group-hover:text-[#8bc34a] group-hover:scale-105" />
-        </span>
+        <Dot />
         <Link
           href={`${pathname}/${slug}`}
           className="text-xs rounded-md"
