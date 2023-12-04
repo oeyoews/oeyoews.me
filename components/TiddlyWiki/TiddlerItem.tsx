@@ -10,11 +10,13 @@ export default function TiddlerItem({
   index,
   order,
   children,
+  route,
 }: {
   tiddler: TiddlerMetadata;
   index: number;
   order: Order;
   children: any;
+  route: string;
 }) {
   const { title, slug, date } = tiddler;
   return (
@@ -23,7 +25,7 @@ export default function TiddlerItem({
       <Timeline.Li order={order}>
         <Timeline.Dot />
         <Link
-          href={`/tiddlers/${slug}`}
+          href={`/${route}/${slug}`}
           className="text-xs rounded-md"
           title="点击阅读全文"
         >

@@ -3,20 +3,21 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import clsx from 'clsx';
-import { Article, H1 } from '~components/ArticleComponents';
+import { Article, Divider, H1 } from '~components/ArticleComponents';
 import MarkdownWrapper from '~components/MarkdownWrapper';
 import formatTitle from '~lib/formatTitle';
 import getTiddlerData from '~lib/getTiddlerData';
+import config from '~site/config';
 
 async function getTiddler(slug: string) {
-  const { tiddlers } = await getTiddlerData();
+  const { tiddlers } = await getTiddlerData(config.journalJson);
   return tiddlers.find((tiddler) => tiddler.slug === slug);
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Params;
 }): Promise<Metadata> {
   const { slug } = params;
   const tiddler = await getTiddler(slug);
@@ -27,7 +28,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const { tiddlers } = await getTiddlerData();
+  const { tiddlers } = await getTiddlerData(config.journalJson);
 
   return tiddlers.map((tiddler) => ({
     slug: tiddler.slug,
@@ -58,6 +59,7 @@ export default async function Page({ params }: { params: Params }) {
         />
       )}
       <H1>{formatTitle(title)}</H1>
+      <Divider />
       <MarkdownWrapper text={text} />
     </Article>
   );
