@@ -1,7 +1,59 @@
 ---
-title: 关于使用 NextJs 的一些经验
+title: NextJs 使用总结
 date: '2023-11-23'
 ---
+
+## Project organization
+
+* app folder just write route code(recommend personally)
+* use app folder as src
+* Split project files by feature or route
+
+## About nextjs i18n
+
+* 基本都要靠中间件拦截进行
+
+## About Cache
+
+* fetch 使用该 POST 方法的请求也会自动缓存。除非它位于使用该 POST 方法的路由处理程序中，否则它不会被缓存。
+* 可以添加缓存标记
+
+## Route Handler
+
+`route.(js, ts)`
+
+## Route
+
+* Route Group: `(Auth)`
+* Dynamic Route: `[slug]` or `[...slug]` or `[[...slug]]`
+* nesed Route `[category]/[slug]`
+> The difference between catch-all and optional catch-all segments is that with optional, the route without the parameter is also matched (/shop in the example above).
+* parallel Route `@folder/members`
+> Parallel Routing also allows you to conditionally render a slot based on certain conditions, such as authentication state. This enables fully separated code on the same URL.
+> Parallel Routing allows you to define independent error and loading states for each route as they're being streamed in independently.
+
+```tsx
+// layout.tsx
+export default function Layout(props: {
+  children: React.ReactNode
+  analytics: React.ReactNode
+  team: React.ReactNode
+}) {
+  return (
+    <>
+      {props.children}
+      {props.team}
+      {props.analytics}
+    </>
+  )
+}
+```
+
+> Slots are not route segments and do not affect the URL structure. The file path /@team/members would be accessible at /members.
+
+* interceptin Route: `(.)photo`,  `(..)photo`
+* `_components`: exit app route
+
 
 ## 关于 use client
 
