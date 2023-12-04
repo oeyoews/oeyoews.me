@@ -28,7 +28,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const { tiddlers } = await getTiddlerData();
+  const { tiddlers } = await getTiddlerData(config.journalJson);
 
   return tiddlers.map((tiddler) => ({
     slug: tiddler.slug,
