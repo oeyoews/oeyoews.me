@@ -17,8 +17,13 @@ date: '2023-11-23'
 
 ## About Cache
 
-* fetch 使用该 POST 方法的请求也会自动缓存。除非它位于使用该 POST 方法的路由处理程序中，否则它不会被缓存。
-* 可以添加缓存标记
+* fetch 使用该 POST 方法的请求也会自动缓存。除非它位于使用该 POST 方法的路由处理程序中.
+* 可以添加缓存标记 tag
+
+```tsx
+// revalidate tag fetch
+{ next: { revalidatetag: 'xxx'} }
+```
 
 ## Route Handler
 
@@ -72,6 +77,8 @@ layout.js 里面是可以使用 use client, 不会导致子组件全部变成 cl
 * Streaming 流
 
 注意: RSC 不是 ssr 的升级(他们是两种不同的概念)
+
+video: https://www.youtube.com/watch?v=g5BGoLyGjY0
 
 https://nextjs.org/docs/app/building-your-application/rendering/server-components
 There are a couple of benefits to doing the rendering work on the server, including:

@@ -1,9 +1,12 @@
 'use client';
 
 import React from 'react';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { IoMdRefreshCircle } from 'react-icons/io';
 import { MdFullscreen, MdFullscreenExit } from 'react-icons/md';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { useFullScreen } from '~lib/hooks/useFullScreen';
 
@@ -15,6 +18,7 @@ import config from '~site/config';
 export default function Nav() {
   const LinkClass = 'w-5 h-5';
   const { isFullScreen, toggleFullScreen } = useFullScreen();
+  const router = useRouter();
 
   return (
     <>
@@ -35,6 +39,18 @@ export default function Nav() {
           isFullScreen && 'hidden',
         )}
       >
+        <div className="space-x-4">
+          <button onClick={() => router.refresh()}>
+            <IoMdRefreshCircle />
+          </button>
+          <button onClick={() => router.back()} className={LinkClass}>
+            <FaArrowLeft />
+          </button>
+          <button onClick={() => router.forward()} className={LinkClass}>
+            <FaArrowRight />
+          </button>
+        </div>
+
         <nav
           className={clsx(
             'ml-auto text-sm font-medium space-x-6 flex flex-row',
