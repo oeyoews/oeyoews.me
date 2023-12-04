@@ -47,6 +47,7 @@ export default function TiddlersList({
     );
     setData(filteredData);
   }, [searchTerm, tiddlers]);
+
   let currentYear: number;
 
   const TiddlerListContent = () => (
