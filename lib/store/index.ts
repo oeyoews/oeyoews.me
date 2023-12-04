@@ -17,7 +17,7 @@ interface StoreActions {
 type UseStore = StoreState & StoreActions;
 
 const useBlogStoreBase = create<UseStore>()((set) => ({
-  loadedItems: 30,
+  loadedItems: 15,
   enteredPassword: '',
   showContent: false,
   setLoadedItems: (loadedItems) => set({ loadedItems }),
