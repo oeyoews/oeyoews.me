@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import clsx from 'clsx';
-import { Article, H1 } from '~components/ArticleComponents';
+import { Article, Divider, H1 } from '~components/ArticleComponents';
 import MarkdownWrapper from '~components/MarkdownWrapper';
 import formatTitle from '~lib/formatTitle';
 import getTiddlerData from '~lib/getTiddlerData';
@@ -58,6 +58,7 @@ export default async function Page({ params }: { params: Params }) {
         />
       )}
       <H1>{formatTitle(title)}</H1>
+      <Divider />
       <MarkdownWrapper text={text} />
     </Article>
   );
