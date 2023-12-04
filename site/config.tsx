@@ -1,16 +1,18 @@
 import { BsFiletypeMdx, BsJournal, BsWikipedia } from 'react-icons/bs';
 import { FaRegDotCircle } from 'react-icons/fa';
 
+const testFile = 'http://localhost:3000/tiddlers.json';
+
 const config = {
   title: 'Blog with NextJs',
   content: 'content', // mdx directory
   journalJson:
     process.env.NODE_ENV === 'development'
-      ? 'https://colorplay.tiddlyhost.com/tiddlers.json'
+      ? testFile
       : 'https://neotw.vercel.app/journal.json',
   json:
     process.env.NODE_ENV === 'development'
-      ? 'https://colorplay.tiddlyhost.com/tiddlers.json'
+      ? testFile
       : 'https://neotw.vercel.app/tiddlers.json', // tiddler file
   githubRepo: 'oeyoews/neotw-tiddlers', // issue repo
   description: 'Nextjs + TypeScript + Tailwindcss + MDX',
