@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 
-import Dot from './Dot';
-import Li from './Li';
+import Dot from './TimelineDot';
+import Li from './TimelineLi';
 
 const Timeline = forwardRef(({ children }: ChildrenProps, ref: any) => {
   return (
