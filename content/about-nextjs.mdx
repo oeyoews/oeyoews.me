@@ -145,53 +145,9 @@ next 缓存总是会导致一些奇怪的 bug, 本地开发需要 rm .next, verc
 
 ps: 今天才知道 tailwindcss 原来还有个 tailwindcss@insider 的 package(text-balance 只有这里能用, 我说那个 pr 明明合进仓库了, 为什么用不了, 翻了 issue 才知道)
 
-## RSC
-
-使用 rsc 的过程中, 总是回想, 这个代码是在那里运行, server or client, 还是都可以, 我应该选择那一个?(有人调侃道, 前端在十几年的时间里跑了一圈)
-
-## vecel analysics
-
-可以用来监视站点的浏览情况(不过 Hobby 版只能设置一个站点, 并且有 2500 次的上限)
-
-## Bright
-
-代码块高亮无需配置(解析代码是通过 fetch 对应的 json 文件得到的, 所以代码快类型越多, 加载越慢), 虽然是 rsc, 但是由于使用 next/mdx, 没有使用 ssg, 所以加载代码高亮仍然比较满, 因为需要等待服务端渲染完成, 服务段生成后, 再次访问速度就很快了
-
-## Next Link
-
-next 默认配置好了路由缓存, 所以不要担心瀑布问题
-
-## Vercel/kv
-
-vercel 的 kv 可以看作 redis, `key-value` 存储数据, 比如用来存储评论, 点赞数目, 站点浏览量, 或者用来存储 chatgpt 的对话;
-
-## Code Highlight
-
-code-hike 仅仅支持客户端渲染, 默认代码字体比较小, bright(code-hike 写的)无需配置, 支持 rsc; 速度上没有很明显的差异
-
-## components test
-
-## 代码分割
-
-- 代码分割的好处是减少了首次访问某个页面的加载时间, 仅仅加载当前网页需要的资源
-
-## Vercel
-
-- vercel hobby 仅能创建 50 个项目
-
-## RSC
-
-rsc 好处没明显感受到, 反而是每次都要处理 s 与 c 的关系, 写组件的速度明显慢了不少, rsc 在一定程度上促进了 Tailwindcss, css-in-js 不适用于 rsc
-
 ## React
 
 react 当前的生态有点类似与 archlinux, neovim, 很容易产生 break change, 灵活的同时, 也带来了一定的成本
-
-## Next.js Bug
-
-- 嵌套路由概率性不刷新(概率很小, 复现不了)
-- 基于路由/组件的代码拆分
-- 内存问题(如果 dev 环境下, 如果多次刷新, 就会有 memory 问题, 写#游戏的时候复现)
 
 ## shadcn-ui
 
@@ -202,13 +158,7 @@ react 当前的生态有点类似与 archlinux, neovim, 很容易产生 break ch
 - 需要包一层 use client, 下面的所有组件都是客户端组件了?
 - 有点像 shadcn-ui, 只不过改成包了, 为了支持 rsc, 分离每一个组件为一个包, 配合 frmaer-motion, 效果不错, 使用起来有点别扭
 
-## storybook
-
-- 调试组件???
-- 如果使用 framer-motion, 就需要把组件拆出来, 比如 `<Transition>{children}</Transition>`
-
-* 每次修改 next.config.js, 都需要重启
-* 最近 nextjs 更新后, blurdata 的效果更差了
+## Assert File
 
 * 如果 mp3 文件没有放在 public 目录下, 而是放在 src 或者其他目录下, 则需要在 next.config.js 文件中自定义 webpack 配置
 
