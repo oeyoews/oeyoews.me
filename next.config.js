@@ -28,7 +28,7 @@ const nextConfig = {
     },
   },
   experimental: {
-    ppr: true,
+    ppr: false,
     // optimizePackageImports: ['react-icons'],
   },
 };
