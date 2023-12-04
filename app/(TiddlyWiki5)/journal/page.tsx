@@ -9,5 +9,5 @@ export const metadata = {
 
 export default async function TiddlersHomepage() {
   const { tiddlersMetadata } = await getTiddlerData(config.journalJson);
-  return <TiddlersList tiddlers={tiddlersMetadata} />;
+  return <TiddlersList tiddlers={tiddlersMetadata} route="journal" />;
 }

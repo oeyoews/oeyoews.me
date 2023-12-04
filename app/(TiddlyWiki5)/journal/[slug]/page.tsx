@@ -17,7 +17,7 @@ async function getTiddler(slug: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Params;
 }): Promise<Metadata> {
   const { slug } = params;
   const tiddler = await getTiddler(slug);

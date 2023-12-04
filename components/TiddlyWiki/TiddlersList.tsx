@@ -10,8 +10,10 @@ import useBlogStore from '~lib/store';
 
 export default function TiddlersList({
   tiddlers,
+  route,
 }: {
   tiddlers: TiddlerMetadata[];
+  route: string;
 }) {
   const loadedItems = useBlogStore.use.loadedItems();
   const setLoadedItems = useBlogStore.use.setLoadedItems();
@@ -63,6 +65,7 @@ export default function TiddlersList({
             index={index}
             key={title}
             order={index === data.length - 1 ? 'end' : 'normal'}
+            route={route}
           >
             {yearHeader}
           </TiddlerItem>
