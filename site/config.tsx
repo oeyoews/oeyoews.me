@@ -1,8 +1,13 @@
-import { BsCircle, BsFiletypeMdx, BsWikipedia } from 'react-icons/bs';
+import { BsFiletypeMdx, BsJournal, BsWikipedia } from 'react-icons/bs';
+import { FaRegDotCircle } from 'react-icons/fa';
 
 const config = {
   title: 'Blog with NextJs',
   content: 'content', // mdx directory
+  journalJson:
+    process.env.NODE_ENV === 'development'
+      ? 'https://colorplay.tiddlyhost.com/tiddlers.json'
+      : 'https://neotw.vercel.app/journal.json',
   json:
     process.env.NODE_ENV === 'development'
       ? 'https://colorplay.tiddlyhost.com/tiddlers.json'
@@ -17,6 +22,11 @@ const config = {
       icon: <BsFiletypeMdx />,
     },
     {
+      title: 'journal',
+      path: '/journal',
+      icon: <BsJournal />,
+    },
+    {
       title: 'tiddlers',
       path: '/tiddlers',
       icon: <BsWikipedia />,
@@ -24,7 +34,7 @@ const config = {
     {
       title: 'issues',
       path: '/issue',
-      icon: <BsCircle />,
+      icon: <FaRegDotCircle />,
     },
   ],
 };
