@@ -47,7 +47,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
           }}
         />
         <Providers>
-          <NextTopLoader color="#eb6864" height={1} shadow={false} />
+          <NextTopLoader
+            color="#eb6864"
+            height={1}
+            shadow={false}
+            showSpinner={false}
+          />
           <Nav />
           <main className="container mx-auto max-w-4xl py-8 px-2">
             {children}
