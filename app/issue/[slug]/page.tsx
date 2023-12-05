@@ -47,7 +47,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <MarkdownWrapper text={`${issue.body}`} enableGFM={false} />
       )}
       {comments.length > 0 && (
-        <DrawserComponent text="Comments">
+        <DrawserComponent text="Comments" key={issue.id}>
           {comments.map(({ body, id, user }) => (
             <>
               <div className="flex items-center justify-start space-x-2">
