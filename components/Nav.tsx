@@ -2,11 +2,10 @@
 
 import React from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { IoMdRefreshCircle } from 'react-icons/io';
-import { MdFullscreen, MdFullscreenExit } from 'react-icons/md';
 
+import { Route } from 'next';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 import { useFullScreen } from '~lib/hooks/useFullScreen';
 
@@ -17,26 +16,23 @@ import config from '~site/config';
 
 export default function Nav() {
   const LinkClass = 'w-5 h-5';
+  const pathname = usePathname();
+
   const { isFullScreen, toggleFullScreen } = useFullScreen();
   const router = useRouter();
+  const routes: Route[] = config.links.map(({ path }) => path);
+
+  const hasNav = routes.includes(pathname);
 
   return (
     <>
       <div className="backdrop-blur-md p-2 bg-black/5 dark:bg-black/90 shadow rounded-tl-md flex fixed bottom-0 right-0 space-x-4 print:hidden opacity-0 hover:opacity-100 transition-all">
         <ThemeSwitcher />
-        {/* NOTE: 手机不支持fullscreen */}
-        <button
-          onClick={toggleFullScreen}
-          className="scale-150 hidden md:block"
-          aria-label="fullscreen"
-        >
-          {!isFullScreen ? <MdFullscreen /> : <MdFullscreenExit />}
-        </button>
       </div>
       <div
         className={clsx(
           'flex items-center justify-between print:hidden mb-8 sticky top-0 left-0 z-[1000] backdrop-blur-sm p-4 mx-auto px-2 md:px-16 w-full',
-          isFullScreen && 'hidden',
+          (isFullScreen || !hasNav) && 'hidden',
         )}
       >
         <div className="space-x-4">
