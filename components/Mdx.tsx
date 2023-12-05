@@ -11,7 +11,7 @@ Code.theme = {
   dark: 'one-dark-pro',
   light: 'github-light',
   // lightSelector: '[data-theme="light"]',
-  lightSelector: 'html.light',
+  // lightSelector: 'html.light',
 };
 
 const slugify = (str: string) => {

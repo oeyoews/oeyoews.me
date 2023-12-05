@@ -29,7 +29,7 @@ function PasswordProtectedContent({
   };
 
   return (
-    <div>
+    <>
       {/* 如果其他文章输入密码, 会影响 */}
       {!metadata.password && !metadata.draft && children}
       {metadata.draft && (
@@ -63,7 +63,7 @@ function PasswordProtectedContent({
       ) : (
         <>{showContent && children}</>
       )}
-    </div>
+    </>
   );
 }
 
