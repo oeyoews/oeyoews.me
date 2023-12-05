@@ -1,6 +1,7 @@
 import { Toaster } from 'react-hot-toast';
 
 import type { Metadata, Viewport } from 'next';
+import NextTopLoader from 'nextjs-toploader';
 
 import { Providers } from '~app/Providers';
 import '~app/globals.css';
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             duration: 1000,
           }}
         />
+        <NextTopLoader />
         <Providers>
           <Nav />
           <main className="container mx-auto max-w-4xl py-10 px-4">
