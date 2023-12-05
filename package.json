@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@iconify/react": "^4.1.1",
-    "@types/echarts": "^4.9.22",
     "@types/markdown-it": "^13.0.7",
     "@types/md5": "^2.3.5",
     "@types/rss": "^0.0.30",
