@@ -1,8 +1,9 @@
+import { GoComment } from 'react-icons/go';
+
 import Link from 'next/link';
 
 import { format } from 'date-fns';
 import Badge from '~components/Badge';
-import Icon from '~components/Icon';
 import Timeline from '~components/Timeline';
 
 export default function GithubIssueItem({
@@ -38,7 +39,7 @@ export default function GithubIssueItem({
           </Link>
           <Timeline.Time>{format(new Date(date), 'EEE, MMMM d')}</Timeline.Time>
           <div className="space-x-1">
-            <Icon icon="octicon:comment-24" className="h-4 w-4 text-gray-400" />
+            <GoComment className="h-4 w-4 text-gray-400" />
             <span>{issue.comments}</span>
           </div>
         </div>
