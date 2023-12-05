@@ -41,7 +41,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             duration: 1000,
           }}
         />
-        <NextTopLoader />
+        <NextTopLoader color="#eb6864" height={1} />
         <Providers>
           <Nav />
           <main className="container mx-auto max-w-4xl py-10 px-4">
