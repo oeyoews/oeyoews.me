@@ -1,4 +1,4 @@
-import { BsFiletypeMdx, BsJournal, BsWikipedia } from 'react-icons/bs';
+import { BsFiletypeMdx, BsHouse, BsJournal, BsWikipedia } from 'react-icons/bs';
 import { FaRegDotCircle } from 'react-icons/fa';
 
 const testFile = 'http://localhost:3000/tiddlers.json';
@@ -19,6 +19,11 @@ const config = {
   domain: 'https://nextjs-mdx-blog-tailwindcss.vercel.app',
   links: [
     {
+      title: 'Home',
+      path: '/',
+      icon: <BsHouse />,
+    },
+    {
       title: 'Blog',
       path: '/blog',
       icon: <BsFiletypeMdx />,
@@ -37,6 +42,23 @@ const config = {
       title: 'issues',
       path: '/issue',
       icon: <FaRegDotCircle />,
+    },
+  ],
+  sections: [
+    {
+      name: 'mdx',
+      link: 'https://github.com/oeyoews/nextjs-mdx-blog/tree/oeyoews/content',
+      icon: 'vscode-icons:file-type-light-mdx',
+    },
+    {
+      name: 'tiddlers',
+      link: 'https://github.com/oeyoews/neotw-tiddlers',
+      icon: 'simple-icons:tiddlywiki',
+    },
+    {
+      name: 'issues',
+      link: 'https://github.com/oeyoews/neotw-tiddlers/issues?q=is%3Aissue+is%3Aclosed',
+      icon: 'octicon:issue-opened-16',
     },
   ],
 };
