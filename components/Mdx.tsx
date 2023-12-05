@@ -7,6 +7,7 @@ import { Code } from 'bright';
 import Icon from '~components/Icon';
 
 Code.lineNumbers = false;
+// TODO: not support prefers-color-scheme
 Code.theme = {
   dark: 'one-dark-pro',
   light: 'github-light',
