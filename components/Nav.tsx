@@ -40,9 +40,9 @@ export default function Nav() {
         )}
       >
         <div className="space-x-4">
-          <button onClick={() => router.refresh()}>
+          {/* <button onClick={() => router.refresh()}>
             <IoMdRefreshCircle />
-          </button>
+          </button> */}
           <button onClick={() => router.back()} className={LinkClass}>
             <FaArrowLeft />
           </button>
