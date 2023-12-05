@@ -2,6 +2,7 @@ import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { Article, Divider, H1 } from '~components/ArticleComponents';
+import DrawserComponent from '~components/DrawserComponent';
 import MarkdownWrapper from '~components/MarkdownWrapper';
 import formatTitle from '~lib/formatTitle';
 import {
@@ -44,9 +45,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
       {issue.body && (
         <MarkdownWrapper text={`${issue.body}`} enableGFM={false} />
       )}
-      {comments.map(({ body, id }) => (
-        <MarkdownWrapper text={body} key={id} />
-      ))}
+      {comments.length > 0 && (
+        <DrawserComponent text="Comments">
+          {comments.map(({ body, id }) => (
+            <MarkdownWrapper text={body} key={id} />
+          ))}
+        </DrawserComponent>
+      )}
     </Article>
   );
 }
