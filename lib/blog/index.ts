@@ -10,7 +10,7 @@ export interface Post {
   content: string;
 }
 
-interface Metadata {
+export interface Metadata {
   title: string;
   date: string;
   summary?: string;

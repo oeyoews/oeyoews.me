@@ -19,14 +19,15 @@ const BlogItem = ({
 }) => {
   const { metadata } = post;
 
-  const badges = [];
+  const badgesInfo = {
+    Latest: index === 0,
+    Password: metadata.password,
+    Draft: metadata.draft === true,
+  };
 
-  if (index === 0)
-    badges.push(<Badge key={index} className="" text="Latest" />);
-  if (metadata.password)
-    badges.push(<Badge key={index} className="" text="Password" />);
-  if (metadata.draft === true)
-    badges.push(<Badge key={index} className="" text="Draft" />);
+  const badges = Object.entries(badgesInfo).map(([text, show]) => {
+    return show && <Badge key={text} text={text} />;
+  });
 
   return (
     <>
