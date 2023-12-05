@@ -5,6 +5,23 @@ date: '2023-11-23'
 
 > 以下内容仅针对 NextJs 13.4+ app router, 不会涉及到低版本或者 Next.js Pages 的部分(整理中)
 
+## Server Components vs server actions
+
+> server action just suitable for form tag ???
+
+Next.js integrates with React Actions to provide a built-in solution for server mutations.
+
+Server Actions can be defined in two places:
+服务器操作可以在两个位置定义：
+
+Inside the component that uses it (Server Components only).
+在使用它的组件内部（仅限服务器组件）。
+In a separate file (Client and Server Components), for reusability. You can define multiple Server Actions in a single file.
+在单独的文件（客户端和服务器组件）中，以实现可重用性。您可以在单个文件中定义多个服务器操作。
+
+https://nextjs.org/docs/app/api-reference/functions/server-actions
+https://blog.greenroots.info/understanding-nextjs-server-actions-with-examples
+
 ## PPR(Partial Prerendering )
 
 Partial Prerendering is an experimental feature that allows static portions of a route to be prerendered and served from the cache with dynamic holes streamed in, all in a single HTTP request.
@@ -101,6 +118,8 @@ https://nextjs.org/docs/app/building-your-application/rendering/composition-patt
 layout.js 里面是可以使用 use client, 不会导致子组件全部变成 client
 
 ## RSC(React Server Component)
+
+* 如果数据库不再此服务器上, 和从客户端上进行后端请求区, 就没有了网络往返的优势了 ???
 
 * Static Rendering 静态渲染
 * Dynamic Rendering 动态渲染

@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 
 import { Article, Divider, H1 } from '~components/ArticleComponents';
 import DrawserComponent from '~components/DrawserComponent';
-import MarkdownWrapper from '~components/MarkdownWrapper';
+import MarkdownRenderer from '~components/MarkdownIt';
 import formatTitle from '~lib/formatTitle';
 import {
   getAllIssues,
@@ -43,9 +43,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <Article>
       <H1>{formatTitle(issue.title)}</H1>
       <Divider />
-      {issue.body && (
-        <MarkdownWrapper text={`${issue.body}`} enableGFM={false} />
-      )}
+      {issue.body && <MarkdownRenderer content={issue.body} />}
       {comments.length > 0 && (
         <DrawserComponent text="Comments" key={issue.id}>
           {comments.map(({ body, id, user }) => (
@@ -65,7 +63,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   />
                 </div>
               </div>
-              <MarkdownWrapper text={body} key={id} />
+              <MarkdownRenderer content={body} />
               <Divider width={1} />
             </>
           ))}
