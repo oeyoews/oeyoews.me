@@ -33,10 +33,18 @@ export default function Nav() {
         {/* <button onClick={() => router.refresh()}>
             <IoMdRefreshCircle />
           </button> */}
-        <button onClick={() => router.back()} className={LinkClass}>
+        <button
+          onClick={() => router.back()}
+          className={LinkClass}
+          aria-label="back"
+        >
           <FaArrowLeft />
         </button>
-        <button onClick={() => router.forward()} className={LinkClass}>
+        <button
+          onClick={() => router.forward()}
+          className={LinkClass}
+          aria-label="forward"
+        >
           <FaArrowRight />
         </button>
       </div>
