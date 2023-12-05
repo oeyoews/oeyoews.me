@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { format } from 'date-fns';
+import { H2 } from '~components/ArticleComponents';
 import Badge from '~components/Badge';
 import Timeline from '~components/Timeline';
 import { Post } from '~lib/blog';
@@ -19,6 +20,7 @@ const BlogItem = ({
   const { metadata } = post;
 
   const badges = [];
+
   if (index === 0)
     badges.push(<Badge key={index} className="" text="Latest" />);
   if (metadata.password)
@@ -36,10 +38,10 @@ const BlogItem = ({
           className="text-xs rounded-md"
           title="点击阅读全文"
         >
-          <h2 className="mt-0 mb-2 capitalize">
+          <H2>
             {metadata.title}
             {badges}
-          </h2>
+          </H2>
         </Link>
         <Timeline.Time>
           {metadata.date && format(new Date(metadata.date), 'EEE, MMMM d')}

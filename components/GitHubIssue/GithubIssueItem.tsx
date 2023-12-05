@@ -3,6 +3,7 @@ import { GoComment } from 'react-icons/go';
 import Link from 'next/link';
 
 import { format } from 'date-fns';
+import { H2 } from '~components/ArticleComponents';
 import Badge from '~components/Badge';
 import Timeline from '~components/Timeline';
 
@@ -28,10 +29,10 @@ export default function GithubIssueItem({
           className="text-xs rounded-md"
           title="点击阅读全文"
         >
-          <h2 className="mt-0 mb-2 truncate text-blance capitalize">
+          <H2>
             {title}
             {index === 0 && <Badge className="font-bold" text="Latest" />}
-          </h2>
+          </H2>
         </Link>
         <div className="flex space-x-2 text-gray-400 items-center">
           <Link href={html_url} className="text-gray-400" target="_blank">

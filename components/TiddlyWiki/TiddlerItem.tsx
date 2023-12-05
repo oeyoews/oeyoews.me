@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { format } from 'date-fns';
+import { H2 } from '~components/ArticleComponents';
 import Badge from '~components/Badge';
 import Timeline from '~components/Timeline';
 import formatTitle from '~lib/formatTitle';
@@ -29,10 +30,10 @@ export default function TiddlerItem({
           className="text-xs rounded-md"
           title="点击阅读全文"
         >
-          <h2 className="mt-0 mb-2 truncate text-blance capitalize">
+          <H2>
             {formatTitle(title)}
             {index === 0 && <Badge className="" text="Latest" />}
-          </h2>
+          </H2>
         </Link>
         <Timeline.Time>{format(date, 'EEE, MMMM d')}</Timeline.Time>
       </Timeline.Li>
