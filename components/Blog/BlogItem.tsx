@@ -41,9 +41,9 @@ const BlogItem = ({
             {badges}
           </h2>
         </Link>
-        <time className="block text-sm font-normal leading-none text-gray-400">
+        <Timeline.Time>
           {metadata.date && format(new Date(metadata.date), 'EEE, MMMM d')}
-        </time>
+        </Timeline.Time>
       </Timeline.Li>
     </>
   );

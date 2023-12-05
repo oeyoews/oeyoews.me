@@ -2,6 +2,7 @@ import { forwardRef } from 'react';
 
 import Dot from './TimelineDot';
 import Li from './TimelineLi';
+import { TimelineTime as Time } from './TimelineTime';
 
 const Timeline = forwardRef(({ children }: ChildrenProps, ref: any) => {
   return (
@@ -13,4 +14,4 @@ const Timeline = forwardRef(({ children }: ChildrenProps, ref: any) => {
 
 Timeline.displayName = 'Timeline';
 
-export default Object.assign(Timeline, { Li, Dot });
+export default Object.assign(Timeline, { Li, Dot, Time });

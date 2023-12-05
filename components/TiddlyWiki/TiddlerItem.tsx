@@ -34,9 +34,7 @@ export default function TiddlerItem({
             {index === 0 && <Badge className="" text="Latest" />}
           </h2>
         </Link>
-        <time className="block text-sm font-normal leading-none text-gray-400">
-          {format(date, 'EEE, MMMM d')}
-        </time>
+        <Timeline.Time>{format(date, 'EEE, MMMM d')}</Timeline.Time>
       </Timeline.Li>
     </>
   );

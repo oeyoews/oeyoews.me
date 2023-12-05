@@ -32,11 +32,11 @@ export default function GithubIssueItem({
             {index === 0 && <Badge className="font-bold" text="Latest" />}
           </h2>
         </Link>
-        <div className="flex space-x-2 text-gray-400">
-          <Link href={html_url} className="text-gray-400 mb-2" target="_blank">
+        <div className="flex space-x-2 text-gray-400 items-center">
+          <Link href={html_url} className="text-gray-400" target="_blank">
             #{number}
           </Link>
-          <time className="">{format(new Date(date), 'EEE, MMMM d')}</time>
+          <Timeline.Time>{format(new Date(date), 'EEE, MMMM d')}</Timeline.Time>
           <div className="space-x-1">
             <Icon icon="octicon:comment-24" className="h-4 w-4 text-gray-400" />
             <span>{issue.comments}</span>

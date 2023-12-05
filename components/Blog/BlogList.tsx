@@ -13,8 +13,9 @@ export default function BlogList({ data }: { data: Post[] }) {
     <Timeline>
       {data.sort(sortByDate).map((post, index) => {
         const postYear = new Date(post.metadata.date).getFullYear();
-        const yearHeader =
-          currentYear !== postYear ? <YearHeader postYear={postYear} /> : null;
+        const yearHeader = currentYear !== postYear && (
+          <YearHeader postYear={postYear} />
+        );
         currentYear = postYear;
         return (
           <BlogItem
