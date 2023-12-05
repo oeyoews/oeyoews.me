@@ -23,6 +23,30 @@ Partial Prerendering is an experimental feature that allows static portions of a
 
 ## About Cache
 
+> 由于nextjs 的路由缓存, revalidate 即使成功, 有时也会看到过去的数据, revalidate 也不是及时会更新, 需要等到新的数据成功获取, 类似于service worker 或者swr
+
+The first time a fetch request with revalidate is called, the data will be fetched from the external data source and stored in the Data Cache.
+第一次调用 fetch revalidate 请求时，将从外部数据源获取数据并存储在数据缓存中。
+
+Any requests that are called within the specified timeframe (e.g. 60-seconds) will return the cached data.
+在指定时间范围内（例如 60 秒）调用的任何请求都将返回缓存的数据。
+
+After the timeframe, the next request will still return the cached (now stale) data.
+在时间范围之后，下一个请求仍将返回缓存的（现已过时）数据。
+
+Next.js will trigger a revalidation of the data in the background.
+
+Next.js 将在后台触发对数据的重新验证。
+
+Once the data is fetched successfully, Next.js will update the Data Cache with the fresh data.
+成功获取数据后，Next.js 将使用新数据更新数据缓存。
+
+If the background revalidation fails, the previous data will be kept unaltered.
+如果后台重新验证失败，则以前的数据将保持不变。
+
+This is similar to stale-while-revalidate behavior.
+这类似于 stale-while-revalidate 行为。
+
 * fetch 使用该 POST 方法的请求也会自动缓存。除非它位于使用该 POST 方法的路由处理程序中.
 * 可以添加缓存标记 tag
 
