@@ -25,6 +25,7 @@
     "git-last-commit": "^1.0.1",
     "highlight.js": "^11.9.0",
     "markdown-it": "^13.0.2",
+    "markdown-it-github-alerts": "^0.1.2",
     "md5": "^2.3.0",
     "next": "14.0.4-canary.40",
     "next-mdx-remote": "^4.4.1",

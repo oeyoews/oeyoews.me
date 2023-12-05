@@ -41,6 +41,9 @@ dependencies:
   markdown-it:
     specifier: ^13.0.2
     version: 13.0.2
+  markdown-it-github-alerts:
+    specifier: ^0.1.2
+    version: 0.1.2(markdown-it@13.0.2)
   md5:
     specifier: ^2.3.0
     version: 2.3.0
@@ -2805,6 +2808,14 @@ packages:
   /markdown-extensions@1.1.1:
     resolution: {integrity: sha512-WWC0ZuMzCyDHYCasEGs4IPvLyTGftYwh6wIEOULOF0HXcqZlhwRzrK0w2VUlxWA98xnvb/jszw4ZSkJ6ADpM6Q==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /markdown-it-github-alerts@0.1.2(markdown-it@13.0.2):
+    resolution: {integrity: sha512-jtCrfFxXR6c/bNRBvWkoqUquEDdIF9q7/gNZjP47W96kaIiBMiYHbpf468IPeZJB5BVRls6+IXGchhQSTxy0DQ==}
+    peerDependencies:
+      markdown-it: ^13.0.0
+    dependencies:
+      markdown-it: 13.0.2
     dev: false
 
   /markdown-it@13.0.2:
