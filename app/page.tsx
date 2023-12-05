@@ -5,7 +5,7 @@ import path from 'path';
 import { H2 } from '~components/ArticleComponents';
 import { Article } from '~components/ArticleComponents';
 import Icon from '~components/Icon';
-import MarkdownRenderer from '~components/MarkdownIt';
+import MarkdownItRenderer from '~components/MarkdownIt';
 import config from '~site/config';
 
 const page = () => {
@@ -15,7 +15,7 @@ const page = () => {
   );
   return (
     <Article>
-      <MarkdownRenderer content={content} />
+      <MarkdownItRenderer content={content} />
       <H2>External Links</H2>
       <div className="mx-2 flex justify-center items-center space-x-2">
         {config.sections.map((section) => (

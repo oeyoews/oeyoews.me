@@ -3,7 +3,8 @@ import { Toaster } from 'react-hot-toast';
 import type { Metadata, Viewport } from 'next';
 import NextTopLoader from 'nextjs-toploader';
 
-import { Providers } from '~app/Providers';
+import { Providers } from './Providers';
+
 import '~app/globals.css';
 import Nav from '~components/Nav';
 import config from '~site/config';
@@ -34,15 +35,19 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className="text-black bg-white dark:text-white dark:bg-[#111010]"
+    >
       <body className="antialiased min-h-screen">
         <Toaster
           toastOptions={{
             duration: 1000,
           }}
         />
-        <NextTopLoader color="#eb6864" height={1} />
         <Providers>
+          <NextTopLoader color="#eb6864" height={1} />
           <Nav />
           <main className="container mx-auto max-w-4xl py-10 px-4">
             {children}

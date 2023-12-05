@@ -1,7 +1,7 @@
 import { Config } from 'tailwindcss';
 
 export default {
-  darkMode: 'class',
+  darkMode: 'media', // media support dark default ???
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -10,6 +10,9 @@ export default {
   ],
   corePlugins: {
     preflight: true,
+  },
+  future: {
+    hoverOnlyWhenSupported: true,
   },
   theme: {
     extend: {

@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 
 import clsx from 'clsx';
 import { Article, Divider, H1 } from '~components/ArticleComponents';
-import MarkdownRenderer from '~components/MarkdownIt';
+import MarkdownItRenderer from '~components/MarkdownIt';
 import formatTitle from '~lib/formatTitle';
 import getTiddlerData from '~lib/getTiddlerData';
 
@@ -59,7 +59,7 @@ export default async function Page({ params }: { params: Params }) {
       )}
       <H1>{formatTitle(title)}</H1>
       <Divider />
-      <MarkdownRenderer content={text} />
+      <MarkdownItRenderer content={text} />
     </Article>
   );
 }
