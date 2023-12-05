@@ -2,9 +2,7 @@ import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
 import MarkdownIt from 'markdown-it';
 import MarkdownItGitHubAlerts from 'markdown-it-github-alerts';
-import 'markdown-it-github-alerts/styles/github-base.css';
 import 'markdown-it-github-alerts/styles/github-colors-dark-class.css';
-import 'markdown-it-github-alerts/styles/github-colors-dark-media.css';
 
 const md: MarkdownIt = new MarkdownIt({
   html: true,
