@@ -4,6 +4,7 @@ import MarkdownIt from 'markdown-it';
 import MarkdownItGitHubAlerts from 'markdown-it-github-alerts';
 import 'markdown-it-github-alerts/styles/github-base.css';
 import 'markdown-it-github-alerts/styles/github-colors-dark-media.css';
+import 'markdown-it-github-alerts/styles/github-colors-light.css';
 
 const md: MarkdownIt = new MarkdownIt({
   html: true,
