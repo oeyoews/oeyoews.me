@@ -20,18 +20,44 @@ interface ITiddlywikiStatus {
   tiddlywiki_version: string;
 }
 
+/**
+ * Represents a comment on an issue.
+ */
 interface IssueComment {
+  /** The URL of the comment */
   url: string;
+
+  /** The HTML URL of the comment */
   html_url: string;
+
+  /** The URL of the issue the comment is on */
   issue_url: string;
+
+  /** The ID of the comment */
   id: number;
+
+  /** The node ID of the comment */
   node_id: string;
+
+  /** The user who created the comment */
   user: User;
+
+  /** The date the comment was created */
   created_at: Date;
+
+  /** The date the comment was last updated */
   updated_at: Date;
+
+  /** The association of the author to the issue */
   author_association: string;
+
+  /** The body text of the comment */
   body: string;
+
+  /** The reactions to the comment */
   reactions: Reactions;
+
+  /** Whether the comment was performed via a GitHub app */
   performed_via_github_app: null;
 }
 
@@ -49,6 +75,7 @@ interface Reactions {
 }
 
 interface User {
+  /** username */
   login: string;
   id: number;
   node_id: string;

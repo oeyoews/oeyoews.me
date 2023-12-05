@@ -15,7 +15,7 @@ export default function DrawserComponent({
     <Drawer.Root shouldScaleBackground>
       <Drawer.Trigger asChild>
         <div className="flex justify-end items-center">
-          <button className="rounded px-2 py-1 mx-2">
+          <button className="rounded px-2 py-1 mx-2 bg-zinc-200 dark:bg-transparent">
             <FaCommentDots className="text-zinc-500 mx-2" />
             {text}
           </button>

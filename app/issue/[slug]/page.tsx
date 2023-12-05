@@ -1,4 +1,5 @@
 import { type Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import { Article, Divider, H1 } from '~components/ArticleComponents';
@@ -47,8 +48,25 @@ export default async function Page({ params }: { params: { slug: string } }) {
       )}
       {comments.length > 0 && (
         <DrawserComponent text="Comments">
-          {comments.map(({ body, id }) => (
-            <MarkdownWrapper text={body} key={id} />
+          {comments.map(({ body, id, user }) => (
+            <>
+              <div className="flex items-center justify-start space-x-2">
+                <div>
+                  <Image
+                    unoptimized
+                    src={user.avatar_url}
+                    alt={user.login}
+                    width={18}
+                    height={18}
+                    className="rounded-full outline-purple-500 dark:outline-white outline ml-1"
+                  />
+                </div>
+                <div className="text-zinc-400 dark:text-zinc-500">
+                  {user.login}
+                </div>
+              </div>
+              <MarkdownWrapper text={body} key={id} />
+            </>
           ))}
         </DrawserComponent>
       )}
