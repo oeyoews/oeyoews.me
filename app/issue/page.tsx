@@ -6,6 +6,8 @@ export const metadata = {
   description: 'issues',
 };
 
+export const revalidate = 60;
+
 export default async function IssueComponent() {
   const issues = await getAllIssues();
 
