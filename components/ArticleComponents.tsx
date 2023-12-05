@@ -1,5 +1,9 @@
-export const Divider = () => {
-  return <hr className="my-4 border-2 rounded-full not-prose" />;
+import clsx from 'clsx';
+
+export const Divider = ({ width = 2 }: { width?: number }) => {
+  return (
+    <hr className={clsx('my-4 rounded-full not-prose', `border-${width}`)} />
+  );
 };
 
 export const H1 = ({ children }: { children: React.ReactNode }) => {

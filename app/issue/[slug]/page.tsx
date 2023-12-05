@@ -51,21 +51,22 @@ export default async function Page({ params }: { params: { slug: string } }) {
           {comments.map(({ body, id, user }) => (
             <>
               <div className="flex items-center justify-start space-x-2">
+                <div className="text-zinc-400 dark:text-zinc-500">
+                  {user.login}
+                </div>
                 <div>
                   <Image
                     unoptimized
                     src={user.avatar_url}
                     alt={user.login}
-                    width={18}
-                    height={18}
-                    className="rounded-full outline-purple-500 dark:outline-white outline ml-1"
+                    width={16}
+                    height={16}
+                    className="rounded-full dark:outline-white outline outline-1 ml-1"
                   />
-                </div>
-                <div className="text-zinc-400 dark:text-zinc-500">
-                  {user.login}
                 </div>
               </div>
               <MarkdownWrapper text={body} key={id} />
+              <Divider width={1} />
             </>
           ))}
         </DrawserComponent>
