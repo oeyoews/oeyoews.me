@@ -36,7 +36,7 @@ const parseFrontmatter = (
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   const match = frontmatterRegex.exec(fileContent);
   const defaultDate = getDefaultDate(filePath);
-  const defaultTitle = fileName.replace(/\.mdx?$/, ''); // Use file name as the default title
+  const defaultTitle = fileName.replace(/\.mdx?$|\.md$/, ''); // Use file name as the default title
 
   if (match) {
     const frontMatterBlock = match[1];
@@ -93,7 +93,7 @@ const getMDXFilesRecursive = (dir: string): string[] => {
     if (isDirectory) {
       // Recursively get MDX files from subdirectories
       mdxFiles = mdxFiles.concat(getMDXFilesRecursive(filePath));
-    } else if (path.extname(file) === '.mdx') {
+    } else if (path.extname(file) === '.mdx' || path.extname(file) === '.md') {
       mdxFiles.push(filePath);
     }
   });
