@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactElement, useState } from 'react';
+import { ReactElement, ReactNode, useState } from 'react';
 import { AiOutlineSend } from 'react-icons/ai';
 
 import type { Post } from '~lib/blog';
@@ -11,7 +11,7 @@ function PasswordProtectedContent({
   children,
 }: {
   post: Post;
-  children: ReactElement;
+  children: ReactNode;
 }) {
   const [enteredPassword, setEnteredPassword] = useState('');
 
@@ -33,10 +33,8 @@ function PasswordProtectedContent({
       {/* 如果其他文章输入密码, 会影响 */}
       {!metadata.password && !metadata.draft && children}
       {metadata.draft && (
-        <div className="">
-          <small className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            正在努力编写中 ...
-          </small>
+        <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xl animate-pulse">
+          正在努力编写中 ...
         </div>
       )}
       {metadata.password && !showContent ? (

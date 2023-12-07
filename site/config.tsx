@@ -19,6 +19,7 @@ const config = {
   description: 'Nextjs + TypeScript + Tailwindcss + MDX',
   domain: 'https://nextjs-mdx-blog-tailwindcss.vercel.app',
   enableTOC: false, // WIP // issue comment not need this toc
+  md5Length: 8,
   links: [
     {
       title: 'Home',

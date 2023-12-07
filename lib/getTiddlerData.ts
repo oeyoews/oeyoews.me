@@ -23,7 +23,7 @@ export default async function getTiddlerData(tiddlerjsonfile = config.json) {
     )
     .map((tiddler) => ({
       ...tiddler,
-      slug: md5(tiddler.title),
+      slug: md5(tiddler.title).slice(0, config.md5Length),
       date: formattedTime(tiddler.created),
     }))
     .sort((a, b) => {

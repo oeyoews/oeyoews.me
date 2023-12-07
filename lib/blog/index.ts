@@ -112,11 +112,10 @@ const getMDXData = (dir: string): Post[] => {
   return mdxFiles.map((filePath) => {
     const { metadata, content } = readMDXFile(filePath);
     const filename = path.basename(filePath, path.extname(filePath));
-    const slug = md5(filename);
     return {
       metadata,
       type: path.extname(filePath) === '.mdx' ? 'mdx' : 'md',
-      slug,
+      slug: md5(filename).slice(0, config.md5Length),
       content,
     };
   });

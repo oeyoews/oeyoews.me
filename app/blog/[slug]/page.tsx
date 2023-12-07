@@ -30,10 +30,10 @@ const PostPage = ({ params }: { params: Params }) => {
   }
 
   return (
-    <Article>
-      <H1>{post.metadata.title}</H1>
-      <Divider />
-      <PasswordProtectedContent post={post}>
+    <PasswordProtectedContent post={post}>
+      <Article>
+        <H1>{post.metadata.title}</H1>
+        <Divider />
         <Suspense fallback={<Spinner center />}>
           {post.type === 'md' ? (
             <>
@@ -43,8 +43,8 @@ const PostPage = ({ params }: { params: Params }) => {
             <MDX source={post.content} />
           )}
         </Suspense>
-      </PasswordProtectedContent>
-    </Article>
+      </Article>
+    </PasswordProtectedContent>
   );
 };
 
