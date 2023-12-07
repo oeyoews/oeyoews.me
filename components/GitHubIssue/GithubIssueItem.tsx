@@ -28,6 +28,7 @@ export default function GithubIssueItem({
           href={`/issue/${slug}`}
           className="text-xs rounded-md"
           title="点击阅读全文"
+          scroll={false}
         >
           <H2>
             {title}

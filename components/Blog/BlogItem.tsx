@@ -38,6 +38,7 @@ const BlogItem = ({
           href={`/blog/${post.slug}`}
           className="text-xs rounded-md"
           title="点击阅读全文"
+          scroll={false}
         >
           <H2>
             {metadata.title}

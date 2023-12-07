@@ -16,10 +16,11 @@ export default function Nav() {
   const LinkClass = 'w-5 h-5';
   const pathname = usePathname();
 
-  const { isFullScreen, toggleFullScreen } = useFullScreen();
+  const { isFullScreen } = useFullScreen();
   const router = useRouter();
   const routes: Route[] = config.links.map(({ path }) => path);
 
+  /** @see https://twitter.com/asidorenko_/status/1700853315657965888 route group 也不错, 但是这里使用手动判断路由 */
   const hasNav = routes.includes(pathname);
 
   return (
@@ -30,9 +31,6 @@ export default function Nav() {
       )}
     >
       <div className="space-x-4">
-        {/* <button onClick={() => router.refresh()}>
-            <IoMdRefreshCircle />
-          </button> */}
         <button
           onClick={() => router.back()}
           className={LinkClass}
