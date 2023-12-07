@@ -18,7 +18,7 @@ const config = {
   githubRepo: 'oeyoews/neotw-tiddlers', // issue repo
   description: 'Nextjs + TypeScript + Tailwindcss + MDX',
   domain: 'https://nextjs-mdx-blog-tailwindcss.vercel.app',
-  enableTOC: false, // WIP
+  enableTOC: false, // WIP // issue comment not need this toc
   links: [
     {
       title: 'Home',
