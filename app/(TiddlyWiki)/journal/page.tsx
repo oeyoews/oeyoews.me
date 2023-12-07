@@ -7,7 +7,12 @@ export const metadata = {
   description: 'online tiddlers',
 };
 
-export default async function TiddlersHomepage() {
+export default async function TiddlersHomepage({
+  searchParams,
+}: {
+  searchParams: { list: number };
+}) {
   const { tiddlersMetadata } = await getTiddlerData(config.journalJson);
+
   return <TiddlersList tiddlers={tiddlersMetadata} route="journal" />;
 }

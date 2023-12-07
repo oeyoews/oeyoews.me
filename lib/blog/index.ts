@@ -19,6 +19,8 @@ export interface Metadata {
   draft?: boolean | string;
 }
 
+// TODO: support type: mdx md, two render options with markdown-it
+
 const getDefaultDate = (filePath: string): string => {
   const stats = fs.statSync(filePath);
   return new Date(stats.birthtime).toLocaleString();

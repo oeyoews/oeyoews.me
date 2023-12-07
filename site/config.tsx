@@ -4,6 +4,7 @@ import { FaRegDotCircle } from 'react-icons/fa';
 const testFile = 'http://localhost:3000/tiddlers.json';
 
 const config = {
+  steps: 10,
   title: 'Blog with NextJs',
   content: 'content', // mdx directory
   journalJson:
