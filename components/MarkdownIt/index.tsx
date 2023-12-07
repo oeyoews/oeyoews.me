@@ -1,6 +1,7 @@
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
 import MarkdownIt from 'markdown-it';
+import MarkdownItAnchor from 'markdown-it-anchor';
 import MarkdownItGitHubAlerts from 'markdown-it-github-alerts';
 import 'markdown-it-github-alerts/styles/github-base.css';
 import 'markdown-it-github-alerts/styles/github-colors-dark-media.css';
@@ -26,7 +27,16 @@ const md: MarkdownIt = new MarkdownIt({
       '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>'
     );
   },
-}).use(MarkdownItGitHubAlerts);
+})
+  .use(MarkdownItGitHubAlerts)
+  .use(MarkdownItAnchor, {
+    level: 2,
+    slugify: (string: string) => string,
+    permalink: true,
+    permalinkClass: 'header-anchor',
+    permalinkSymbol: '¶',
+    permalinkBefore: false,
+  });
 
 const MarkdownItRenderer = ({ content }: { content: string }) => {
   const renderedHtml = md.render(content);
