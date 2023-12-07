@@ -78,3 +78,7 @@ a {
 .prose *:hover > .anchor {
   @apply visible;
 }
+
+.task-list-item {
+  list-style: none !important;
+}

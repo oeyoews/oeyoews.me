@@ -47,6 +47,9 @@ dependencies:
   markdown-it-table-of-contents:
     specifier: ^0.6.0
     version: 0.6.0
+  markdown-it-task-lists:
+    specifier: ^2.1.1
+    version: 2.1.1
   md5:
     specifier: ^2.3.0
     version: 2.3.0
@@ -2821,6 +2824,10 @@ packages:
   /markdown-it-table-of-contents@0.6.0:
     resolution: {integrity: sha512-jHvEjZVEibyW97zEYg19mZCIXO16lHbvRaPDkEuOfMPBmzlI7cYczMZLMfUvwkhdOVQpIxu3gx6mgaw46KsNsQ==}
     engines: {node: '>6.4.0'}
+    dev: false
+
+  /markdown-it-task-lists@2.1.1:
+    resolution: {integrity: sha512-TxFAc76Jnhb2OUu+n3yz9RMu4CwGfaT788br6HhEDlvWfdeJcLUsxk1Hgw2yJio0OXsxv7pyIPmvECY7bMbluA==}
     dev: false
 
   /markdown-it@13.0.2:
