@@ -6,6 +6,9 @@ import MarkdownItGitHubAlerts from 'markdown-it-github-alerts';
 import 'markdown-it-github-alerts/styles/github-base.css';
 import 'markdown-it-github-alerts/styles/github-colors-dark-media.css';
 import 'markdown-it-github-alerts/styles/github-colors-light.css';
+// @ts-ignore
+import MarkdownItTOC from 'markdown-it-table-of-contents';
+import config from '~site/config';
 
 const md: MarkdownIt = new MarkdownIt({
   html: true,
@@ -38,10 +41,27 @@ const md: MarkdownIt = new MarkdownIt({
     permalinkBefore: false,
   });
 
-const MarkdownItRenderer = ({ content }: { content: string }) => {
-  const renderedHtml = md.render(content);
+config.enableTOC &&
+  md.use(MarkdownItTOC, {
+    slugify: (string: string) => string,
+    includeLevel: [1, 2, 3],
+    containerHeaderHtml: '<h2 class="">TOC</h2>',
+    listType: 'ol',
+    containerClass:
+      'rounded-md p-2 fixed left-0 top-0 hidden md:block max-h-screen',
+  });
 
-  return <div dangerouslySetInnerHTML={{ __html: renderedHtml }} />;
+const toc = `[[toc]]
+`;
+
+const MarkdownItRenderer = ({ content }: { content: string }) => {
+  const renderedHtml = md.render(config.enableTOC ? toc + content : content);
+
+  return (
+    <>
+      <div dangerouslySetInnerHTML={{ __html: renderedHtml }} />
+    </>
+  );
 };
 
 export default MarkdownItRenderer;

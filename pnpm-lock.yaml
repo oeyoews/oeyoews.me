@@ -44,6 +44,9 @@ dependencies:
   markdown-it-github-alerts:
     specifier: ^0.1.2
     version: 0.1.2(markdown-it@13.0.2)
+  markdown-it-table-of-contents:
+    specifier: ^0.6.0
+    version: 0.6.0
   md5:
     specifier: ^2.3.0
     version: 2.3.0
@@ -2813,6 +2816,11 @@ packages:
       markdown-it: ^13.0.0
     dependencies:
       markdown-it: 13.0.2
+    dev: false
+
+  /markdown-it-table-of-contents@0.6.0:
+    resolution: {integrity: sha512-jHvEjZVEibyW97zEYg19mZCIXO16lHbvRaPDkEuOfMPBmzlI7cYczMZLMfUvwkhdOVQpIxu3gx6mgaw46KsNsQ==}
+    engines: {node: '>6.4.0'}
     dev: false
 
   /markdown-it@13.0.2:
