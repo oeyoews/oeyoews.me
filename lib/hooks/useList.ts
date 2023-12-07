@@ -2,6 +2,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import config from '~site/config';
 
+/** @see https://nextjs.org/learn/dashboard-app/adding-search-and-pagination */
 export default function useList() {
   const { replace } = useRouter();
   const pathname = usePathname();
