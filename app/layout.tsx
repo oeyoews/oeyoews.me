@@ -54,7 +54,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             showSpinner={false}
           />
           <Nav />
-          <main className="container mx-auto max-w-4xl py-8 px-2">
+          <main className="container mx-auto max-w-4xl py-8 px-4">
             {children}
           </main>
         </Providers>
