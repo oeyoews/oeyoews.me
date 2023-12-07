@@ -8,6 +8,7 @@ export interface Post {
   metadata: Metadata;
   slug: string;
   content: string;
+  type: 'md' | 'mdx';
 }
 
 export interface Metadata {
@@ -18,8 +19,6 @@ export interface Metadata {
   password?: string;
   draft?: boolean | string;
 }
-
-// TODO: support type: mdx md, two render options with markdown-it
 
 const getDefaultDate = (filePath: string): string => {
   const stats = fs.statSync(filePath);
@@ -107,6 +106,7 @@ const readMDXFile = (filePath: string) => {
   const rawContent = fs.readFileSync(filePath, 'utf-8');
   return parseFrontmatter(rawContent, path.basename(filePath), filePath);
 };
+
 const getMDXData = (dir: string): Post[] => {
   const mdxFiles = getMDXFilesRecursive(dir);
   return mdxFiles.map((filePath) => {
@@ -115,6 +115,7 @@ const getMDXData = (dir: string): Post[] => {
     const slug = md5(filename);
     return {
       metadata,
+      type: path.extname(filePath) === '.mdx' ? 'mdx' : 'md',
       slug,
       content,
     };
