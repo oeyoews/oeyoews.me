@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import fs from 'fs';
 import md5 from 'md5';
 import path from 'path';
-import config from '~site/config';
+import config from '~config';
 
 export interface Post {
   metadata: Metadata;

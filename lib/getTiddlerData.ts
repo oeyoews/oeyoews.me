@@ -1,7 +1,7 @@
 import md5 from 'md5';
+import config from '~config';
 import { create } from '~lib/fetch';
 import formattedTime from '~lib/formattedTime';
-import config from '~site/config';
 
 export default async function getTiddlerData(tiddlerjsonfile = config.json) {
   const fetch = create(tiddlerjsonfile);

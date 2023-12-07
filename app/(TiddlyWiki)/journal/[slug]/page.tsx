@@ -5,9 +5,9 @@ import { notFound } from 'next/navigation';
 import clsx from 'clsx';
 import { Article, Divider, H1 } from '~components/ArticleComponents';
 import MarkdownItRenderer from '~components/MarkdownIt';
+import config from '~config';
 import formatTitle from '~lib/formatTitle';
 import getTiddlerData from '~lib/getTiddlerData';
-import config from '~site/config';
 
 async function getTiddler(slug: string) {
   const { tiddlers } = await getTiddlerData(config.journalJson);

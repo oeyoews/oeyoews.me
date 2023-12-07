@@ -10,7 +10,7 @@ import 'markdown-it-github-alerts/styles/github-colors-light.css';
 import MarkdownItCheckbox from 'markdown-it-task-lists';
 // @ts-ignore
 import MarkdownItTOC from 'markdown-it-task-lists';
-import config from '~site/config';
+import config from '~config';
 
 const md: MarkdownIt = new MarkdownIt({
   html: true,

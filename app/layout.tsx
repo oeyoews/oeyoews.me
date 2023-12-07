@@ -7,7 +7,7 @@ import { Providers } from './Providers';
 
 import '~app/globals.css';
 import Nav from '~components/Nav';
-import config from '~site/config';
+import config from '~config';
 
 export const metadata: Metadata = {
   title: {

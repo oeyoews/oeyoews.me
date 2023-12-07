@@ -10,7 +10,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useFullScreen } from '~lib/hooks/useFullScreen';
 
 import clsx from 'clsx';
-import config from '~site/config';
+import config from '~config';
 
 export default function Nav() {
   const LinkClass = 'w-5 h-5';

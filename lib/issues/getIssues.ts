@@ -1,7 +1,7 @@
 import { create } from '../fetch';
 import { getIssuesInfo } from './getTotalIssues';
 
-import config from '~site/config';
+import config from '~config';
 
 const baseurl = `https://api.github.com/repos/${config.githubRepo}`;
 

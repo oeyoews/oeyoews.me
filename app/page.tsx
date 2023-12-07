@@ -6,7 +6,7 @@ import { H2 } from '~components/ArticleComponents';
 import { Article } from '~components/ArticleComponents';
 import Icon from '~components/Icon';
 import MarkdownItRenderer from '~components/MarkdownIt';
-import config from '~site/config';
+import config from '~config';
 
 const page = () => {
   const content = fs.readFileSync(
