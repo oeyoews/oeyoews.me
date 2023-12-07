@@ -3,6 +3,7 @@
 import useList from '~lib/hooks/useList';
 
 import GithubIssueItem from '~components/GitHubIssue/GithubIssueItem';
+import LoadMore from '~components/LoadMore';
 import Timeline from '~components/Timeline';
 import YearHeader from '~components/YearHeader';
 
@@ -52,14 +53,7 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
   return (
     <>
       <GithubIssueListContent />
-      {issues.length > list && (
-        <button
-          onClick={handleLoadItems}
-          className="text-sm font-medium rounded px-2 font-mono py-1"
-        >
-          加载更多
-        </button>
-      )}
+      <LoadMore data={issues} />
     </>
   );
 }

@@ -2,6 +2,7 @@
 
 import useList from '~lib/hooks/useList';
 
+import LoadMore from '~components/LoadMore';
 import TiddlerItem from '~components/TiddlyWiki/TiddlerItem';
 import Timeline from '~components/Timeline';
 import YearHeader from '~components/YearHeader';
@@ -41,14 +42,7 @@ export default function TiddlersList({
           );
         })}
       </Timeline>
-      {tiddlers.length > list && (
-        <button
-          onClick={handleLoadItems}
-          className="text-sm font-medium rounded px-2 font-mono py-1"
-        >
-          加载更多
-        </button>
-      )}
+      <LoadMore data={tiddlers} />
     </>
   );
 }
