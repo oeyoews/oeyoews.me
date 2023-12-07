@@ -1,11 +1,10 @@
 'use client';
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import useList from '~lib/hooks/useList';
 
 import TiddlerItem from '~components/TiddlyWiki/TiddlerItem';
 import Timeline from '~components/Timeline';
 import YearHeader from '~components/YearHeader';
-import config from '~site/config';
 
 export default function TiddlersList({
   tiddlers,
@@ -15,16 +14,8 @@ export default function TiddlersList({
   route: string;
 }) {
   let currentYear: number;
-  const { replace } = useRouter();
-  const pathname = usePathname();
-  const listparams = useSearchParams();
-  const list = Number(listparams.get('list')) || config.steps;
 
-  function handleLoadItems() {
-    const params = new URLSearchParams(listparams);
-    params.set('list', (list + config.steps).toString());
-    replace(`${pathname}?${params.toString()}`);
-  }
+  const { list, handleLoadItems } = useList();
 
   return (
     <>
