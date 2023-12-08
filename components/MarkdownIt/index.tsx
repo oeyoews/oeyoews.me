@@ -60,11 +60,7 @@ const toc = `[[toc]]
 const MarkdownItRenderer = ({ content }: { content: string }) => {
   const renderedHtml = md.render(config.enableTOC ? toc + content : content);
 
-  return (
-    <>
-      <div dangerouslySetInnerHTML={{ __html: renderedHtml }} />
-    </>
-  );
+  return <div dangerouslySetInnerHTML={{ __html: renderedHtml }} />;
 };
 
 export default MarkdownItRenderer;

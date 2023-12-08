@@ -1,8 +1,13 @@
 import clsx from 'clsx';
 
-export const Divider = ({ width = 2 }: { width?: number }) => {
+export const Divider = ({ thickness = 1 }: { thickness?: number }) => {
   return (
-    <hr className={clsx('my-4 rounded-full not-prose', `border-${width}`)} />
+    <hr
+      className={clsx(
+        'my-4 rounded-full not-prose',
+        thickness === 1 && 'border-2',
+      )}
+    />
   );
 };
 

@@ -43,7 +43,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <Article>
       <H1>{formatTitle(issue.title)}</H1>
       <Divider />
-      {issue.body && <MarkdownItRenderer content={issue.body} />}
+      {issue.body ? (
+        <MarkdownItRenderer content={issue.body} />
+      ) : (
+        <div className="select-none">这里空空如也 !</div>
+      )}
       {comments.length > 0 && (
         <DrawserComponent text="Comments" key={issue.id}>
           {comments.map(({ body, id, user }) => (
@@ -63,8 +67,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   />
                 </div>
               </div>
-              <MarkdownItRenderer content={body} />
-              <Divider width={1} />
+              <MarkdownItRenderer content={body!} />
+              <Divider />
             </>
           ))}
         </DrawserComponent>

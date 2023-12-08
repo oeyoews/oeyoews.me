@@ -52,7 +52,7 @@ interface IssueComment {
   author_association: string;
 
   /** The body text of the comment */
-  body: string;
+  body: string | null;
 
   /** The reactions to the comment */
   reactions: Reactions;
