@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 
 import { Article, Divider, H1 } from '~components/ArticleComponents';
 import DrawserComponent from '~components/DrawserComponent';
+import EmptyTip from '~components/EmptyTip';
 import MarkdownItRenderer from '~components/MarkdownIt';
 import formatTitle from '~lib/formatTitle';
 import {
@@ -43,11 +44,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <Article>
       <H1>{formatTitle(issue.title)}</H1>
       <Divider />
-      {issue.body ? (
-        <MarkdownItRenderer content={issue.body} />
-      ) : (
-        <div className="select-none">这里空空如也 !</div>
-      )}
+      {issue.body ? <MarkdownItRenderer content={issue.body} /> : <EmptyTip />}
       {comments.length > 0 && (
         <DrawserComponent text="Comments" key={issue.id}>
           {comments.map(({ body, id, user }) => (

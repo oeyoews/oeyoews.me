@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { Article, Divider, H1 } from '~components/ArticleComponents';
+import EmptyTip from '~components/EmptyTip';
 import MarkdownItRenderer from '~components/MarkdownIt';
 import MDX from '~components/Mdx';
 import PasswordProtectedContent from '~components/PasswordPost';
@@ -34,15 +35,19 @@ const PostPage = ({ params }: { params: Params }) => {
       <Article>
         <H1>{post.metadata.title}</H1>
         <Divider />
-        <Suspense fallback={<Spinner center />}>
-          {post.type === 'md' ? (
-            <>
-              <MarkdownItRenderer content={post.content} />
-            </>
-          ) : (
-            <MDX source={post.content} />
-          )}
-        </Suspense>
+        {post.content ? (
+          <Suspense fallback={<Spinner center />}>
+            {post.type === 'md' ? (
+              <>
+                <MarkdownItRenderer content={post.content} />
+              </>
+            ) : (
+              <MDX source={post.content} />
+            )}
+          </Suspense>
+        ) : (
+          <EmptyTip />
+        )}
       </Article>
     </PasswordProtectedContent>
   );
