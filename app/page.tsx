@@ -8,7 +8,7 @@ import Icon from '~components/Icon';
 import MarkdownItRenderer from '~components/MarkdownIt';
 import config from '~config';
 
-const page = () => {
+const Page = () => {
   const content = fs.readFileSync(
     path.join(process.cwd(), 'README.md'),
     'utf-8',
@@ -37,4 +37,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

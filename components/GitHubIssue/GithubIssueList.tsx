@@ -26,8 +26,8 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
   const GithubIssueListContent = () => (
     <Timeline>
       {filteredIssues
-        .slice(0, list)
         .sort(sortByDate)
+        .slice(0, list)
         .map((issue, index) => {
           const { title, updated_at } = issue;
           const postYear = new Date(updated_at).getFullYear();
