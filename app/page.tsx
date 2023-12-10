@@ -8,13 +8,18 @@ import Icon from '~components/Icon';
 import MarkdownItRenderer from '~components/MarkdownIt';
 import config from '~config';
 
-const Page = () => {
+const Page = ({
+  searchParams,
+}: {
+  searchParams?: { list?: number | undefined };
+}) => {
   const content = fs.readFileSync(
     path.join(process.cwd(), 'README.md'),
     'utf-8',
   );
   return (
     <Article>
+      {JSON.stringify(searchParams, null, 2)}
       <MarkdownItRenderer content={content} />
       <H2>External Links</H2>
       <div className="mx-2 flex justify-center items-center space-x-2">
