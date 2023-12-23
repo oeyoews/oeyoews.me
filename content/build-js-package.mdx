@@ -1,0 +1,27 @@
+---
+title: npm packages 打包的一些问题
+---
+
+## 起始 ncc
+
+第一个npm package 其实是cli, 使用ncc打包, 很简单,
+
+## 换成 tsup
+
+但是后来发现ncc仅仅支持node, __dirname 这种在浏览器里面不支持, 后来就使用tsup进行打包, tsup 使用esbuild打包, tsup 和esbuild 的作者是同一个人, 支持esm, cjs, iife, 也挺方便, 文档花上几分钟就能全部看完
+
+## 发现坑
+
+但是后来发现esm 转换成cjs 的时候, 会额外进行一次封装, 需要额外加上一个default, 默认导出就很烦, 虽然有曲线救国的办法, 像写一个wrapper,
+
+最好的办法就是不用 默认导出, 社区似乎也没最佳的解决办法
+
+## 支持esm 加载
+
+虽然tsup 支持esm 构建, 但是不能每次都要手动写mjs 路径吧.
+
+```js
+require(''xxx/dist/index.mjs)
+```
+
+后来发现在package.json, 可以加上一个exports 的key进行配置, 从而进行自动判断esm还是cjs
