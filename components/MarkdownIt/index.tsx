@@ -7,6 +7,8 @@ import 'markdown-it-github-alerts/styles/github-base.css';
 import 'markdown-it-github-alerts/styles/github-colors-dark-media.css';
 import 'markdown-it-github-alerts/styles/github-colors-light.css';
 // @ts-ignore
+import MarkdownItPangu from 'markdown-it-pangu';
+// @ts-ignore
 import MarkdownItCheckbox from 'markdown-it-task-lists';
 // @ts-ignore
 import MarkdownItTOC from 'markdown-it-task-lists';
@@ -35,6 +37,7 @@ const md: MarkdownIt = new MarkdownIt({
 })
   .use(MarkdownItGitHubAlerts)
   .use(MarkdownItCheckbox)
+  .use(MarkdownItPangu)
   .use(MarkdownItAnchor, {
     level: 2,
     slugify: (string: string) => string,
