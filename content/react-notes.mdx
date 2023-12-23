@@ -70,12 +70,12 @@ function App() {
     }
   };
 
-  //   如果不使用useEffect, 会在渲染之前就进行dom操作,引起错误
-  // 一般ref不进行view 更新, 这里使用useeffect, 手动处理
+  //   如果不使用 useEffect, 会在渲染之前就进行 dom 操作，引起错误
+  // 一般 ref 不进行 view 更新，这里使用 useeffect, 手动处理
   useEffect(() => {
-    // 判断目标元素是否存在, 如果不进行判断, 会报错
+    // 判断目标元素是否存在，如果不进行判断，会报错
     if (myDivRef.current) {
-      myDivRef.current.textContent = '这是更新后的文本内容。 useEffect';
+      myDivRef.current.textContent = '这是更新后的文本内容。useEffect';
       console.log(count); // 这个值是最新的
     }
   }, [count]);
@@ -97,7 +97,7 @@ export default App;
 export default function Demo() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  // 开始是 ... hi ..., useEffect 重新渲染ui的时候, fullName 会被重新计算
+  // 开始是 ... hi ..., useEffect 重新渲染 ui 的时候，fullName 会被重新计算
   const fullName = firstName + ' ' + lastName;
   console.log('updated');
   useEffect(() => {
@@ -113,10 +113,10 @@ export default function Demo() {
 }
 ```
 
-## 父子组件通信(其实就是嵌套组件)
+## 父子组件通信 (其实就是嵌套组件)
 
-> 目前使用最多是 f-> s, 因为要符合高内聚,低耦合, 不必要的情况需要复杂的组件通信(组件通信俗称参数传递, 听起来很高大上, 让人感觉很难的样子)
-> 其实不必要纠结这些, 主要就是函数之间参数的传递, 不过是作用范围不同, 所以才有了 f-s(组件里面套一个组件), 类似的还有兄弟组件(并列的组件), 跨组件通信
+> 目前使用最多是 f-> s, 因为要符合高内聚，低耦合，不必要的情况需要复杂的组件通信 (组件通信俗称参数传递，听起来很高大上，让人感觉很难的样子)
+> 其实不必要纠结这些，主要就是函数之间参数的传递，不过是作用范围不同，所以才有了 f-s(组件里面套一个组件), 类似的还有兄弟组件 (并列的组件), 跨组件通信
 
 f -> s props
 s -> f callback function
@@ -133,8 +133,8 @@ const Father = () => {
 };
 
 const Son = ({ setCount }) => {
-  return <button onClick={() => setCount((count) => count + 1)}>点击+1</button>;
+  return <button onClick={() => setCount((count) => count + 1)}>点击 +1</button>;
 };
 ```
 
-- 如果你发现你的代码有很多重复的地方, 那么你一定需要循环(loop)
+- 如果你发现你的代码有很多重复的地方，那么你一定需要循环 (loop)

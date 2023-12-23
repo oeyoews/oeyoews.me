@@ -7,10 +7,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm format:md && next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "format:md": "autocorrect --fix content"
   },
   "dependencies": {
     "@iconify/react": "^4.1.1",
@@ -48,6 +49,7 @@
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "20.2.5",
     "@types/react": "18.2.8",
+    "autocorrect-node": "^2.9.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.55.0",
     "eslint-config-next": "^14.0.3",

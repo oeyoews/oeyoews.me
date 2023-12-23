@@ -3,11 +3,11 @@ title: NextJs 使用总结
 date: '2023-11-23'
 ---
 
-> 以下内容仅针对 NextJs 13.4+ app router, 不会涉及到低版本或者 Next.js Pages 的部分(整理中)
+> 以下内容仅针对 NextJs 13.4+ app router, 不会涉及到低版本或者 Next.js Pages 的部分 (整理中)
 
 ## Usesearchparams
 
-nextjs 中的usesearchparams 不是完整的, useSearchParams is a Client Component hook that lets you read the current URL's query string.
+nextjs 中的 usesearchparams 不是完整的，useSearchParams is a Client Component hook that lets you read the current URL's query string.
 useSearchParams 是一个客户端组件挂钩，可用于读取当前 URL 的查询字符串。
 
 useSearchParams returns a read-only version of the URLSearchParams interface.
@@ -48,7 +48,7 @@ Partial Prerendering is an experimental feature that allows static portions of a
 
 ## About Cache
 
-> 由于nextjs 的路由缓存, revalidate 即使成功, 有时也会看到过去的数据, revalidate 也不是及时会更新, 需要等到新的数据成功获取, 类似于service worker 或者swr
+> 由于 nextjs 的路由缓存，revalidate 即使成功，有时也会看到过去的数据，revalidate 也不是及时会更新，需要等到新的数据成功获取，类似于 service worker 或者 swr
 
 The first time a fetch request with revalidate is called, the data will be fetched from the external data source and stored in the Data Cache.
 第一次调用 fetch revalidate 请求时，将从外部数据源获取数据并存储在数据缓存中。
@@ -72,7 +72,7 @@ If the background revalidation fails, the previous data will be kept unaltered.
 This is similar to stale-while-revalidate behavior.
 这类似于 stale-while-revalidate 行为。
 
-* fetch 使用该 POST 方法的请求也会自动缓存。除非它位于使用该 POST 方法的路由处理程序中.
+* fetch 使用该 POST 方法的请求也会自动缓存。除非它位于使用该 POST 方法的路由处理程序中。
 * 可以添加缓存标记 tag
 
 ```tsx
@@ -129,13 +129,13 @@ layout.js 里面是可以使用 use client, 不会导致子组件全部变成 cl
 
 ## RSC(React Server Component)
 
-* 如果数据库不再此服务器上, 和从客户端上进行后端请求区, 就没有了网络往返的优势了 ???
+* 如果数据库不再此服务器上，和从客户端上进行后端请求区，就没有了网络往返的优势了 ???
 
 * Static Rendering 静态渲染
 * Dynamic Rendering 动态渲染
 * Streaming 流
 
-注意: RSC 不是 ssr 的升级(他们是两种不同的概念)
+注意：RSC 不是 ssr 的升级 (他们是两种不同的概念)
 
 video: https://www.youtube.com/watch?v=g5BGoLyGjY0
 
@@ -150,12 +150,12 @@ There are a couple of benefits to doing the rendering work on the server, includ
 
 4. Bundle Sizes
 
-React renders Server Components into a special data format(可序列的数据化的数据, 用于 server=> 向 client 的数据传递) called the React Server Component Payload (RSC Payload), which includes references to Client Components(占位符).
+React renders Server Components into a special data format(可序列的数据化的数据，用于 server=> 向 client 的数据传递) called the React Server Component Payload (RSC Payload), which includes references to Client Components(占位符).
 (rsc payload 和 client component 进行 hydration(水合), 渲染 html, 使其具备交互能力)
 The React Server Components Payload is used to reconcile the Client and Server Component trees, and update the DOM.(维护 dom tree)
 
 Since Client Components are rendered after Server Components, you cannot import a Server Component into a Client Component module (since it would require a new request back to the server). Instead, you can pass a Server Component as props to a Client Component. See the unsupported pattern and supported pattern sections below.
-(之所以不能嵌入就是因为最小边界时文件不是组件), props 可以保证完全区分组件类型, 使用占位符代替, 注意这里的数据必须时可序列化的, 对象/函数是不能作为 props 传递的
+(之所以不能嵌入就是因为最小边界时文件不是组件), props 可以保证完全区分组件类型，使用占位符代替，注意这里的数据必须时可序列化的，对象/函数是不能作为 props 传递的
 
 ```tsx
 // clientcomponent.tsx
@@ -191,35 +191,35 @@ export default async function ServerComponent() {
 
 // page.tsx
 <ClientComponent server={<ServerComponent />} />
-// 这种传props 的用法不多, 更多的是 client component nesed to server component
+// 这种传 props 的用法不多，更多的是 client component nesed to server component
 
 
-// 为了减少客户端的js bundle size, 尽量保持client component move to client, 但是 那种props  传递的server component 的用法对此没有影响, 因为客户端渲染的时候会跳过client, 要避免的主要是直接在父级直接使用client, 导致嵌入的组件全部变成了client, 尽量将client 抽离出去
+// 为了减少客户端的 js bundle size, 尽量保持 client component move to client, 但是 那种 props  传递的 server component 的用法对此没有影响，因为客户端渲染的时候会跳过 client, 要避免的主要是直接在父级直接使用 client, 导致嵌入的组件全部变成了 client, 尽量将 client 抽离出去
 ```
 
-自从 React18 的文档更新以后, 引起了不小的讨论, react 不再一味的像以前推荐 CRA, 而是建议使用基于 React 的框架进行学习 React, 而且这一推荐放在了很重要的开头位置(NextJs 和 React 的合作很密切)
+自从 React18 的文档更新以后，引起了不小的讨论，react 不再一味的像以前推荐 CRA, 而是建议使用基于 React 的框架进行学习 React, 而且这一推荐放在了很重要的开头位置 (NextJs 和 React 的合作很密切)
 
-有人认为新手学习 React 就使用框架会不会太重, 也有人觉得新手就应该使用框架, 因为 React 只能算一个 Ui 库, 不足以真正满足开发需求, 如果不使用框架, 什么都要自己进行配置, 打不到最佳实践
+有人认为新手学习 React 就使用框架会不会太重，也有人觉得新手就应该使用框架，因为 React 只能算一个 Ui 库，不足以真正满足开发需求，如果不使用框架，什么都要自己进行配置，打不到最佳实践
 
     <Icon icon="skill-icons:nextjs-light" /> NextJs 13 让 RSC 有重新出现在人们眼前, React
-已经一年没有发版, React 实在进行底层库的转变(越来越像一个库)
+已经一年没有发版，React 实在进行底层库的转变 (越来越像一个库)
 
 ## NextJs Cache
 
 next 缓存总是会导致一些奇怪的 bug, 本地开发需要 rm .next, vercel 需要重新部署
 
-比如手动加上 postcss.config.js 后, 需要清空缓存, 因为 tailwindcss 缺少这个文件是不能正常工作的, 之前的 cache 是不会自动更新这部分的, 需要清空缓存, 从来没了解过缓存是根据什么机制更新的, 从之前的电脑有问题第一想到的是重启, 现在我第一时间选择 `rm .next`, 然后清空浏览器缓存
+比如手动加上 postcss.config.js 后，需要清空缓存，因为 tailwindcss 缺少这个文件是不能正常工作的，之前的 cache 是不会自动更新这部分的，需要清空缓存，从来没了解过缓存是根据什么机制更新的，从之前的电脑有问题第一想到的是重启，现在我第一时间选择 `rm .next`, 然后清空浏览器缓存
 
 ## Tailwind
 
     <Icon icon="skill-icons:tailwindcss-dark" /> Tailwind 在 NextJs 里面似乎很受支持(:rocket:),
 直接在 CNA 里面内置了选项支持
 
-ps: 今天才知道 tailwindcss 原来还有个 tailwindcss@insider 的 package(text-balance 只有这里能用, 我说那个 pr 明明合进仓库了, 为什么用不了, 翻了 issue 才知道)
+ps: 今天才知道 tailwindcss 原来还有个 tailwindcss@insider 的 package(text-balance 只有这里能用，我说那个 pr 明明合进仓库了，为什么用不了，翻了 issue 才知道)
 
 ## React
 
-react 当前的生态有点类似与 archlinux, neovim, 很容易产生 break change, 灵活的同时, 也带来了一定的成本
+react 当前的生态有点类似与 archlinux, neovim, 很容易产生 break change, 灵活的同时，也带来了一定的成本
 
 ## shadcn-ui
 
@@ -227,12 +227,12 @@ react 当前的生态有点类似与 archlinux, neovim, 很容易产生 break ch
 
 ## NextUI
 
-- 需要包一层 use client, 下面的所有组件都是客户端组件了?
-- 有点像 shadcn-ui, 只不过改成包了, 为了支持 rsc, 分离每一个组件为一个包, 配合 frmaer-motion, 效果不错, 使用起来有点别扭
+- 需要包一层 use client, 下面的所有组件都是客户端组件了？
+- 有点像 shadcn-ui, 只不过改成包了，为了支持 rsc, 分离每一个组件为一个包，配合 frmaer-motion, 效果不错，使用起来有点别扭
 
 ## Assert File
 
-* 如果 mp3 文件没有放在 public 目录下, 而是放在 src 或者其他目录下, 则需要在 next.config.js 文件中自定义 webpack 配置
+* 如果 mp3 文件没有放在 public 目录下，而是放在 src 或者其他目录下，则需要在 next.config.js 文件中自定义 webpack 配置
 
 ```mp3.config.js
   webpack: (
