@@ -11,7 +11,11 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "format:md": "autocorrect --fix content"
+    "format:md": "autocorrect --fix content",
+    "prepare": "simple-git-hooks"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm autocorrect --fix"
   },
   "dependencies": {
     "@iconify/react": "^4.1.1",
@@ -55,6 +59,7 @@
     "eslint-config-next": "^14.0.3",
     "postcss": "^8.4.32",
     "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.3.0"
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "simple-git-hooks": "^2.9.0"
   }
 }

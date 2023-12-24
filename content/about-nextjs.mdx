@@ -1,13 +1,13 @@
 ---
-title: NextJs 使用总结
+title: Next.js 使用总结
 date: '2023-11-23'
 ---
 
-> 以下内容仅针对 NextJs 13.4+ app router, 不会涉及到低版本或者 Next.js Pages 的部分 (整理中)
+> 以下内容仅针对 Next.js 13.4+ app router, 不会涉及到低版本或者 Next.js Pages 的部分 (整理中)
 
 ## Usesearchparams
 
-nextjs 中的 usesearchparams 不是完整的，useSearchParams is a Client Component hook that lets you read the current URL's query string.
+Next.js 中的 usesearchparams 不是完整的，useSearchParams is a Client Component hook that lets you read the current URL's query string.
 useSearchParams 是一个客户端组件挂钩，可用于读取当前 URL 的查询字符串。
 
 useSearchParams returns a read-only version of the URLSearchParams interface.
@@ -42,13 +42,13 @@ Partial Prerendering is an experimental feature that allows static portions of a
 * use app folder as src
 * Split project files by feature or route
 
-## About nextjs i18n
+## About Next.js i18n
 
 * 基本都要靠中间件拦截进行
 
 ## About Cache
 
-> 由于 nextjs 的路由缓存，revalidate 即使成功，有时也会看到过去的数据，revalidate 也不是及时会更新，需要等到新的数据成功获取，类似于 service worker 或者 swr
+> 由于 Next.js 的路由缓存，revalidate 即使成功，有时也会看到过去的数据，revalidate 也不是及时会更新，需要等到新的数据成功获取，类似于 service worker 或者 swr
 
 The first time a fetch request with revalidate is called, the data will be fetched from the external data source and stored in the Data Cache.
 第一次调用 fetch revalidate 请求时，将从外部数据源获取数据并存储在数据缓存中。
@@ -204,7 +204,7 @@ export default async function ServerComponent() {
     <Icon icon="skill-icons:nextjs-light" /> NextJs 13 让 RSC 有重新出现在人们眼前, React
 已经一年没有发版，React 实在进行底层库的转变 (越来越像一个库)
 
-## NextJs Cache
+## Next.js Cache
 
 next 缓存总是会导致一些奇怪的 bug, 本地开发需要 rm .next, vercel 需要重新部署
 

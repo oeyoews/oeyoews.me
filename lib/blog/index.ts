@@ -71,7 +71,7 @@ const parseFrontmatter = (
     // Write the updated content back to the file
     fs.writeFileSync(filePath, updatedContent);
     console.log(
-      chalk.red(`检测到 ${filePath} 没有frontmatter`, '已经自动更新'),
+      chalk.red(`检测到 ${filePath} 没有 frontmatter`, '已经自动更新'),
     );
     return {
       metadata: {

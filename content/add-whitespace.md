@@ -43,6 +43,3 @@ autocorrect 支持 .autocorrectrc 配置文件，你可以加上自定义的 spe
 ## 下一步
 
 autocorrect 本来是一个 ruby china 项目，但是也支持 wasm, 下一步计划就是将其移植到 tiddlywiki 中去，解决最初的插件问题
-
-GitHub
-App Store

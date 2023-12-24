@@ -20,7 +20,7 @@ export default function Nav() {
   const router = useRouter();
   const routes: Route[] = config.links.map(({ path }) => path);
 
-  /** @see https://twitter.com/asidorenko_/status/1700853315657965888 route group 也不错, 但是这里使用手动判断路由 */
+  /** @see https://twitter.com/asidorenko_/status/1700853315657965888 route group 也不错，但是这里使用手动判断路由 */
   const hasNav = routes.includes(pathname);
 
   return (
