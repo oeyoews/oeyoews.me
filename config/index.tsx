@@ -21,7 +21,7 @@ const config = {
   domain: 'https://nextjs-mdx-blog-tailwindcss.vercel.app',
   enableTOC: false, // WIP // issue comment not need this toc
   md5Length: 8,
-  projects: 'https://cdn.jsdelivr.net/gh/oeyoews/oeyoews@main/README.md',
+  projects: 'https://raw.githubusercontent.com/oeyoews/oeyoews/main/README.md',
   links: [
     {
       title: 'Home',
