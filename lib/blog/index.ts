@@ -1,3 +1,5 @@
+'use server';
+
 import chalk from 'chalk';
 import fs from 'fs';
 import md5 from 'md5';
