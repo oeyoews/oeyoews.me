@@ -3,6 +3,8 @@ import React from 'react';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
 
+import Projects from './Projects';
+
 import { Code } from 'bright';
 import Icon from '~components/Icon';
 
@@ -87,6 +89,7 @@ const components = {
   a: CustomLink,
   Icon,
   pre: Pre,
+  Projects,
 };
 
 const MDX = ({ source }: { source: any }) => {
