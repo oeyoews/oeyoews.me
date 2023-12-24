@@ -13,7 +13,7 @@ const nextConfig = {
     ];
   },
   images: {
-    // unoptimized: true,
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -30,7 +30,6 @@ const nextConfig = {
   },
   experimental: {
     ppr: false,
-    // optimizePackageImports: ['react-icons'],
   },
 };
 
