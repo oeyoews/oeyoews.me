@@ -18,6 +18,10 @@ title: 关于中英文空格
 **中文**
 ```
 
+- pnpm autocorrect --lint , 以项目根路径为绝对路径，不管处于那个路径下。全局安装状态下，需要使用 ./x 明确指定路径
+
+* 支持 .gitignore .autocorrectignore
+
 ## 翻 Issue
 
 - 果不其然，pangu 的 issue 区就有人发过相关的 issue, readme 中也有提到这一点，pangu 为了做到 zero dependency, 最初只是为了了 plain text 和 html 而做的，如果希望兼容 markdown 就需要借助其他的库来实现。这里就有一个环境问题，如果是 node，很好解决，remark-pangu 和 markdown-it-pangu 插件都能解决这个问题，如果是浏览器就不太好实现了，
