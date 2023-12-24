@@ -1,3 +1,5 @@
+'use server';
+
 import BlogList from '~components/Blog/BlogList';
 import { getBlogPosts } from '~lib/blog';
 
