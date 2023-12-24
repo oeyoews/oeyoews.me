@@ -42,9 +42,9 @@ const md: MarkdownIt = new MarkdownIt({
     level: 2,
     slugify: (string: string) => string,
     permalink: true,
-    permalinkClass: 'header-anchor',
-    permalinkSymbol: '¶',
-    permalinkBefore: false,
+    permalinkClass: 'anchor',
+    permalinkSymbol: '',
+    permalinkBefore: true,
   });
 
 config.enableTOC &&
