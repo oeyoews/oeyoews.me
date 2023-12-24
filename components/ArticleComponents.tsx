@@ -23,7 +23,7 @@ export const H2 = ({ children }: { children: React.ReactNode }) => {
 
 export const Article = ({ children }: { children: React.ReactNode }) => {
   return (
-    <article className="py-6 max-w-none prose dark:prose-invert prose-img:my-0 prose-img:rounded-md overflow-x-hidden">
+    <article className="py-6 max-w-none prose prose-indigo dark:prose-invert prose-img:my-0 prose-img:rounded-md overflow-x-hidden">
       {children}
     </article>
   );
