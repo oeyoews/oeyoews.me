@@ -18,7 +18,7 @@ title: npm packages 打包的一些问题
 
 ## 后来
 
-* 又看到 unbuild, 应该不会有 tsup 的那个默认导出坑了吧
+* ~~又看到 unbuild, 应该不会有 tsup 的那个默认导出坑了吧~~, 都是用的 esbuild, 都有这个问题
 
 ## 支持 esm 加载
 
