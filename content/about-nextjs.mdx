@@ -38,13 +38,13 @@ Partial Prerendering is an experimental feature that allows static portions of a
 
 ## Project organization
 
-* app folder just write route code(recommend personally)
-* use app folder as src
-* Split project files by feature or route
+- app folder just write route code(recommend personally)
+- use app folder as src
+- Split project files by feature or route
 
 ## About Next.js i18n
 
-* 基本都要靠中间件拦截进行
+- 基本都要靠中间件拦截进行
 
 ## About Cache
 
@@ -72,12 +72,16 @@ If the background revalidation fails, the previous data will be kept unaltered.
 This is similar to stale-while-revalidate behavior.
 这类似于 stale-while-revalidate 行为。
 
-* fetch 使用该 POST 方法的请求也会自动缓存。除非它位于使用该 POST 方法的路由处理程序中。
-* 可以添加缓存标记 tag
+- fetch 使用该 POST 方法的请求也会自动缓存。除非它位于使用该 POST 方法的路由处理程序中。
+- 可以添加缓存标记 tag
 
 ```tsx
 // revalidate tag fetch
-{ next: { revalidatetag: 'xxx'} }
+{
+  next: {
+    revalidatetag: 'xxx';
+  }
+}
 ```
 
 ## Route Handler
@@ -86,22 +90,22 @@ This is similar to stale-while-revalidate behavior.
 
 ## Route
 
-* Route Group: `(Auth)`
-* Dynamic Route: `[slug]` or `[...slug]` or `[[...slug]]`
-* nesed Route `[category]/[slug]`
-> The difference between catch-all and optional catch-all segments is that with optional, the route without the parameter is also matched (/shop in the example above).
-* parallel Route `@folder/members`
-> Parallel Routing also allows you to conditionally render a slot based on certain conditions, such as authentication state. This enables fully separated code on the same URL.
-> Parallel Routing allows you to define independent error and loading states for each route as they're being streamed in independently.
+- Route Group: `(Auth)`
+- Dynamic Route: `[slug]` or `[...slug]` or `[[...slug]]`
+- nesed Route `[category]/[slug]`
+  > The difference between catch-all and optional catch-all segments is that with optional, the route without the parameter is also matched (/shop in the example above).
+- parallel Route `@folder/members`
+  > Parallel Routing also allows you to conditionally render a slot based on certain conditions, such as authentication state. This enables fully separated code on the same URL.
+  > Parallel Routing allows you to define independent error and loading states for each route as they're being streamed in independently.
 
-NOTE: (_test) route will be exclude
+NOTE: (\_test) route will be exclude
 
 ```tsx
 // layout.tsx
 export default function Layout(props: {
-  children: React.ReactNode
-  analytics: React.ReactNode
-  team: React.ReactNode
+  children: React.ReactNode;
+  analytics: React.ReactNode;
+  team: React.ReactNode;
 }) {
   return (
     <>
@@ -109,15 +113,14 @@ export default function Layout(props: {
       {props.team}
       {props.analytics}
     </>
-  )
+  );
 }
 ```
 
 > Slots are not route segments and do not affect the URL structure. The file path /@team/members would be accessible at /members.
 
-* interceptin Route: `(.)photo`,  `(..)photo`
-* `_components`: exit app route
-
+- interceptin Route: `(.)photo`, `(..)photo`
+- `_components`: exit app route
 
 ## 关于 use client
 
@@ -129,11 +132,11 @@ layout.js 里面是可以使用 use client, 不会导致子组件全部变成 cl
 
 ## RSC(React Server Component)
 
-* 如果数据库不再此服务器上，和从客户端上进行后端请求区，就没有了网络往返的优势了 ???
+- 如果数据库不再此服务器上，和从客户端上进行后端请求区，就没有了网络往返的优势了 ???
 
-* Static Rendering 静态渲染
-* Dynamic Rendering 动态渲染
-* Streaming 流
+- Static Rendering 静态渲染
+- Dynamic Rendering 动态渲染
+- Streaming 流
 
 注意：RSC 不是 ssr 的升级 (他们是两种不同的概念)
 
@@ -202,6 +205,7 @@ export default async function ServerComponent() {
 有人认为新手学习 React 就使用框架会不会太重，也有人觉得新手就应该使用框架，因为 React 只能算一个 Ui 库，不足以真正满足开发需求，如果不使用框架，什么都要自己进行配置，打不到最佳实践
 
     <Icon icon="skill-icons:nextjs-light" /> NextJs 13 让 RSC 有重新出现在人们眼前, React
+
 已经一年没有发版，React 实在进行底层库的转变 (越来越像一个库)
 
 ## Next.js Cache
@@ -213,6 +217,7 @@ next 缓存总是会导致一些奇怪的 bug, 本地开发需要 rm .next, verc
 ## Tailwind
 
     <Icon icon="skill-icons:tailwindcss-dark" /> Tailwind 在 NextJs 里面似乎很受支持(:rocket:),
+
 直接在 CNA 里面内置了选项支持
 
 ps: 今天才知道 tailwindcss 原来还有个 tailwindcss@insider 的 package(text-balance 只有这里能用，我说那个 pr 明明合进仓库了，为什么用不了，翻了 issue 才知道)
@@ -232,7 +237,7 @@ react 当前的生态有点类似与 archlinux, neovim, 很容易产生 break ch
 
 ## Assert File
 
-* 如果 mp3 文件没有放在 public 目录下，而是放在 src 或者其他目录下，则需要在 next.config.js 文件中自定义 webpack 配置
+- 如果 mp3 文件没有放在 public 目录下，而是放在 src 或者其他目录下，则需要在 next.config.js 文件中自定义 webpack 配置
 
 ```mp3.config.js
   webpack: (

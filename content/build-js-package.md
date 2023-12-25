@@ -8,7 +8,7 @@ title: npm packages 打包的一些问题
 
 ## 换成 tsup
 
-但是后来发现 ncc 仅仅支持 node, __dirname 这种在浏览器里面不支持，后来就使用 tsup 进行打包，tsup 使用 esbuild 打包，tsup 和 esbuild 的作者是同一个人，支持 esm, cjs, iife, 也挺方便，文档花上几分钟就能全部看完
+但是后来发现 ncc 仅仅支持 node, \_\_dirname 这种在浏览器里面不支持，后来就使用 tsup 进行打包，tsup 使用 esbuild 打包，tsup 和 esbuild 的作者是同一个人，支持 esm, cjs, iife, 也挺方便，文档花上几分钟就能全部看完
 
 ## 发现坑
 
@@ -18,7 +18,7 @@ title: npm packages 打包的一些问题
 
 ## 后来
 
-* ~~又看到 unbuild, 应该不会有 tsup 的那个默认导出坑了吧~~, 都是用的 esbuild, 都有这个问题
+- ~~又看到 unbuild, 应该不会有 tsup 的那个默认导出坑了吧~~, 都是用的 esbuild, 都有这个问题
 
 ## 支持 esm 加载
 
@@ -32,4 +32,4 @@ require(''xxx/dist/index.mjs)
 
 ## 注意
 
-* devdependency 和 dependency 很重要，如果全部放在 devdependency 里的时候，打包工具就尝试将所有的依赖打包进一个文件，否则，用户安装你的这个包的时候，还要安装你的依赖包
+- devdependency 和 dependency 很重要，如果全部放在 devdependency 里的时候，打包工具就尝试将所有的依赖打包进一个文件，否则，用户安装你的这个包的时候，还要安装你的依赖包
