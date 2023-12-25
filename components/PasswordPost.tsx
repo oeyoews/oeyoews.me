@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactElement, ReactNode, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { AiOutlineSend } from 'react-icons/ai';
 
 import type { Post } from '~lib/blog';
