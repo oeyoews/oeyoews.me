@@ -5,7 +5,6 @@ import NextTopLoader from 'nextjs-toploader';
 
 import { Providers } from './Providers';
 
-import devfools from 'devfools';
 import '~app/globals.css';
 import Nav from '~components/Nav';
 import config from '~config';
@@ -35,7 +34,6 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  devfools('vue', 'react', 'next', 'tailwind');
   return (
     <html
       lang="en"

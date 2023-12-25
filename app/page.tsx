@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import devfools from 'devfools';
 import fs from 'fs';
 import path from 'path';
 import { H2 } from '~components/ArticleComponents';
@@ -12,6 +13,8 @@ const Page = () => {
     path.join(process.cwd(), 'README.md'),
     'utf-8',
   );
+
+  devfools('vue', 'react', 'next', 'tailwind');
   return (
     <Article>
       <MarkdownItRenderer content={content} />
