@@ -54,6 +54,7 @@
     "@types/react": "18.2.8",
     "autocorrect-node": "^2.9.0",
     "autoprefixer": "^10.4.16",
+    "devfools": "^0.2.1",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
     "postcss": "^8.4.32",
