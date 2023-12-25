@@ -41,7 +41,7 @@ export default function GithubIssueItem({
           </Link>
           <Timeline.Time>{format(new Date(date), 'EEE, MMMM d')}</Timeline.Time>
           <div className="space-x-1">
-            <GoComment className="h-4 w-4 text-gray-400" />
+            <GoComment className="size-4 text-gray-400" />
             <span>{issue.comments}</span>
           </div>
         </div>

@@ -13,7 +13,7 @@ import clsx from 'clsx';
 import config from '~config';
 
 export default function Nav() {
-  const LinkClass = 'w-5 h-5';
+  const LinkClass = 'size-5';
   const pathname = usePathname();
 
   const { isFullScreen } = useFullScreen();

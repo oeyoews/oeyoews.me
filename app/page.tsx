@@ -4,7 +4,6 @@ import fs from 'fs';
 import path from 'path';
 import { H2 } from '~components/ArticleComponents';
 import { Article } from '~components/ArticleComponents';
-import Icon from '~components/Icon';
 import MarkdownItRenderer from '~components/MarkdownIt';
 import config from '~config';
 
@@ -17,22 +16,30 @@ const Page = () => {
     <Article>
       <MarkdownItRenderer content={content} />
       <H2>External Links</H2>
-      <div className="mx-2 flex justify-center items-center space-x-2">
-        {config.sections.map((section) => (
-          <Link
-            key={section.link}
-            className="space-x-2"
-            href={section.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={section.name}
-          >
-            {section.name}
-            {/* NOTE: IOS 不显示 */}
-            <Icon icon={section.icon} className="h-4 w-4 mx-1" />
-          </Link>
-        ))}
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>分类</th>
+            <th>链接</th>
+          </tr>
+        </thead>
+        <tbody>
+          {config.sections.map((section) => (
+            <tr key={section.link}>
+              <td className="capitalize">{section.name}</td>
+              <td>
+                <Link
+                  href={section.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </Article>
   );
 };

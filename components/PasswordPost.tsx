@@ -55,7 +55,7 @@ function PasswordProtectedContent({
             onClick={handlePasswordSubmit}
             className="hidden md:block mr-2"
           >
-            <AiOutlineSend className="h-5 w-5" />
+            <AiOutlineSend className="size-5" />
           </button>
         </form>
       ) : (

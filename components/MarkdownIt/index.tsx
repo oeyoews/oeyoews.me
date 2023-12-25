@@ -14,6 +14,8 @@ import MarkdownItCheckbox from 'markdown-it-task-lists';
 import MarkdownItTOC from 'markdown-it-task-lists';
 import config from '~config';
 
+// TIPS: 如果不依赖于文件名字，可以借助 markdown-it-meta plugin, 其实主要代码都一致
+
 const md: MarkdownIt = new MarkdownIt({
   html: true,
   linkify: true,
