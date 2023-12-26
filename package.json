@@ -48,6 +48,8 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
+    "@iconify/tailwind": "^0.1.4",
+    "@iconify/tools": "^3.0.7",
     "@tailwindcss/typography": "^0.5.10",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "20.2.5",
