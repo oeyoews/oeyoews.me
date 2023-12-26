@@ -82,3 +82,7 @@ a {
 .task-list-item {
   list-style: none !important;
 }
+
+blockquote {
+  border-radius: 5px;
+}
