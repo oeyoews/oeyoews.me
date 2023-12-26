@@ -197,7 +197,7 @@ export default async function ServerComponent() {
 // 这种传 props 的用法不多，更多的是 client component nesed to server component
 
 
-// 为了减少客户端的 js bundle size, 尽量保持 client component move to client, 但是 那种 props  传递的 server component 的用法对此没有影响，因为客户端渲染的时候会跳过 client, 要避免的主要是直接在父级直接使用 client, 导致嵌入的组件全部变成了 client, 尽量将 client 抽离出去
+// 为了减少客户端的 JS bundle size, 尽量保持 client component move to client, 但是 那种 props  传递的 server component 的用法对此没有影响，因为客户端渲染的时候会跳过 client, 要避免的主要是直接在父级直接使用 client, 导致嵌入的组件全部变成了 client, 尽量将 client 抽离出去
 ```
 
 自从 React18 的文档更新以后，引起了不小的讨论，react 不再一味的像以前推荐 CRA, 而是建议使用基于 React 的框架进行学习 React, 而且这一推荐放在了很重要的开头位置 (NextJs 和 React 的合作很密切)
