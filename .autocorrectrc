@@ -13,7 +13,7 @@ rules:
   # Add space between dash `-`
   space-dash: 0
   # Convert to fullwidth.
-  fullwidth: 1
+  fullwidth: 0
   # To remove space near the fullwidth.
   no-space-fullwidth: 1
   # Fullwidth alphanumeric characters to halfwidth.
@@ -31,12 +31,14 @@ fileTypes:
   # Config the files associations, you config is higher priority than default.
   # "rb": ruby
   # "Rakefile": ruby
-  # "*.js": javascript
-  # ".mdx": markdown
+  '*.js': javascript
+  '.mdx': markdown
 spellcheck:
   # Correct Words (Case insensitive) for by Spellcheck
   words:
+    - JS
     - GitHub
+    - ES6
     # - gitHub action = GitHub Action
     - App Store
     # This means "appstore" into "App Store"
