@@ -7,11 +7,12 @@ import 'markdown-it-github-alerts/styles/github-base.css';
 import 'markdown-it-github-alerts/styles/github-colors-dark-media.css';
 import 'markdown-it-github-alerts/styles/github-colors-light.css';
 // @ts-ignore
-import MarkdownItPangu from 'markdown-it-pangu';
-// @ts-ignore
 import MarkdownItCheckbox from 'markdown-it-task-lists';
 // @ts-ignore
-import MarkdownItTOC from 'markdown-it-task-lists';
+const MarkdownItPangu = require('markdown-it-pangu');
+const MarkdownItToc = require('markdown-it-task-lists');
+const MarkdownItAbbr = require('markdown-it-abbr');
+const MarkdownItFootnote = require('markdown-it-footnote');
 import config from '~config';
 
 // TIPS: 如果不依赖于文件名字，可以借助 markdown-it-meta plugin, 其实主要代码都一致
@@ -40,6 +41,8 @@ const md: MarkdownIt = new MarkdownIt({
   .use(MarkdownItGitHubAlerts)
   .use(MarkdownItCheckbox)
   .use(MarkdownItPangu)
+  .use(MarkdownItAbbr)
+  .use(MarkdownItFootnote)
   .use(MarkdownItAnchor, {
     level: 2,
     slugify: (string: string) => string,
@@ -50,7 +53,7 @@ const md: MarkdownIt = new MarkdownIt({
   });
 
 config.enableTOC &&
-  md.use(MarkdownItTOC, {
+  md.use(MarkdownItToc, {
     slugify: (string: string) => string,
     includeLevel: [1, 2, 3],
     containerHeaderHtml: '<h2 class="">TOC</h2>',

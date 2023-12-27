@@ -118,6 +118,12 @@ devDependencies:
   eslint-config-next:
     specifier: ^14.0.4
     version: 14.0.4(eslint@8.56.0)(typescript@5.3.3)
+  markdown-it-abbr:
+    specifier: ^2.0.0
+    version: 2.0.0
+  markdown-it-footnote:
+    specifier: ^4.0.0
+    version: 4.0.0
   postcss:
     specifier: ^8.4.32
     version: 8.4.32
@@ -2953,6 +2959,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
+  /markdown-it-abbr@2.0.0:
+    resolution: {integrity: sha512-of7C8pXSjXjDojW4neNP+jD7inUYH/DO0Ca+K/4FUEccg0oHAEX/nfscw0jfz66PJbYWOAT9U8mjO21X5p6aAw==}
+    dev: true
+
   /markdown-it-anchor@8.6.7(@types/markdown-it@13.0.7)(markdown-it@13.0.2):
     resolution: {integrity: sha512-FlCHFwNnutLgVTflOYHPW2pPcl2AACqVzExlkGQNsi4CJgqOHN7YTgDd4LuhgN1BFO3TS0vLAruV1Td6dwWPJA==}
     peerDependencies:
@@ -2962,6 +2972,10 @@ packages:
       '@types/markdown-it': 13.0.7
       markdown-it: 13.0.2
     dev: false
+
+  /markdown-it-footnote@4.0.0:
+    resolution: {integrity: sha512-WYJ7urf+khJYl3DqofQpYfEYkZKbmXmwxQV8c8mO/hGIhgZ1wOe7R4HLFNwqx7TjILbnC98fuyeSsin19JdFcQ==}
+    dev: true
 
   /markdown-it-github-alerts@0.1.2(markdown-it@13.0.2):
     resolution: {integrity: sha512-jtCrfFxXR6c/bNRBvWkoqUquEDdIF9q7/gNZjP47W96kaIiBMiYHbpf468IPeZJB5BVRls6+IXGchhQSTxy0DQ==}

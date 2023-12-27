@@ -21,6 +21,8 @@ date: 2023/12/26
 
 * 深拷贝有序列化 (但似乎不常用)，但是更多的是借助 `Object.assign` 的浅拷贝方法来实现深拷贝效果
 
+* [structuredClone()](https://developer.mozilla.org/zh-CN/docs/Web/API/structuredClone) 也可以进行深拷贝, 不过对浏览器的要求比较高.对一些旧的设备或者浏览器可能不适用.
+
 ```js
 const deepClone = (obj) => {
   return Object.assign({}, obj);
