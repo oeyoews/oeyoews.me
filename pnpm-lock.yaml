@@ -91,6 +91,9 @@ dependencies:
     version: 4.4.7(@types/react@18.2.8)(react@18.2.0)
 
 devDependencies:
+  '@oeyoews/prettier-config':
+    specifier: ^1.0.1
+    version: 1.0.1(prettier@3.1.1)
   '@tailwindcss/typography':
     specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.4.0)
@@ -662,6 +665,14 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.16.0
+
+  /@oeyoews/prettier-config@1.0.1(prettier@3.1.1):
+    resolution: {integrity: sha512-uyXha6awu94ceYsW88fqkxkUCwkYaX0GcW8KQlCM5uHesH5FKx0YKqhnoovET4y3viApkDUSyc3fMnkYN/DFTQ==}
+    peerDependencies:
+      prettier: ^2.6.0 || ^3.0.0
+    dependencies:
+      prettier: 3.1.1
+    dev: true
 
   /@pkgjs/parseargs@0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}

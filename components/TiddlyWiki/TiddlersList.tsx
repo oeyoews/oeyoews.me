@@ -9,7 +9,7 @@ import YearHeader from '~components/YearHeader';
 
 export default function TiddlersList({
   tiddlers,
-  route,
+  route
 }: {
   tiddlers: TiddlerMetadata[];
   route: string;

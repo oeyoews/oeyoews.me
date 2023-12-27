@@ -6,13 +6,13 @@ export default {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   corePlugins: {
-    preflight: true,
+    preflight: true
   },
   future: {
-    hoverOnlyWhenSupported: true,
+    hoverOnlyWhenSupported: true
   },
   theme: {
     extend: {
@@ -20,25 +20,25 @@ export default {
         DEFAULT: {
           css: {
             h1: {
-              marginTop: '1.3em',
+              marginTop: '1.3em'
             },
             li: {
-              margin: 0,
+              margin: 0
             },
             img: {
               margin: 'auto',
-              borderRadius: theme('borderRadius.lg'),
+              borderRadius: theme('borderRadius.lg')
             },
             'code::before': {
-              content: '',
+              content: ''
             },
             'code::after': {
-              content: '',
-            },
-          },
-        },
-      }),
-    },
+              content: ''
+            }
+          }
+        }
+      })
+    }
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/typography')]
 } satisfies Config;

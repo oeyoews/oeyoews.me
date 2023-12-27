@@ -11,7 +11,7 @@ export default function GithubIssueItem({
   issue,
   index,
   order,
-  children,
+  children
 }: {
   issue: Issue;
   index: number;
@@ -26,22 +26,22 @@ export default function GithubIssueItem({
         <Timeline.Dot />
         <Link
           href={`/issue/${slug}`}
-          className="text-xs rounded-md"
-          title="点击阅读全文"
+          className='text-xs rounded-md'
+          title='点击阅读全文'
           // scroll={false}
         >
           <H2>
             {title}
-            {index === 0 && <Badge className="font-bold" text="Latest" />}
+            {index === 0 && <Badge className='font-bold' text='Latest' />}
           </H2>
         </Link>
-        <div className="flex space-x-2 text-gray-400 items-center">
-          <Link href={html_url} className="text-gray-400" target="_blank">
+        <div className='flex space-x-2 text-gray-400 items-center'>
+          <Link href={html_url} className='text-gray-400' target='_blank'>
             #{number}
           </Link>
           <Timeline.Time>{format(new Date(date), 'EEE, MMMM d')}</Timeline.Time>
-          <div className="space-x-1">
-            <GoComment className="size-4 text-gray-400" />
+          <div className='space-x-1'>
+            <GoComment className='size-4 text-gray-400' />
             <span>{issue.comments}</span>
           </div>
         </div>

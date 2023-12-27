@@ -27,21 +27,21 @@ export default function Nav() {
     <div
       className={clsx(
         'flex items-center justify-between print:hidden mb-8 sticky top-0 left-0 z-[1000] backdrop-blur-sm p-4 mx-auto px-2 md:px-16 w-full',
-        (isFullScreen || !hasNav) && 'hidden',
+        (isFullScreen || !hasNav) && 'hidden'
       )}
     >
-      <div className="space-x-4">
+      <div className='space-x-4'>
         <button
           onClick={() => router.back()}
           className={LinkClass}
-          aria-label="back"
+          aria-label='back'
         >
           <FaArrowLeft />
         </button>
         <button
           onClick={() => router.forward()}
           className={LinkClass}
-          aria-label="forward"
+          aria-label='forward'
         >
           <FaArrowRight />
         </button>
@@ -54,7 +54,7 @@ export default function Nav() {
           <Link
             key={link.title}
             href={link.path}
-            className="flex items-center space-x-2 duration-300 transition"
+            className='flex items-center space-x-2 duration-300 transition'
             aria-label={link.title}
           >
             {React.cloneElement(link.icon, { className: LinkClass })}

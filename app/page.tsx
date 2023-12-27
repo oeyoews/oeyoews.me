@@ -10,7 +10,7 @@ import config from '~config';
 const Page = () => {
   const content = fs.readFileSync(
     path.join(process.cwd(), 'README.md'),
-    'utf-8',
+    'utf-8'
   );
   return (
     <Article>
@@ -26,12 +26,12 @@ const Page = () => {
         <tbody>
           {config.sections.map((section) => (
             <tr key={section.link}>
-              <td className="capitalize">{section.name}</td>
+              <td className='capitalize'>{section.name}</td>
               <td>
                 <Link
                   href={section.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   GitHub
                 </Link>

@@ -17,6 +17,7 @@
   "simple-git-hooks": {
     "pre-commit": "pnpm autocorrect --fix"
   },
+  "prettier": "@oeyoews/prettier-config",
   "dependencies": {
     "@iconify/react": "^4.1.1",
     "@types/markdown-it": "^13.0.7",
@@ -48,6 +49,7 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
+    "@oeyoews/prettier-config": "^1.0.1",
     "@tailwindcss/typography": "^0.5.10",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "20.2.5",

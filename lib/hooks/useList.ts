@@ -17,6 +17,6 @@ export default function useList() {
 
   return {
     list,
-    handleLoadItems,
+    handleLoadItems
   };
 }

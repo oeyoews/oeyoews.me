@@ -34,7 +34,7 @@ const parseDate = (dateString: string): string | number => {
 const parseFrontmatter = (
   fileContent: string,
   fileName: string,
-  filePath: string,
+  filePath: string
 ) => {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   const match = frontmatterRegex.exec(fileContent);
@@ -73,14 +73,14 @@ const parseFrontmatter = (
     // Write the updated content back to the file
     fs.writeFileSync(filePath, updatedContent);
     console.log(
-      chalk.red(`检测到 ${filePath} 没有 frontmatter`, '已经自动更新'),
+      chalk.red(`检测到 ${filePath} 没有 frontmatter`, '已经自动更新')
     );
     return {
       metadata: {
         title: defaultTitle,
-        date: defaultDate,
+        date: defaultDate
       },
-      content: fileContent.trim(),
+      content: fileContent.trim()
     };
   }
 };
@@ -118,7 +118,7 @@ const getMDXData = (dir: string): Post[] => {
       metadata,
       type: path.extname(filePath) === '.mdx' ? 'mdx' : 'md',
       slug: md5(filename).slice(0, config.md5Length),
-      content,
+      content
     };
   });
 };

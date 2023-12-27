@@ -8,7 +8,7 @@ const baseurl = `https://api.github.com/repos/${config.githubRepo}`;
 const headers = {
   Accept: 'application/vnd.github+json',
   'Content-Type': 'application/json',
-  Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+  Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
 };
 
 const fetch = create(baseurl);
@@ -19,14 +19,14 @@ export default async function getIssues(page = 1): Promise<Issue[]> {
   const res = await fetch({
     url: `/issues?page=${page}&per_page=30&state=closed`,
     options: {
-      headers,
-    },
+      headers
+    }
   });
   const data = await res.json();
   return data.map((issue: Issue) => ({
     ...issue,
     date: new Date(issue.created_at),
-    slug: issue.id.toString(),
+    slug: issue.id.toString()
   }));
 }
 
@@ -47,13 +47,13 @@ export const getIssueBySlug = async (slug: string) => {
 };
 
 export const getIssueComments = async (
-  issueNumber: number,
+  issueNumber: number
 ): Promise<IssueComment[]> => {
   const res = await fetch({
     url: `/issues/${issueNumber}/comments`,
     options: {
-      headers,
-    },
+      headers
+    }
   });
   return await res.json();
 };

@@ -19,18 +19,18 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**',
         port: '',
-        pathname: '**',
-      },
-    ],
+        pathname: '**'
+      }
+    ]
   },
   logging: {
     fetches: {
-      fullUrl: true,
-    },
+      fullUrl: true
+    }
   },
   experimental: {
-    ppr: false,
-  },
+    ppr: false
+  }
 };
 
 module.exports = nextConfig;

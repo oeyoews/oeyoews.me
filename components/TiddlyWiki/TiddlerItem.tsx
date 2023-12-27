@@ -11,7 +11,7 @@ export default function TiddlerItem({
   index,
   order,
   children,
-  route,
+  route
 }: {
   tiddler: TiddlerMetadata;
   index: number;
@@ -27,12 +27,12 @@ export default function TiddlerItem({
         <Timeline.Dot />
         <Link
           href={`/${route}/${slug}`}
-          className="text-xs rounded-md"
-          title="点击阅读全文"
+          className='text-xs rounded-md'
+          title='点击阅读全文'
         >
           <H2>
             {formatTitle(title)}
-            {index === 0 && <Badge className="" text="Latest" />}
+            {index === 0 && <Badge className='' text='Latest' />}
           </H2>
         </Link>
         <Timeline.Time>{format(date, 'EEE, MMMM d')}</Timeline.Time>

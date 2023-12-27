@@ -5,7 +5,7 @@ import { ColorRing } from 'react-loader-spinner';
 
 export default function Spinner({
   center = true,
-  size = 40,
+  size = 40
 }: {
   center?: boolean;
   size?: number;
@@ -17,9 +17,9 @@ export default function Spinner({
         visible={true}
         height={size}
         width={size}
-        ariaLabel="blocks-loading"
+        ariaLabel='blocks-loading'
         wrapperStyle={{}}
-        wrapperClass="blocks-wrapper"
+        wrapperClass='blocks-wrapper'
         colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
       />
     </div>

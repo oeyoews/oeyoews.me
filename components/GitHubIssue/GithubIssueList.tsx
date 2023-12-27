@@ -20,7 +20,7 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
       !(
         issue.state_reason === 'not_planned' ||
         Object.hasOwn(issue, 'pull_request')
-      ),
+      )
   );
 
   const GithubIssueListContent = () => (

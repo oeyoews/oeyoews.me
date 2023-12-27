@@ -5,12 +5,12 @@ type Config = {
 
 const customFetch = (
   finalURL: string,
-  options?: RequestInit,
+  options?: RequestInit
 ): Promise<Response> => {
   const defaultOptions: RequestInit = {
     mode: 'cors',
     next: { revalidate: 3600 },
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json' }
   };
   const mergedOptions: RequestInit = { ...defaultOptions, ...options };
   return fetch(finalURL, mergedOptions);

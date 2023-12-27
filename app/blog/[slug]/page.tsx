@@ -14,7 +14,7 @@ import { getBlogPosts, getPostFromParams } from '~lib/blog';
 export const generateMetadata = ({ params }: { params: Params }): Metadata => {
   const post = getPostFromParams(params.slug);
   return {
-    title: post?.metadata.title,
+    title: post?.metadata.title
   };
 };
 

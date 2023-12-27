@@ -38,8 +38,8 @@ const newObj = Object.assign({}, name);
 const array = {
   name: 'array',
   list: {
-    age: '18',
-  },
+    age: '18'
+  }
 };
 
 const array_shadow_copy = Object.assign(array);

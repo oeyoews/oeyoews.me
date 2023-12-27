@@ -3,7 +3,7 @@ module.exports = {
   singleQuote: true,
   plugins: [
     'prettier-plugin-tailwindcss',
-    '@trivago/prettier-plugin-sort-imports',
+    '@trivago/prettier-plugin-sort-imports'
   ],
   importOrder: [
     'react', // React
@@ -18,8 +18,8 @@ module.exports = {
     '^.*/pages/.*$', // Components
     '^.*/components/.*$', // Components
     '^[./]', // Other imports
-    '.*', // Any uncaught imports
+    '.*' // Any uncaught imports
   ],
   importOrderSeparation: true,
-  importOrderSortSpecifiers: true,
+  importOrderSortSpecifiers: true
 };

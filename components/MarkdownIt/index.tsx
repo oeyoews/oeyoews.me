@@ -35,7 +35,7 @@ const md: MarkdownIt = new MarkdownIt({
     return (
       '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>'
     );
-  },
+  }
 })
   .use(MarkdownItGitHubAlerts)
   .use(MarkdownItCheckbox)
@@ -46,7 +46,7 @@ const md: MarkdownIt = new MarkdownIt({
     permalink: true,
     permalinkClass: 'anchor',
     permalinkSymbol: '',
-    permalinkBefore: true,
+    permalinkBefore: true
   });
 
 config.enableTOC &&
@@ -56,7 +56,7 @@ config.enableTOC &&
     containerHeaderHtml: '<h2 class="">TOC</h2>',
     listType: 'ol',
     containerClass:
-      'rounded-md p-2 fixed left-0 top-0 hidden md:block max-h-screen',
+      'rounded-md p-2 fixed left-0 top-0 hidden md:block max-h-screen'
   });
 
 const toc = `[[toc]]

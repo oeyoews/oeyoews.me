@@ -10,7 +10,7 @@ import formatTitle from '~lib/formatTitle';
 import {
   getAllIssues,
   getIssueBySlug,
-  getIssueComments,
+  getIssueComments
 } from '~lib/issues/getIssues';
 
 export const revalidate = 60;
@@ -21,14 +21,14 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({
-  params,
+  params
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
   const { slug } = params;
   const issue = await getIssueBySlug(slug);
   return {
-    title: issue?.title,
+    title: issue?.title
   };
 }
 
@@ -46,11 +46,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <Divider />
       {issue.body ? <MarkdownItRenderer content={issue.body} /> : <EmptyTip />}
       {comments.length > 0 && (
-        <DrawserComponent text="Comments" key={issue.id}>
+        <DrawserComponent text='Comments' key={issue.id}>
           {comments.map(({ body, id, user }) => (
             <>
-              <div className="flex items-center justify-start space-x-2">
-                <div className="text-zinc-400 dark:text-zinc-500">
+              <div className='flex items-center justify-start space-x-2'>
+                <div className='text-zinc-400 dark:text-zinc-500'>
                   {user.login}
                 </div>
                 <div>
@@ -60,7 +60,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                     alt={user.login}
                     width={16}
                     height={16}
-                    className="rounded-full dark:outline-white outline outline-1 ml-1"
+                    className='rounded-full dark:outline-white outline outline-1 ml-1'
                   />
                 </div>
               </div>

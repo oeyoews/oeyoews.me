@@ -24,7 +24,7 @@ const useBlogStoreBase = create<UseStore>()((set, get) => ({
   incrementLoadedItems: (steps = 10) =>
     set({ loadedItems: get().loadedItems + steps }),
   setPassword: (enteredPassword) => set({ enteredPassword }),
-  setShowContent: (showContent) => set({ showContent }),
+  setShowContent: (showContent) => set({ showContent })
 }));
 
 const useBlogStore = createSelectors(useBlogStoreBase);

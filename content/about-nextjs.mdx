@@ -167,7 +167,7 @@ Since Client Components are rendered after Server Components, you cannot import 
 import ServerComponent from './ServerComponent';
 
 export default function ClientComponent({
-  server,
+  server
 }: {
   server: React.ReactElement;
 }) {
@@ -181,7 +181,7 @@ export default function ClientComponent({
 }
 
 // servercomponent.tsx
-'use server';
+('use server');
 
 export default async function ServerComponent() {
   //   const a = { a: 1 }; // wrong
@@ -191,11 +191,9 @@ export default async function ServerComponent() {
   return <>Hello from Server Component {a}</>;
 }
 
-
 // page.tsx
-<ClientComponent server={<ServerComponent />} />
+<ClientComponent server={<ServerComponent />} />;
 // 这种传 props 的用法不多，更多的是 client component nesed to server component
-
 
 // 为了减少客户端的 JS bundle size, 尽量保持 client component move to client, 但是 那种 props  传递的 server component 的用法对此没有影响，因为客户端渲染的时候会跳过 client, 要避免的主要是直接在父级直接使用 client, 导致嵌入的组件全部变成了 client, 尽量将 client 抽离出去
 ```

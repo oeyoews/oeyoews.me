@@ -26,46 +26,46 @@ const config = {
     {
       title: 'Home',
       path: '/',
-      icon: <BsHouse />,
+      icon: <BsHouse />
     },
     {
       title: 'Blog',
       path: '/blog',
-      icon: <BsFiletypeMdx />,
+      icon: <BsFiletypeMdx />
     },
     {
       title: 'journal',
       path: '/journal',
-      icon: <BsJournal />,
+      icon: <BsJournal />
     },
     {
       title: 'tiddlers',
       path: '/tiddlers',
-      icon: <BsWikipedia />,
+      icon: <BsWikipedia />
     },
     {
       title: 'issues',
       path: '/issue',
-      icon: <FaRegDotCircle />,
-    },
+      icon: <FaRegDotCircle />
+    }
   ],
   sections: [
     {
       name: 'mdx',
       link: 'https://github.com/oeyoews/nextjs-mdx-blog/tree/oeyoews/content',
-      icon: 'vscode-icons:file-type-light-mdx',
+      icon: 'vscode-icons:file-type-light-mdx'
     },
     {
       name: 'tiddlers',
       link: 'https://github.com/oeyoews/neotw-tiddlers',
-      icon: 'simple-icons:tiddlywiki',
+      icon: 'simple-icons:tiddlywiki'
     },
     {
       name: 'issues',
       link: 'https://github.com/oeyoews/neotw-tiddlers/issues?q=is%3Aissue+is%3Aclosed',
-      icon: 'octicon:issue-opened-16',
-    },
-  ],
+      icon: 'octicon:issue-opened-16'
+    }
+  ]
 };
 
 export default config;

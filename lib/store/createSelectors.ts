@@ -9,7 +9,7 @@ export interface ZustandFuncSelectors<StateType> {
 }
 
 export const createSelectors = <StateType extends object>(
-  store: UseBoundStore<StoreApi<StateType>>,
+  store: UseBoundStore<StoreApi<StateType>>
 ) => {
   const storeIn = store as any;
 

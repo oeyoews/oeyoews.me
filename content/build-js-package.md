@@ -33,3 +33,15 @@ require(''xxx/dist/index.mjs)
 ## 注意
 
 - devdependency 和 dependency 很重要，如果全部放在 devdependency 里的时候，打包工具就尝试将所有的依赖打包进一个文件，否则，用户安装你的这个包的时候，还要安装你的依赖包
+
+- 如果你的 package name 是 @<your-username>/packagename, 默认是 private package, 需要加上 publishconfig
+
+```jsonc
+// package.json
+// https://docs.npmjs.com/cli/v9/using-npm/scope
+"publishConfig": {
+    "access": "public"
+  },
+```
+
+[link](https://docs.npmjs.com/cli/v10/configuring-npm/package-json)

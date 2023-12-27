@@ -15,7 +15,7 @@ async function getTiddler(slug: string) {
 }
 
 export async function generateMetadata({
-  params,
+  params
 }: {
   params: Params;
 }): Promise<Metadata> {
@@ -23,7 +23,7 @@ export async function generateMetadata({
   const tiddler = await getTiddler(slug);
   return {
     title: tiddler?.title,
-    description: tiddler?.description,
+    description: tiddler?.description
   };
 }
 
@@ -31,7 +31,7 @@ export async function generateStaticParams() {
   const { tiddlers } = await getTiddlerData(config.journalJson);
 
   return tiddlers.map((tiddler) => ({
-    slug: tiddler.slug,
+    slug: tiddler.slug
   }));
 }
 
@@ -54,7 +54,7 @@ export default async function Page({ params }: { params: Params }) {
           width={1200}
           height={480}
           className={clsx(
-            'rounded-xl object-cover object-center aspect-video h-48 shadow',
+            'rounded-xl object-cover object-center aspect-video h-48 shadow'
           )}
         />
       )}

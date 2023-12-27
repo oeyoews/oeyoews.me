@@ -7,7 +7,7 @@ const baseurl = `https://api.github.com/search/issues?q=repo:${config.githubRepo
 const headers = {
   Accept: 'application/vnd.github+json',
   'Content-Type': 'application/json',
-  Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+  Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
 };
 
 const fetch = create(baseurl);
@@ -18,9 +18,9 @@ export const getIssuesInfo = async (): Promise<IssueInfo> => {
     options: {
       headers,
       next: {
-        revalidate: 3600,
-      },
-    },
+        revalidate: 3600
+      }
+    }
   });
   return await res.json();
 };

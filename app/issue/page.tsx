@@ -3,7 +3,7 @@ import { getAllIssues } from '~lib/issues/getIssues';
 
 export const metadata = {
   title: 'issues',
-  description: 'issues',
+  description: 'issues'
 };
 
 export const revalidate = 60;

@@ -10,7 +10,7 @@ const BlogItem = ({
   post,
   index,
   order,
-  children,
+  children
 }: {
   post: Post;
   index: number;
@@ -22,7 +22,7 @@ const BlogItem = ({
   const badgesInfo = {
     Latest: index === 0,
     Password: metadata.password,
-    Draft: metadata.draft === true,
+    Draft: metadata.draft === true
   };
 
   const badges = Object.entries(badgesInfo).map(([text, show]) => {
@@ -36,8 +36,8 @@ const BlogItem = ({
         <Timeline.Dot />
         <Link
           href={`/blog/${post.slug}`}
-          className="text-xs rounded-md"
-          title="点击阅读全文"
+          className='text-xs rounded-md'
+          title='点击阅读全文'
           // scroll={false}
         >
           <H2>

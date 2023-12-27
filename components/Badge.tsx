@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 export default function Badge({
   text,
-  className,
+  className
 }: {
   text: string;
   className?: string;
@@ -11,7 +11,7 @@ export default function Badge({
     <sup
       className={clsx(
         'rounded-sm text-xs px-1 mx-1 font-light inline-flex text-black dark:text-white',
-        className,
+        className
       )}
     >
       {text}

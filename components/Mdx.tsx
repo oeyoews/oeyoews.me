@@ -12,7 +12,7 @@ Code.lineNumbers = false;
 // TODO: not support prefers-color-scheme
 Code.theme = {
   dark: 'one-dark-pro',
-  light: 'github-light',
+  light: 'github-light'
   // lightSelector: '[data-theme="light"]',
   // lightSelector: 'html.light',
 };
@@ -40,10 +40,10 @@ const createHeading =
         React.createElement('a', {
           href: `#${slug}`,
           key: `link-${slug}`,
-          className: 'anchor',
-        }),
+          className: 'anchor'
+        })
       ],
-      children,
+      children
     );
   };
 
@@ -62,7 +62,7 @@ const CustomLink = (props: any) => {
     return <a {...props} />;
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />;
+  return <a target='_blank' rel='noopener noreferrer' {...props} />;
 };
 
 const Pre = ({
@@ -73,7 +73,7 @@ const Pre = ({
   HTMLPreElement
 >) => {
   return (
-    <Code {...props} className="not-prose">
+    <Code {...props} className='not-prose'>
       {children}
     </Code>
   );
@@ -89,7 +89,7 @@ const components = {
   a: CustomLink,
   Icon,
   pre: Pre,
-  Projects,
+  Projects
 };
 
 const MDX = ({ source }: { source: any }) => {

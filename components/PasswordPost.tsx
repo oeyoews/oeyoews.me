@@ -8,7 +8,7 @@ import useBlogStore from '~lib/store';
 
 function PasswordProtectedContent({
   post,
-  children,
+  children
 }: {
   post: Post;
   children: ReactNode;
@@ -33,29 +33,29 @@ function PasswordProtectedContent({
       {/* 如果其他文章输入密码，会影响 */}
       {!metadata.password && !metadata.draft && children}
       {metadata.draft && (
-        <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xl animate-pulse">
+        <div className='fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xl animate-pulse'>
           正在努力编写中 ...
         </div>
       )}
       {metadata.password && !showContent ? (
         <form
-          className="justify-center p-1 rounded-md flex mx-2"
-          autoComplete="off"
+          className='justify-center p-1 rounded-md flex mx-2'
+          autoComplete='off'
         >
           <label>
             <input
-              type="password"
-              className="border-none rounded p-2 focus:outline-none mx-2"
-              placeholder="password"
+              type='password'
+              className='border-none rounded p-2 focus:outline-none mx-2'
+              placeholder='password'
               autoFocus
               onChange={(e) => setEnteredPassword(e.target.value)}
             />
           </label>
           <button
             onClick={handlePasswordSubmit}
-            className="hidden md:block mr-2"
+            className='hidden md:block mr-2'
           >
-            <AiOutlineSend className="size-5" />
+            <AiOutlineSend className='size-5' />
           </button>
         </form>
       ) : (

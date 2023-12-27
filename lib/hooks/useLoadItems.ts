@@ -12,6 +12,6 @@ export function useLoadItems(steps = 15) {
 
   return {
     loadedItems,
-    handleLoadMore,
+    handleLoadMore
   };
 }
