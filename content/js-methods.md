@@ -108,3 +108,10 @@ map.values()
 *[mapFn]: 对返回的数组值进行操作.
 
 [^some]: https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+
+## Tips
+
+```js
+Array.prototype.include() // ES7 语义更明确相比 findIndex find indexof, 使用 samevaluezero()
+Object.assign() // ES6(2015)
+```
