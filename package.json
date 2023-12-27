@@ -49,7 +49,7 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
-    "@oeyoews/prettier-config": "^1.0.1",
+    "@oeyoews/prettier-config": "^1.0.2",
     "@tailwindcss/typography": "^0.5.10",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "20.2.5",

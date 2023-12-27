@@ -4,7 +4,7 @@ title: monorepo:  workspace
 
 ## 开始
 
-由于自己的一些项目代码抽离出来，做成了 npm package, 随着 package 的增多，npm link 显得明显吃力，要不然就是不断改代码，发包，最初使用的是 npmmirror, 由于有缓存，还要手动进行 cnpm sync(cnpm 网页版同步不行). 后来就在当前项目下使用 npmrc 修改为原来的 npm 地址。
+由于自己的一些项目代码抽离出来，做成了 npm package, 随着 package 的增多，npm link 显得明显吃力，要不然就是不断改代码，发包，最初使用的是 npmmirror, 由于有缓存，还要手动进行同步 https://npmmirror.com/package/ ~~(cnpm 网页版同步不行)~~. 后来就在当前项目下使用 npmrc 修改为原来的 npm 地址。
 
 ## 改善
 
