@@ -78,3 +78,15 @@ console.log(auto instanceof Object);
    var vehicle = new Car('Honda', 'Accord');
    displayInfo(vehicle);
    ```
+
+## Reduce
+
+`Array.prototype.reduce`,  累加器, 接受一个函数作为累加器, 遍历数组, 返回一个单一的值.
+
+```js
+const d = [1, 2, 3]
+const inititaValue = 0
+
+// sum
+d.reduce((sum, currentValue) => sum + currentValue, initialValue)
+```
