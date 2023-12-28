@@ -44,3 +44,5 @@ robots.txt
 app/dev-test
 app/test/
 components/test
+
+content/test.js
