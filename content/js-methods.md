@@ -39,7 +39,7 @@ if (checker.some((item) => item === d)) {
 }
 ```
 
-`Array.prototype.some()` [^some] 方法第一个参数是一个 callbackFn, 第二个函数 thisArg 不常用.
+`Array.prototype.some()` [^some] 方法第一个参数是一个 callbackFn, 第二个函数 thisArg 不常用 (修改 this 指向).
 
 > 数组不属于基本类型, 是一个特殊的 Array 对象.
 
