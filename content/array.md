@@ -25,3 +25,7 @@ for (const item in array) {
 	}
 } // 1 2 3 sayHi undefined
 ```
+
+`Object.defineProperty()` 静态方法会直接在一个对象上定义一个新属性，或修改其现有属性，并返回此对象。
+
+`Object.defineProperty()` 允许精确地添加或修改对象上的属性。通过赋值添加的普通属性会在枚举属性时（例如 for...in、Object.keys() 等）出现，它们的值可以被更改，也可以被删除。此方法允许更改这些额外细节，以使其不同于默认值。默认情况下，使用 `Object.defineProperty()` 添加的属性是不可写、不可枚举和不可配置的。此外，Object.defineProperty() 使用 [[DefineOwnProperty]] 内部方法，而不是 [[Set]]，因此即使属性已经存在，它也不会调用 setter。
