@@ -65,9 +65,6 @@ importers:
       nextjs-toploader:
         specifier: ^1.6.4
         version: 1.6.4(next@14.0.5-canary.25)(react-dom@18.2.0)(react@18.2.0)
-      plum:
-        specifier: workspace:^
-        version: link:packages/plum
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -83,6 +80,9 @@ importers:
       react-loader-spinner:
         specifier: ^5.4.5
         version: 5.4.5(@babel/core@7.23.6)(react-dom@18.2.0)(react@18.2.0)
+      react-plum:
+        specifier: workspace:^
+        version: link:packages/react-plum
       tailwindcss:
         specifier: ^3.4.0
         version: 3.4.0
@@ -142,7 +142,7 @@ importers:
         specifier: ^2.9.0
         version: 2.9.0
 
-  packages/plum: {}
+  packages/react-plum: {}
 
 packages:
 

@@ -1,5 +1,5 @@
 {
-  "name": "plum",
+  "name": "react-plum",
   "version": "1.0.0",
   "description": "",
   "main": "index.tsx",
@@ -7,9 +7,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "scripts": {},
   "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "devDependencies": {}
+  "author": "oeyoews",
+  "license": "MIT"
 }

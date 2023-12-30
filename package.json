@@ -41,7 +41,7 @@
     "next": "14.0.5-canary.25",
     "next-mdx-remote": "^4.4.1",
     "nextjs-toploader": "^1.6.4",
-    "plum": "workspace:^",
+    "react-plum": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
