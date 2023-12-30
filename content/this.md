@@ -1,3 +1,8 @@
+---
+title: this
+date: 2023/12/28 00:02:12
+---
+
 * 全局环境下的 this
 * 上下文对象调用中的 this
 * apply/bind/call(abc) 改变 this 指向

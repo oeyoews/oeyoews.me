@@ -1,3 +1,8 @@
+---
+title: prototype
+date: 2023/12/28 13:29:35
+---
+
 * `instanceof` 运算符号用于检测函数的 prototype 属性是否出现在某个实例对象的原型链上.
 
 ```js

@@ -8,6 +8,8 @@ import { Providers } from './Providers';
 import '~app/globals.css';
 import Nav from '~components/Nav';
 import config from '~config';
+import Plum from '~components/Plum';
+import PlumBlossom from '~components/Plum2';
 
 export const metadata: Metadata = {
   title: {
@@ -37,11 +39,11 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
-      lang='en'
+      lang="en"
       suppressHydrationWarning
-      className='text-black bg-white dark:text-white dark:bg-black'
+      className="text-black bg-white dark:text-white dark:bg-black"
     >
-      <body className='antialiased min-h-screen'>
+      <body className="antialiased min-h-screen">
         <Toaster
           toastOptions={{
             duration: 1000
@@ -49,13 +51,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
         <Providers>
           <NextTopLoader
-            color='#eb6864'
+            color="#eb6864"
             height={1}
             shadow={false}
             showSpinner={false}
           />
           <Nav />
-          <main className='container mx-auto max-w-4xl py-8 px-4'>
+          <PlumBlossom />
+          <main className="container mx-auto max-w-4xl py-8 px-4">
             {children}
           </main>
         </Providers>
