@@ -8,8 +8,7 @@ import { Providers } from './Providers';
 import '~app/globals.css';
 import Nav from '~components/Nav';
 import config from '~config';
-import Plum from '~components/Plum';
-import PlumBlossom from '~components/Plum2';
+import PlumBlossom from 'plum';
 
 export const metadata: Metadata = {
   title: {

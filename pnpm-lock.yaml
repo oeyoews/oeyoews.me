@@ -4,138 +4,145 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  '@iconify/react':
-    specifier: ^4.1.1
-    version: 4.1.1(react@18.2.0)
-  '@types/markdown-it':
-    specifier: ^13.0.7
-    version: 13.0.7
-  '@types/md5':
-    specifier: ^2.3.5
-    version: 2.3.5
-  bright:
-    specifier: ^0.8.4
-    version: 0.8.4(react@18.2.0)
-  chalk:
-    specifier: ^4.1.2
-    version: 4.1.2
-  clsx:
-    specifier: ^2.0.0
-    version: 2.0.0
-  date-fns:
-    specifier: ^2.30.0
-    version: 2.30.0
-  git-last-commit:
-    specifier: ^1.0.1
-    version: 1.0.1
-  highlight.js:
-    specifier: ^11.9.0
-    version: 11.9.0
-  markdown-it:
-    specifier: ^13.0.2
-    version: 13.0.2
-  markdown-it-anchor:
-    specifier: ^8.6.7
-    version: 8.6.7(@types/markdown-it@13.0.7)(markdown-it@13.0.2)
-  markdown-it-github-alerts:
-    specifier: ^0.1.2
-    version: 0.1.2(markdown-it@13.0.2)
-  markdown-it-pangu:
-    specifier: ^1.0.2
-    version: 1.0.2
-  markdown-it-table-of-contents:
-    specifier: ^0.6.0
-    version: 0.6.0
-  markdown-it-task-lists:
-    specifier: ^2.1.1
-    version: 2.1.1
-  md5:
-    specifier: ^2.3.0
-    version: 2.3.0
-  next:
-    specifier: 14.0.5-canary.25
-    version: 14.0.5-canary.25(@babel/core@7.23.6)(react-dom@18.2.0)(react@18.2.0)
-  next-mdx-remote:
-    specifier: ^4.4.1
-    version: 4.4.1(react-dom@18.2.0)(react@18.2.0)
-  nextjs-toploader:
-    specifier: ^1.6.4
-    version: 1.6.4(next@14.0.5-canary.25)(react-dom@18.2.0)(react@18.2.0)
-  react:
-    specifier: ^18.2.0
-    version: 18.2.0
-  react-dom:
-    specifier: ^18.2.0
-    version: 18.2.0(react@18.2.0)
-  react-hot-toast:
-    specifier: ^2.4.1
-    version: 2.4.1(csstype@3.1.3)(react-dom@18.2.0)(react@18.2.0)
-  react-icons:
-    specifier: ^4.12.0
-    version: 4.12.0(react@18.2.0)
-  react-loader-spinner:
-    specifier: ^5.4.5
-    version: 5.4.5(@babel/core@7.23.6)(react-dom@18.2.0)(react@18.2.0)
-  tailwindcss:
-    specifier: ^3.4.0
-    version: 3.4.0
-  typescript:
-    specifier: ^5.3.3
-    version: 5.3.3
-  vaul:
-    specifier: ^0.7.9
-    version: 0.7.9(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)
-  zustand:
-    specifier: ^4.4.7
-    version: 4.4.7(@types/react@18.2.8)(react@18.2.0)
+importers:
 
-devDependencies:
-  '@oeyoews/prettier-config':
-    specifier: ^1.0.2
-    version: 1.0.2(prettier@3.1.1)
-  '@tailwindcss/typography':
-    specifier: ^0.5.10
-    version: 0.5.10(tailwindcss@3.4.0)
-  '@trivago/prettier-plugin-sort-imports':
-    specifier: ^4.3.0
-    version: 4.3.0(prettier@3.1.1)
-  '@types/node':
-    specifier: 20.2.5
-    version: 20.2.5
-  '@types/react':
-    specifier: 18.2.8
-    version: 18.2.8
-  autocorrect-node:
-    specifier: ^2.9.0
-    version: 2.9.0
-  autoprefixer:
-    specifier: ^10.4.16
-    version: 10.4.16(postcss@8.4.32)
-  eslint:
-    specifier: ^8.56.0
-    version: 8.56.0
-  eslint-config-next:
-    specifier: ^14.0.4
-    version: 14.0.4(eslint@8.56.0)(typescript@5.3.3)
-  markdown-it-abbr:
-    specifier: ^2.0.0
-    version: 2.0.0
-  markdown-it-footnote:
-    specifier: ^4.0.0
-    version: 4.0.0
-  postcss:
-    specifier: ^8.4.32
-    version: 8.4.32
-  prettier:
-    specifier: ^3.1.1
-    version: 3.1.1
-  prettier-plugin-tailwindcss:
-    specifier: ^0.5.9
-    version: 0.5.9(@trivago/prettier-plugin-sort-imports@4.3.0)(prettier@3.1.1)
-  simple-git-hooks:
-    specifier: ^2.9.0
-    version: 2.9.0
+  .:
+    dependencies:
+      '@iconify/react':
+        specifier: ^4.1.1
+        version: 4.1.1(react@18.2.0)
+      '@types/markdown-it':
+        specifier: ^13.0.7
+        version: 13.0.7
+      '@types/md5':
+        specifier: ^2.3.5
+        version: 2.3.5
+      bright:
+        specifier: ^0.8.4
+        version: 0.8.4(react@18.2.0)
+      chalk:
+        specifier: ^4.1.2
+        version: 4.1.2
+      clsx:
+        specifier: ^2.0.0
+        version: 2.0.0
+      date-fns:
+        specifier: ^2.30.0
+        version: 2.30.0
+      git-last-commit:
+        specifier: ^1.0.1
+        version: 1.0.1
+      highlight.js:
+        specifier: ^11.9.0
+        version: 11.9.0
+      markdown-it:
+        specifier: ^13.0.2
+        version: 13.0.2
+      markdown-it-anchor:
+        specifier: ^8.6.7
+        version: 8.6.7(@types/markdown-it@13.0.7)(markdown-it@13.0.2)
+      markdown-it-github-alerts:
+        specifier: ^0.1.2
+        version: 0.1.2(markdown-it@13.0.2)
+      markdown-it-pangu:
+        specifier: ^1.0.2
+        version: 1.0.2
+      markdown-it-table-of-contents:
+        specifier: ^0.6.0
+        version: 0.6.0
+      markdown-it-task-lists:
+        specifier: ^2.1.1
+        version: 2.1.1
+      md5:
+        specifier: ^2.3.0
+        version: 2.3.0
+      next:
+        specifier: 14.0.5-canary.25
+        version: 14.0.5-canary.25(@babel/core@7.23.6)(react-dom@18.2.0)(react@18.2.0)
+      next-mdx-remote:
+        specifier: ^4.4.1
+        version: 4.4.1(react-dom@18.2.0)(react@18.2.0)
+      nextjs-toploader:
+        specifier: ^1.6.4
+        version: 1.6.4(next@14.0.5-canary.25)(react-dom@18.2.0)(react@18.2.0)
+      plum:
+        specifier: workspace:^
+        version: link:packages/plum
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+      react-hot-toast:
+        specifier: ^2.4.1
+        version: 2.4.1(csstype@3.1.3)(react-dom@18.2.0)(react@18.2.0)
+      react-icons:
+        specifier: ^4.12.0
+        version: 4.12.0(react@18.2.0)
+      react-loader-spinner:
+        specifier: ^5.4.5
+        version: 5.4.5(@babel/core@7.23.6)(react-dom@18.2.0)(react@18.2.0)
+      tailwindcss:
+        specifier: ^3.4.0
+        version: 3.4.0
+      typescript:
+        specifier: ^5.3.3
+        version: 5.3.3
+      vaul:
+        specifier: ^0.7.9
+        version: 0.7.9(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)
+      zustand:
+        specifier: ^4.4.7
+        version: 4.4.7(@types/react@18.2.8)(react@18.2.0)
+    devDependencies:
+      '@oeyoews/prettier-config':
+        specifier: ^1.0.2
+        version: 1.0.2(prettier@3.1.1)
+      '@tailwindcss/typography':
+        specifier: ^0.5.10
+        version: 0.5.10(tailwindcss@3.4.0)
+      '@trivago/prettier-plugin-sort-imports':
+        specifier: ^4.3.0
+        version: 4.3.0(prettier@3.1.1)
+      '@types/node':
+        specifier: 20.2.5
+        version: 20.2.5
+      '@types/react':
+        specifier: 18.2.8
+        version: 18.2.8
+      autocorrect-node:
+        specifier: ^2.9.0
+        version: 2.9.0
+      autoprefixer:
+        specifier: ^10.4.16
+        version: 10.4.16(postcss@8.4.32)
+      eslint:
+        specifier: ^8.56.0
+        version: 8.56.0
+      eslint-config-next:
+        specifier: ^14.0.4
+        version: 14.0.4(eslint@8.56.0)(typescript@5.3.3)
+      markdown-it-abbr:
+        specifier: ^2.0.0
+        version: 2.0.0
+      markdown-it-footnote:
+        specifier: ^4.0.0
+        version: 4.0.0
+      postcss:
+        specifier: ^8.4.32
+        version: 8.4.32
+      prettier:
+        specifier: ^3.1.1
+        version: 3.1.1
+      prettier-plugin-tailwindcss:
+        specifier: ^0.5.9
+        version: 0.5.9(@trivago/prettier-plugin-sort-imports@4.3.0)(prettier@3.1.1)
+      simple-git-hooks:
+        specifier: ^2.9.0
+        version: 2.9.0
+
+  packages/plum: {}
 
 packages:
 

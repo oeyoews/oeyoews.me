@@ -2,9 +2,9 @@
 
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 
-const PlumBlossom: React.FC = () => {
+const PlumBlossom = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
