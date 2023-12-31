@@ -1,4 +1,11 @@
 import React, { ReactNode } from 'react';
+import {
+  GoLightBulb,
+  GoAlert,
+  GoInfo,
+  GoStop,
+  GoDiscussionClosed
+} from 'react-icons/go';
 
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
@@ -7,6 +14,7 @@ import Projects from './Projects';
 
 import { Code } from 'bright';
 import Icon from '~components/Icon';
+import { IconType } from 'react-icons';
 
 Code.lineNumbers = false;
 // TODO: not support prefers-color-scheme
@@ -28,6 +36,38 @@ const slugify = (str: string) => {
     .replace(/\-\-+/g, '-'); // Replace multiple - with single -
 };
 
+type bqtypes = 'tip' | 'warning' | 'note' | 'causion' | 'important';
+
+const calloutTypes: Record<bqtypes, { icon: any; className?: string }> = {
+  tip: { icon: <GoLightBulb />, className: 'fill-green-500' },
+  warning: { icon: <GoAlert />, className: 'fill-yellow-400' },
+  note: { icon: <GoInfo />, className: 'fill-sky-400' },
+  causion: { icon: <GoStop />, className: 'fill-red-400' },
+  important: {
+    icon: <GoDiscussionClosed />,
+    className: 'fill-purple-400'
+  }
+};
+
+const Callout = ({
+  children,
+  type
+}: {
+  children: React.ReactNode;
+  type: bqtypes;
+}) => {
+  return (
+    <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 my-8">
+      <div className="flex items-center w-4 mr-4">
+        {React.cloneElement(calloutTypes[type].icon, {
+          className: calloutTypes[type].className + ' size-5'
+        })}
+      </div>
+      <div className="w-full callout">{children}</div>
+    </div>
+  );
+};
+
 const createHeading =
   (level: number) =>
   // eslint-disable-next-line react/display-name
@@ -46,40 +86,6 @@ const createHeading =
       children
     );
   };
-
-const MdxBlockquote = ({ children }: { children: ReactNode }) => {
-  // 检查 blockquote 是否以 [!xxx] 开头
-  const tipRegex = /^\[!([^]+?)\]/;
-
-  const match = children[1].props.children[0].match(tipRegex);
-  // 如果匹配成功，获取标志内容
-  const tipContent = match ? match[1] : null;
-
-  // 根据标志内容执行相应的操作
-  const handleTipContent = () => {
-    if (tipContent === 'TIP') {
-      // 处理 TIP 情况
-      return <blockquote style={{ color: '#007bff' }}>{children}</blockquote>;
-    }
-
-    // 如果有其他标志，可以继续添加相应的处理逻辑
-
-    // 默认情况
-    return <div>{children}</div>;
-  };
-
-  return (
-    <blockquote
-      style={{
-        borderLeft: '4px solid #007bff',
-        paddingLeft: '16px',
-        margin: '16px 0'
-      }}
-    >
-      {handleTipContent()}
-    </blockquote>
-  );
-};
 
 const CustomLink = (props: any) => {
   let href = props.href;
@@ -146,7 +152,7 @@ const components = {
   pre: Pre,
   Projects,
   TwPlugin,
-  blockquote: MdxBlockquote
+  Callout
 };
 
 const MDX = ({ source }: { source: any }) => {
