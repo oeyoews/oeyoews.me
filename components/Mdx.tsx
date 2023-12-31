@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
@@ -46,6 +46,40 @@ const createHeading =
       children
     );
   };
+
+const MdxBlockquote = ({ children }: { children: ReactNode }) => {
+  // 检查 blockquote 是否以 [!xxx] 开头
+  const tipRegex = /^\[!([^]+?)\]/;
+
+  const match = children[1].props.children[0].match(tipRegex);
+  // 如果匹配成功，获取标志内容
+  const tipContent = match ? match[1] : null;
+
+  // 根据标志内容执行相应的操作
+  const handleTipContent = () => {
+    if (tipContent === 'TIP') {
+      // 处理 TIP 情况
+      return <blockquote style={{ color: '#007bff' }}>{children}</blockquote>;
+    }
+
+    // 如果有其他标志，可以继续添加相应的处理逻辑
+
+    // 默认情况
+    return <div>{children}</div>;
+  };
+
+  return (
+    <blockquote
+      style={{
+        borderLeft: '4px solid #007bff',
+        paddingLeft: '16px',
+        margin: '16px 0'
+      }}
+    >
+      {handleTipContent()}
+    </blockquote>
+  );
+};
 
 const CustomLink = (props: any) => {
   let href = props.href;
@@ -111,10 +145,12 @@ const components = {
   Icon,
   pre: Pre,
   Projects,
-  TwPlugin
+  TwPlugin,
+  blockquote: MdxBlockquote
 };
 
 const MDX = ({ source }: { source: any }) => {
+  // @ts-ignore
   return <MDXRemote components={components} source={source} />;
 };
 
