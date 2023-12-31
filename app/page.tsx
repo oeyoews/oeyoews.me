@@ -6,6 +6,7 @@ import { H2 } from '~components/ArticleComponents';
 import { Article } from '~components/ArticleComponents';
 import MarkdownItRenderer from '~components/MarkdownIt';
 import config from '~config';
+import PlumBlossom from 'react-plum';
 
 const Page = () => {
   const content = fs.readFileSync(
@@ -14,6 +15,7 @@ const Page = () => {
   );
   return (
     <Article>
+      <PlumBlossom />
       <MarkdownItRenderer content={content} />
       <H2>External Links</H2>
       <table>
@@ -26,12 +28,12 @@ const Page = () => {
         <tbody>
           {config.sections.map((section) => (
             <tr key={section.link}>
-              <td className='capitalize'>{section.name}</td>
+              <td className="capitalize">{section.name}</td>
               <td>
                 <Link
                   href={section.link}
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   GitHub
                 </Link>
