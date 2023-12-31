@@ -62,7 +62,7 @@ const CustomLink = (props: any) => {
     return <a {...props} />;
   }
 
-  return <a target='_blank' rel='noopener noreferrer' {...props} />;
+  return <a target="_blank" rel="noopener noreferrer" {...props} />;
 };
 
 const Pre = ({
@@ -73,9 +73,30 @@ const Pre = ({
   HTMLPreElement
 >) => {
   return (
-    <Code {...props} className='not-prose'>
+    <Code {...props} className="not-prose">
       {children}
     </Code>
+  );
+};
+
+const TwPlugin = ({
+  name,
+  author = 'oeyoews'
+}: {
+  name: string;
+  author: string;
+}) => {
+  const plugin = `$:/plugins/${author}/${name}`;
+  return (
+    <a
+      href={`https://tiddlywiki-starter-kit.vercel.app/#${encodeURIComponent(
+        plugin
+      )}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {name}
+    </a>
   );
 };
 
@@ -89,7 +110,8 @@ const components = {
   a: CustomLink,
   Icon,
   pre: Pre,
-  Projects
+  Projects,
+  TwPlugin
 };
 
 const MDX = ({ source }: { source: any }) => {
