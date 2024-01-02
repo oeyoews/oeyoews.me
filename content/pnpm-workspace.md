@@ -23,3 +23,5 @@ packages:
 
 - 安装新包的时候需要 加上 -w 参数
 - 如果依赖 dist/ 建议 保留 dist/目录，否则别人 clone 的时候，还要分别进入每个包手动构建。
+
+> 但是也可以 在 package.json 里面加上一个 prepare 的命令, 自动构建 dist, 不过依赖包就多了.
