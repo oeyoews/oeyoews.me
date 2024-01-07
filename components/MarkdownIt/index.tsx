@@ -17,12 +17,13 @@ import config from '~config';
 
 // TIPS: 如果不依赖于文件名字，可以借助 markdown-it-meta plugin, 其实主要代码都一致
 
-const md: MarkdownIt = new MarkdownIt({
+const options = {
   html: true,
   linkify: true,
   typographer: true,
   breaks: true,
   langPrefix: 'language-',
+  // @ts-ignore
   highlight: function (str, lang) {
     if (lang && hljs.getLanguage(lang)) {
       try {
@@ -37,7 +38,9 @@ const md: MarkdownIt = new MarkdownIt({
       '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>'
     );
   }
-})
+};
+
+const md: MarkdownIt = new MarkdownIt(options)
   .use(MarkdownItGitHubAlerts)
   .use(MarkdownItCheckbox)
   .use(MarkdownItPangu)

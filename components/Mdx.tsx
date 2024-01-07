@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import md5 from 'md5';
 import {
   GoLightBulb,
   GoAlert,
@@ -25,16 +26,16 @@ Code.theme = {
   // lightSelector: 'html.light',
 };
 
-const slugify = (str: string) => {
-  return str
-    .toString()
-    .toLowerCase()
-    .trim() // Remove whitespace from both ends of a string
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/&/g, '-and-') // Replace & with 'and'
-    .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
-    .replace(/\-\-+/g, '-'); // Replace multiple - with single -
-};
+// const slugify = (str: string) => {
+//   return str
+//     .toString()
+//     .toLowerCase()
+//     .trim() // Remove whitespace from both ends of a string
+//     .replace(/\s+/g, '-') // Replace spaces with -
+//     .replace(/&/g, '-and-') // Replace & with 'and'
+//     .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
+//     .replace(/\-\-+/g, '-'); // Replace multiple - with single -
+// };
 
 type bqtypes = 'tip' | 'warning' | 'note' | 'causion' | 'important';
 
@@ -72,7 +73,7 @@ const createHeading =
   (level: number) =>
   // eslint-disable-next-line react/display-name
   ({ children }: any) => {
-    let slug = slugify(children);
+    let slug = md5(children).slice(0, 9);
     return React.createElement(
       `h${level}`,
       { id: slug },
