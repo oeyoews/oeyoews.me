@@ -15,27 +15,13 @@ import Projects from './Projects';
 
 import { Code } from 'bright';
 import Icon from '~components/Icon';
-import { IconType } from 'react-icons';
 
 Code.lineNumbers = false;
 // TODO: not support prefers-color-scheme
 Code.theme = {
   dark: 'one-dark-pro',
   light: 'github-light'
-  // lightSelector: '[data-theme="light"]',
-  // lightSelector: 'html.light',
 };
-
-// const slugify = (str: string) => {
-//   return str
-//     .toString()
-//     .toLowerCase()
-//     .trim() // Remove whitespace from both ends of a string
-//     .replace(/\s+/g, '-') // Replace spaces with -
-//     .replace(/&/g, '-and-') // Replace & with 'and'
-//     .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
-//     .replace(/\-\-+/g, '-'); // Replace multiple - with single -
-// };
 
 type bqtypes = 'tip' | 'warning' | 'note' | 'causion' | 'important';
 

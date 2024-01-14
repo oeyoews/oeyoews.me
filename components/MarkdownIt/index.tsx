@@ -43,20 +43,23 @@ const options = {
 };
 
 const containers = [
-  { name: 'note', label: '💡', color: 'blue' },
-  { name: 'info', label: '💡', color: 'blue' },
-  { name: 'todo', label: '💡', color: 'blue' },
-  { name: 'important', label: '❌', color: 'red' }, //  ❎
-  { name: 'success', label: '✅', color: 'green' },
-  { name: 'tip', label: '✅', color: 'green' },
-  { name: 'question', label: '✅', color: 'green' },
-  { name: 'warning', label: '⚠️', color: 'yellow' },
-  { name: 'caution', label: '⚠️', color: 'yellow' },
-  { name: 'note', label: '📝', color: 'yellow' },
-  { name: 'fire', label: '🔥', color: 'blue' }
+  { name: 'note', label: '💡' },
+  { name: 'info', label: '💡' },
+  { name: 'todo', label: '💡' },
+  { name: 'important', label: '❌' },
+  { name: 'success', label: '✅' },
+  { name: 'tip', label: '✅' },
+  { name: 'question', label: '✅' },
+  { name: 'warning', label: '⚠️' },
+  { name: 'caution', label: '⚠️' },
+  { name: 'example', label: '📝' },
+  { name: 'snippet', label: '📝' },
+  { name: 'summary', label: '📝' },
+  { name: 'abstract', label: '📝' },
+  { name: 'see-also', label: '🔥' }
 ];
 
-function createContainerConfig(name: string, label: string, color: string) {
+function newContainer(label: string) {
   return {
     marker: ':',
     // @ts-ignore
@@ -91,11 +94,11 @@ const md: MarkdownIt = new MarkdownIt(options)
   });
 
 containers.forEach((container) => {
-  const { name, label, color } = container;
-  const config = createContainerConfig(name.toUpperCase(), label, color);
+  const { name, label } = container;
+  const config = newContainer(label);
   md.use(MarkdownItContainer, name.toLowerCase(), config);
-  md.use(MarkdownItContainer, capitalize(name.toLowerCase()), config);
   md.use(MarkdownItContainer, name.toUpperCase(), config);
+  md.use(MarkdownItContainer, capitalize(name.toLowerCase()), config);
 });
 
 config.enableTOC &&
