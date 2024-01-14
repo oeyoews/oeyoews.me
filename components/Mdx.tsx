@@ -40,7 +40,7 @@ const Callout = ({
   children,
   type
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   type: bqtypes;
 }) => {
   return (

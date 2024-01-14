@@ -43,20 +43,13 @@ const options = {
 };
 
 const containers = [
-  { name: 'note', label: '💡' },
-  { name: 'info', label: '💡' },
-  { name: 'todo', label: '💡' },
-  { name: 'important', label: '❌' },
-  { name: 'success', label: '✅' },
-  { name: 'tip', label: '✅' },
-  { name: 'question', label: '✅' },
-  { name: 'warning', label: '⚠️' },
-  { name: 'caution', label: '⚠️' },
-  { name: 'example', label: '📝' },
-  { name: 'snippet', label: '📝' },
-  { name: 'summary', label: '📝' },
-  { name: 'abstract', label: '📝' },
-  { name: 'see-also', label: '🔥' }
+  { name: ['note', 'info', 'todo'], label: '💡' },
+  { name: ['important'], label: '❌' },
+  { name: ['success', 'tip', 'question'], label: '✅' },
+  { name: ['warning', 'caution'], label: '⚠️' },
+  { name: ['abstract', 'example', 'snippet', 'summary'], label: '📝' },
+  { name: ['abstract'], label: '📝' },
+  { name: ['see-also'], label: '🔥' }
 ];
 
 function newContainer(label: string) {
@@ -96,9 +89,11 @@ const md: MarkdownIt = new MarkdownIt(options)
 containers.forEach((container) => {
   const { name, label } = container;
   const config = newContainer(label);
-  md.use(MarkdownItContainer, name.toLowerCase(), config);
-  md.use(MarkdownItContainer, name.toUpperCase(), config);
-  md.use(MarkdownItContainer, capitalize(name.toLowerCase()), config);
+  name.forEach((name) => {
+    md.use(MarkdownItContainer, name.toLowerCase(), config);
+    md.use(MarkdownItContainer, name.toUpperCase(), config);
+    md.use(MarkdownItContainer, capitalize(name.toLowerCase()), config);
+  });
 });
 
 config.enableTOC &&

@@ -7,6 +7,14 @@ date: 2023/12/28 21:45:58
 demo
 :::
 
+:::abstract
+demo
+:::
+
+:::warning
+dmeo
+:::
+
 :::note
 demo
 :::
