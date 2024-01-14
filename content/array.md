@@ -3,6 +3,14 @@ title: array
 date: 2023/12/28 21:45:58
 ---
 
+:::tip
+demo
+:::
+
+:::note
+demo
+:::
+
 `Array.prototype` 是数组原型对象, 包含了所有数组实例的方法和属性.
 
 * 但在数组实例上调用方法时, 就会自动在 `Array.prototype` 上寻找,并执行它, 同时将数组实例 this 指向该方法 (或者说是在两者共享 this). (类比 Object)
