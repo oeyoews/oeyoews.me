@@ -1,3 +1,8 @@
+---
+title: es6-methods
+date: 2024/1/16 11:30:50
+---
+
 ## 解构
 
 ## 函数参数默认值
@@ -102,4 +107,85 @@ function tailFactorial(n, total) {
 
 const factorial = currying(tailFactorial, 1)
 factorial(5)
+```
+
+## Class
+
+生成实例对象的传统方法是通过构造函数.
+
+```js
+// ES5
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
+}
+
+Point.prototype.toString = function () {
+  return '(' + this.x + ', ' + this.y + ')';
+};
+
+var p = new Point(1, 2);
+
+// ES6
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  toString() {
+    return '(' + this.x + ', ' + this.y + ')';
+  }
+}
+```
+
+## 私有属性
+
+```js
+// class 基本可以看作是构造函数的语法糖
+class Person {
+  #salary = 99999; // instance cannot access this variable (es2022)
+  static #sayHi() {
+    // just in class inner use
+    console.log('xxx');
+  }
+
+  constructor() {
+    this.salary = this.#salary;
+    Person.#sayHi();
+  }
+
+  sayHi() {
+    console.log('hi');
+  }
+}
+
+class Son extends Person {
+  constructor() {
+    super();
+    super.sayHi();
+  }
+}
+```
+
+:::note
+class 的子类构造函数必须首先执行一次 super() 函数, 否则会报错, 并且 super 函数只能在 construector 里面使用.
+
+作用是形成子类的 this 对象, 将父类的实例方法和属性放到 this 上, 类似于 重新绑定 (call)this.
+
+也可以通过 super 获取父类的属性或方法
+:::
+
+## Mixin
+
+Mixin 指的是多个对象合成一个新的对象，新对象具有各个组成成员的接口。它的最简单实现如下。
+
+```js
+const a = {
+  a: 'a'
+};
+const b = {
+  b: 'b'
+};
+const c = {...a, ...b}; // {a: 'a', b: 'b'}
 ```
