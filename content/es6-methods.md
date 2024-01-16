@@ -15,7 +15,7 @@
 ```js
 // es5
 'one' + 'two
-// es6
+// ES6
 `${one}${two}`
 ```
 
@@ -24,7 +24,7 @@
 ```js
 // es5
 
-// es6
+// ES6
 
 'onetwo'.startWith('one')
 'onetwo'.endWith('two')
@@ -41,7 +41,7 @@
 ## 字符串重复
 
 ```js
-// es6
+// ES6
 '9'.repeat(9)
 ```
 
