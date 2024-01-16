@@ -189,3 +189,22 @@ const b = {
 };
 const c = {...a, ...b}; // {a: 'a', b: 'b'}
 ```
+
+## async
+
+ES2017 标准引入了 async 函数，使得异步操作变得更加方便。Generator 的语法糖
+
+async 返回一个 Promise 对象.
+await 接收一个 Promise 对象. 如果不是就直接返回对应的值.
+
+## ArrayBuffer
+
+（1）ArrayBuffer 对象：代表内存之中的一段二进制数据，可以通过“视图”进行操作。“视图”部署了数组接口，这意味着，可以用数组的方法操作内存。
+
+（2）TypedArray 视图：共包括 9 种类型的视图，比如 Uint8Array（无符号 8 位整数）数组视图, Int16Array（16 位整数）数组视图, Float32Array（32 位浮点数）数组视图等等。
+
+（3）DataView 视图：可以自定义复合格式的视图，比如第一个字节是 Uint8（无符号 8 位整数）、第二、三个字节是 Int16（16 位整数）、第四个字节开始是 Float32（32 位浮点数）等等，此外还可以自定义字节序。
+
+简单说，ArrayBuffer 对象代表原始的二进制数据，TypedArray 视图用来读写简单类型的二进制数据，DataView 视图用来读写复杂类型的二进制数据。
+
+https://es6.ruanyifeng.com/#docs/arraybuffer
