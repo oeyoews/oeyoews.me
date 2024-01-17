@@ -3,6 +3,15 @@ title: es6-methods
 date: 2024/1/16 11:30:50
 ---
 
+## reduce
+
+遍历叠加方法, 经常用于数组求和
+
+```js
+const arr = [1, 2, 3]
+const sum = arr.reduce((sum, next) => sum + next)
+```
+
 ## 解构
 
 ## 函数参数默认值
