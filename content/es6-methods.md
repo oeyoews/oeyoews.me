@@ -5,7 +5,11 @@ date: 2024/1/16 11:30:50
 
 ## reduce
 
+`Array.prototype.reduce`
+
 遍历叠加方法, 经常用于数组求和
+
+第一个参数 callback(常用), 第二个参数 intitialValue 初始值
 
 ```js
 const arr = [1, 2, 3]

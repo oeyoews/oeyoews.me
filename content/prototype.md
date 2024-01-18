@@ -183,3 +183,31 @@ console.log(d.hasOwnProperty('age'));
 console.log(d.hasOwnProperty('a'));
 
 ```
+
+## Add custom method to array
+
+```js
+Array.prototype.log = () => {
+  console.log('log function');
+};
+
+const arr = [];
+
+// getOwnPropertyNames: Returns the names of the own properties of an object. The own properties of an object are those that are defined directly on that object, and are not inherited from the object's prototype. The properties of an object include both fields (objects) and functions.
+// @params: just need one params
+console.log(Object.getOwnPropertyNames(Array.prototype)); /* [
+  'length',      'constructor',    'concat',
+  'copyWithin',  'fill',           'find',
+  'findIndex',   'lastIndexOf',    'pop',
+  'push',        'reverse',        'shift',
+  'unshift',     'slice',          'sort',
+  'splice',      'includes',       'indexOf',
+  'join',        'keys',           'entries',
+  'values',      'forEach',        'filter',
+  'flat',        'flatMap',        'map',
+  'every',       'some',           'reduce',
+  'reduceRight', 'toLocaleString', 'toString',
+  'at',          'findLast',       'findLastIndex',
+  'log'
+] */
+```
