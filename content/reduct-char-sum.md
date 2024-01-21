@@ -20,6 +20,7 @@ for (char in a) {
 }
 
 // reduce
+// tips use split('') to generate array
 const ress = a.split('').reduce((res, char) => {
 	res[char]++ || (res[char] = 1);
   return res;
