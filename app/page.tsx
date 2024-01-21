@@ -6,7 +6,6 @@ import { H2 } from '~components/ArticleComponents';
 import { Article } from '~components/ArticleComponents';
 import MarkdownItRenderer from '~components/MarkdownIt';
 import config from '~config';
-import PlumBlossom from 'react-plum';
 
 const Page = () => {
   const content = fs.readFileSync(
@@ -15,7 +14,6 @@ const Page = () => {
   );
   return (
     <Article>
-      <PlumBlossom />
       <MarkdownItRenderer content={content} />
       <H2>External Links</H2>
       <table>

@@ -6,6 +6,7 @@ type In = (typeof a)[number]; // 1 | 2
 
 const ab = [{ title: '99' }, { title: '88' }] as const;
 
+/** @description: 使用字面量类型组合的联合类型 */
 type Iab = (typeof ab)[number]['title']; // 99 | 88
 
 const abc = {
