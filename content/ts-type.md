@@ -38,3 +38,13 @@ type UserBasicInfo = Pick<User2, 'name' | 'email'>;
 // 类型为 { name: string; email: string; }
 
 ```
+
+```js
+// 泛型
+function reflect<P extends string | number | boolean, T>(p: P, t: T) {
+  return [p, t];
+}
+
+// <xxx, xx> 可省略
+const p = reflect(false, '99');
+```
