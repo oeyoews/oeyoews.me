@@ -4,3 +4,4 @@ out/
 dist/
 pnpm-lock.yaml
 content/**/*.md
+tiddlywiki-starter-kit/
