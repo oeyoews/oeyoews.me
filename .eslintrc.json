@@ -1,8 +1,5 @@
 {
   "extends": "next",
-  "ignorePatterns": [
-    "tiddlywiki-starter-kit/**"
-  ],
   "rules": {
     "react/no-unescaped-entities": "off"
     // "@typescript-eslint/no-unused-vars": 2
