@@ -10,12 +10,12 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "git clone --depth 1 https://github.com/oeyoews/tiddlywiki-starter-kit && cd tiddlywiki-starter-kit && pnpm install && pnpm build && pnpm format:md && next build",
+    "build": "git clone --depth 1 https://github.com/oeyoews/tiddlywiki-starter-kit && cd tiddlywiki-starter-kit && pnpm install && pnpm build && cd .. && pnpm format:md && next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier . --write",
     "format:md": "autocorrect --fix content",
-    "prepare": "simple-git-hooks"
+    "prepare-bk": "simple-git-hooks"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm autocorrect --fix"
