@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "tiged github:oeyoews/tiddlywiki-starter-kit && cd tiddlywiki-starter-kit && pnpm install && pnpm build && cd .. && pnpm format:md && next build",
+    "build": "tiged github:oeyoews/tiddlywiki-starter-kit tiddlywiki-starter-kit && cd tiddlywiki-starter-kit && pnpm install && pnpm build && cd .. && pnpm format:md && next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier . --write",
