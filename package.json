@@ -10,7 +10,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "tiged github:oeyoews/tiddlywiki-starter-kit/markdown#gh-pages content/markdown && pnpm format:md && next build",
+    "mds": "tiged github:oeyoews/tiddlywiki-starter-kit/markdown#gh-pages content/markdown",
+    "build": "pnpm format:md && next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier . --write",
