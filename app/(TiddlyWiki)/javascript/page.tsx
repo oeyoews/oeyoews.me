@@ -1,7 +1,6 @@
 import TiddlersList from '~components/TiddlyWiki/TiddlersList';
 import config from '~config';
 import getTiddlerData from '~lib/getTiddlerData';
-import { IRoute } from '~config';
 
 export const metadata = {
   title: 'online tiddlers',

@@ -41,12 +41,12 @@ const config = {
     {
       title: 'JavaScript',
       path: '/javascript',
-      icon: <BsJournal />
+      icon: <RiJavascriptFill />
     },
     {
       title: 'journal',
       path: '/journal',
-      icon: <RiJavascriptFill />
+      icon: <BsJournal />
     },
     {
       title: 'tiddlers',
