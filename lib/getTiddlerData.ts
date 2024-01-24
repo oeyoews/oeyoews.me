@@ -21,11 +21,14 @@ export default async function getTiddlerData(tiddlerjsonfile = config.json) {
       ({ type }) =>
         type === 'text/markdown' || type === 'text/vnd.tiddlywiki' || !type
     )
-    .map((tiddler) => ({
-      ...tiddler,
-      slug: md5(tiddler.title).slice(0, config.md5Length),
-      date: formattedTime(tiddler.created)
-    }))
+    .map((tiddler) => {
+      console.log(tiddler.title, md5(tiddler.title).slice(0, config.md5Length));
+      return {
+        ...tiddler,
+        slug: md5(tiddler.title).slice(0, config.md5Length),
+        date: formattedTime(tiddler.created)
+      };
+    })
     .sort((a, b) => {
       return a.date > b.date ? -1 : 1;
     });

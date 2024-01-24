@@ -11,7 +11,7 @@ const config = {
   content: 'content', // mdx directory
   jsJson:
     process.env.NODE_ENV === 'development'
-      ? testFile
+      ? 'http://localhost:3000/javascript.json'
       : 'https://neotw.vercel.app/javascript.json',
   journalJson:
     process.env.NODE_ENV === 'development'

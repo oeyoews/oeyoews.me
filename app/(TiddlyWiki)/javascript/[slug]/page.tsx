@@ -10,7 +10,7 @@ import formatTitle from '~lib/formatTitle';
 import getTiddlerData from '~lib/getTiddlerData';
 
 async function getTiddler(slug: string) {
-  const { tiddlers } = await getTiddlerData(config.journalJson);
+  const { tiddlers } = await getTiddlerData(config.jsJson);
   return tiddlers.find((tiddler) => tiddler.slug === slug);
 }
 

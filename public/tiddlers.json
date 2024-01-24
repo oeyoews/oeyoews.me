@@ -1,6 +1,6 @@
 [
   {
-    "title": "新的 Tiddler(1)",
+    "title": "新的 Tiddler111",
     "text": "这是第一个新的 Tiddler.",
     "type": "text/markdown",
     "created": "20231204120500000",
@@ -224,18 +224,6 @@
     "modified": "20231204133700000",
     "publish": "blog",
     "tags": "新标签 19",
-    "revision": "0",
-    "bag": "default"
-  },
-  {
-    "title": "新的 Tiddler(20)",
-    "text": "这是第二十个新的 Tiddler.",
-    "type": "text/markdown",
-    "created": "20231204134000000",
-    "creator": "YourName",
-    "modified": "20231204134200000",
-    "publish": "blog",
-    "tags": "新标签 20",
     "revision": "0",
     "bag": "default"
   }
