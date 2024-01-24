@@ -1,6 +1,7 @@
 import TiddlersList from '~components/TiddlyWiki/TiddlersList';
 import config from '~config';
 import getTiddlerData from '~lib/getTiddlerData';
+import { IRoute } from '~config';
 
 export const metadata = {
   title: 'online tiddlers',
@@ -12,7 +13,7 @@ export default async function TiddlersHomepage({
 }: {
   searchParams: { list: number };
 }) {
-  const { tiddlersMetadata } = await getTiddlerData(config.journalJson);
+  const { tiddlersMetadata } = await getTiddlerData(config.jsJson);
 
-  return <TiddlersList tiddlers={tiddlersMetadata} route="/journal" />;
+  return <TiddlersList tiddlers={tiddlersMetadata} route="/javascript" />;
 }

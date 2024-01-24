@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { IRoute } from '~config';
 import { format } from 'date-fns';
 import { H2 } from '~components/ArticleComponents';
 import Badge from '~components/Badge';
@@ -37,7 +38,7 @@ const BlogItem = ({
       <Timeline.Li order={order}>
         <Timeline.Dot />
         <Link
-          href={`/${route}/${post.slug}`}
+          href={`${route}/${post.slug}`}
           className="text-xs rounded-md"
           title="点击阅读全文"
           // scroll={false}

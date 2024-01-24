@@ -8,5 +8,5 @@ export const metadata = {
 
 export default async function TiddlersHomepage() {
   const { tiddlersMetadata } = await getTiddlerData();
-  return <TiddlersList tiddlers={tiddlersMetadata} route='tiddlers' />;
+  return <TiddlersList tiddlers={tiddlersMetadata} route="/tiddlers" />;
 }

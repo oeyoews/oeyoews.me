@@ -1,6 +1,7 @@
 'use client';
 
 import useList from '~lib/hooks/useList';
+import { IRoute } from '~config';
 
 import LoadMore from '~components/LoadMore';
 import TiddlerItem from '~components/TiddlyWiki/TiddlerItem';
@@ -12,7 +13,7 @@ export default function TiddlersList({
   route
 }: {
   tiddlers: TiddlerMetadata[];
-  route: string;
+  route: IRoute;
 }) {
   let currentYear: number;
 

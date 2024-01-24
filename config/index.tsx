@@ -1,4 +1,5 @@
 import { BsFiletypeMdx, BsHouse, BsJournal, BsWikipedia } from 'react-icons/bs';
+import { RiJavascriptFill } from 'react-icons/ri';
 import { FaRegDotCircle } from 'react-icons/fa';
 
 const testFile = 'http://localhost:3000/tiddlers.json';
@@ -8,6 +9,10 @@ const config = {
   steps: 10,
   title: 'Blog with NextJs',
   content: 'content', // mdx directory
+  jsJson:
+    process.env.NODE_ENV === 'development'
+      ? testFile
+      : 'https://neotw.vercel.app/javascript.json',
   journalJson:
     process.env.NODE_ENV === 'development'
       ? testFile
@@ -34,9 +39,14 @@ const config = {
       icon: <BsFiletypeMdx />
     },
     {
+      title: 'JavaScript',
+      path: '/javascript',
+      icon: <BsJournal />
+    },
+    {
       title: 'journal',
       path: '/journal',
-      icon: <BsJournal />
+      icon: <RiJavascriptFill />
     },
     {
       title: 'tiddlers',
@@ -48,7 +58,7 @@ const config = {
       path: '/issue',
       icon: <FaRegDotCircle />
     }
-  ],
+  ] as const,
   sections: [
     {
       name: 'mdx',
@@ -67,5 +77,7 @@ const config = {
     }
   ]
 };
+
+export type IRoute = (typeof config.links)[number]['path'];
 
 export default config;

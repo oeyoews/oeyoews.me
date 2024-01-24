@@ -5,6 +5,7 @@ import { H2 } from '~components/ArticleComponents';
 import Badge from '~components/Badge';
 import Timeline from '~components/Timeline';
 import formatTitle from '~lib/formatTitle';
+import { IRoute } from '~config';
 
 export default function TiddlerItem({
   tiddler,
@@ -17,7 +18,7 @@ export default function TiddlerItem({
   index: number;
   order: Order;
   children: any;
-  route: string;
+  route: IRoute;
 }) {
   const { title, slug, date } = tiddler;
   return (
@@ -26,13 +27,13 @@ export default function TiddlerItem({
       <Timeline.Li order={order}>
         <Timeline.Dot />
         <Link
-          href={`/${route}/${slug}`}
-          className='text-xs rounded-md'
-          title='点击阅读全文'
+          href={`${route}/${slug}`}
+          className="text-xs rounded-md"
+          title="点击阅读全文"
         >
           <H2>
             {formatTitle(title)}
-            {index === 0 && <Badge className='' text='Latest' />}
+            {index === 0 && <Badge className="" text="Latest" />}
           </H2>
         </Link>
         <Timeline.Time>{format(date, 'EEE, MMMM d')}</Timeline.Time>
