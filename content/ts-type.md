@@ -1,3 +1,8 @@
+---
+title: ts-type
+date: 2024/1/21 18:44:20
+---
+
 ```ts
 // typeof keyof
 const a = [1, 2] as const;

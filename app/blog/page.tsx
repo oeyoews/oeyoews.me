@@ -10,7 +10,7 @@ const HomePage = () => {
     return null;
   }
 
-  return <BlogList data={posts} />;
+  return <BlogList data={posts} route="markdown" />;
 };
 
 export default HomePage;

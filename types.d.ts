@@ -1,3 +1,4 @@
+type IRoute = 'blog' | 'journal' | 'tiddlers' | 'issues' | 'markdown';
 type Order = 'end' | 'normal';
 
 interface ChildrenProps {

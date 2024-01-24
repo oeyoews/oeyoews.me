@@ -8,7 +8,13 @@ import { Post } from '~lib/blog';
 const sortByDate = (a: Post, b: Post) =>
   new Date(a.metadata.date) > new Date(b.metadata.date) ? -1 : 1;
 
-export default function BlogList({ data }: { data: Post[] }) {
+export default function BlogList({
+  data,
+  route
+}: {
+  data: Post[];
+  route: IRoute;
+}) {
   let currentYear: any = null;
   return (
     <>
@@ -21,6 +27,7 @@ export default function BlogList({ data }: { data: Post[] }) {
           currentYear = postYear;
           return (
             <BlogItem
+              route={route}
               post={post}
               index={index}
               key={post.metadata.title}

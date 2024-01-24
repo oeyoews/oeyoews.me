@@ -110,6 +110,10 @@ const readMDXFile = (filePath: string) => {
 };
 
 const getMDXData = (dir: string): Post[] => {
+  if (!fs.existsSync(dir)) {
+    console.log(chalk.red.bold('无法找到目录'), dir);
+    return [];
+  }
   const mdxFiles = getMDXFilesRecursive(dir);
   return mdxFiles.map((filePath) => {
     const { metadata, content } = readMDXFile(filePath);
@@ -123,8 +127,8 @@ const getMDXData = (dir: string): Post[] => {
   });
 };
 
-export const getBlogPosts = () => {
-  return getMDXData(path.join(process.cwd(), config.content));
+export const getBlogPosts = (dir: string = config.content) => {
+  return getMDXData(path.join(process.cwd(), dir));
 };
 
 export const getPostFromParams = (slug: string) =>

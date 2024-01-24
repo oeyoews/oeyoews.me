@@ -7,11 +7,13 @@ import Timeline from '~components/Timeline';
 import { Post } from '~lib/blog';
 
 const BlogItem = ({
+  route,
   post,
   index,
   order,
   children
 }: {
+  route: IRoute;
   post: Post;
   index: number;
   order: Order;
@@ -35,9 +37,9 @@ const BlogItem = ({
       <Timeline.Li order={order}>
         <Timeline.Dot />
         <Link
-          href={`/blog/${post.slug}`}
-          className='text-xs rounded-md'
-          title='点击阅读全文'
+          href={`/${route}/${post.slug}`}
+          className="text-xs rounded-md"
+          title="点击阅读全文"
           // scroll={false}
         >
           <H2>
