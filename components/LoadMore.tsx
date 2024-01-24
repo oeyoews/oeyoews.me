@@ -11,7 +11,7 @@ export default function LoadMore({ data }: { data: any[] }) {
   return (
     <button
       onClick={handleLoadItems}
-      className='text-sm font-medium rounded px-2 font-mono py-1'
+      className="text-sm font-medium rounded px-2 font-mono py-1"
     >
       加载更多
     </button>

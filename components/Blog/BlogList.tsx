@@ -1,5 +1,5 @@
 import BlogItem from '~components/Blog/BlogItem';
-import { IRoute } from '~config';
+import config, { IRoute } from '~config';
 import CommitInfo from '~components/CommitInfo';
 import LoadMore from '~components/LoadMore';
 import Timeline from '~components/Timeline';
@@ -40,7 +40,6 @@ export default function BlogList({
         })}
       </Timeline>
       <CommitInfo />
-      <LoadMore data={data} />
     </>
   );
 }

@@ -6,7 +6,7 @@ const testFile = 'http://localhost:3000/tiddlers.json';
 
 const config = {
   emptyTip: '这里空空如也 !',
-  steps: 10,
+  steps: 10 as const,
   title: 'Blog with NextJs',
   content: 'content', // mdx directory
   jsJson:
