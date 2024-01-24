@@ -2,12 +2,7 @@ import clsx from 'clsx';
 
 export const Divider = ({ thickness = 1 }: { thickness?: number }) => {
   return (
-    <hr
-      className={clsx(
-        'my-4 rounded-full not-prose',
-        thickness === 1 && 'border-2'
-      )}
-    />
+    <hr className={clsx('my-4 rounded-full', thickness === 1 && 'border-2')} />
   );
 };
 
