@@ -9,19 +9,24 @@ export default function LoadMore({ data }: { data: any[] }) {
 
   // TODO: debounce
   useEffect(() => {
-    if (data.length <= list) {
+    if (data.length < list) {
       return;
     }
+    let rafId: number;
     // 添加滚动到底部的事件监听器
     const handleScroll = throttle(() => {
-      const documentHeight = document.documentElement.scrollHeight;
-      const windowHeight = window.innerHeight;
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      cancelAnimationFrame(rafId);
 
-      // 判断是否滚动到底部
-      if (documentHeight - scrollTop - windowHeight < 1) {
-        requestAnimationFrame(handleLoadItems);
-      }
+      rafId = requestAnimationFrame(() => {
+        const documentHeight = document.documentElement.scrollHeight;
+        const windowHeight = window.innerHeight;
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+        // 判断是否滚动到底部
+        if (documentHeight - scrollTop - windowHeight < 100) {
+          requestAnimationFrame(handleLoadItems);
+        }
+      });
     }, 100);
 
     // 在组件加载时添加事件监听器
@@ -34,6 +39,7 @@ export default function LoadMore({ data }: { data: any[] }) {
       if (typeof window !== 'undefined') {
         window.removeEventListener('scroll', handleScroll);
       }
+      cancelAnimationFrame(rafId);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [list]);
