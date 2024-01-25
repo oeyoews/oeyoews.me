@@ -3,7 +3,6 @@ export const throttle = (func: Function, delay: number) => {
 
   return (...args: any[]) => {
     if (!timeoutId) {
-      console.log('throttle');
       timeoutId = setTimeout(() => {
         func.apply(null, args);
         // @ts-ignore
