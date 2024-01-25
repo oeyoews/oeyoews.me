@@ -10,6 +10,7 @@ export default function useList() {
   const list = Number(listparams.get('list')) || config.steps;
 
   const handleLoadItems = () => {
+    console.log('up');
     const params = new URLSearchParams(listparams);
     params.set('list', (list + config.steps).toString());
     window.history.replaceState(null, '', `${pathname}?${params.toString()}`);

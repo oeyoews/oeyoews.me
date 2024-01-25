@@ -22,7 +22,6 @@ export default async function getTiddlerData(tiddlerjsonfile = config.json) {
         type === 'text/markdown' || type === 'text/vnd.tiddlywiki' || !type
     )
     .map((tiddler) => {
-      console.log(tiddler.title, md5(tiddler.title).slice(0, config.md5Length));
       return {
         ...tiddler,
         slug: md5(tiddler.title).slice(0, config.md5Length),
