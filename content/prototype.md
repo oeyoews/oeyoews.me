@@ -112,6 +112,32 @@ d.reduce((sum, currentValue) => sum + currentValue, initialValue)
 
 > async/await 可以不用手写 promise, 让代码更加直观. 就是简化 Promise 写法
 
+```js
+function async1() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      //   console.log('async');
+      return resolve('ok');
+    }, 1000);
+  });
+}
+
+async function main() {
+  const res = await async1();
+  console.log(res); // micro task
+  console.log('01');
+}
+
+function m1() {
+  return async1()
+    .then((res) => console.log(res)) // micro task
+    .then(() => console.log('01'));
+}
+
+main();
+m1();
+```
+
 
 ```js
 const pro = new Promise((resolve, reject) => {
@@ -137,6 +163,8 @@ function f() {
 
 f();
 ```
+
+---
 
 ```js
 // 第一个参数是指定原型对象
