@@ -5,6 +5,7 @@ import { FaRegDotCircle } from 'react-icons/fa';
 const testFile = 'http://localhost:3000/tiddlers.json';
 
 const config = {
+  rendertype: 'svg',
   emptyTip: '这里空空如也 !',
   steps: 10 as const,
   title: 'Blog with NextJs',

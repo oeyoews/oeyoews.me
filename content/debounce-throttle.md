@@ -1,3 +1,8 @@
+---
+title: debounce-throttle
+date: 2024/1/25 15:33:10
+---
+
 :::tip
 防抖节流都是利用 setTimeout 和闭包 来实现的。
 :::

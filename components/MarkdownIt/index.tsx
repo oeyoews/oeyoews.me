@@ -14,6 +14,7 @@ const MarkdownItToc = require('markdown-it-task-lists');
 const MarkdownItAbbr = require('markdown-it-abbr');
 const MarkdownItFootnote = require('markdown-it-footnote');
 const MarkdownItContainer = require('markdown-it-container');
+import MarkdownItMermaid from './plugins/mermaid';
 import config from '~config';
 import { capitalize } from '~lib/captalize';
 
@@ -77,6 +78,7 @@ const md: MarkdownIt = new MarkdownIt(options)
   .use(MarkdownItAbbr)
   .use(MarkdownItFootnote)
   .use(MarkdownItContainer, 'spoiler')
+  .use(MarkdownItMermaid)
   .use(MarkdownItAnchor, {
     level: 2,
     slugify: (string: string) => string,
