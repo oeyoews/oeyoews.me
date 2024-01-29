@@ -1,71 +1,52 @@
-// @ts-nocheck
-import mermaid from 'mermaid';
-import config from '~config';
+import MarkdownIt from 'markdown-it';
+import Mermaid from 'mermaid';
 
-import type MarkdownIt from 'markdown-it';
+// Define interface to await readiness of import
+export default function mermaid(md: MarkdownIt, options: any) {
+  // Setup Mermaid
+  Mermaid.initialize({
+    securityLevel: 'loose',
+    ...options
+  });
 
-const MarkdownItMermaid = (md: MarkdownIt) => {
-  const defaultFenceRender = md.renderer.rules.fence;
+  function getLangName(info: string): string {
+    return info.split(/\s+/g)[0];
+  }
 
-  const customMermaidFenceRender = (tokens, idx, options = {}, env, slf) => {
-    const token = tokens[idx];
-    const code = token.content.trim();
-    let [type, theme] = token.info.split(' ');
-    const firstLine = code.split(/\n/)[0].trim();
-    if (
-      firstLine === 'gantt' ||
-      firstLine === 'sequenceDiagram' ||
-      firstLine.match(/^graph(?: (TB|BT|RL|LR|TD))?(;)?$/)
-    ) {
-      type = 'mermaid';
-    }
+  // Store reference to original renderer.
+  let defaultFenceRenderer = md.renderer.rules.fence;
 
-    if (type.trim() !== 'mermaid') {
-      return defaultFenceRender(tokens, idx, (options = {}), env, slf);
-    } else if (type.trim() === 'mermaid') {
-      try {
-        const mermaid_config = {
-          securityLevel: 'loose',
-          theme: theme || 'default', //  "default" | "forest" | "dark" | "neutral"
-          startOnLoad: false, // 会自动寻找 mermaid class
-          htmlLabels: true
-        };
-        mermaid.initialize(mermaid_config);
-        mermaid.parse(code);
-        const id = 'mermaid_' + idx;
+  // Render custom code types as SVGs, letting the fence parser do all the heavy lifting.
+  function customFenceRenderer(
+    tokens: any[],
+    idx: number,
+    options: any,
+    env: any,
+    slf: any
+  ) {
+    let token = tokens[idx];
+    let info = token.info.trim();
+    let langName = info ? getLangName(info) : '';
 
-        let imageHTML = '';
-        let imageAttrs = [];
-        mermaid.render(id, code, (html) => {
-          let svg = this.document.getElementById(id);
-          if (svg) {
-            imageAttrs.push([
-              'style',
-              `max-width:${svg.style.maxWidth};max-height:${svg.style.maxHeight}`
-            ]);
-          }
-          imageHTML = html;
-        });
-
-        switch (config.rendertype) {
-          case 'svg':
-            return `<div>${imageHTML}</div>`;
-          case 'png':
-            imageAttrs.push([
-              'src',
-              `data:image/svg+xml,${encodeURIComponent(imageHTML)}`
-            ]);
-            return `<img ${slf.renderAttrs({ attrs: imageAttrs })}>`;
-          default:
-            return `<div>${imageHTML}</div>`;
-        }
-      } catch (e) {
-        return `<pre>${code}</pre>`;
+    if (['mermaid', '{mermaid}'].indexOf(langName) === -1) {
+      if (defaultFenceRenderer !== undefined) {
+        return defaultFenceRenderer(tokens, idx, options, env, slf);
       }
+      return '';
     }
-  };
 
-  md.renderer.rules.fence = customMermaidFenceRender;
-};
+    let imageHTML: string = '';
 
-export { MarkdownItMermaid as default };
+    try {
+      const container_id = 'mermaid-container';
+      Mermaid.mermaidAPI.render(container_id, token.content, (html: string) => {
+        imageHTML = html;
+      });
+    } catch (e) {
+      return `<div>${e}</div>`;
+    }
+    return imageHTML;
+  }
+
+  md.renderer.rules.fence = customFenceRenderer;
+}
