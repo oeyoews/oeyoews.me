@@ -8,6 +8,7 @@ import { Providers } from './Providers';
 import '~app/globals.css';
 import Nav from '~components/Nav';
 import config from '~config';
+// import MermaidScript from '~components/MermaidScript';
 
 export const metadata: Metadata = {
   title: {
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           }}
         />
         <Providers>
+          {/* <MermaidScript /> */}
           <NextTopLoader
             color="#eb6864"
             height={1}
