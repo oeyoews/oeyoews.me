@@ -1,9 +1,12 @@
+// @ts-nocheck
 'use client';
 
 import { ReactElement, useEffect, useId, useRef, useState } from 'react';
 import mermaid, { MermaidConfig } from 'mermaid';
 
-export async function MermaidRender({ chart }: { chart?: string }) {
+export function MermaidRender({ chart }: { chart?: string }) {
+  // client not support async
+  // const mermaid = await import('mermaid'); ???
   const id = useId();
   const [svg, setSvg] = useState('');
   const containerRef = useRef(null);

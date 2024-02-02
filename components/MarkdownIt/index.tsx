@@ -17,7 +17,7 @@ const MarkdownItContainer = require('markdown-it-container');
 import config from '~config';
 import { capitalize } from '~lib/captalize';
 import dynamic from 'next/dynamic';
-// import { MermaidRender } from '~components/MermaidRender';
+import { MermaidRender } from '~components/MermaidRender';
 
 // TIPS: 如果不依赖于文件名字，可以借助 markdown-it-meta plugin, 其实主要代码都一致
 // const MermaidScript = dynamic(() => import('~components/MermaidScript'), {
