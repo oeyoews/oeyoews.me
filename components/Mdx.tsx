@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import md5 from 'md5';
+import { MermaidRender } from './MermaidRender';
 import {
   GoLightBulb,
   GoAlert,
@@ -139,7 +140,8 @@ const components = {
   pre: Pre,
   Projects,
   TwPlugin,
-  Callout
+  Callout,
+  MermaidRender
 };
 
 const MDX = ({ source }: { source: any }) => {

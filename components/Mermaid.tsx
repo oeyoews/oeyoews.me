@@ -8,7 +8,6 @@ export async function Mermaid() {
   mermaid.initialize({ startOnLoad: true });
   useEffect(() => {
     mermaid.contentLoaded();
-    console.log('mermaid loaded');
   }, []);
   return null;
 }
