@@ -140,8 +140,8 @@ const components = {
   pre: Pre,
   Projects,
   TwPlugin,
-  Callout,
-  MermaidRender
+  Callout
+  // MermaidRender
 };
 
 const MDX = ({ source }: { source: any }) => {
