@@ -45,13 +45,13 @@ const Callout = ({
   type: bqtypes;
 }) => {
   return (
-    <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 my-8">
+    <div className="flex justify-between rounded p-6 text-base my-8 dark:bg-[#2d333b] bg-transparent border-[#d0d7de] dark:border-[#444c56] border border-solid overflow-auto dark:text-[#cdd9e5]">
       <div className="flex items-center w-4 mr-4">
         {React.cloneElement(calloutTypes[type].icon, {
           className: calloutTypes[type].className + ' size-5'
         })}
       </div>
-      <div className="w-full callout">{children}</div>
+      <div className="w-full">{children}</div>
     </div>
   );
 };

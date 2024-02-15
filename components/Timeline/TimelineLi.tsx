@@ -2,15 +2,15 @@ import clsx from 'clsx';
 
 export default function Li({ children, order }: ChildrenSubProps) {
   return (
-    <li
+    <div
       className={clsx(
-        'pl-4 border-gray-100/80 pb-6 relative my-0 border-l-2 group',
-        {
-          'border-transparent': order === 'end'
-        }
+        'flex flex-col justify-between rounded p-6 text-base my-8 dark:bg-[#2d333b] bg-transparent border-[#d0d7de] dark:border-[#444c56] border border-solid overflow-auto'
+        // {
+        //   'border-transparent': order === 'end'
+        // }
       )}
     >
       {children}
-    </li>
+    </div>
   );
 }
