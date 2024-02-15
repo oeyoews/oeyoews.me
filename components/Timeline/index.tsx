@@ -6,9 +6,9 @@ import { TimelineTime as Time } from './TimelineTime';
 
 const Timeline = forwardRef(({ children }: ChildrenProps, ref: any) => {
   return (
-    <ul className='list-none my-4 prose dark:prose-invert' ref={ref}>
+    <div className="prose max-w-none dark:prose-invert" ref={ref}>
       {children}
-    </ul>
+    </div>
   );
 });
 
