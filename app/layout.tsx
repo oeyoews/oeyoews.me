@@ -40,7 +40,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html
       lang="en"
       suppressHydrationWarning
-      className="text-black bg-white dark:text-white dark:bg-black"
+      className="text-black bg-white dark:text-white dark:bg-[#1c2128]"
     >
       <body className="antialiased min-h-screen">
         <Toaster
