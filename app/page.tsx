@@ -28,7 +28,7 @@ const Page = () => {
               <SiTiddlywiki className="size-6" />
             </a>
           </div>
-          <div className="text-slate-500 text-sm my-4">Blog since 2023</div>
+          <div className="text-slate-500 text-sm my-4">Blog Since 2023</div>
         </div>
       </div>
       <div className="lg:my-24 mx-6 lg:mx-0">
