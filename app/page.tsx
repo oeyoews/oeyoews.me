@@ -25,7 +25,7 @@ const Page = () => {
             <a target="_blank" href="https://github.com/oeyoews">
               <FaGithub className="size-5" />
             </a>
-            <a target="_blank" href="neotw.vercel.app">
+            <a target="_blank" href="https://neotw.vercel.app">
               <SiTiddlywiki className="size-5" />
             </a>
             <a target="_blank" href="mailto:jyao4783@gmail.com">

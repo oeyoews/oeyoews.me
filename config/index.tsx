@@ -4,7 +4,6 @@ import { IoJournalOutline } from 'react-icons/io5';
 import { SiTiddlywiki } from 'react-icons/si';
 import { TbArticle } from 'react-icons/tb';
 import { RiJavascriptFill } from 'react-icons/ri';
-import { FaRegDotCircle } from 'react-icons/fa';
 
 const testFile = 'http://localhost:3000/tiddlers.json';
 
