@@ -52,11 +52,11 @@ const config = {
       path: '/journal',
       icon: <IoJournalOutline />
     },
-    /*     {
+    {
       title: 'tiddlers',
       path: '/tiddlers',
       icon: <SiTiddlywiki />
-    }, */
+    },
     {
       title: 'issues',
       path: '/issue',
