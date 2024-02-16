@@ -7,8 +7,8 @@ import { throttle } from '~lib/utils/throttle';
 export default function LoadMore({ data }: { data: any[] }) {
   const { list, handleLoadItems } = useList();
 
-  // TODO: debounce
   useEffect(() => {
+    return;
     if (data.length < list) {
       return;
     }
@@ -24,7 +24,7 @@ export default function LoadMore({ data }: { data: any[] }) {
 
         // 判断是否滚动到底部
         if (documentHeight - scrollTop - windowHeight < 100) {
-          requestAnimationFrame(handleLoadItems);
+          requestAnimationFrame(handleLoadItems); // BUG:不要一直更新
         }
       });
     }, 100);
