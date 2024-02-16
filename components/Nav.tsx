@@ -1,5 +1,6 @@
 'use client';
 
+import { GrProjects } from 'react-icons/gr';
 import React from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
@@ -30,18 +31,18 @@ export default function Nav() {
         (isFullScreen || !hasNav) && 'hidden'
       )}
     >
-      <div className='space-x-4'>
+      <div className="space-x-4">
         <button
           onClick={() => router.back()}
           className={LinkClass}
-          aria-label='back'
+          aria-label="back"
         >
           <FaArrowLeft />
         </button>
         <button
           onClick={() => router.forward()}
           className={LinkClass}
-          aria-label='forward'
+          aria-label="forward"
         >
           <FaArrowRight />
         </button>
@@ -54,7 +55,7 @@ export default function Nav() {
           <Link
             key={link.title}
             href={link.path}
-            className='flex items-center space-x-2 duration-300 transition'
+            className="flex items-center space-x-2 duration-300 transition"
             aria-label={link.title}
           >
             {React.cloneElement(link.icon, { className: LinkClass })}

@@ -1,6 +1,5 @@
 import { SiTiddlywiki } from 'react-icons/si';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
-import Projects from '~components/Projects';
 
 // ui: https://lutaonan.com/
 const Page = () => {
@@ -25,7 +24,7 @@ const Page = () => {
             <a target="_blank" href="https://github.com/oeyoews">
               <FaGithub className="size-6" />
             </a>
-            <a target="_blank" href="https://talk.tiddlywiki.org/u/oeyoews">
+            <a target="_blank" href="neotw.vercel.app">
               <SiTiddlywiki className="size-6" />
             </a>
           </div>
