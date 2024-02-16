@@ -31,7 +31,7 @@ export default function Nav() {
         (isFullScreen || !hasNav) && 'hidden'
       )}
     >
-      <div className="space-x-4">
+      <div className="space-x-4 hidden">
         <button
           onClick={() => router.back()}
           className={LinkClass}
