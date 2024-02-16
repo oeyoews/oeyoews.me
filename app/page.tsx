@@ -5,7 +5,7 @@ import { MdOutlineMarkEmailUnread } from 'react-icons/md';
 // ui: https://lutaonan.com/
 const Page = () => {
   return (
-    <div className="lg:flex w-full">
+    <div className="md:flex w-full">
       <div className="text-center sm:pr-48 lg:pr-24 lg:my-24">
         <div className="sticky top-5 flex flex-col gap-4">
           <div
@@ -35,7 +35,7 @@ const Page = () => {
           <div className="text-slate-500 text-sm my-4">Blog Since 2023</div>
         </div>
       </div>
-      <div className="lg:my-24 mx-6 lg:mx-0">
+      <div className="md:my-24 mx-6 md:mx-0">
         <div className="">
           <div className="mx-auto text-sm">
             <h2 className="font-bold mb-6 text-md">ABOUT / 关于我</h2>
