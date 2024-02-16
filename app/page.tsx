@@ -38,20 +38,6 @@ const Page = () => {
             <h2 className="font-bold mb-6 text-md">ABOUT / 关于我</h2>
             <div className="prose prose-sm">Coming ...</div>
           </div>
-          <div className="text-sm mt-8">
-            <h2 className="font-bold mb-6 text-md">Projects / 项目</h2>
-            <div className="ml-6 md:ml-0">
-              <Projects />
-            </div>
-          </div>
-          <div className="text-sm mt-8 hidden">
-            <h2 className="font-bold mb-6 text-md">ESSAYS / 文章</h2>
-            <div className="ml-6 md:ml-0">
-              <div className="flex flex-col gap-2">
-                <div className="relative"> </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
