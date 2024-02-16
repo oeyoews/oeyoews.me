@@ -1,5 +1,6 @@
 import { SiTiddlywiki } from 'react-icons/si';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
+import { MdOutlineMarkEmailUnread } from 'react-icons/md';
 
 // ui: https://lutaonan.com/
 const Page = () => {
@@ -19,13 +20,16 @@ const Page = () => {
           </div>
           <div className="flex gap-4 justify-center">
             <a target="_blank" href="https://twitter.com/oeyoews">
-              <FaTwitter className="size-6" />
+              <FaTwitter className="size-5" />
             </a>
             <a target="_blank" href="https://github.com/oeyoews">
-              <FaGithub className="size-6" />
+              <FaGithub className="size-5" />
             </a>
             <a target="_blank" href="neotw.vercel.app">
-              <SiTiddlywiki className="size-6" />
+              <SiTiddlywiki className="size-5" />
+            </a>
+            <a target="_blank" href="mailto:jyao4783@gmail.com">
+              <MdOutlineMarkEmailUnread className="size-5" />
             </a>
           </div>
           <div className="text-slate-500 text-sm my-4">Blog Since 2023</div>
