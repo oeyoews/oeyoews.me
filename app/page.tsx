@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import { SiTiddlywiki } from 'react-icons/si';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
+import Projects from '~components/Projects';
 
 // ui: https://lutaonan.com/
 const Page = () => {
@@ -39,23 +39,9 @@ const Page = () => {
             <div className="prose prose-sm">Coming ...</div>
           </div>
           <div className="text-sm mt-8">
-            <h2 className="font-bold mb-6 text-md">PUBLIC / 公共表达</h2>
-            <div className="ml-6 md:ml-0 hidden">
-              <ul className="list-disc list-inside leading-loose">
-                <li>
-                  <a target="_blank" className="underline" href=""></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="text-sm mt-8 hidden">
-            <h2 className="font-bold mb-6 text-md">PUBLICATION / 写作</h2>
+            <h2 className="font-bold mb-6 text-md">Projects / 项目</h2>
             <div className="ml-6 md:ml-0">
-              <ul className="list-disc list-inside leading-loose">
-                <li>
-                  <a target="_blank" className="underline" href=""></a>
-                </li>
-              </ul>
+              <Projects />
             </div>
           </div>
           <div className="text-sm mt-8">
