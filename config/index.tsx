@@ -1,4 +1,8 @@
-import { BsFiletypeMdx, BsHouse, BsJournal, BsWikipedia } from 'react-icons/bs';
+import { FaHouse } from 'react-icons/fa6';
+import { TfiThought } from 'react-icons/tfi';
+import { IoJournalOutline } from 'react-icons/io5';
+import { SiTiddlywiki } from 'react-icons/si';
+import { TbArticle } from 'react-icons/tb';
 import { RiJavascriptFill } from 'react-icons/ri';
 import { FaRegDotCircle } from 'react-icons/fa';
 
@@ -31,12 +35,12 @@ const config = {
     {
       title: 'Home',
       path: '/',
-      icon: <BsHouse />
+      icon: <FaHouse />
     },
     {
       title: 'Blog',
       path: '/blog',
-      icon: <BsFiletypeMdx />
+      icon: <TbArticle />
     },
     {
       title: 'JavaScript',
@@ -46,17 +50,17 @@ const config = {
     {
       title: 'journal',
       path: '/journal',
-      icon: <BsJournal />
+      icon: <IoJournalOutline />
     },
     {
       title: 'tiddlers',
       path: '/tiddlers',
-      icon: <BsWikipedia />
+      icon: <SiTiddlywiki />
     },
     {
       title: 'issues',
       path: '/issue',
-      icon: <FaRegDotCircle />
+      icon: <TfiThought />
     }
   ] as const,
   sections: [
