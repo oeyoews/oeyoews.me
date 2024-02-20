@@ -1,6 +1,7 @@
 import { SiTiddlywiki } from 'react-icons/si';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
 import { MdOutlineMarkEmailUnread } from 'react-icons/md';
+import Link from 'next/link';
 
 // ui: https://lutaonan.com/
 const Page = () => {
@@ -38,8 +39,16 @@ const Page = () => {
       <div className="md:my-24 mx-6 md:mx-0">
         <div className="">
           <div className="mx-auto text-sm">
+            <div className="my-4">
+              <h2 className="font-bold mb-6 text-md">Projects / 项目</h2>
+              <Link href={'/blog/46f86faa'} className="text-indigo-500">
+                项目
+              </Link>
+            </div>
             <h2 className="font-bold mb-6 text-md">ABOUT / 关于我</h2>
-            <div className="prose prose-sm">这个人很懒，什么也没留下 (coming ...)</div>
+            <div className="prose prose-sm">
+              这个人很懒，什么也没留下 (coming ...)
+            </div>
           </div>
         </div>
       </div>
