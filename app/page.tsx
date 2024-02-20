@@ -39,7 +39,7 @@ const Page = () => {
         <div className="">
           <div className="mx-auto text-sm">
             <h2 className="font-bold mb-6 text-md">ABOUT / 关于我</h2>
-            <div className="prose prose-sm">Coming ...</div>
+            <div className="prose prose-sm">这个人很懒，什么也没留下 (coming ...)</div>
           </div>
         </div>
       </div>
