@@ -1,5 +1,5 @@
 ---
-title: debounce-throttle
+title: JS: debounce-throttle
 date: 2024/1/29 14:33:24
 ---
 
