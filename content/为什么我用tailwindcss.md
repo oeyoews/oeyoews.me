@@ -1,5 +1,5 @@
 ---
-title: 为什么我用tailwindcss
+title: 为什么我用 tailwindcss
 date: 2024/2/22 17:33:40
 ---
 
