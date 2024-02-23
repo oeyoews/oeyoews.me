@@ -1,5 +1,6 @@
 ---
-title: npm packages 打包的一些问题
+title: build-npm-package-tools
+date: 2024/2/17 12:37:23
 ---
 
 ## 起始 ncc
