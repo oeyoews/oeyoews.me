@@ -1,5 +1,5 @@
 ---
-title: ts-type
+title: TS: type
 date: 2024/1/21 18:44:20
 ---
 

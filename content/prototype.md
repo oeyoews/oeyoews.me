@@ -1,5 +1,5 @@
 ---
-title: prototype
+title: JS: 原型
 date: 2023/12/28 13:29:35
 ---
 
