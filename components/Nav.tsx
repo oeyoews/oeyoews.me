@@ -1,6 +1,5 @@
 'use client';
 
-import { GrProjects } from 'react-icons/gr';
 import React from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
@@ -49,7 +48,9 @@ export default function Nav() {
       </div>
 
       <nav
-        className={clsx('ml-auto text-sm font-medium space-x-6 flex flex-row')}
+        className={clsx(
+          'mx-auto lg:mx-0 lg:ml-auto text-sm font-medium space-x-6 flex'
+        )}
       >
         {config.links.map((link) => (
           <Link
