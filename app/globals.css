@@ -33,9 +33,9 @@
   display: none !important;
 } */
 
-a {
-  text-decoration: none !important;
-}
+/* a {
+  text-decoration: underline;
+} */
 
 @keyframes comeInOut {
   0% {
@@ -67,7 +67,7 @@ a {
 }
 
 .prose a {
-  @apply decoration-neutral-400 decoration-[0.1em] underline-offset-2 transition-all dark:decoration-neutral-600;
+  @apply decoration-[0.1em] no-underline underline-offset-4 transition-all decoration-neutral-400 dark:decoration-neutral-600;
 }
 
 .prose .anchor:after {

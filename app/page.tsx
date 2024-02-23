@@ -39,19 +39,15 @@ const Page = () => {
       </div>
       {/* right */}
       <div className="lg:my-20 mx-6">
-        <div className="">
+        <div>
           <div className="mx-auto text-sm">
-            <div className="">
+            <div>
               <h2 className="font-bold my-4 text-md">Projects / 项目</h2>
-              <Link href={'/blog/46f86faa'} className="text-indigo-500">
-                项目
-              </Link>
+              <Link href={'/blog/46f86faa'}>项目</Link>
             </div>
             <h2 className="font-bold my-4 text-md">Articles / 文章</h2>
-            <div className="">
-              <Link href={'/blog'} className="text-indigo-500">
-                文章
-              </Link>
+            <div>
+              <Link href={'/blog'}>文章</Link>
             </div>
             <h2 className="font-bold my-4 text-md">ABOUT / 关于我</h2>
             <div className="text-gray-400">
