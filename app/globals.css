@@ -82,3 +82,7 @@
 .task-list-item {
   list-style: none !important;
 }
+
+table {
+  table-layout: fixed !important;
+}
