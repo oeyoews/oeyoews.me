@@ -3,7 +3,8 @@ title: JS: Promise 详解
 date: 2024/2/26 16:39:01
 ---
 
-promise 的链式调用 解决了 异步编程中的回调地狱问题
+promise 的链式调用解决了异步编程中的回调地狱问题, 让异步编程变得更加直观
+
 > async/await 可以不用手写 promise, 让代码更加直观. 就是简化 Promise 写法
 
 ```js
