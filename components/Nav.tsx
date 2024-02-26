@@ -52,16 +52,21 @@ export default function Nav() {
           'mx-auto lg:mx-0 lg:ml-auto text-sm font-medium space-x-6 flex'
         )}
       >
-        {config.links.map((link) => (
-          <Link
-            key={link.title}
-            href={link.path}
-            className="flex items-center space-x-2 duration-300 transition"
-            aria-label={link.title}
-          >
-            {React.cloneElement(link.icon, { className: LinkClass })}
-          </Link>
-        ))}
+        {config.links
+          .filter((link) => {
+            // @ts-ignore
+            return !link.disable;
+          })
+          .map((link) => (
+            <Link
+              key={link.title}
+              href={link.path}
+              className={`flex items-center space-x-2 duration-300 transition`}
+              aria-label={link.title}
+            >
+              {React.cloneElement(link.icon, { className: LinkClass })}
+            </Link>
+          ))}
       </nav>
     </div>
   );

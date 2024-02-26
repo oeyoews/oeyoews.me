@@ -7,6 +7,42 @@ import { RiJavascriptFill } from 'react-icons/ri';
 
 const testFile = 'http://localhost:3000/tiddlers.json';
 
+// TODO: disable type is missing with as const
+const routes = [
+  {
+    title: 'Home',
+    path: '/',
+    icon: <FaHouse />
+  },
+  {
+    title: 'Blog',
+    path: '/blog',
+    icon: <TbArticle />
+  },
+  {
+    title: 'JavaScript',
+    path: '/javascript',
+    icon: <RiJavascriptFill />
+  },
+  {
+    title: 'journal',
+    path: '/journal',
+    disable: true,
+    icon: <IoJournalOutline />
+  },
+  {
+    title: 'tiddlers',
+    path: '/tiddlers',
+    disable: true,
+    icon: <SiTiddlywiki />
+  },
+  {
+    title: 'issues',
+    path: '/issue',
+    icon: <TfiThought />
+  }
+] as const;
+
 const config = {
   emptyTip: '这里空空如也 !',
   steps: 10 as const,
@@ -30,38 +66,7 @@ const config = {
   enableTOC: false, // WIP // issue comment not need this toc
   md5Length: 8,
   projects: 'https://raw.githubusercontent.com/oeyoews/oeyoews/main/README.md',
-  links: [
-    {
-      title: 'Home',
-      path: '/',
-      icon: <FaHouse />
-    },
-    {
-      title: 'Blog',
-      path: '/blog',
-      icon: <TbArticle />
-    },
-    {
-      title: 'JavaScript',
-      path: '/javascript',
-      icon: <RiJavascriptFill />
-    },
-    {
-      title: 'journal',
-      path: '/journal',
-      icon: <IoJournalOutline />
-    },
-    {
-      title: 'tiddlers',
-      path: '/tiddlers',
-      icon: <SiTiddlywiki />
-    },
-    {
-      title: 'issues',
-      path: '/issue',
-      icon: <TfiThought />
-    }
-  ] as const,
+  links: routes,
   sections: [
     {
       name: 'mdx',
@@ -81,6 +86,6 @@ const config = {
   ]
 };
 
-export type IRoute = (typeof config.links)[number]['path'];
+export type IRoute = (typeof routes)[number]['path'];
 
 export default config;
