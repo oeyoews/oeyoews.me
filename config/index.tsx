@@ -46,7 +46,7 @@ const routes = [
 const config = {
   emptyTip: '这里空空如也 !',
   steps: 10 as const,
-  title: 'Blog with NextJs',
+  title: 'Blog with me',
   content: 'content', // mdx directory
   jsJson:
     process.env.NODE_ENV === 'development'
