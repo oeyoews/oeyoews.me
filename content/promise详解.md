@@ -1,5 +1,5 @@
 ---
-title: JS: Promise 详解
+title: [JS] Promise 详解
 date: 2024/2/26 16:39:01
 ---
 
