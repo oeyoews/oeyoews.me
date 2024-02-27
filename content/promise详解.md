@@ -7,9 +7,19 @@ promise 的链式调用解决了异步编程中的回调地狱问题, 让异步�
 
 > async/await 可以不用手写 promise, 让代码更加直观. 就是简化 Promise 写法
 
+> JavaScript 的本质上是单线程的，因此在任何时刻，只有一个任务会被执行，尽管控制权可以在不同的 Promise 之间切换，从而使 Promise 的执行看起来是并发的。在 JavaScript 中，并行执行只能通过 worker 线程实现
+
+```js
+// 在创建 Promise 对象时，参数的函数内的同步脚本会立即执行
+new Promise(() => {
+  console.log('promise output') // 会立刻输出
+})
+```
+
 ```js
 function async1() {
   return new Promise((resolve, reject) => {
+    console.log('log on new promise')
     setTimeout(() => {
       //   console.log('async');
       return resolve('ok');
