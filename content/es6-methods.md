@@ -1,5 +1,5 @@
 ---
-title: ES6: methods
+title: "ES6: methods"
 date: 2024/1/16 11:30:50
 ---
 

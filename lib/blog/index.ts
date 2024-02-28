@@ -68,7 +68,7 @@ const parseFrontmatter = (
     return { metadata: metadata as Metadata, content };
   } else {
     // No frontmatter found, use default values
-    const defaultFrontmatter = `---\ntitle: ${defaultTitle}\ndate: ${defaultDate}\n---`;
+    const defaultFrontmatter = `---\ntitle: "${defaultTitle}"\ndate: ${defaultDate}\n---`;
     const updatedContent = `${defaultFrontmatter}\n\n${fileContent.trim()}`;
     // Write the updated content back to the file
     fs.writeFileSync(filePath, updatedContent);

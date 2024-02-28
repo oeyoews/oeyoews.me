@@ -1,8 +1,3 @@
----
-title: 为什么我用 tailwindcss
-date: 2024/2/22 17:33:40
----
-
 * 最初接触到 tialwindcss 的时候并没有因为 __代码可读性的问题__ 这个备受争议的问题而放弃 tailwindcss，反而是因为不会用 tailwindcss 而感到困惑。可能是当时 css 没怎么学的缘故吧，后来就慢慢啃官网，一点一点使用 tailwindcss, 最后将 tailwindcss 移植到 tiddlywiki 中，在 tiddlywiki 中开始熟悉 tailwindcss, 可以不用依赖 vscode 的 tailwindcss 扩展，直接盲写 tailwindcss.
 
 * 这也导致了我的 css 全是在使用 tialwindcss 的时候，一点一点恶补出来的。(我在 tailwindcss 中学 CSS)
