@@ -47,13 +47,10 @@ export default function GithubIssueList({ issues }: { issues: Issue[] }) {
             </GithubIssueItem>
           );
         })}
+
+      <LoadMore data={issues} />
     </Timeline>
   );
 
-  return (
-    <>
-      <GithubIssueListContent />
-      <LoadMore data={issues} />
-    </>
-  );
+  return <GithubIssueListContent />;
 }

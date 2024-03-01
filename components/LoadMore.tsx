@@ -1,5 +1,7 @@
 'use client';
 
+import { FaArrowDown } from 'react-icons/fa';
+import Timeline from './Timeline';
 import useList from '~lib/hooks/useList';
 import { useEffect } from 'react';
 import { throttle } from '~lib/utils/throttle';
@@ -45,15 +47,23 @@ export default function LoadMore({ data }: { data: any[] }) {
   }, [list]);
 
   if (data.length <= list) {
-    return null;
+    return (
+      <Timeline.Li>
+        <button className="text-sm font-medium rounded px-2 font-mono py-1 text-gray-400 hover:text-gray-300 transition-all">
+          到底啦
+        </button>
+      </Timeline.Li>
+    );
   }
 
   return (
-    <button
-      onClick={handleLoadItems}
-      className="text-sm font-medium rounded px-2 font-mono py-1"
-    >
-      加载更多
-    </button>
+    <Timeline.Li>
+      <button
+        onClick={handleLoadItems}
+        className="text-sm font-medium rounded px-2 font-mono py-1 text-gray-400 hover:text-gray-300 transition-all"
+      >
+        <FaArrowDown className="w-3" /> 加载更多文章
+      </button>
+    </Timeline.Li>
   );
 }

@@ -42,8 +42,8 @@ export default function TiddlersList({
             </TiddlerItem>
           );
         })}
+        <LoadMore data={tiddlers} />
       </Timeline>
-      <LoadMore data={tiddlers} />
     </>
   );
 }

@@ -39,7 +39,6 @@ export default function BlogList({
           );
         })}
       </Timeline>
-      {/* <CommitInfo /> */}
     </>
   );
 }
