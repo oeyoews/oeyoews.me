@@ -61,4 +61,8 @@ https://nuxt.com/docs/guide/directory-structure/components
 
 在仔细看了上面的文档后发现可以 使用配置修复这个问题，nuxt 的自动导入对于嵌套文件夹来说，会使用文件夹的名字代替组件名。但是如果禁用了这个 prefix，感觉还是会有重复组件的问题
 
-但是很多库的组件都是这样写的 `Prose/ProseH1.vue` 的写法, 这种写法官方文档似乎没有提及
+但是很多库的组件都是这样写的 `Prose/ProseH1.vue` 的写法, 这种写法官方文档似乎没有提及 (nuxt3 的热加载依旧问题很多，H1 改成 ProseH1 后，nuxt 识别不到，需要重启)
+
+## utils 自动导入
+
+类似于组件自动导入，但是如果在 server 里面写，需要放到 server/utils目录下，而不是放在外层 https://nuxt.com.cn/docs/guide/concepts/auto-imports
