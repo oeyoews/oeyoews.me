@@ -41,6 +41,7 @@ export const getAllIssues = async () => {
   return issues;
 };
 
+// 也可以通过id来查找， 减少http请求 nextjs 由于有请求缓存， 所以不用也可以.
 export const getIssueBySlug = async (slug: string) => {
   const issues = await getAllIssues();
   return issues.find((issue) => issue.slug === slug);
