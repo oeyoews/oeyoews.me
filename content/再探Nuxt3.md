@@ -44,3 +44,21 @@ export default defineNuxtConfig({
 const env = useRuntimeConfig();
 console.log(env.GITHUB_TOKEN)
 ```
+
+## 组件自动导入
+
+* 之前就看到过这个，但是如果有相同名字的组件会怎么处理呢。最近遇到了这个 bug.
+
+`prose/h1.vue` 按照 react 的经验，代码应该是这样写的
+
+```vue
+<H1 /> // correct is <ProseH1 />
+```
+
+但是根本不是这样，这样写最终会直接生成一个 h1 的标签。虽然 vscode 的 goto defination 扩展插件也可以跳转到对应的组件里面 (应该算是 bug 了).
+
+https://nuxt.com/docs/guide/directory-structure/components
+
+在仔细看了上面的文档后发现可以 使用配置修复这个问题，nuxt 的自动导入对于嵌套文件夹来说，会使用文件夹的名字代替组件名。但是如果禁用了这个 prefix，感觉还是会有重复组件的问题
+
+但是很多库的组件都是这样写的 `Prose/ProseH1.vue` 的写法, 这种写法官方文档似乎没有提及
