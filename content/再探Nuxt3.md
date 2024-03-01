@@ -66,3 +66,7 @@ https://nuxt.com/docs/guide/directory-structure/components
 ## utils 自动导入
 
 类似于组件自动导入，但是如果在 server 里面写，需要放到 server/utils目录下，而不是放在外层 https://nuxt.com.cn/docs/guide/concepts/auto-imports
+
+## fragment
+
+v-for 如果不希望生成多余的节点，可以借助 react 的 fragment 的用法，但是搜了一圈没有对应的用法，后来发现 可以使用 `<template>` 来实现.
