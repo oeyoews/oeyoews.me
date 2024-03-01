@@ -1,4 +1,5 @@
 import { GoComment } from 'react-icons/go';
+import { FaGithub } from 'react-icons/fa6';
 
 import Link from 'next/link';
 
@@ -35,16 +36,23 @@ export default function GithubIssueItem({
             {index === 0 && <Badge className="font-bold" text="Latest" />}
           </H2>
         </Link>
-        <div className="flex space-x-2 text-gray-400 items-center">
-          <Link href={html_url} className="text-gray-400" target="_blank">
-            #{number}
+        {/* info */}
+        <Timeline.Info>
+          <Link
+            href={html_url}
+            className="inline-flex items-center gap-2 text-gray-400 hover:text-gray-300"
+            target="_blank"
+          >
+            <FaGithub /> #{number}
           </Link>
           <Timeline.Time>{format(new Date(date), 'EEE, MMMM d')}</Timeline.Time>
-          <div className="space-x-1">
-            <GoComment className="size-4 text-gray-400" />
-            <span>{issue.comments}</span>
-          </div>
-        </div>
+          {issue.comments > 0 && (
+            <div className="flex items-center space-x-1">
+              <GoComment className="size-4" />
+              <span>{issue.comments}</span>
+            </div>
+          )}
+        </Timeline.Info>
       </Timeline.Li>
     </>
   );

@@ -1,6 +1,9 @@
+import { FaC, FaCalendar } from 'react-icons/fa6';
+
 export function TimelineTime({ children }: ChildrenProps) {
   return (
-    <time className="block font-serif leading-none text-gray-400/60 text-sm">
+    <time className="inline-flex items-center gap-2">
+      <FaCalendar />
       {children}
     </time>
   );
