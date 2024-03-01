@@ -70,3 +70,8 @@ https://nuxt.com/docs/guide/directory-structure/components
 ## fragment
 
 v-for 如果不希望生成多余的节点，可以借助 react 的 fragment 的用法，但是搜了一圈没有对应的用法，后来发现 可以使用 `<template>` 来实现.
+
+## template
+
+* 使用 v-if，如果不符合条件会过滤掉，但是生成的 html 中会一个标志 `<!--v-if-->`
+* 每个 template 也都会生成一个额外的注释 `<!--[-->]` `<!--]-->`
