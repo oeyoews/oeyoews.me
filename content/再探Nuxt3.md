@@ -109,4 +109,5 @@ keepalive 会阻止 nuxt 的 isr/swr 的刷新
 ## computed
 
 React: 如果一个值可以基于现有的 props 或 state 计算得出，不要把它作为一个 state，而是在渲染期间直接计算这个值 https://zh-hans.react.dev/learn/you-might-not-need-an-effect
-Vue: 使用计算属性来描述依赖响应式状态的复杂逻辑 则是使用 computed 来做 https://cn.vuejs.org/guide/essentials/computed
+
+Vue: 使用计算属性来描述依赖响应式状态的复杂逻辑 则是使用 computed 来做 https://cn.vuejs.org/guide/essentials/computed 更强调缓存
