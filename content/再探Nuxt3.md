@@ -5,13 +5,13 @@ date: 2024/3/1 11:30:28
 
 ## 接触 Nuxt3
 
-* 首次接触 Nuxt3 的第一个障碍就是网络问题。nuxt cli 使用 tar.gz 的模版地址，其实模版没有什么东西。最直接的解决办法就是手动下载那个 tar.gz, 或者手动安装 nuxt npm package, 然后复制一些配置文件 就行了.
+* 首次接触 Nuxt3 的第一个障碍就是网络问题。nuxt cli 使用 tar.gz 的模版地址，其实模版没有什么东西。最直接的解决办法就是手动下载那个 tar.gz, 或者手动安装 nuxt npm package, 然后复制一些配置文件 就行了。
 
-* 看了一些 nuxt 的文档后就没有深入使用了.
+* 看了一些 nuxt 的文档后就没有深入使用了。
 
 ## 再次接触 Nuxt3
 
-* 最近在使用 nuxt3 将 Next.js 的 blog 重写一下.
+* 最近在使用 nuxt3 将 Next.js 的 blog 重写一下。
 
 ## 为什么不直接用 vue 呢
 
@@ -19,9 +19,9 @@ blog 为了 seo, 必须要使用 ssr, nuxt 在 vue 的基础上对 ssr 有很好
 
 ## Nuxt 环境变量
 
-* 虽然已经有了 Next.js 的环境变量的使用基础. 但是 nuxt3 使用环境变量的方法又稍微不同, 网上的配置环境变量的方法有很多种，但是有很多局限，甚至限制了 nuxt 版本. 以下是官方文档推荐使用的方法 useRuntimeConfig (nuxt 3.10.x)
+* 虽然已经有了 Next.js 的环境变量的使用基础。但是 nuxt3 使用环境变量的方法又稍微不同，网上的配置环境变量的方法有很多种，但是有很多局限，甚至限制了 nuxt 版本。以下是官方文档推荐使用的方法 useRuntimeConfig (nuxt 3.10.x)
 
-nuxt 的的服务端环境变量都要写在 config 里面，默认值可以为空，运行时会被 .env 的 NUXT_xxx 的环境变量覆盖 xxx 的真实环境变量. 部署环境下则需要在后台将.env 的变量填写到后台的系统环境变量中.
+nuxt 的的服务端环境变量都要写在 config 里面，默认值可以为空，运行时会被 .env 的 NUXT_xxx 的环境变量覆盖 xxx 的真实环境变量。部署环境下则需要在后台将.env 的变量填写到后台的系统环境变量中。
 
 客户端环境变量 同理，只不过是被 Nuxt_PUBLIC_xxx 重写
 
@@ -61,7 +61,7 @@ https://nuxt.com/docs/guide/directory-structure/components
 
 在仔细看了上面的文档后发现可以 使用配置修复这个问题，nuxt 的自动导入对于嵌套文件夹来说，会使用文件夹的名字代替组件名。但是如果禁用了这个 prefix，感觉还是会有重复组件的问题
 
-但是很多库的组件都是这样写的 `Prose/ProseH1.vue` 的写法, 这种写法官方文档似乎没有提及 (nuxt3 的热加载依旧问题很多，H1 改成 ProseH1 后，nuxt 识别不到，需要重启)
+但是很多库的组件都是这样写的 `Prose/ProseH1.vue` 的写法，这种写法官方文档似乎没有提及 (nuxt3 的热加载依旧问题很多，H1 改成 ProseH1 后，nuxt 识别不到，需要重启)
 
 ## utils 自动导入
 
@@ -69,9 +69,32 @@ https://nuxt.com/docs/guide/directory-structure/components
 
 ## fragment
 
-v-for 如果不希望生成多余的节点，可以借助 react 的 fragment 的用法，但是搜了一圈没有对应的用法，后来发现 可以使用 `<template>` 来实现.
+v-for 如果不希望生成多余的节点，可以借助 react 的 fragment 的用法，但是搜了一圈没有对应的用法，后来发现 可以使用 `<template>` 来实现。
 
 ## template
 
 * 使用 v-if，如果不符合条件会过滤掉，但是生成的 html 中会一个标志 `<!--v-if-->`
 * 每个 template 也都会生成一个额外的注释 `<!--[-->]` `<!--]-->`
+
+## 页面（路由）缓存
+
+* 按照以前 nextjs 的经验，以为 nuxt 会自动开启 页面缓存，但其实需要手动开启，最简单的方法就是 开启 keepalive 的配置，或者手动在每个页面加上 keepalive
+
+```ts
+// nuxt.cofig.ts
+export default defineNuxtConfig({
+  app: {
+    keepalive: true
+  }
+});
+
+```
+
+```vue
+// or pages/some-page.vue
+<script setup>
+definePageMeta({
+  keepalive: true;
+})
+</script>
+```

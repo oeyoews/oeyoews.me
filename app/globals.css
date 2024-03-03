@@ -86,3 +86,7 @@
 table {
   table-layout: fixed !important;
 }
+
+table svg {
+  margin-right: 0.2em;
+}
