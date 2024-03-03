@@ -98,3 +98,9 @@ definePageMeta({
 })
 </script>
 ```
+
+## SSG
+
+* 使用 build 不会有 ssg 的效果，如果使用 generate 命令，会导致 api/路由失效，因为此时是一个静态页面.
+
+nuxt 的 isr 似乎和 ssg 不能很好的结合？？？
