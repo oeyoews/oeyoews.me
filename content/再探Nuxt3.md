@@ -78,7 +78,7 @@ v-for 如果不希望生成多余的节点，可以借助 react 的 fragment 的
 
 ## 页面（路由）缓存
 
-* 按照以前 nextjs 的经验，以为 nuxt 会自动开启 页面缓存，但其实需要手动开启，最简单的方法就是 开启 keepalive 的配置，或者手动在每个页面加上 keepalive
+* 按照以前 Next.js 的经验，以为 nuxt 会自动开启 页面缓存，但其实需要手动开启，最简单的方法就是 开启 keepalive 的配置，或者手动在每个页面加上 keepalive
 
 ```ts
 // nuxt.cofig.ts
