@@ -111,3 +111,7 @@ keepalive 会阻止 nuxt 的 isr/swr 的刷新
 React: 如果一个值可以基于现有的 props 或 state 计算得出，不要把它作为一个 state，而是在渲染期间直接计算这个值 https://zh-hans.react.dev/learn/you-might-not-need-an-effect
 
 Vue: 使用计算属性来描述依赖响应式状态的复杂逻辑 则是使用 computed 来做 https://cn.vuejs.org/guide/essentials/computed 更强调缓存
+
+## v-show
+
+* 虽然知道了 v-show 是通过样式控制的，但是很容易忘记样式中含有 display 的样式，会导致 v-show 失效.
