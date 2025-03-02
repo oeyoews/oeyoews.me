@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  compiler: {
+    // removeConsole: process.env.NODE_ENV === 'production'
+    removeConsole: {
+      exclude: ['error']
+    }
+  },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
