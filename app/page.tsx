@@ -1,5 +1,6 @@
 'use client'
 
+import localFont from 'next/font/local'
 import { SiTiddlywiki } from 'react-icons/si';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
 import { MdOutlineMarkEmailUnread } from 'react-icons/md';
@@ -8,6 +9,12 @@ import Summary from '~components/Summary';
 import AvatarMotion from '~components/AvatarMotion';
 import ConfirmButton from '~components/ConfirmButton';
 // import { headers } from 'next/headers';
+
+const PacFont = localFont({
+  src: '../public/Pacifico-Regular.ttf',
+  display: 'swap',
+})
+
 
 // ui: https://lutaonan.com/
 const Page = () => {
@@ -27,13 +34,13 @@ const Page = () => {
         <div className="sticky top-5 flex flex-col gap-4">
           <AvatarMotion />
           <div>
-            <h1 className="font-bold text-xl font-serif">oeyoews</h1>
+            <h1 className={`text-3xl ${PacFont.className}`}>oeyoews</h1>
           </div>
           <div className="flex gap-4 justify-center">
             {Object.values(links).map((link => (
               <ConfirmButton key={link[0]} url={link} />)))}
           </div>
-          <div className="text-slate-500 text-sm my-4">Blog Since 2023</div>
+          <div className={`text-slate-500 text-sm my-4 ${PacFont.className}`}>Blog Since 2023</div>
         </div>
       </div>
       {/* right */}
