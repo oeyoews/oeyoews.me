@@ -5,7 +5,7 @@ import EmptyTip from '~components/EmptyTip';
 import Summary from '~components/Summary';
 import { getBlogPosts } from '~lib/blog';
 
-const HomePage = () => {
+const HomePage = async () => {
   const posts = getBlogPosts();
   const slug = posts[0]?.slug;
   console.log(slug);

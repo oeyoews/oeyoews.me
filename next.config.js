@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // cacheComponents: true,
   compiler: {
     // removeConsole: process.env.NODE_ENV === 'production'
     removeConsole: {
