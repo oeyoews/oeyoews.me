@@ -11,8 +11,12 @@ import getTiddlerData from '~lib/getTiddlerData';
 import Summary from '~components/Summary';
 
 async function getTiddler(slug: string) {
-  const { tiddlers } = await getTiddlerData(config.jsJson);
-  return tiddlers.find((tiddler) => tiddler.slug === slug);
+  try {
+    const { tiddlers } = await getTiddlerData(config.jsJson);
+    return tiddlers.find((tiddler) => tiddler.slug === slug);
+  } catch {
+    return undefined;
+  }
 }
 
 export async function generateMetadata(
@@ -30,11 +34,15 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-  const { tiddlers } = await getTiddlerData(config.journalJson);
+  try {
+    const { tiddlers } = await getTiddlerData(config.jsJson);
 
-  return tiddlers.map((tiddler) => ({
-    slug: tiddler.slug
-  }));
+    return tiddlers.map((tiddler) => ({
+      slug: tiddler.slug
+    }));
+  } catch {
+    return [];
+  }
 }
 
 export default async function Page(props: { params: Promise<Params> }) {

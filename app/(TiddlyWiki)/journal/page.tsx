@@ -8,7 +8,13 @@ export const metadata = {
 };
 
 export default async function TiddlersHomepage() {
-  const { tiddlersMetadata } = await getTiddlerData(config.journalJson);
+  let tiddlersMetadata: TiddlerMetadata[] = [];
+  try {
+    const data = await getTiddlerData(config.journalJson);
+    tiddlersMetadata = data.tiddlersMetadata;
+  } catch {
+    tiddlersMetadata = [];
+  }
 
   return <TiddlersList tiddlers={tiddlersMetadata} route="/journal" />;
 }

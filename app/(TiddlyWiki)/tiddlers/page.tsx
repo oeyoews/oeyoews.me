@@ -7,6 +7,13 @@ export const metadata = {
 };
 
 export default async function TiddlersHomepage() {
-  const { tiddlersMetadata } = await getTiddlerData();
+  let tiddlersMetadata: TiddlerMetadata[] = [];
+  try {
+    const data = await getTiddlerData();
+    tiddlersMetadata = data.tiddlersMetadata;
+  } catch {
+    tiddlersMetadata = [];
+  }
+
   return <TiddlersList tiddlers={tiddlersMetadata} route="/tiddlers" />;
 }

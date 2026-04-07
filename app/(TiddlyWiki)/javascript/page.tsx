@@ -10,7 +10,13 @@ export const metadata = {
 };
 
 export default async function TiddlersHomepage() {
-  const { tiddlersMetadata } = await getTiddlerData(config.jsJson);
+  let tiddlersMetadata: TiddlerMetadata[] = [];
+  try {
+    const data = await getTiddlerData(config.jsJson);
+    tiddlersMetadata = data.tiddlersMetadata;
+  } catch {
+    tiddlersMetadata = [];
+  }
 
   return (
     <>
