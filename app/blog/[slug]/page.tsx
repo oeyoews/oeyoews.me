@@ -42,9 +42,7 @@ const PostPage = async (props: { params: Promise<Params> }) => {
         {post.content ? (
           <Suspense fallback={<Spinner center />}>
             {post.type === 'md' ? (
-              <>
-                <MarkdownItRenderer content={post.content} />
-              </>
+              <MarkdownItRenderer content={post.content} />
             ) : (
               <MDX source={post.content} />
             )}

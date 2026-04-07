@@ -1,7 +1,7 @@
-import chalk from 'chalk';
 import fs from 'fs';
 import md5 from 'md5';
 import path from 'path';
+import { getFrontmatter } from 'next-mdx-remote-client/utils';
 import config from '~config';
 
 export interface Post {
@@ -25,62 +25,30 @@ const getDefaultDate = (filePath: string): string => {
   return new Date(stats.birthtime).toLocaleString();
 };
 
-const parseDate = (dateString: string): string | number => {
-  const parsedDate = Date.parse(dateString);
-  return isNaN(parsedDate) ? dateString : parsedDate;
-};
-const parseFrontmatter = (
-  fileContent: string,
-  fileName: string,
-  filePath: string
-) => {
-  const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
-  const match = frontmatterRegex.exec(fileContent);
+const parseFrontmatter = (fileContent: string, fileName: string, filePath: string) => {
   const defaultDate = getDefaultDate(filePath);
-  const defaultTitle = fileName.replace(/\.mdx?$|\.md$/, ''); // Use file name as the default title
+  const defaultTitle = fileName.replace(/\.mdx?$|\.md$/, '');
+  const { frontmatter, strippedSource } = getFrontmatter<Partial<Metadata>>(fileContent);
+  const metadata: Metadata = {
+    title: typeof frontmatter.title === 'string' ? frontmatter.title : defaultTitle,
+    date:
+      typeof frontmatter.date === 'string' || typeof frontmatter.date === 'number'
+        ? String(frontmatter.date)
+        : defaultDate,
+    summary: frontmatter.summary,
+    image: frontmatter.image,
+    password: frontmatter.password,
+    draft: frontmatter.draft
+  };
 
-  if (match) {
-    const frontMatterBlock = match[1];
-    const content = fileContent.replace(frontmatterRegex, '').trim();
-    const frontMatterLines = frontMatterBlock.trim().split('\n');
-    const metadata: Partial<Metadata> = {};
-
-    frontMatterLines.forEach((line) => {
-      const [key, ...valueArr] = line.split(': ');
-      let value: any = valueArr.join(': ').trim();
-      value = value.replace(/^['"](.*)['"]$/, '$1'); // Remove quotes
-      if (value === 'true') {
-        value = true;
-      } else if (value === 'false') {
-        value = false;
-      }
-      if (key.trim() === 'date') {
-        value = parseDate(value);
-      }
-      metadata[key.trim() as keyof Metadata] = value;
-      if (!metadata.date) {
-        metadata.date = defaultDate;
-      }
-    });
-
-    return { metadata: metadata as Metadata, content };
-  } else {
-    // No frontmatter found, use default values
-    const defaultFrontmatter = `---\ntitle: "${defaultTitle}"\ndate: ${defaultDate}\n---`;
-    const updatedContent = `${defaultFrontmatter}\n\n${fileContent.trim()}`;
-    // Write the updated content back to the file
-    fs.writeFileSync(filePath, updatedContent);
-    console.log(
-      chalk.red(`检测到 ${filePath} 没有 frontmatter`, '已经自动更新')
-    );
-    return {
-      metadata: {
-        title: defaultTitle,
-        date: defaultDate
-      },
-      content: fileContent.trim()
-    };
+  if (!frontmatter.title || !frontmatter.date) {
+    console.warn(`检测到 ${filePath} frontmatter 字段不完整，已使用默认值回退`);
   }
+
+  return {
+    metadata,
+    content: strippedSource.trim()
+  };
 };
 
 const getMDXFilesRecursive = (dir: string): string[] => {
@@ -109,7 +77,7 @@ const readMDXFile = (filePath: string) => {
 
 const getMDXData = (dir: string): Post[] => {
   if (!fs.existsSync(dir)) {
-    console.log(chalk.red.bold('无法找到目录'), dir);
+    console.log('无法找到目录', dir);
     return [];
   }
   const mdxFiles = getMDXFilesRecursive(dir);

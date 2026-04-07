@@ -9,13 +9,15 @@ import {
   GoDiscussionClosed
 } from 'react-icons/go';
 
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import { MDXRemote } from 'next-mdx-remote-client/rsc';
+import type { MDXComponents } from 'next-mdx-remote-client/rsc';
 import Link from 'next/link';
 
 import Projects from './Projects';
 
 import { Code } from 'bright';
 import Icon from '~components/Icon';
+import { mdxRemoteOptions } from '~lib/mdx/options';
 
 Code.lineNumbers = false;
 // TODO: not support prefers-color-scheme
@@ -128,7 +130,7 @@ const TwPlugin = ({
   );
 };
 
-const components = {
+const components: MDXComponents = {
   h1: createHeading(1),
   h2: createHeading(2),
   h3: createHeading(3),
@@ -144,9 +146,8 @@ const components = {
   // MermaidRender
 };
 
-const MDX = ({ source }: { source: any }) => {
-  // @ts-ignore
-  return <MDXRemote components={components} source={source} />;
+const MDX = ({ source }: { source: string }) => {
+  return <MDXRemote components={components} source={source} options={mdxRemoteOptions} />;
 };
 
 export default MDX;
